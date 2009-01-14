@@ -1,6 +1,8 @@
 \documentclass{article}
 
 \usepackage[usenames]{color} 
+\usepackage{graphicx} 
+%\usepackage{subfigure}
 
 \newcommand{\todo}[1]{\textcolor{red}{\textbf{TODO: }\it{#1}}}
 \newcommand{\inhoud}[1]{\textcolor{blue}{\textbf{Summary: }\it{#1}}}
@@ -19,8 +21,10 @@
 \begin{abstract}
 The abstract of Real-time spatial growth model based map generation
 \end{abstract}
+\newpage 
 
 \tableofcontents
+\newpage 
 
 \section{Introduction}
 \inhoud{Introduction zo snel mogelijk maken. saai werk en beschrijven van context /previous work 
@@ -28,10 +32,15 @@ geeft goeie basis om verder op te werken. }
 
 \todo{snel maken, dan ben je er voorlopig vanaf}
 
-This thesis discusses and utilizes techniques from geometric and biological modelling for the procedural generation of 2D enviroments, with an emphasize on game environments. The techniques used in this paper are greatly influenced by the recent attention to procedural city generation and the more mature field of procedural generation of plants and trees.   
+This thesis discusses and utilizes techniques from geometric and biological modelling for the procedural generation of 2D enviroments, with an emphasize on game environments. The techniques used in this paper are greatly influenced by the field of procedural city generation and the more mature field of procedural generation of plants and trees. 
+
+The research which preceded this document strived to construct a intuitive organic modelling method for the creation of 2D maps. The central focus of this research has been on adapting, constructing and implementing real-time \emph{communicating} growth models using two types of dynamic structures. These two types can be described as network type structures, using l-systems and map l-systems, and 2D 2 manifold shaped structures, using techniques derived from cellular automata and cell systems.     
 
 \subsection{Procedural Modeling}
 \inhoud{beschrijf kort geschiedenis van procedural modeling en werk naar map generation}
+\cite{citysurvey}
+
+
 
 \subsection{L-systems}
 \inhoud{beschrijf toepassingen van L-systems}
@@ -49,6 +58,38 @@ This thesis discusses and utilizes techniques from geometric and biological mode
 
 \subsection{Adding simple gameplay properties}
 
+\subsection{The growth model map generator tool}
+
+%inspiratie:
+%\begin{figure}
+%  \begin{center}
+%    \subfigure[global map impression]{\includegraphics{images/map_design.jpg}}
+%    \subfigure[abstract city,road network %impression]{\includegraphics{images/aboriginal_art.jpg}}
+%	\subfigure[afforestation representation impression]{\includegraphics{images/forest.jpg}}
+%  \end{center}
+%  \caption{Collage of impressions}\label{fig:impressions}
+%\end{figure}
+
+\begin{figure}
+  \begin{center}
+	\includegraphics{images/map_design.jpg}
+\end{center}
+	\caption{global map impression}\label{fig:global_map}
+\end{figure}
+
+\begin{figure}
+  \begin{center}
+	\includegraphics{images/aboriginal_art.jpg}
+\end{center}
+	\caption{abstract city,road network impression}\label{fig:aboriginal}
+\end{figure}
+
+\begin{figure}
+  \begin{center}
+	\includegraphics{images/forest.jpg}
+\end{center}
+	\caption{afforestation representation impression}\label{fig:afforestation_impression}
+\end{figure}
 
 \section{Method: realtime spatial growth models}
 
@@ -92,6 +133,9 @@ Geometric and Biological Modelling
 
 
 \subsection{l-systems and map l-system type spatial growth patterns}
+
+\cite{lcreport}
+
 
 \subsection{Real-Time spatial growth Models For Outdoor Areas}
 \inhoud{Per type spatial growth model bespreken wat de context is binnen outdoor areas en dus met 
@@ -149,7 +193,15 @@ gemanipuleerd worden door deze vector fields.
 
 \section{Implementation}
 \subsection{Tools used}
-\inhoud{beschrijf XNA, C\#, physics engine, collision detection: D-collide}
+\inhoud{ 
+\begin{itemize}
+\item programming language: c++ (for now)
+\item visualization library: openGL or Ogre3D (if it features easy vertex manipulation) 
+\item physics engine: ODE (onder voorbehoud)  
+\item collision detection: D-Collide (onder voorbehoud)
+\end{itemize}
+}
+
 \subsection{Application Class Structure}
 \subsection{User Interface}
 \subsection{Communication system between models}
@@ -169,7 +221,7 @@ gemanipuleerd worden door deze vector fields.
 %implementation
 %results 
 %conclusion 
-
+\newpage 
 \bibliographystyle{abbrv}	% (uses file "plain.bst")
 \bibliography{thesisrefs}	% expects file "myrefs.bib"
 
