@@ -1,0 +1,173 @@
+\documentclass{article}
+
+\usepackage{color} 
+
+\newcommand{\todo}[1]{\textcolor{red}{\textbf{TODO: }\it{#1}}}
+\newcommand{\inhoud}[1]{\textcolor{blue}{\textbf{Summary: }\it{#1}}}
+\newcommand{\revise}[1]{\textcolor{orange}{\textbf{Revise: }\it{#1}}}
+
+
+\title{Real-time spatial growth model based map generation}
+\author{Ruud op den Kelder}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The abstract of Real-time spatial growth model based map generation
+\end{abstract}
+
+\tableofcontents
+
+\section{Introduction}
+\inhoud{Introduction zo snel mogelijk maken. saai werk en beschrijven van context /previous work 
+geeft goeie basis om verder op te werken. }
+
+\todo{snel maken, dan ben je er voorlopig vanaf}
+
+\subsection{Procedural Modeling}
+\inhoud{beschrijf kort geschiedenis van procedural modeling en werk naar map generation}
+
+\subsection{L-systems}
+\inhoud{beschrijf toepassingen van L-systems}
+
+\subsection{Map generation}
+\inhoud{beschrijf huidige games en tools die gebruik maken van procedural generation voor geometrie van virtuele werelden.}
+
+\subsubsection{spatial growth based}
+\inhoud{verhaal over het feit dat spatial growth based-user controlled bouwen van maps relatief nieuw is.}
+
+\subsubsection{Interactivity}
+\inhoud{beschrijf tools voor het manipuleren van modellen die afhankelijk zijn van l-systems en tools die worden 
+	gebruikt voor level design, zoals tools voor terrain editors.}
+
+
+\subsection{Adding simple gameplay properties}
+
+
+\section{Method: realtime spatial growth models}
+
+\subsection{dynamic polygonal surfaces}
+\inhoud{2D polygonale expansie van een ondergrond model als land of water die wordt gestuurd door eigenschappen van het type maar ook door ruimtelijke manipulatie methodes zoals vectorfields. representatie(onder voorbehoud): 
+\begin{itemize}
+\item 'Winged-Edge meshes' 
+\item 'Renderable Dynamic Mesh'
+\end{itemize}
+realtime hertriangulatie zal moeten worden toegepast. 
+polygonal meshes: 
+\begin{itemize}
+\item representation for irregular 2D volumes.  
+\item suitable for water, land, cave like structures  
+\item real-time demand, so need for efficient algorithms
+\item datastructure
+\end{itemize}
+citeer: On Vertex-Vertex Systems and Their Use in
+Geometric and Biological Modelling
+}
+
+\todo{dit kan al snel worden geimplementeerd dus logisch om dit als eerste te beschrijven en methode uit te werken.}
+
+\cite{vertexsystems}
+
+
+
+
+
+\subsubsection{triangulation of polygonal area}
+\cite{compgeom}
+
+\inhoud{\begin{itemize}
+\item http://mathworld.wolfram.com/Triangulation.html
+\item http://www.cs.unc.edu/~dm/CODE/GEM/chapter.html
+\item computational geometry boek
+\end{itemize}
+}
+
+\subsubsection{extra: smoothing of polygons with curve fitting}
+
+
+\subsection{l-system type spatial growth patterns}
+
+\subsection{Real-Time spatial growth Models For Outdoor Areas}
+\inhoud{Per type spatial growth model bespreken wat de context is binnen outdoor areas en dus met 
+welke andere spatial growth modellen het communiceert en welke effecten het spatial growth model heeft 
+op de andere en vica versa. Ook bespreken op wat voor manier een vector field (en andere tools 
+die invloed hebben op de ruimtelijke indeling)  effect heeft op de uitdijing van dit type model.   
+}
+
+\subsubsection{Land} 
+\todo{beschrijven hoe land expansie verloopt en hoe het communiceert met andere modellen}
+
+
+\subsubsection{Water} 
+
+\subsubsection{Roads}
+
+\subsubsection{Afforestation} 
+
+\subsection{Real-time spatial growth models For Indoor Areas}
+
+\subsubsection{Caves}
+
+\subsubsection{Canarian Aboriginal style homes}
+
+\section{Organic map generation tool}
+
+\subsection{Modifiers}
+
+\subsubsection{Spatial modifiers}
+
+\inhoud{
+\begin{itemize}
+\item vector fields: dit moet je wellicht helemaal aan het begin doen omdat alle spatial growth models
+gemanipuleerd worden door deze vector fields.
+\item obstruction with solid objects
+\item smudge-like tool
+\end{itemize}
+}
+
+\subsubsection{Timeflow modifiers}
+\inhoud{
+\begin{itemize}
+\item pause model
+\item speed up model
+\item slow down model
+\item reverse time flow
+\end{itemize}
+}
+
+
+\subsection{User controlled map generation}
+
+\subsection{automatic map generation} 
+
+
+\section{Implementation}
+\subsection{Tools used}
+\inhoud{beschrijf XNA, C\#, physics engine, collision detection: D-collide}
+\subsection{Application Class Structure}
+\subsection{User Interface}
+\subsection{Communication system between models}
+
+\section{Results}
+
+\section{Conclusion}
+
+
+
+
+
+%references
+%logische volgorde:
+%introduction: context-> previous work  
+%method
+%implementation
+%results 
+%conclusion 
+
+\bibliographystyle{abbrv}	% (uses file "plain.bst")
+\bibliography{thesisrefs}	% expects file "myrefs.bib"
+
+\end{document}
+
