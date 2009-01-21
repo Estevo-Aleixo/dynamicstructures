@@ -60,6 +60,8 @@ private:
 
 	Radian angle;  
 	double diameter;
+	Radian wave;
+	double counter;
 
 protected: 
 	CEGUI::OgreCEGUIRenderer* mGUIRenderer;     // CEGUI renderer

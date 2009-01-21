@@ -36,6 +36,7 @@ moTest->setUseIdentityView(true);
 moTest->setDynamic(true); 
 
 angle=0;
+wave=0;
 diameter=0;
 	
 	int i; 
@@ -90,13 +91,16 @@ void World::updateTestPolygon(const FrameEvent &evt)
 	//vertex position: 
 	double x,y; 
 	int numVertices= 1200; 
+	counter+=20.0*evt.timeSinceLastFrame; 
+	if (counter> 100000)
+		counter=0;
 
-	angle = angle + Ogre::Radian((3 * evt.timeSinceLastFrame)); 
+	angle = angle + Ogre::Radian((1 * evt.timeSinceLastFrame)); 
 	if (angle > Radian(Math::TWO_PI))
 		angle = 0;
 
 	//angle=0;
-	diameter= 0.6 + 0.3 * Ogre::Math::Cos(angle); 
+	
 	//diameter= 0.5;
 	double interval= Ogre::Math::TWO_PI / (numVertices-1);
 
@@ -104,8 +108,11 @@ void World::updateTestPolygon(const FrameEvent &evt)
 	moTest->position(0,0, 0); 
 	for(i=0; i < numVertices; i++)
 	{
-		x = (Ogre::Math::Cos(Radian(angle) + Radian(interval * i))) * diameter;
-		y = (Ogre::Math::Sin(Radian(angle) + Radian(interval * i))) * diameter;
+		wave = Radian((interval*(i + counter*evt.timeSinceLastFrame))*13); 
+		diameter= 0.5 + 0.4 * Ogre::Math::Cos(angle + 2 * Radian(interval * i)) + 0.5 * Ogre::Math::Sin(wave); 
+		x = (Ogre::Math::Cos(angle + Radian(interval * i))) * diameter;
+		y = (Ogre::Math::Sin(angle + Radian(interval * i))) * diameter;
+	
 		moTest->position(x,y, 0); 	
 		moTest->colour(Ogre::ColourValue(Math::Sin(angle + Radian(interval * i)),Math::Cos(angle + Radian(interval * i)),0.5,1.0)); 
 	}
