@@ -46,7 +46,11 @@ private:
 
 
 	void createTestPolygon(); 
-	void updateTestPolygon(); 
+	void updateTestPolygon(const FrameEvent &evt); 
+
+	Ogre::ManualObject* moTest; 
+
+	std::vector<Ogre::Vector2> points; 
 	
 	bool mToggle;
 	Root* mRoot;
@@ -54,8 +58,12 @@ private:
 	Console* mConsole;
 	InsectManager* mInsectManager;
 
+	Radian angle;  
+	double diameter;
 
 protected: 
 	CEGUI::OgreCEGUIRenderer* mGUIRenderer;     // CEGUI renderer
 	Ogre::SceneManager* mSceneMgr;
+
+	//void updateStats(void);
 };

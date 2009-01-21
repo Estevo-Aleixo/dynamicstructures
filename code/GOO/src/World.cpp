@@ -27,16 +27,100 @@ ExampleFrameListener(win, cam, true, true), mGUIRenderer(renderer), mSceneMgr(sc
 void World::createTestPolygon()
 {
 
-//manual object here
+//moTest object here
+	moTest= mSceneMgr->createManualObject("test_structure");
+
+// Use identity view/projection matrices
+moTest->setUseIdentityProjection(true);
+moTest->setUseIdentityView(true);
+moTest->setDynamic(true); 
+
+angle=0;
+diameter=0;
+	
+	int i; 
+	double x,y; 
+	int numVertices= 1200; 
+	double interval= Ogre::Math::TWO_PI / numVertices;
+
+moTest->begin("Examples/Rocky" , RenderOperation::OT_LINE_STRIP);
+	
+
+moTest->position(0,0, 0); 
+	for(i=0; i < numVertices; i++)
+	{
+		x = (Ogre::Math::Cos(Radian(angle) + Radian(interval * i))) * diameter;
+		y = (Ogre::Math::Sin(Radian(angle) + Radian(interval * i))) * diameter;
+		moTest->position(x,y, 0); 	
+		moTest->colour(Ogre::ColourValue(Math::Sin(angle + Radian(interval * i)),Math::Cos(angle + Radian(interval * i)),0.5,1.0)); 
+	}
+	
+	for(i=0; i < numVertices-1; i++){
+		moTest->index(i);
+		moTest->index(i+1);
+		moTest->index(0);
+	}
+
+		moTest->index(numVertices-1);
+		moTest->index(1);
+		moTest->index(0);
+moTest->end();
+
+// Use infinite AAB to always stay visible
+AxisAlignedBox aabInf;
+aabInf.setInfinite();
+moTest->setBoundingBox(aabInf);
+
+// Render just before overlays
+moTest->setRenderQueueGroup(RENDER_QUEUE_OVERLAY - 1);
+// Attach to scene
+mSceneMgr->getRootSceneNode()->createChildSceneNode()->attachObject(moTest);
 
 }
 
 
 
-void World::updateTestPolygon()
+void World::updateTestPolygon(const FrameEvent &evt)
 {
 
 
+//we will do a test with rotating points: 
+
+	int i; 
+	//vertex position: 
+	double x,y; 
+	int numVertices= 1200; 
+
+	angle = angle + Ogre::Radian((3 * evt.timeSinceLastFrame)); 
+	if (angle > Radian(Math::TWO_PI))
+		angle = 0;
+
+	//angle=0;
+	diameter= 0.6 + 0.3 * Ogre::Math::Cos(angle); 
+	//diameter= 0.5;
+	double interval= Ogre::Math::TWO_PI / (numVertices-1);
+
+	moTest->beginUpdate(0);
+	moTest->position(0,0, 0); 
+	for(i=0; i < numVertices; i++)
+	{
+		x = (Ogre::Math::Cos(Radian(angle) + Radian(interval * i))) * diameter;
+		y = (Ogre::Math::Sin(Radian(angle) + Radian(interval * i))) * diameter;
+		moTest->position(x,y, 0); 	
+		moTest->colour(Ogre::ColourValue(Math::Sin(angle + Radian(interval * i)),Math::Cos(angle + Radian(interval * i)),0.5,1.0)); 
+	}
+	
+	for(i=0; i < numVertices-1; i++){
+		moTest->index(i);
+		moTest->index(i+1);
+		moTest->index(0);
+	}
+
+		moTest->index(numVertices-1);
+		moTest->index(1);
+		moTest->index(0);
+
+	moTest->end();
 }
 	
 
@@ -53,10 +137,11 @@ bool World::frameStarted(const FrameEvent &evt)
 		mMouse->capture();
 	if(mKeyboard)
 		mKeyboard->capture();
-
+	this->updateStats(); 
 
 	//update test polygon
-	updateTestPolygon(); 
+	updateTestPolygon(evt); 
+	//updateStats(); 
 
 
 	return mContinue;
@@ -137,3 +222,42 @@ bool World::keyReleased(const OIS::KeyEvent &e)
 return mContinue;
 }
 
+
+/*
+void World::updateStats(void)
+	{
+		static String currFps = "Current FPS: ";
+		static String avgFps = "Average FPS: ";
+		static String bestFps = "Best FPS: ";
+		static String worstFps = "Worst FPS: ";
+		static String tris = "Triangle Count: ";
+		static String batches = "Batch Count: ";
+
+		// update stats when necessary
+		try {
+			OverlayElement* guiAvg = OverlayManager::getSingleton().getOverlayElement("Core/AverageFps");
+			OverlayElement* guiCurr = OverlayManager::getSingleton().getOverlayElement("Core/CurrFps");
+			OverlayElement* guiBest = OverlayManager::getSingleton().getOverlayElement("Core/BestFps");
+			OverlayElement* guiWorst = OverlayManager::getSingleton().getOverlayElement("Core/WorstFps");
+
+			const RenderTarget::FrameStats& stats = mWindow->getStatistics();
+			guiAvg->setCaption(avgFps + StringConverter::toString(stats.avgFPS));
+			guiCurr->setCaption(currFps + StringConverter::toString(stats.lastFPS));
+			guiBest->setCaption(bestFps + StringConverter::toString(stats.bestFPS)
+				+" "+StringConverter::toString(stats.bestFrameTime)+" ms");
+			guiWorst->setCaption(worstFps + StringConverter::toString(stats.worstFPS)
+				+" "+StringConverter::toString(stats.worstFrameTime)+" ms");
+
+			OverlayElement* guiTris = OverlayManager::getSingleton().getOverlayElement("Core/NumTris");
+			guiTris->setCaption(tris + StringConverter::toString(stats.triangleCount));
+
+			OverlayElement* guiBatches = OverlayManager::getSingleton().getOverlayElement("Core/NumBatches");
+			guiBatches->setCaption(batches + StringConverter::toString(stats.batchCount));
+
+			OverlayElement* guiDbg = OverlayManager::getSingleton().getOverlayElement("Core/DebugText");
+			this->mDebugText= "blaat";
+			guiDbg->setCaption(this->mDebugText);
+		}*/
+		//catch(...) { /* ignore */ }
+//	}
+	
