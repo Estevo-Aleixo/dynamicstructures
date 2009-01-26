@@ -40,7 +40,9 @@ void CellFactory::createCellMeshes()
 
 Ogre::Mesh* CellFactory::createCustomCellMesh(std::string& name, std::vector<Ogre::Vector2> vertex, std::vector<unsigned int> index)
 {
+	Ogre::Mesh* mesh;
 
+	return mesh;
 }
 
 

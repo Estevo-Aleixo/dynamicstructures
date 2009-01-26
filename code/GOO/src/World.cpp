@@ -1,7 +1,6 @@
 #include "World.h"
 #include "Console.h"
-
-
+#include "Pointer.h"
 
 World::World(RenderWindow* win, Camera* cam, SceneManager *sceneMgr, CEGUI::OgreCEGUIRenderer *renderer, Root * root ): 
 ExampleFrameListener(win, cam, true, true), mGUIRenderer(renderer), mSceneMgr(sceneMgr),mRoot(root)
@@ -15,9 +14,10 @@ ExampleFrameListener(win, cam, true, true), mGUIRenderer(renderer), mSceneMgr(sc
 	coreNode= mSceneMgr->getRootSceneNode()->createChildSceneNode(); 
 	coreEntity= mSceneMgr->createEntity("coreNode","sphere.mesh");
 	coreNode->attachObject(coreEntity); 
-	coreNode->scale(0.3,0.3,0.3); 
+	coreNode->scale(0.01,0.01,0.01); 
 	 
-	createTestPolygon();	
+	mCanvas= new Canvas(std::string("myFirstCanvas"), CANVASTYPE::RECTANGULAR, 200,200,20,mSceneMgr);
+	mPointer= mCanvas->getPointer(); 	
 
 	mSceneMgr->setAmbientLight(ColourValue()); 
 	Ogre::LogManager::getSingletonPtr()->logMessage("World object instatiated");
@@ -43,9 +43,8 @@ diameter=0;
 	int numVertices= 1200; 
 	double interval= Ogre::Math::TWO_PI / numVertices;
 
-moTest->begin("Examples/Rocky" , RenderOperation::OT_LINE_STRIP);
+moTest->begin("editorlines" , RenderOperation::OT_LINE_STRIP);
 	
-
 moTest->position(0,0, 0); 
 	for(i=0; i < numVertices; i++)
 	{
@@ -60,7 +59,6 @@ moTest->position(0,0, 0);
 		moTest->index(i+1);
 		moTest->index(0);
 	}
-
 		moTest->index(numVertices-1);
 		moTest->index(1);
 		moTest->index(0);
@@ -146,7 +144,7 @@ bool World::frameStarted(const FrameEvent &evt)
 	this->updateStats(); 
 
 	//update test polygon
-	updateTestPolygon(evt); 
+	//updateTestPolygon(evt); 
 	//updateStats(); 
 
 
@@ -165,7 +163,7 @@ return mContinue;
 bool World::mouseMoved(const OIS::MouseEvent &e)
 {
 
-
+	mPointer->mouseMoved(e); 
 
 
 return mContinue;
@@ -174,7 +172,7 @@ return mContinue;
 bool World::mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id)
 {
 
-
+	mPointer->mousePressed(e,id); 
 
 
 return mContinue;

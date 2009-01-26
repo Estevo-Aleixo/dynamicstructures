@@ -8,8 +8,11 @@ Filename:    Main.h
 */
 
 #include <iostream>
+#include <assert.h>
+
 #include "Ogre.h"
 #include "OgreConfigFile.h"
+#include <OIS/OIS.h>
 
 #include <CEGUI/CEGUISystem.h>
 #include <CEGUI/CEGUISchemeManager.h>

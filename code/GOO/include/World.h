@@ -2,11 +2,12 @@
 
 #include "Main.h"
 #include "ExampleFrameListener.h"
+#include "Canvas.h"
 
 using namespace Ogre;
 
 class Console;
-class InsectManager;
+class Pointer;
 
 class World: public ExampleFrameListener, public OIS::MouseListener, public OIS::KeyListener
 {
@@ -41,6 +42,9 @@ public:
 
 
 private: 
+	Canvas* mCanvas;
+	Pointer* mPointer;
+
 	Ogre::SceneNode* coreNode; 
 	Ogre::Entity* coreEntity;
 
@@ -56,7 +60,6 @@ private:
 	Root* mRoot;
 	bool mContinue;
 	Console* mConsole;
-	InsectManager* mInsectManager;
 
 	Radian angle;  
 	double diameter;
