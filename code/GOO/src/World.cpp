@@ -34,7 +34,6 @@ void World::createTestPolygon()
 moTest->setUseIdentityProjection(true);
 moTest->setUseIdentityView(true);
 moTest->setDynamic(true); 
-
 angle=0;
 wave=0;
 diameter=0;

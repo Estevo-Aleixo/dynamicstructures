@@ -17,8 +17,6 @@ public:
 	//
 	std::string getName(){return m_name;} 
 	//
-	unsigned int getPrice(){return m_price;}
-	//
 	const Ogre::Vector3& getPosition(void){return m_node->getPosition();}
 	//
 	Ogre::Vector3& getFacingDirection(void){return m_facingDirection;}
@@ -27,7 +25,7 @@ public:
 
 	
 	//set
-	void setPrice(int amount){m_price = amount;}
+
 	void setPosition(Ogre::Vector3& pos){m_node->setPosition(pos);}
 	void setFacingDirection(Ogre::Vector3& direction){m_facingDirection= direction ;}
 
