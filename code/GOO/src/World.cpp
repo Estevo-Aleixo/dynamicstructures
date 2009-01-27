@@ -1,6 +1,7 @@
 #include "World.h"
 #include "Console.h"
 #include "Pointer.h"
+#include "CellFactory.h"
 
 World::World(RenderWindow* win, Camera* cam, SceneManager *sceneMgr, CEGUI::OgreCEGUIRenderer *renderer, Root * root ): 
 ExampleFrameListener(win, cam, true, true), mGUIRenderer(renderer), mSceneMgr(sceneMgr),mRoot(root)
@@ -9,15 +10,34 @@ ExampleFrameListener(win, cam, true, true), mGUIRenderer(renderer), mSceneMgr(sc
 	mKeyboard->setEventCallback(this);
 	mContinue=true;
 	mToggle=false; 
-
+	moveButtonPressed=false;
 	//testing: 
 	coreNode= mSceneMgr->getRootSceneNode()->createChildSceneNode(); 
 	coreEntity= mSceneMgr->createEntity("coreNode","sphere.mesh");
 	coreNode->attachObject(coreEntity); 
 	coreNode->scale(0.01,0.01,0.01); 
 	 
-	mCanvas= new Canvas(std::string("myFirstCanvas"), CANVASTYPE::RECTANGULAR, 200,200,20,mSceneMgr);
+	mCanvas= new Canvas(std::string("myFirstCanvas"), CANVASTYPE::RECTANGULAR, 1000,1000,100,mSceneMgr);
 	mPointer= mCanvas->getPointer(); 	
+
+	CellFactory::Create(mSceneMgr); 
+	mCellFactory= CellFactory::getSingletonPtr(); 
+
+	mMainCam= mSceneMgr->getCamera("MainCam");
+
+	//test: 
+	Cell* testCell;
+	testCell= mCellFactory->requestCell(CELLTYPE::HEXAGON); 
+	testCell->getNode()->scale(100.0,100.0,100.0);
+
+	Cell* testCell2;
+	testCell2= mCellFactory->requestCell(CELLTYPE::SQUARE); 
+	testCell2->getNode()->scale(105.0,105.0,105.0);
+	testCell2->getNode()->translate(Vector3(0,0,10)); 
+
+	camAcceleration=Vector3(0,0,0);
+	camDirection=Vector3(0,0,0);
+	camVelocity=Vector3(0,0,0);
 
 	mSceneMgr->setAmbientLight(ColourValue()); 
 	Ogre::LogManager::getSingletonPtr()->logMessage("World object instatiated");
@@ -143,11 +163,9 @@ bool World::frameStarted(const FrameEvent &evt)
 		mKeyboard->capture();
 	this->updateStats(); 
 
-	//update test polygon
-	//updateTestPolygon(evt); 
-	//updateStats(); 
+	this->mPointer->frameStarted(evt); 
 
-
+	updateCamera(evt); 
 	return mContinue;
 }
 
@@ -171,16 +189,18 @@ return mContinue;
 	
 bool World::mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id)
 {
-
+	
+	
 	mPointer->mousePressed(e,id); 
 
+	
 
-return mContinue;
+	return mContinue;
 }
 	
 bool World::mouseReleased(const OIS::MouseEvent &e, OIS::MouseButtonID id)
 {
-
+	mPointer->mouseReleased(e,id); 
 
 
 return mContinue;
@@ -188,6 +208,9 @@ return mContinue;
 	
 bool World::handleMouseWheelEvent(const CEGUI::EventArgs& e)
 {
+		
+	//alter camera distance:
+
 
 
 return mContinue;
@@ -208,7 +231,11 @@ bool World::keyPressed(const OIS::KeyEvent &e)
 			if (mToggle==true)
 				mConsole->isEnabled() ? mConsole->hide() : mConsole->show(); 
 			break;
+
+		//CAMERA CONTROLS
 	}
+
+	this->steerCamera(e); 	
 	return mContinue;
 }
 	
@@ -217,51 +244,105 @@ bool World::keyReleased(const OIS::KeyEvent &e)
 
 	switch (e.key)
 	{
-
 		case OIS::KC_GRAVE:
 		case OIS::KC_BACK:
 			mToggle=false;
 			break;
+
+		case OIS::KC_W: //move up
+			moveButtonPressed=false;
+			camDirection.y = 0; 	
+			break;
+		case OIS::KC_A: //move left
+			moveButtonPressed=false;
+			camDirection.x = 0;
+			break;
+		case OIS::KC_S: //move down
+			moveButtonPressed=false;
+			camDirection.y = 0;
+			break;
+		case OIS::KC_D: //move right
+			moveButtonPressed=false;
+			camDirection.x = 0;
+			break;
+
 	}
 return mContinue;
 }
 
+void  World::steerCamera(const OIS::KeyEvent &e)
+{
+	Ogre::Real camSpeed=40.0;
 
-/*
-void World::updateStats(void)
+	switch (e.key)
 	{
-		static String currFps = "Current FPS: ";
-		static String avgFps = "Average FPS: ";
-		static String bestFps = "Best FPS: ";
-		static String worstFps = "Worst FPS: ";
-		static String tris = "Triangle Count: ";
-		static String batches = "Batch Count: ";
+		case OIS::KC_W: //move up
+			camDirection.y = -1; 	
+			if (moveButtonPressed==false)
+			{
+				camAcceleration= Vector3(0,0,0); 
+				camVelocity= camDirection* camSpeed;
+			}
+			
+			moveButtonPressed=true;
+			break;
+		case OIS::KC_A: //move left
+			camDirection.x = -1;
+			if (moveButtonPressed==false)
+			{
+				camAcceleration= Vector3(0,0,0); 
+				camVelocity= camDirection* camSpeed;
+			}
+			
+			moveButtonPressed=true;
+			break;
+		case OIS::KC_S: //move down
+			camDirection.y = 1;
+			if (moveButtonPressed==false)
+			{
+				camAcceleration= Vector3(0,0,0); 
+				camVelocity= camDirection* camSpeed;
+			}
 
-		// update stats when necessary
-		try {
-			OverlayElement* guiAvg = OverlayManager::getSingleton().getOverlayElement("Core/AverageFps");
-			OverlayElement* guiCurr = OverlayManager::getSingleton().getOverlayElement("Core/CurrFps");
-			OverlayElement* guiBest = OverlayManager::getSingleton().getOverlayElement("Core/BestFps");
-			OverlayElement* guiWorst = OverlayManager::getSingleton().getOverlayElement("Core/WorstFps");
+			
+			moveButtonPressed=true;
+			break;
+		case OIS::KC_D:
+			camDirection.x = 1; 
+			if (moveButtonPressed==false)
+			{
+				camAcceleration= Vector3(0,0,0); 
+				camVelocity= camDirection* camSpeed;
+			}
+			
+			moveButtonPressed=true;
+			break;
+	}
 
-			const RenderTarget::FrameStats& stats = mWindow->getStatistics();
-			guiAvg->setCaption(avgFps + StringConverter::toString(stats.avgFPS));
-			guiCurr->setCaption(currFps + StringConverter::toString(stats.lastFPS));
-			guiBest->setCaption(bestFps + StringConverter::toString(stats.bestFPS)
-				+" "+StringConverter::toString(stats.bestFrameTime)+" ms");
-			guiWorst->setCaption(worstFps + StringConverter::toString(stats.worstFPS)
-				+" "+StringConverter::toString(stats.worstFrameTime)+" ms");
+}
 
-			OverlayElement* guiTris = OverlayManager::getSingleton().getOverlayElement("Core/NumTris");
-			guiTris->setCaption(tris + StringConverter::toString(stats.triangleCount));
-
-			OverlayElement* guiBatches = OverlayManager::getSingleton().getOverlayElement("Core/NumBatches");
-			guiBatches->setCaption(batches + StringConverter::toString(stats.batchCount));
-
-			OverlayElement* guiDbg = OverlayManager::getSingleton().getOverlayElement("Core/DebugText");
-			this->mDebugText= "blaat";
-			guiDbg->setCaption(this->mDebugText);
-		}*/
-		//catch(...) { /* ignore */ }
-//	}
+bool World::updateCamera(const FrameEvent &evt)
+{
+	Ogre::Vector3 newPos= mMainCam->getPosition(); 
 	
+	camAcceleration += camDirection* 10.0*evt.timeSinceLastFrame; 
+	camVelocity+= camAcceleration*evt.timeSinceLastFrame;
+	
+
+	newPos.x+= camVelocity.x * evt.timeSinceLastFrame; 
+	newPos.y-= camVelocity.y * evt.timeSinceLastFrame; 
+
+
+	if (camAcceleration.length() > 10.0)
+		camAcceleration = 10 * camAcceleration.normalisedCopy(); 
+
+	if (camVelocity.length() > 120)
+		camVelocity = 120 * camVelocity.normalisedCopy(); 
+
+	if (moveButtonPressed==false) //decrease velocity fast
+		camVelocity= (camVelocity.length()-(20*evt.timeSinceLastFrame)) *camVelocity.normalisedCopy(); 
+
+	mMainCam->setPosition(newPos); 	
+
+	return true;
+}

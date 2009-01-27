@@ -8,7 +8,9 @@ mCanvas(canvas), mSceneMgr(sceneMgr)
 	mPointerEntity= mSceneMgr->createEntity(name,"sphere.mesh"); 
 	mPointerNode->attachObject(mPointerEntity); 
 	mPointerNode->scale(0.05,0.05,0.05);
-
+	acceleration= Vector2(0,0);
+	mPos= Vector2(0,0); 
+	mPressed=false;
 }
 
 Pointer::~Pointer(void)
@@ -29,25 +31,39 @@ bool Pointer::frameEnded(const FrameEvent &evt)
 
 bool Pointer::mouseMoved(const OIS::MouseEvent &e)
 {
-	Ogre::Vector3 pos= mPointerNode->getPosition(); 
-
-	pos.x+= e.state.X.rel;
-	pos.y+= e.state.Y.rel;
+	//samples
+	acceleration.x= (Ogre::Real)e.state.X.rel;
+	acceleration.y= (Ogre::Real)e.state.Y.rel;
 	
-	mPointerNode->setPosition(Vector3(pos.x, pos.y, 0)); 
+	if (acceleration.length() > 100.0)
+			acceleration= 100.0 * acceleration.normalisedCopy(); 
+
+	mPos.x+= acceleration.x; 
+	mPos.y-= acceleration.y;
+
+	mPointerNode->setPosition(Vector3(mPos.x, mPos.y, 0)); 
+
 
 return true;
 }
 
 bool Pointer::mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id)
 {
-	mPointerNode->scale(0.2,0.2,0.2);
+	//plant  seed
+	if (mPressed==false)
+	{
+		mCanvas->addCellSystem(mPos,std::string("land"),true,1.0); 
+	}
+
+
+	
+	mPressed=true;
 	return true;
 }
 
 bool Pointer::mouseReleased(const OIS::MouseEvent &e, OIS::MouseButtonID id)
 {
-
+	mPressed=false;
 
 	return true;
 }

@@ -12,6 +12,7 @@ enum CANVASTYPE
 };
 
 class Pointer;
+class CellSystem;
 
 class Canvas
 {
@@ -23,6 +24,9 @@ public:
 
 	Ogre::Vector2& getDimensions(){return dimensions;}
 	Ogre::SceneNode* getSceneNode(){return mRootCanvasNode;}
+	
+	bool addCellSystem(Ogre::Vector2& startPosition, std::string& systemType, bool enabled=true, Ogre::Real speed = 1.0); 
+
 	Pointer* getPointer(){return mPointer;}
 
 	CANVASTYPE getCanvasType(){return mType;}
@@ -36,6 +40,7 @@ protected:
 	Ogre::Vector2 dimensions;
 	Ogre::Vector2 lastCursorPos;
 
+	std::vector<CellSystem*> mCellSystems; 
 
 	Pointer* mPointer;
 

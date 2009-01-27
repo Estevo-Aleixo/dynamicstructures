@@ -103,7 +103,6 @@ Main::~Main()
     {
         // Create the camera
         mCamera = mSceneMgr->createCamera("MainCam");
-
         // Position it at 500 in Z direction
         mCamera->setPosition(Vector3(0,0,300));
         // Look back along -Z
@@ -130,7 +129,7 @@ Main::~Main()
     {
         // Create one viewport, entire window
         Viewport* vp = mWindow->addViewport(mCamera);
-        vp->setBackgroundColour(ColourValue(0.0,0.0,0.0,1.0));
+		vp->setBackgroundColour(ColourValue(0.0,0.0,0.0,1.0));
 
         // Alter the camera aspect ratio to match the viewport
         mCamera->setAspectRatio(

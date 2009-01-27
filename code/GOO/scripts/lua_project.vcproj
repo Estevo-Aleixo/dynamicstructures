@@ -200,6 +200,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\CellSystemProperties.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\Functions.cpp"
 				>
 			</File>
@@ -271,6 +275,10 @@
 			</File>
 			<File
 				RelativePath="..\include\CellSystem.h"
+				>
+			</File>
+			<File
+				RelativePath="..\include\CellSystemProperties.h"
 				>
 			</File>
 			<File

@@ -17,9 +17,20 @@ public:
 	bool mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id);
 	bool mouseReleased(const OIS::MouseEvent &e, OIS::MouseButtonID id);
 
+
 private:
+	bool mPressed;
+
+
+	std::vector<Ogre::Vector2> samples;
+
 	Ogre::SceneNode* mPointerNode; 
 	Ogre::Entity* mPointerEntity;
+
+
+	Ogre::Vector2 mPos;
+	Ogre::Vector2 acceleration;
+
 
 	Canvas* mCanvas;
 	Ogre::SceneManager* mSceneMgr;  

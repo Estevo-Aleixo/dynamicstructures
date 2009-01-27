@@ -1,6 +1,6 @@
 #include "Canvas.h"
 #include "Pointer.h"
-
+#include "CellSystem.h"
 
 Canvas::Canvas(void)
 {
@@ -17,13 +17,13 @@ mType(type), mLines(lines), mSceneMgr(sceneMgr)
 //build raster:
 	createRaster(mType);
 	mRasterEntity = sceneMgr->createEntity("canvas_raster","Raster"); 
-	mRootCanvasNode= sceneMgr->getRootSceneNode()->createChildSceneNode();
+	mRootCanvasNode= sceneMgr->getRootSceneNode()->createChildSceneNode("CanvasRootNode");
 	mRasterNode= mRootCanvasNode->createChildSceneNode(); 
 	mRasterNode->attachObject(mRasterEntity); 
-	mRasterNode->scale(1.0,1.0,1.0);
-	mRasterNode->yaw(Radian(Math::PI/4)); 
+	mRootCanvasNode->scale(1.0,1.0,1.0);
+	//mRootCanvasNode->pitch(Radian(Math::PI/-5)); 
 
-	mPointer= new Pointer(name + "_pointer", this,mSceneMgr); 
+	mPointer= new Pointer(name + "_pointer", this, mSceneMgr); 
 
 }
 	
@@ -90,7 +90,6 @@ void Canvas::createRaster(CANVASTYPE type)
 	
 	raster->end(); 
 
-
 	//todo check if not already excist
 	raster->convertToMesh("Raster"); 
 
@@ -99,13 +98,30 @@ void Canvas::createRaster(CANVASTYPE type)
 
 bool  Canvas::frameStarted(const FrameEvent &evt)
 {
+	//iterate through cell_systems
+	std::vector<CellSystem*>::iterator itr;
 
-
+	for (itr= mCellSystems.begin(); itr!=mCellSystems.end(); itr++)
+	{	
+		if ((*itr)->isEnabled())
+			(*itr)->frameStarted(evt); 	
+	}
+	
 	return true;
 }
 
 bool  Canvas::frameEnded(const FrameEvent &evt)
 {
+	
+	return true;
+}
+
+bool  Canvas::addCellSystem(Ogre::Vector2& startPosition, std::string& systemType, bool enabled, Ogre::Real speed)
+{
+	CellSystem* newCellSystem; 
+
+	newCellSystem = new CellSystem("Cell_system_" +StringConverter::toString((Ogre::Real)mCellSystems.size()) +"_" +systemType, startPosition, mSceneMgr, systemType, enabled, speed); 
+	mCellSystems.push_back(newCellSystem); 
 
 	return true;
 }

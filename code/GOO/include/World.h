@@ -8,6 +8,7 @@ using namespace Ogre;
 
 class Console;
 class Pointer;
+class CellFactory; 
 
 class World: public ExampleFrameListener, public OIS::MouseListener, public OIS::KeyListener
 {
@@ -42,8 +43,21 @@ public:
 
 
 private: 
+	Ogre::Camera* mOverviewCam;
+	
+	void steerCamera(const OIS::KeyEvent &e); 
+	bool updateCamera(const FrameEvent &evt); 
+
+	Ogre::Camera* mMainCam;
+	Ogre::Vector3 camDirection;
+	Ogre::Vector3 camVelocity;
+	Ogre::Vector3 camAcceleration;
+	bool moveButtonPressed;
+
+
 	Canvas* mCanvas;
 	Pointer* mPointer;
+	CellFactory* mCellFactory;
 
 	Ogre::SceneNode* coreNode; 
 	Ogre::Entity* coreEntity;
