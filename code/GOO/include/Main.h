@@ -18,6 +18,10 @@ Filename:    Main.h
 #include <CEGUI/CEGUISchemeManager.h>
 #include <OgreCEGUIRenderer.h>
 
+
+
+#include "MovableText.h"
+
 /*
 extern "C"
 {

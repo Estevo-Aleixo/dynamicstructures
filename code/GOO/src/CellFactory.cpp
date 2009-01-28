@@ -5,7 +5,6 @@ CellFactory* CellFactory::instance=0;
 void CellFactory::Create(Ogre::SceneManager* sceneMgr)
 {
 	
-
 if (!instance)
 	instance= new CellFactory(sceneMgr); 
 
@@ -62,7 +61,7 @@ void CellFactory::createWiredCellMeshes()
 	cell->index(1);
 	cell->index(0);
 	cell->end(); 
-	cell->convertToMesh(SQUARE_NAME);  
+	cell->convertToMesh(SQUARE_LINE_MESH);  
 
 //create hexagon mesh 
 	Ogre::Radian angle= Ogre::Radian(Math::TWO_PI /6); 
@@ -85,7 +84,7 @@ void CellFactory::createWiredCellMeshes()
 	cell->index(0);
 	cell->end(); 
 
-	cell->convertToMesh(HEXAGON_NAME);  
+	cell->convertToMesh(HEXAGON_LINE_MESH);  
 
 //create circle (fake: create sprite)
 
@@ -111,10 +110,10 @@ CellFactory* CellFactory::getSingletonPtr(void)
 }
 
 
-Cell* CellFactory::requestCell(CELLTYPE type)
+Cell* CellFactory::requestCell(CellSystem* cellSystem, CELLTYPE type)
 {
 	//todo alter!
-	Cell* newCell= new Cell("cell"+ Ogre::StringConverter::toString((int)cells.size()),cells.size(),mSceneMgr, type); 
+	Cell* newCell= new Cell("cell"+ Ogre::StringConverter::toString((int)cells.size()),cells.size(),mSceneMgr, cellSystem); 
 	cells.push_back(newCell); 
 	return newCell; 
 }

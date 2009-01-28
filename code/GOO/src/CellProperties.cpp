@@ -2,6 +2,7 @@
 
 CellProperties::CellProperties(void)
 {
+	
 }
 
 CellProperties::~CellProperties(void)

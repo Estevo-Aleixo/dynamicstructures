@@ -24,8 +24,10 @@ ExampleFrameListener(win, cam, true, true), mGUIRenderer(renderer), mSceneMgr(sc
 	mCellFactory= CellFactory::getSingletonPtr(); 
 
 	mMainCam= mSceneMgr->getCamera("MainCam");
+	camMode= CAMERAMODE::ATTACHED;
 
 	//test: 
+	/*
 	Cell* testCell;
 	testCell= mCellFactory->requestCell(CELLTYPE::HEXAGON); 
 	testCell->getNode()->scale(100.0,100.0,100.0);
@@ -34,8 +36,7 @@ ExampleFrameListener(win, cam, true, true), mGUIRenderer(renderer), mSceneMgr(sc
 	testCell2= mCellFactory->requestCell(CELLTYPE::SQUARE); 
 	testCell2->getNode()->scale(105.0,105.0,105.0);
 	testCell2->getNode()->translate(Vector3(0,0,10)); 
-
-	camAcceleration=Vector3(0,0,0);
+	*/
 	camDirection=Vector3(0,0,0);
 	camVelocity=Vector3(0,0,0);
 
@@ -163,9 +164,25 @@ bool World::frameStarted(const FrameEvent &evt)
 		mKeyboard->capture();
 	this->updateStats(); 
 
-	this->mPointer->frameStarted(evt); 
+	
+	mCanvas->frameStarted(evt);	
 
-	updateCamera(evt); 
+	switch(camMode)
+	{
+	case CAMERAMODE::FREEROAM:
+		//this->frameRenderingQueued(evt);
+		//processUnbufferedKeyInput(evt);
+		//processUnbufferedMouseInput(evt);
+		//moveCamera();
+		break;
+	case CAMERAMODE::ATTACHED:
+		checkKeyboardInput(evt); 
+		mPointer->frameStarted(evt); 
+		updateCamera(evt); 
+		break;
+
+	}
+
 	return mContinue;
 }
 
@@ -182,6 +199,16 @@ bool World::mouseMoved(const OIS::MouseEvent &e)
 {
 
 	mPointer->mouseMoved(e); 
+
+	//scroll wheel: 
+	
+			mCamZoomSpeed += -1 * e.state.Z.rel;
+
+			if (mCamZoomSpeed > MAX_ZOOM_SPEED)
+				mCamZoomSpeed = MAX_ZOOM_SPEED;
+			if (mCamZoomSpeed < MIN_ZOOM_SPEED)
+				mCamZoomSpeed = MIN_ZOOM_SPEED;
+
 
 
 return mContinue;
@@ -235,7 +262,7 @@ bool World::keyPressed(const OIS::KeyEvent &e)
 		//CAMERA CONTROLS
 	}
 
-	this->steerCamera(e); 	
+	//this->steerCamera(e); 	
 	return mContinue;
 }
 	
@@ -247,100 +274,76 @@ bool World::keyReleased(const OIS::KeyEvent &e)
 		case OIS::KC_GRAVE:
 		case OIS::KC_BACK:
 			mToggle=false;
-			break;
+			break;		
+	}
 
-		case OIS::KC_W: //move up
+	if (mKeyboard->isKeyDown(OIS::KC_W)== false && 
+			mKeyboard->isKeyDown(OIS::KC_A)== false && 
+			mKeyboard->isKeyDown(OIS::KC_S)== false && 
+			mKeyboard->isKeyDown(OIS::KC_D)== false)
+		{
 			moveButtonPressed=false;
 			camDirection.y = 0; 	
-			break;
-		case OIS::KC_A: //move left
-			moveButtonPressed=false;
-			camDirection.x = 0;
-			break;
-		case OIS::KC_S: //move down
-			moveButtonPressed=false;
-			camDirection.y = 0;
-			break;
-		case OIS::KC_D: //move right
-			moveButtonPressed=false;
-			camDirection.x = 0;
-			break;
+			camDirection.x = 0; 
 
-	}
+		}
+
 return mContinue;
 }
 
-void  World::steerCamera(const OIS::KeyEvent &e)
+
+void World::checkKeyboardInput(const FrameEvent &evt)
 {
-	Ogre::Real camSpeed=40.0;
 
-	switch (e.key)
+if (camMode == CAMERAMODE::ATTACHED)
 	{
-		case OIS::KC_W: //move up
-			camDirection.y = -1; 	
-			if (moveButtonPressed==false)
-			{
-				camAcceleration= Vector3(0,0,0); 
-				camVelocity= camDirection* camSpeed;
-			}
-			
-			moveButtonPressed=true;
-			break;
-		case OIS::KC_A: //move left
-			camDirection.x = -1;
-			if (moveButtonPressed==false)
-			{
-				camAcceleration= Vector3(0,0,0); 
-				camVelocity= camDirection* camSpeed;
-			}
-			
-			moveButtonPressed=true;
-			break;
-		case OIS::KC_S: //move down
-			camDirection.y = 1;
-			if (moveButtonPressed==false)
-			{
-				camAcceleration= Vector3(0,0,0); 
-				camVelocity= camDirection* camSpeed;
-			}
 
-			
-			moveButtonPressed=true;
-			break;
-		case OIS::KC_D:
-			camDirection.x = 1; 
-			if (moveButtonPressed==false)
-			{
-				camAcceleration= Vector3(0,0,0); 
-				camVelocity= camDirection* camSpeed;
-			}
-			
-			moveButtonPressed=true;
-			break;
+		if (mKeyboard->isKeyDown(OIS::KC_W))
+				camDirection.y = -1.0; 	
+		if (mKeyboard->isKeyDown(OIS::KC_A))
+				camDirection.x = -1.0;
+		if (mKeyboard->isKeyDown(OIS::KC_S))
+				camDirection.y = 1.0;
+		if (mKeyboard->isKeyDown(OIS::KC_D))
+				camDirection.x = 1.0; 
+	
+
 	}
+
 
 }
 
+
 bool World::updateCamera(const FrameEvent &evt)
 {
+	
+	//x,y
 	Ogre::Vector3 newPos= mMainCam->getPosition(); 
-	
-	camAcceleration += camDirection* 10.0*evt.timeSinceLastFrame; 
-	camVelocity+= camAcceleration*evt.timeSinceLastFrame;
-	
+	Ogre::Real camSpeed= 100.0;
+	camVelocity= camDirection * camSpeed; 
 
 	newPos.x+= camVelocity.x * evt.timeSinceLastFrame; 
 	newPos.y-= camVelocity.y * evt.timeSinceLastFrame; 
 
+	//z: zoom
+	Ogre::Real camFriction= 100.0;
+	double friction = evt.timeSinceLastFrame * camFriction;
+		
+		if (mCamZoomSpeed > 0.0) {
+			mCamZoomSpeed= ((0.0 > (mCamZoomSpeed - friction)) ? 0.0 : (mCamZoomSpeed - friction)) ;
+		}
 
-	if (camAcceleration.length() > 10.0)
-		camAcceleration = 10 * camAcceleration.normalisedCopy(); 
+		if (mCamZoomSpeed < 0.0) {
+			mCamZoomSpeed= ((0.0 < (mCamZoomSpeed + friction)) ? 0.0 : (mCamZoomSpeed + friction)) ;
+		}
 
-	if (camVelocity.length() > 120)
-		camVelocity = 120 * camVelocity.normalisedCopy(); 
+	newPos.z+= mCamZoomSpeed*evt.timeSinceLastFrame; 
 
-	if (moveButtonPressed==false) //decrease velocity fast
-		camVelocity= (camVelocity.length()-(20*evt.timeSinceLastFrame)) *camVelocity.normalisedCopy(); 
+	if (newPos.z < 50.0)
+		newPos.z=50;
+
+	if (newPos.z > 1000)
+		newPos.z= 1000;
 
 	mMainCam->setPosition(newPos); 	
 

@@ -10,6 +10,15 @@ class Console;
 class Pointer;
 class CellFactory; 
 
+
+enum CAMERAMODE
+{
+ATTACHED=0,
+FREEROAM=1
+}; 
+#define MAX_ZOOM_SPEED 250
+#define MIN_ZOOM_SPEED -250
+
 class World: public ExampleFrameListener, public OIS::MouseListener, public OIS::KeyListener
 {
 
@@ -45,13 +54,16 @@ public:
 private: 
 	Ogre::Camera* mOverviewCam;
 	
-	void steerCamera(const OIS::KeyEvent &e); 
+	//void steerCamera(const OIS::KeyEvent &e); 
+	void checkKeyboardInput(const FrameEvent &evt); 
+
 	bool updateCamera(const FrameEvent &evt); 
 
 	Ogre::Camera* mMainCam;
+	CAMERAMODE camMode;
+	Ogre::Real mCamZoomSpeed;  
 	Ogre::Vector3 camDirection;
 	Ogre::Vector3 camVelocity;
-	Ogre::Vector3 camAcceleration;
 	bool moveButtonPressed;
 
 

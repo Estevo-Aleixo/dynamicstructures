@@ -4,13 +4,15 @@
 #include "Main.h"  
 #include "Cell.h"
 
+class CellSystem;
+
 class CellFactory
 {
 public:
 	static void Create(Ogre::SceneManager* sceneMgr); 
 	static void Destroy(); 
 
-	 Cell* requestCell(CELLTYPE type);
+	 Cell* requestCell(CellSystem* cellSystem, CELLTYPE type);
 	 Cell* requestCustomCell(std::vector<Ogre::Vector2> vertices, std::vector<unsigned int> indices);
 	 
 	 Cell* getCellByID(unsigned int id); 

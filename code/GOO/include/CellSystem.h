@@ -2,7 +2,7 @@
 
 #include "Main.h"
 #include "Cell.h"
-#include "CellSystemProperties.h"
+//#include "CellSystemProperties.h"
 
 class CellSystem
 {
@@ -25,11 +25,20 @@ public:
 	void setSpeed(Ogre::Real speed){mSpeed=speed;} 
 	void setPosition(Ogre::Vector2& position); //repositions entire cell system 
 	void setOrientation(Ogre::Radian& orientation); 
-
+	Cell* requestCell(); 
+	
 	bool frameStarted(const FrameEvent &evt); 
 	bool frameEnded(const FrameEvent &evt);
 
-protected: 
+
+	CellSystemProperties* getProperties(){return mProperties;}
+	CellSystemProperties* getLocalProperties(){return mLocalProperties;}
+
+protected:
+	void processNewCells(const FrameEvent &evt);
+	std::queue<Cell*> mCellBuffer;
+
+	CELLTYPE mDefaultType;
 	static std::vector<std::string> availableSystems;
 	
 	std::string mName;
@@ -40,12 +49,18 @@ protected:
 	bool mDone;
 	Ogre::Real mSpeed;
 	Ogre::Radian mOrientation;
-
+	
 
 	std::vector<Cell*> mCells;
 	
 	Ogre::SceneNode* mStartNode; 
-	Ogre::Entity* mStartEntity;  
+	Ogre::SceneNode* mLabelNode;
+	Ogre::Entity* mStartEntity; 
+	MovableText* mLabel;
 
 	CellSystemProperties* mProperties; 
+	
+	//local properties (can change per cell):
+	CellSystemProperties* mLocalProperties; 
+	
 };

@@ -2,20 +2,26 @@
 
 #include "Main.h"
 #include "CellProperties.h"
+#include "CellSystemProperties.h"
 
-#define SQUARE_NAME "rectangular_cell"
-#define HEXAGON_NAME "hexagon_cell"
-#define CIRCLE_NAME "NONE"
 
+#define SQUARE_LINE_MESH "rectangular_cell"
+#define HEXAGON_LINE_MESH "hexagon_cell"
+#define CIRCLE_LINE_MESH "NONE"
 
 
 //cell types
+/*
 enum CELLTYPE{
 	SQUARE=0,
 	HEXAGON=1,
 	CIRCLE=2,
 	CUSTOM=3
 };
+*/
+
+class CellSystem;
+
 
 class Cell
 {
@@ -31,14 +37,21 @@ public:
 
 	Ogre::SceneNode* getNode(){return node;}
 
-	Cell(std::string name, unsigned int id, Ogre::SceneManager* sceneMgr, CELLTYPE type, Ogre::Real size = 1.0, Ogre::Vector2 position= Vector2(0,0));
+	Cell(std::string name, unsigned int id, Ogre::SceneManager* sceneMgr, CellSystem* cellSystem, Ogre::Vector2 position= Vector2(0,0));
 	~Cell(void);
+
+	void setDivideDirection(Ogre::Radian direction){mDivideDirection = direction;} 
+	void divide(); 
+	
+	bool frameStarted(const FrameEvent &evt); 
+	bool frameEnded(const FrameEvent &evt);
+
 
 protected: 
 	Ogre::SceneManager* mSceneMgr;
 	std::string mName; 
 	unsigned int mID;
-	CellProperties* properties; //properties will be handled by means of scripting
+	CellProperties mProperties; //properties will be handled by means of scripting
 	CELLTYPE mType;
 	Ogre::Vector2 mPos;
 	Ogre::Real mSize;
@@ -46,6 +59,19 @@ protected:
 	
 	Ogre::SceneNode* node; 
 	Ogre::Entity* outlineEntity; 
-	
+
+	CellSystem* mSystem;
+	Ogre::Radian mDivideDirection; 
+	Ogre::Radian mDirectionInterval;
+
+	CellProperties retrieveProperties(CellSystem* system); 
+
+
+	//TEMP: 
+	Ogre::Real mTimePassed;
+	Ogre::Real mCloneIntervalTime;
+
+
+
 };
 
