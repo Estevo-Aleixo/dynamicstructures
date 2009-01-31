@@ -4,18 +4,20 @@
 #include "Cell.h"
 //#include "CellSystemProperties.h"
 
+
+class Canvas; 
+
 class CellSystem
 {
 public: 
 	static void loadCellSystems(std::string& filename); //load with lua
 	
-	CellSystem(std::string& name, Ogre::Vector2& startPosition, Ogre::SceneManager* sceneMgr, std::string& systemType, bool enabled=true, Ogre::Real speed = 1.0);
+	CellSystem(std::string& name, Canvas* canvas; Ogre::SceneManager* sceneMgr,Ogre::Vector2& startPosition, std::string& systemType, bool enabled=true, Ogre::Real speed = 1.0);
 	~CellSystem(void);
 
 	void enable(bool on){mEnabled=on;}
 	bool isEnabled(){return mEnabled;}
 
-	
 	void start(){mEnabled=true;}
 	void pause(){mEnabled=false;}
 	void stop(){mEnabled=false; mDone=true;} 
@@ -30,11 +32,12 @@ public:
 	bool frameStarted(const FrameEvent &evt); 
 	bool frameEnded(const FrameEvent &evt);
 
-
+	Canvas* getCanvas(){return mCanvas;} 
 	CellSystemProperties* getProperties(){return mProperties;}
 	CellSystemProperties* getLocalProperties(){return mLocalProperties;}
 
 protected:
+	Canvas* mCanvas;
 	void processNewCells(const FrameEvent &evt);
 	std::queue<Cell*> mCellBuffer;
 

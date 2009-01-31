@@ -18,7 +18,7 @@ class Canvas
 {
 public:
 	Canvas(void);
-	Canvas(std::string& name, CANVASTYPE type, unsigned int width,unsigned int height, unsigned int lines, Ogre::SceneManager* sceneMgr);
+	Canvas(std::string& name, CANVASTYPE type, unsigned int lines, Ogre::SceneManager* sceneMgr, unsigned int height, unsigned int width);
 	
 	~Canvas(void);
 
@@ -34,7 +34,12 @@ public:
 	bool frameStarted(const FrameEvent &evt); 
 	bool frameEnded(const FrameEvent &evt);
 	
+	b2World* getPhysicsWorld(){return mb2World;} 
+
 protected: 
+	b2World* mb2World;
+	float32 mTimeStep;
+
 	Ogre::SceneManager* mSceneMgr;
 
 	Ogre::Vector2 dimensions;

@@ -25,7 +25,10 @@ public:
      
 	 static CellFactory& getSingleton(void);
      static CellFactory* getSingletonPtr(void);
-	
+		
+	 bool frameStarted(const FrameEvent &evt); 
+	bool frameEnded(const FrameEvent &evt);
+
 	 
 protected:
 	Ogre::Real cellSize;	

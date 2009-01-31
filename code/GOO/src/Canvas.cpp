@@ -10,6 +10,14 @@ Canvas::Canvas(void)
 Canvas::Canvas(std::string& name, CANVASTYPE type, unsigned int width, unsigned int height , unsigned int lines, Ogre::SceneManager* sceneMgr): 
 mType(type), mLines(lines), mSceneMgr(sceneMgr)
 {
+	//physics:
+	b2AABB worldAABB;
+	worldAABB.lowerBound.Set((float32)(width/-2), (float32)(height/-2));
+	worldAABB.upperBound.Set((float32)(width/2), (float32)(height/2));
+
+	mTimeStep = 1.0f / 60.0f;
+	b2Vec2 gravity(0,0);
+	mb2World= new b2World(worldAABB,gravity,true); 
 
 	this->dimensions.x= width;
 	this->dimensions.y= height;
@@ -21,8 +29,6 @@ mType(type), mLines(lines), mSceneMgr(sceneMgr)
 	mRasterNode= mRootCanvasNode->createChildSceneNode(); 
 	mRasterNode->attachObject(mRasterEntity); 
 	mRootCanvasNode->scale(1.0,1.0,1.0);
-	//mRootCanvasNode->pitch(Radian(Math::PI/-5)); 
-
 	mPointer= new Pointer(name + "_pointer", this, mSceneMgr); 
 
 }
@@ -112,7 +118,7 @@ bool  Canvas::frameStarted(const FrameEvent &evt)
 
 bool  Canvas::frameEnded(const FrameEvent &evt)
 {
-	
+	mb2World->Step(mTimeStep, 10);
 	return true;
 }
 

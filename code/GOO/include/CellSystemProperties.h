@@ -4,8 +4,9 @@
 enum CELLTYPE{
 	SQUARE=0,
 	HEXAGON=1,
-	CIRCLE=2,
-	CUSTOM=3
+	TRIANGLE=2,
+	CIRCLE=3,
+	CUSTOM=4
 };
 
 class CellSystemProperties

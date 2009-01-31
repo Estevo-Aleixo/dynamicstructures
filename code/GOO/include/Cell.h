@@ -5,8 +5,9 @@
 #include "CellSystemProperties.h"
 
 
-#define SQUARE_LINE_MESH "rectangular_cell"
+#define SQUARE_MESH "rectangular_cell"
 #define HEXAGON_LINE_MESH "hexagon_cell"
+#define TRIANGLE_MESH "triangle_cell"
 #define CIRCLE_LINE_MESH "NONE"
 
 
@@ -22,15 +23,15 @@ enum CELLTYPE{
 
 class CellSystem;
 
-
-class Cell
+class Cell: public Physical2DObject; 
 {
 public:
 
 	//GETTERS
 	CELLTYPE getType(){return mType;}
 	Ogre::Vector2& getPosition(){return mPos;}
-	
+	std::string getName(){return mName;} 
+
 	//SETTERS
 	void setType();
 	void setPosition(Ogre::Vector2& p){mPos=p; node->setPosition(p.x,p.y,0);}
@@ -48,6 +49,7 @@ public:
 
 
 protected: 
+	int cellCount;
 	Ogre::SceneManager* mSceneMgr;
 	std::string mName; 
 	unsigned int mID;
@@ -70,7 +72,9 @@ protected:
 	//TEMP: 
 	Ogre::Real mTimePassed;
 	Ogre::Real mCloneIntervalTime;
-
+	
+	MovableText* mLabel;
+	Ogre::SceneNode* mLabelNode;
 
 
 };

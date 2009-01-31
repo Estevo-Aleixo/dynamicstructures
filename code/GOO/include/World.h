@@ -4,12 +4,13 @@
 #include "ExampleFrameListener.h"
 #include "Canvas.h"
 
+
 using namespace Ogre;
 
 class Console;
 class Pointer;
 class CellFactory; 
-
+class Cell;
 
 enum CAMERAMODE
 {
@@ -52,6 +53,9 @@ public:
 
 
 private: 
+
+	std::vector<Cell*> testCells; 
+
 	Ogre::Camera* mOverviewCam;
 	
 	//void steerCamera(const OIS::KeyEvent &e); 

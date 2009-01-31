@@ -9,6 +9,7 @@ Filename:    Main.h
 
 #include <iostream>
 #include <assert.h>
+#include "Box2D.h"
 
 #include "Ogre.h"
 #include "OgreConfigFile.h"

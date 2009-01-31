@@ -9,6 +9,10 @@ mName(name), mID(id), mPos(position), mSceneMgr(sceneMgr), mSystem(cellSystem)
 	
 	//TODO: ELABORATE PROPERTIES!
 	//TODO: Replace with CellSystem->getProperties(); 
+	outlineEntity= mSceneMgr->createEntity(name +"_entity", TRIANGLE_MESH); 
+	mDirectionInterval= Math::TWO_PI /6;
+	cellCount=0;
+	/*
 	switch(cellSystem->getLocalProperties()->getCellType())
 	{
 		case CELLTYPE::SQUARE:
@@ -25,7 +29,7 @@ mName(name), mID(id), mPos(position), mSceneMgr(sceneMgr), mSystem(cellSystem)
 			break;
 		default:
 			break;
-	}
+	}*/
 
 	//mProperties= retrieveProperties(mSystem); 
 	Ogre::Real size;
@@ -36,11 +40,15 @@ mName(name), mID(id), mPos(position), mSceneMgr(sceneMgr), mSystem(cellSystem)
 	node->scale(Vector3(size,size,size)); 
 	node->setPosition(position.x,position.y,0); 
 	node->attachObject(outlineEntity); 
+
 	mDivideDirection= Radian(0);
-	mCloneIntervalTime = 0.1;
+	mCloneIntervalTime = 2.0;
 	mTimePassed=0.0;
 
-
+	//create box2d physical body: 
+	b2BodyDef bodyDef;
+	bodyDef.position.Set(0.0f, -10.0f);
+	cellSystem->getCanvas()->getPhysicsWorld().CreateBody(bodyDef); 
 }
 
 
@@ -53,10 +61,10 @@ Cell::~Cell(void)
 bool Cell::frameStarted(const FrameEvent &evt)
 {
 	mTimePassed+=evt.timeSinceLastFrame;
-
-	if (mTimePassed > mCloneIntervalTime){
+	//Ogre::LogManager::getSingletonPtr()->logMessage("timer: " +StringConverter::toString(mTimePassed));
+	if (mTimePassed > mCloneIntervalTime && cellCount < 2){
 		mTimePassed=0.0;
-		divide(); 
+		//divide(); 
 	}
 
 return true;
@@ -72,11 +80,16 @@ void Cell::divide()
 {
 	Cell* myClone;
 	//spawn new cell
+	cellCount++;
+		Ogre::Vector2 position;
+
+  // myClone= new Cell("testcel"+ StringConverter::toString(cellCount),0,mSceneMgr,this->mSystem,position);
+
 	myClone= mSystem->requestCell(); 
-	//initialize the new clone: 
-	Ogre::Vector2 position;
-	position.x = mPos.x + Math::Cos(mDivideDirection)* (mSize * 0.7);
-	position.y = mPos.y + Math::Sin(mDivideDirection)* (mSize * 0.7);
+		//initialize the new clone: 
+
+	position.x = mPos.x + Math::Cos(mDivideDirection)* 18;
+	position.y = mPos.y + Math::Sin(mDivideDirection)* 18;
 	myClone->setPosition(position); 
 
 	//set divide angle: 
