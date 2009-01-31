@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="Box2D">
+</Property><Property Name="Solution File" Value="E:\thesis\code\Box2D\Build\VC8\Box2D.sln">
+</Property><Property Name="Date" Value="Saturday, January 31, 2009">
+</Property><Property Name="Time" Value="16:42 PM">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="Box2D.sln" Description="File successfully backed up as E:\thesis\code\Box2D\Build\VC8\Box2D.sln.old">
+</Event><Event ErrorLevel="1" Project="Box2D" Source="Box2D.vcproj" Description="This application has been updated to include settings related to the User Account Control (UAC) feature of Windows Vista. By default, when run on Windows Vista with UAC enabled, this application is marked to run with the same privileges as the process that launched it. This marking also disables the application from running with virtualization. You can change UAC related settings from the Property Pages of the project.">
+</Event><Event ErrorLevel="0" Project="Box2D" Source="Box2D.vcproj" Description="Project file successfully backed up as 'E:\thesis\code\Box2D\Build\VC8\Box2D.vcproj.8.00.old'.">
+</Event><Event ErrorLevel="0" Project="Box2D" Source="Box2D.vcproj" Description="Project upgraded successfully.">
+</Event><Event ErrorLevel="3" Project="Box2D" Source="Box2D.vcproj" Description="Converted">
+</Event><Event ErrorLevel="1" Project="freeglut" Source="freeglut.vcproj" Description="This application has been updated to include settings related to the User Account Control (UAC) feature of Windows Vista. By default, when run on Windows Vista with UAC enabled, this application is marked to run with the same privileges as the process that launched it. This marking also disables the application from running with virtualization. You can change UAC related settings from the Property Pages of the project.">
+</Event><Event ErrorLevel="0" Project="freeglut" Source="freeglut.vcproj" Description="Project file successfully backed up as 'E:\thesis\code\Box2D\Build\VC8\freeglut.vcproj.8.00.old'.">
+</Event><Event ErrorLevel="0" Project="freeglut" Source="freeglut.vcproj" Description="Project upgraded successfully.">
+</Event><Event ErrorLevel="3" Project="freeglut" Source="freeglut.vcproj" Description="Converted">
+</Event><Event ErrorLevel="1" Project="glui" Source="glui.vcproj" Description="This application has been updated to include settings related to the User Account Control (UAC) feature of Windows Vista. By default, when run on Windows Vista with UAC enabled, this application is marked to run with the same privileges as the process that launched it. This marking also disables the application from running with virtualization. You can change UAC related settings from the Property Pages of the project.">
+</Event><Event ErrorLevel="0" Project="glui" Source="glui.vcproj" Description="Project file successfully backed up as 'E:\thesis\code\Box2D\Build\VC8\glui.vcproj.8.00.old'.">
+</Event><Event ErrorLevel="0" Project="glui" Source="glui.vcproj" Description="Project upgraded successfully.">
+</Event><Event ErrorLevel="3" Project="glui" Source="glui.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="HelloWorld" Source="HelloWorld.vcproj" Description="Web deployment to the local IIS server is no longer supported. The Web Deployment build tool has been removed from your project settings.">
+</Event><Event ErrorLevel="1" Project="HelloWorld" Source="HelloWorld.vcproj" Description="This application has been updated to include settings related to the User Account Control (UAC) feature of Windows Vista. By default, when run on Windows Vista with UAC enabled, this application is marked to run with the same privileges as the process that launched it. This marking also disables the application from running with virtualization. You can change UAC related settings from the Property Pages of the project.">
+</Event><Event ErrorLevel="0" Project="HelloWorld" Source="HelloWorld.vcproj" Description="Project file successfully backed up as 'E:\thesis\code\Box2D\Build\VC8\HelloWorld.vcproj.8.00.old'.">
+</Event><Event ErrorLevel="0" Project="HelloWorld" Source="HelloWorld.vcproj" Description="Project upgraded successfully.">
+</Event><Event ErrorLevel="3" Project="HelloWorld" Source="HelloWorld.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="TestBed" Source="TestBed.vcproj" Description="Web deployment to the local IIS server is no longer supported. The Web Deployment build tool has been removed from your project settings.">
+</Event><Event ErrorLevel="1" Project="TestBed" Source="TestBed.vcproj" Description="This application has been updated to include settings related to the User Account Control (UAC) feature of Windows Vista. By default, when run on Windows Vista with UAC enabled, this application is marked to run with the same privileges as the process that launched it. This marking also disables the application from running with virtualization. You can change UAC related settings from the Property Pages of the project.">
+</Event><Event ErrorLevel="0" Project="TestBed" Source="TestBed.vcproj" Description="Project file successfully backed up as 'E:\thesis\code\Box2D\Build\VC8\TestBed.vcproj.8.00.old'.">
+</Event><Event ErrorLevel="0" Project="TestBed" Source="TestBed.vcproj" Description="Project upgraded successfully.">
+</Event><Event ErrorLevel="3" Project="TestBed" Source="TestBed.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="Box2D.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="Box2D.sln" Description="Converted">
+</Event></UpgradeLog>
