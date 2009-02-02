@@ -1,6 +1,7 @@
 #include "CellProperties.h"
 
-CellProperties::CellProperties(void)
+CellProperties::CellProperties(void): 
+Object2DProperties()
 {
 	
 }

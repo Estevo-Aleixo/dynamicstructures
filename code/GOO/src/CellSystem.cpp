@@ -9,13 +9,13 @@ CellSystem::CellSystem(std::string& name, Canvas* canvas, Ogre::SceneManager* sc
 	mStartEntity = mSceneMgr->createEntity(name+"_start_marker_entity",HEXAGON_LINE_MESH); 
 	mStartNode= mSceneMgr->getSceneNode("CanvasRootNode")->createChildSceneNode(name+ "_start_marker_node"); 
 	mStartNode->attachObject(mStartEntity); 
-	mLabelNode= mStartNode->createChildSceneNode(Vector3(20,0,20)); 
+	mLabelNode= mStartNode->createChildSceneNode(Vector3(2,0,2)); 
 	
 	//create label:
 	mLabel= new MovableText(name+ "_labelText",name); 
 	mLabel->setFontName( "mainfont" );
 	mLabel->setColor( ColourValue::Green );
-	mLabel->setCharacterHeight(20.0);
+	mLabel->setCharacterHeight(1.0);
     mLabel->showOnTop();
     mLabelNode->attachObject( mLabel);
 	mLabelNode->pitch(Ogre::Radian(Math::PI/2));
@@ -23,14 +23,23 @@ CellSystem::CellSystem(std::string& name, Canvas* canvas, Ogre::SceneManager* sc
 	mStartNode->setPosition(startPosition.x, startPosition.y,0); 
 	
 	//load properties:
-	mProperties= new CellSystemProperties(); 
-	mLocalProperties= new CellSystemProperties(); 
-	mDefaultType=CELLTYPE::HEXAGON; 
+	//mProperties= new CellSystemProperties(); 
+	//mLocalProperties= new CellSystemProperties(); 
+	//mDefaultType=CELLTYPE::HEXAGON; 
 
 	//create Start Cell:
-	Cell* firstCell= requestCell();
+	Cell* firstCell= mCanvas->getCellFactory()->requestCellFromPool(); 
 	firstCell->setPosition(mStartPos); 
+	//firstCell->getNode()->scale(10,10,10); 
+	firstCell->getBody()->WakeUp();
+	firstCell->enable(true); 
+
 	this->mEnabled=true;
+	mCells.push_back(firstCell);
+
+	//temp create array of cells: 
+	
+
 }
 
 CellSystem::~CellSystem(void)
@@ -93,9 +102,9 @@ Cell*  CellSystem::requestCell()
 	//load settings here	
 
 	//mutated variables:
-	mLocalProperties->setCellSize(10.0);
-	newCell= CellFactory::getSingletonPtr()->requestCell(this, mDefaultType); 
+	//mLocalProperties->setCellSize(10.0);
+	//newCell= CellFactory::getSingletonPtr()->requestCell(this, mDefaultType); 
 	//mCellBuffer.push(newCell); 
-	mCells.push_back(newCell); 
+	//mCells.push_back(newCell); 
 	return newCell;
 }

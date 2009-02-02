@@ -41,6 +41,9 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
+				EnableIntrinsicFunctions="true"
+				FavorSizeOrSpeed="1"
+				WholeProgramOptimization="false"
 				AdditionalIncludeDirectories="..\include;&quot;$(OGRE_HOME)\include&quot;;&quot;$(OGRE_HOME)\samples\include&quot;;&quot;..\..\Box2D\Include&quot;"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS"
 				MinimalRebuild="true"
@@ -217,6 +220,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\Object2DProperties.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\Physical2DObject.cpp"
 				>
 			</File>
@@ -300,6 +307,10 @@
 			</File>
 			<File
 				RelativePath="..\include\MovableText.h"
+				>
+			</File>
+			<File
+				RelativePath="..\include\Object2DProperties.h"
 				>
 			</File>
 			<File

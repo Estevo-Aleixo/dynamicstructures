@@ -1,12 +1,13 @@
 #include "CellFactory.h"
 
-CellFactory* CellFactory::instance=0;
+//CellFactory* CellFactory::instance=0;
 
-void CellFactory::Create(Ogre::SceneManager* sceneMgr)
+/*
+void CellFactory::Create(Ogre::SceneManager* sceneMgr, Canvas* canvas)
 {
 	
 if (!instance)
-	instance= new CellFactory(sceneMgr); 
+	instance= new CellFactory(sceneMgr, canvas); 
 
 }
 
@@ -15,28 +16,34 @@ void CellFactory::Destroy()
 
 
 }
+
+*/
 CellFactory::~CellFactory(void)
 {
 }
 
 
-CellFactory::CellFactory(Ogre::SceneManager* sceneMgr)
+CellFactory::CellFactory(std::string& name, Ogre::SceneManager* sceneMgr, Canvas* canvas):
+mName(name), mSceneMgr(sceneMgr), mCanvas(canvas)
 {
-	mSceneMgr= sceneMgr;
-	cellSize=1.0;
+	mCanvas->addCellFactory(this); 
+
 	cellBufferSize=1000;
-	createWiredCellMeshes();
 
-	//create rectangular cells 
-	//createPool(CELLTYPE::SQUARE); 
-	//create hexagonal cells
-	//createPool(CELLTYPE::HEXAGON); 
-
+	//create triangle pool: 
+	CellProperties* triangleProperties= new CellProperties(); 
+	triangleProperties->mesh_name = TRIANGLE_MESH; 
+	triangleProperties->mFrictionConstant = 1.0; 
+	triangleProperties->mScale = 1.0;
+	triangleProperties->mMass = 1.0;
+	
+	this->createPool(triangleProperties,50); 
 }
 
 
-void CellFactory::createWiredCellMeshes()
+void CellFactory::createCellMeshes()
 {		
+	Real cellSize= 1.0;
 	Ogre::ColourValue colour=  Ogre::ColourValue(); 
 	Ogre::ManualObject* cellHex; 
 	Ogre::ManualObject* cellSquare; 
@@ -113,35 +120,43 @@ Ogre::Mesh* CellFactory::createCustomCellMesh(std::string& name, std::vector<Ogr
 
 
 
-CellFactory& CellFactory::getSingleton(void)
-{
-	return *instance;
-}
-CellFactory* CellFactory::getSingletonPtr(void)
-{
-	return instance;
-}
-
-
 Cell* CellFactory::requestCell(CellSystem* cellSystem, CELLTYPE type)
 {
 	//todo alter!
-	Cell* newCell= new Cell("cell"+ Ogre::StringConverter::toString((int)cells.size()),cells.size(),mSceneMgr, cellSystem); 
-	cells.push_back(newCell); 
+	CellProperties* tempProperties = new CellProperties(); 
+	Cell* newCell= new Cell("cell"+ Ogre::StringConverter::toString((int)mCells.size()),mCells.size(),mSceneMgr, tempProperties, mCanvas); 
+	mCells.push_back(newCell); 
 	return newCell; 
 }
+
+
+Cell* CellFactory::requestCellFromPool()
+{
+	//todo alter!
+	for (int i = 0; i < mCells.size(); i++)
+	{
+		if (inUse[i]==false){
+			inUse[i]=true;
+			return mCells[i];
+		}
+	}
+
+	return 0; 
+}
+
+
 
 Cell* CellFactory::requestCustomCell(std::vector<Ogre::Vector2> vertices, std::vector<unsigned int> indices)
 {
 	Cell* newCell; //= new Cell("cell"+ Ogre::StringConverter::toString((int)cells.size()),cells.size(), ); 
-	cells.push_back(newCell); 
+	mCells.push_back(newCell); 
 	return newCell; 
 
 }
 	 
 Cell* CellFactory::getCellByID(unsigned int id)
 {
-	return cells.at(id); 
+	return mCells.at(id); 
 } 
 
 Cell* CellFactory::getCellByName(std::string name)
@@ -165,4 +180,18 @@ bool  CellFactory::frameStarted(const FrameEvent &evt)
 bool  CellFactory::frameEnded(const FrameEvent &evt)
 {
 
+	return true;
 }
+
+void CellFactory::createPool(CellProperties* properties, int amount)
+{
+
+	for(int i=0 ; i < amount; i++)
+	{
+		//create new: 
+		mCells.push_back(new Cell(mName+std::string("_Cell_")+ StringConverter::toString(i),i,mSceneMgr,properties,mCanvas));  
+		inUse.push_back(false); 
+	}
+
+}
+	

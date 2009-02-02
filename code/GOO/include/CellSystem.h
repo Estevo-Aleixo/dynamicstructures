@@ -12,7 +12,7 @@ class CellSystem
 public: 
 	static void loadCellSystems(std::string& filename); //load with lua
 	
-	CellSystem(std::string& name, Canvas* canvas; Ogre::SceneManager* sceneMgr,Ogre::Vector2& startPosition, std::string& systemType, bool enabled=true, Ogre::Real speed = 1.0);
+	CellSystem(std::string& name, Canvas* canvas, Ogre::SceneManager* sceneMgr,Ogre::Vector2& startPosition, std::string& systemType, bool enabled=true, Ogre::Real speed = 1.0);
 	~CellSystem(void);
 
 	void enable(bool on){mEnabled=on;}

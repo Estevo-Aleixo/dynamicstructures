@@ -1,5 +1,6 @@
 #pragma once
 #include "Main.h"
+#include "CellProperties.h"
 
 enum CELLTYPE{
 	SQUARE=0,
@@ -20,9 +21,12 @@ public:
 	
 	void setCellSize(Ogre::Real cellSize){mCellSize= cellSize;}
 	void setCellType(CELLTYPE type){mType=type;}
-
+	
+	CellProperties& getCellProperties(){return mCellProperties;}
 
 private: 
+	CellProperties mCellProperties;
+
 	Ogre::Real mCellSize;
 	CELLTYPE mType;  
 

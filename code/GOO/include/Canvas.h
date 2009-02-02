@@ -13,12 +13,13 @@ enum CANVASTYPE
 
 class Pointer;
 class CellSystem;
+class CellFactory;
 
 class Canvas
 {
 public:
 	Canvas(void);
-	Canvas(std::string& name, CANVASTYPE type, unsigned int lines, Ogre::SceneManager* sceneMgr, unsigned int height, unsigned int width);
+	Canvas(std::string& name, CANVASTYPE type,  Ogre::SceneManager* sceneMgr,unsigned int lines, unsigned int height, unsigned int width);
 	
 	~Canvas(void);
 
@@ -36,7 +37,13 @@ public:
 	
 	b2World* getPhysicsWorld(){return mb2World;} 
 
+	void addCellFactory(CellFactory* cellFactory){cellFactories.push_back(cellFactory);}
+	
+	//temp func!!!
+	inline CellFactory* getCellFactory(){return cellFactories[0];}
 protected: 
+	std::vector<CellFactory*> cellFactories;
+
 	b2World* mb2World;
 	float32 mTimeStep;
 

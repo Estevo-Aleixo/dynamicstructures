@@ -7,17 +7,17 @@ Canvas::Canvas(void)
 }
 
 
-Canvas::Canvas(std::string& name, CANVASTYPE type, unsigned int width, unsigned int height , unsigned int lines, Ogre::SceneManager* sceneMgr): 
+Canvas::Canvas(std::string& name, CANVASTYPE type, Ogre::SceneManager* sceneMgr, unsigned int lines, unsigned int width, unsigned int height ): 
 mType(type), mLines(lines), mSceneMgr(sceneMgr)
 {
 	//physics:
 	b2AABB worldAABB;
-	worldAABB.lowerBound.Set((float32)(width/-2), (float32)(height/-2));
-	worldAABB.upperBound.Set((float32)(width/2), (float32)(height/2));
+	worldAABB.lowerBound.Set(-1000, 1000);
+	worldAABB.upperBound.Set(1000, 1000);
 
 	mTimeStep = 1.0f / 60.0f;
-	b2Vec2 gravity(0,0);
-	mb2World= new b2World(worldAABB,gravity,true); 
+	b2Vec2 gravity(0,-10.0);
+	mb2World= new b2World(worldAABB,gravity,false); 
 
 	this->dimensions.x= width;
 	this->dimensions.y= height;
@@ -126,7 +126,7 @@ bool  Canvas::addCellSystem(Ogre::Vector2& startPosition, std::string& systemTyp
 {
 	CellSystem* newCellSystem; 
 
-	newCellSystem = new CellSystem("Cell_system_" +StringConverter::toString((Ogre::Real)mCellSystems.size()) +"_" +systemType, startPosition, mSceneMgr, systemType, enabled, speed); 
+	newCellSystem = new CellSystem("Cell_system_" +StringConverter::toString((Ogre::Real)mCellSystems.size()) +"_" +systemType,this,mSceneMgr, startPosition,systemType, enabled, speed); 
 	mCellSystems.push_back(newCellSystem); 
 
 	return true;

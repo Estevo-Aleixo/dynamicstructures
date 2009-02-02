@@ -7,7 +7,7 @@ mCanvas(canvas), mSceneMgr(sceneMgr)
 	mPointerNode= mCanvas->getSceneNode()->createChildSceneNode(); 
 	mPointerEntity= mSceneMgr->createEntity(name,"sphere.mesh"); 
 	mPointerNode->attachObject(mPointerEntity); 
-	mPointerNode->scale(0.05,0.05,0.05);
+	mPointerNode->scale(0.01,0.01,0.01);
 	acceleration= Vector2(0,0);
 	mPos= Vector2(0,0); 
 	mPressed=false;

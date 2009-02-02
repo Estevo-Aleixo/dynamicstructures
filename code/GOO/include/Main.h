@@ -19,6 +19,10 @@ Filename:    Main.h
 #include <CEGUI/CEGUISchemeManager.h>
 #include <OgreCEGUIRenderer.h>
 
+#define SQUARE_MESH "rectangular_cell"
+#define HEXAGON_LINE_MESH "hexagon_cell"
+#define TRIANGLE_MESH "triangle_cell"
+#define CIRCLE_LINE_MESH "NONE"
 
 
 #include "MovableText.h"

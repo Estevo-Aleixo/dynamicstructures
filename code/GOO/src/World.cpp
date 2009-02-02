@@ -18,26 +18,30 @@ ExampleFrameListener(win, cam, true, true), mGUIRenderer(renderer), mSceneMgr(sc
 	coreEntity= mSceneMgr->createEntity("coreNode","sphere.mesh");
 	coreNode->attachObject(coreEntity); 
 	coreNode->scale(0.01,0.01,0.01); 
-	 
-	mCanvas= new Canvas(std::string("myFirstCanvas"), CANVASTYPE::RECTANGULAR, 1000,1000,4,mSceneMgr);
+		
+	CellFactory::createCellMeshes(); 
+
+	mCanvas= new Canvas(std::string("myFirstCanvas"), CANVASTYPE::RECTANGULAR, mSceneMgr,8,100,100);
 	mPointer= mCanvas->getPointer(); 	
 
-	CellFactory::Create(mSceneMgr); 
-	mCellFactory= CellFactory::getSingletonPtr(); 
+	mCellFactory= new CellFactory(std::string("Triangle Cell Factory"),mSceneMgr, mCanvas); 
 
 	mMainCam= mSceneMgr->getCamera("MainCam");
 	camMode= CAMERAMODE::ATTACHED;
 
 	//TEST PURPOSE
-	CellSystem* sys= new CellSystem(std::string("sysy"),Vector2(0,0),mSceneMgr,std::string(""),true,1);  
-	Cell* temp; 
+	//CellSystem* sys= new CellSystem(std::string("sysy"),mCanvas,mSceneMgr,Vector2(0,0),std::string(""),true,1);  
+	//Cell* temp; 
 	
-	for(int x=0;x < 100; x++){
-		for(int y=0;y < 100 ; y++){
-			testCells.push_back(new Cell(std::string("celll") + StringConverter::toString((x*100)+y),0,mSceneMgr,sys,Vector2(x*20,y*20))); 
-		}
-	}
-
+	//for(int x=0;x < 5; x++){
+	//	for(int y=0;y < 5 ; y++){
+	//		testCells.push_back(); 
+	//	}
+	//	}
+	
+	//new Cell(std::string("celll") + StringConverter::toString((x*10)+y),0,mSceneMgr,sys,Vector2(x*10,y*10))
+	
+	
 	camDirection=Vector3(0,0,0);
 	camVelocity=Vector3(0,0,0);
 
@@ -94,7 +98,7 @@ bool World::frameStarted(const FrameEvent &evt)
 
 bool World::frameEnded(const FrameEvent &evt)
 {
-
+mCanvas->frameEnded(evt); 
 
 
 
@@ -245,11 +249,11 @@ bool World::updateCamera(const FrameEvent &evt)
 
 	newPos.z+= mCamZoomSpeed*evt.timeSinceLastFrame; 
 
-	if (newPos.z < 50.0)
-		newPos.z=50;
+	if (newPos.z < 10.0)
+		newPos.z=10;
 
-	if (newPos.z > 1000)
-		newPos.z= 1000;
+	if (newPos.z > 500)
+		newPos.z= 500;
 
 	mMainCam->setPosition(newPos); 	
 

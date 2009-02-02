@@ -3,12 +3,9 @@
 #include "Main.h"
 #include "CellProperties.h"
 #include "CellSystemProperties.h"
+#include "Physical2DObject.h"
 
 
-#define SQUARE_MESH "rectangular_cell"
-#define HEXAGON_LINE_MESH "hexagon_cell"
-#define TRIANGLE_MESH "triangle_cell"
-#define CIRCLE_LINE_MESH "NONE"
 
 
 //cell types
@@ -23,7 +20,7 @@ enum CELLTYPE{
 
 class CellSystem;
 
-class Cell: public Physical2DObject; 
+class Cell: public Physical2DObject
 {
 public:
 
@@ -34,13 +31,16 @@ public:
 
 	//SETTERS
 	void setType();
-	void setPosition(Ogre::Vector2& p){mPos=p; node->setPosition(p.x,p.y,0);}
 
 	Ogre::SceneNode* getNode(){return node;}
 
-	Cell(std::string name, unsigned int id, Ogre::SceneManager* sceneMgr, CellSystem* cellSystem, Ogre::Vector2 position= Vector2(0,0));
+	Cell(std::string name, unsigned int id, Ogre::SceneManager* sceneMgr, CellProperties* properties, Canvas* canvas, Ogre::Vector2 position= Vector2(0,0), bool enabled=false);
 	~Cell(void);
 
+	
+	void setCellSystem(CellSystem* cellSystem){mSystem = cellSystem;}
+	void setProperties(CellProperties* properties){mProperties = properties;} 
+	
 	void setDivideDirection(Ogre::Radian direction){mDivideDirection = direction;} 
 	void divide(); 
 	
@@ -53,7 +53,7 @@ protected:
 	Ogre::SceneManager* mSceneMgr;
 	std::string mName; 
 	unsigned int mID;
-	CellProperties mProperties; //properties will be handled by means of scripting
+	CellProperties* mProperties; //properties will be handled by means of scripting
 	CELLTYPE mType;
 	Ogre::Vector2 mPos;
 	Ogre::Real mSize;
