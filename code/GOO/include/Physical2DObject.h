@@ -32,7 +32,7 @@ public:
 	void setAngle(float& angle){mBody->SetXForm(mBody->GetPosition(),angle);}
 
 private: 
-	
+	Canvas* mCanvas;
 	bool mEnabled; 
 //ogre 
 	Ogre::SceneManager* mSceneMgr;

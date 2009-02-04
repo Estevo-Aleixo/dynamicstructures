@@ -24,9 +24,10 @@ public:
 	~Canvas(void);
 
 	Ogre::Vector2& getDimensions(){return dimensions;}
+	b2AABB& getAABB(){return mAABB;}  
 	Ogre::SceneNode* getSceneNode(){return mRootCanvasNode;}
 	
-	bool addCellSystem(Ogre::Vector2& startPosition, std::string& systemType, bool enabled=true, Ogre::Real speed = 1.0); 
+	bool addCellSystem(Ogre::Vector2& startPosition, const char* systemType, bool enabled=true, Ogre::Real speed = 1.0); 
 
 	Pointer* getPointer(){return mPointer;}
 
@@ -43,7 +44,7 @@ public:
 	inline CellFactory* getCellFactory(){return cellFactories[0];}
 protected: 
 	std::vector<CellFactory*> cellFactories;
-
+	b2AABB mAABB;
 	b2World* mb2World;
 	float32 mTimeStep;
 

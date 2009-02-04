@@ -12,7 +12,7 @@ class CellSystem
 public: 
 	static void loadCellSystems(std::string& filename); //load with lua
 	
-	CellSystem(std::string& name, Canvas* canvas, Ogre::SceneManager* sceneMgr,Ogre::Vector2& startPosition, std::string& systemType, bool enabled=true, Ogre::Real speed = 1.0);
+	CellSystem(std::string& name, Canvas* canvas, Ogre::SceneManager* sceneMgr,Ogre::Vector2& startPosition, const char* systemType, bool enabled=true, Ogre::Real speed = 1.0);
 	~CellSystem(void);
 
 	void enable(bool on){mEnabled=on;}
@@ -47,7 +47,7 @@ protected:
 	std::string mName;
 	Ogre::SceneManager* mSceneMgr; 
 	Ogre::Vector2 mStartPos;
-	std::string mSystemType;
+	const char* mSystemType;
 	bool mEnabled;
 	bool mDone;
 	Ogre::Real mSpeed;
@@ -65,5 +65,12 @@ protected:
 	
 	//local properties (can change per cell):
 	CellSystemProperties* mLocalProperties; 
+
+
+
+	//temp: 
+	float spawnTimeInterval;
+	float TimePassed;
+	
 	
 };

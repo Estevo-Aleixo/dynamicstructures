@@ -1,8 +1,8 @@
 #include "Cell.h"
 #include "CellSystem.h"
 
-Cell::Cell(std::string name, unsigned int id, Ogre::SceneManager* sceneMgr, CellProperties* properties, Canvas* canvas, Ogre::Vector2 position, bool enabled):
-Physical2DObject(name + std::string("_2DObject"), canvas, sceneMgr, (Object2DProperties)(*properties), position, enabled),
+Cell::Cell(std::string name, unsigned int id, Ogre::SceneManager* sceneMgr, Object2DProperties& properties, Canvas* canvas, Ogre::Vector2 position, bool enabled):
+Physical2DObject(name + std::string("_2DObject"), canvas, sceneMgr, properties, position, enabled),
 mName(name), 
 mID(id), 
 mPos(position), 
@@ -14,10 +14,6 @@ mSystem(0)
 	mDivideDirection= Radian(0);
 	mCloneIntervalTime = 2.0;
 	mTimePassed=0.0;
-this->getBody()->SetLinearVelocity(b2Vec2(100.0,0)); 
-
-//TODO: ELABORATE PROPERTIES!
-//TODO: Replace with CellSystem->getProperties(); 
 
 }
 

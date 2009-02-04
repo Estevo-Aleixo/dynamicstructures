@@ -224,6 +224,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\ObjectDefinitions.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\Physical2DObject.cpp"
 				>
 			</File>
@@ -311,6 +315,10 @@
 			</File>
 			<File
 				RelativePath="..\include\Object2DProperties.h"
+				>
+			</File>
+			<File
+				RelativePath="..\include\ObjectDefinitions.h"
 				>
 			</File>
 			<File

@@ -34,7 +34,7 @@ public:
 
 	Ogre::SceneNode* getNode(){return node;}
 
-	Cell(std::string name, unsigned int id, Ogre::SceneManager* sceneMgr, CellProperties* properties, Canvas* canvas, Ogre::Vector2 position= Vector2(0,0), bool enabled=false);
+	Cell(std::string name, unsigned int id, Ogre::SceneManager* sceneMgr, Object2DProperties& properties, Canvas* canvas, Ogre::Vector2 position= Vector2(0,0), bool enabled=false);
 	~Cell(void);
 
 	

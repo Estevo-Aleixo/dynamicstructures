@@ -3,7 +3,7 @@
 #include "Pointer.h"
 #include "CellSystem.h"
 #include "CellFactory.h"
-
+#include "ObjectDefinitions.h"
 
 World::World(RenderWindow* win, Camera* cam, SceneManager *sceneMgr, CEGUI::OgreCEGUIRenderer *renderer, Root * root ): 
 ExampleFrameListener(win, cam, true, true), mGUIRenderer(renderer), mSceneMgr(sceneMgr),mRoot(root)
@@ -19,35 +19,27 @@ ExampleFrameListener(win, cam, true, true), mGUIRenderer(renderer), mSceneMgr(sc
 	coreNode->attachObject(coreEntity); 
 	coreNode->scale(0.01,0.01,0.01); 
 		
+	ObjectDefinitions::Create(std::string("nothing")); 
+	mObjectDefinitions= ObjectDefinitions::getSingletonPtr(); 
+
 	CellFactory::createCellMeshes(); 
 
-	mCanvas= new Canvas(std::string("myFirstCanvas"), CANVASTYPE::RECTANGULAR, mSceneMgr,8,100,100);
+	mCanvas= new Canvas(std::string("myFirstCanvas"), CANVASTYPE::RECTANGULAR, mSceneMgr,40,1000,1000);
 	mPointer= mCanvas->getPointer(); 	
 
 	mCellFactory= new CellFactory(std::string("Triangle Cell Factory"),mSceneMgr, mCanvas); 
 
 	mMainCam= mSceneMgr->getCamera("MainCam");
 	camMode= CAMERAMODE::ATTACHED;
-
-	//TEST PURPOSE
-	//CellSystem* sys= new CellSystem(std::string("sysy"),mCanvas,mSceneMgr,Vector2(0,0),std::string(""),true,1);  
-	//Cell* temp; 
-	
-	//for(int x=0;x < 5; x++){
-	//	for(int y=0;y < 5 ; y++){
-	//		testCells.push_back(); 
-	//	}
-	//	}
-	
-	//new Cell(std::string("celll") + StringConverter::toString((x*10)+y),0,mSceneMgr,sys,Vector2(x*10,y*10))
-	
 	
 	camDirection=Vector3(0,0,0);
 	camVelocity=Vector3(0,0,0);
 
 	mSceneMgr->setAmbientLight(ColourValue()); 
 	Ogre::LogManager::getSingletonPtr()->logMessage("World object instatiated");
-
+	
+	Ogre::OverlayManager::getSingletonPtr()->getByName("GUI/editor")->show(); 
+	updateParameterOverlay(); 
 }
 
 
@@ -98,10 +90,7 @@ bool World::frameStarted(const FrameEvent &evt)
 
 bool World::frameEnded(const FrameEvent &evt)
 {
-mCanvas->frameEnded(evt); 
-
-
-
+	mCanvas->frameEnded(evt); 
 return mContinue;
 }
 	
@@ -126,8 +115,6 @@ return mContinue;
 	
 bool World::mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id)
 {
-	
-	
 	mPointer->mousePressed(e,id); 
 
 	
@@ -179,12 +166,27 @@ bool World::keyPressed(const OIS::KeyEvent &e)
 bool World::keyReleased(const OIS::KeyEvent &e)
 {
 
+	
+
+
 	switch (e.key)
 	{
 		case OIS::KC_GRAVE:
 		case OIS::KC_BACK:
 			mToggle=false;
-			break;		
+			break;	
+		case OIS::KC_1:
+			this->mPointer->setCreateType(1);
+			updateParameterOverlay();
+			break;
+		case OIS::KC_2:
+			this->mPointer->setCreateType(2);
+			updateParameterOverlay();
+			break;
+		case OIS::KC_3:
+			this->mPointer->setCreateType(3);
+			updateParameterOverlay();
+			break;
 	}
 
 	if (mKeyboard->isKeyDown(OIS::KC_W)== false && 
@@ -195,8 +197,12 @@ bool World::keyReleased(const OIS::KeyEvent &e)
 			moveButtonPressed=false;
 			camDirection.y = 0; 	
 			camDirection.x = 0; 
-
 		}
+
+	//Set Cell Type;
+
+
+	
 
 return mContinue;
 }
@@ -258,4 +264,28 @@ bool World::updateCamera(const FrameEvent &evt)
 	mMainCam->setPosition(newPos); 	
 
 	return true;
+}
+
+
+void  World::updateParameterOverlay(void)
+	{
+
+		std::string cellTypes; 
+		
+		std::vector<Object2DProperties>::iterator itr;
+		std::vector<Object2DProperties> objects;
+	    objects=  this->mObjectDefinitions->getAll2DObjects(); 
+		int count=1;
+		for (itr= objects.begin(); itr!= objects.end(); itr++)
+		{
+			cellTypes+= StringConverter::toString(count) +": " + (*itr).mName + "     "; 
+			count++; 
+		}
+
+		OverlayElement* guiCellTypes = OverlayManager::getSingleton().getOverlayElement("GUI/cellTypes");
+		guiCellTypes->setCaption(cellTypes); 
+		OverlayElement* guiCellSelection = OverlayManager::getSingleton().getOverlayElement("GUI/currentCellSelection");
+		guiCellSelection->setCaption("Current Selection: " + StringConverter::toString(this->mPointer->getCurrentCellModeID())); 
+
+
 }

@@ -1,5 +1,5 @@
 #include "Pointer.h"
-
+#include "CellSystemProperties.h"
 Pointer::Pointer(std::string& name, Canvas* canvas, Ogre::SceneManager* sceneMgr): 
 mCanvas(canvas), mSceneMgr(sceneMgr) 
 {
@@ -11,6 +11,7 @@ mCanvas(canvas), mSceneMgr(sceneMgr)
 	acceleration= Vector2(0,0);
 	mPos= Vector2(0,0); 
 	mPressed=false;
+	mMode=1;
 }
 
 Pointer::~Pointer(void)
@@ -52,7 +53,18 @@ bool Pointer::mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id)
 	//plant  seed
 	if (mPressed==false)
 	{
-		mCanvas->addCellSystem(mPos,std::string("land"),true,1.0); 
+		switch(mMode){
+		
+		case 1:
+			mCanvas->addCellSystem(mPos,"Square",true,1.0); 
+			break;
+		case 2:
+			mCanvas->addCellSystem(mPos,"Hexagon",true,1.0); 
+			break;
+		case 3:
+			mCanvas->addCellSystem(mPos,"Triangle",true,1.0); 
+			break;
+		}
 	}
 
 
@@ -66,4 +78,15 @@ bool Pointer::mouseReleased(const OIS::MouseEvent &e, OIS::MouseButtonID id)
 	mPressed=false;
 
 	return true;
+}
+
+
+unsigned int  Pointer::getCurrentCellModeID()
+{
+	return mMode; 
+} 
+
+void Pointer::setCreateType(unsigned int type)
+{
+	mMode=type;
 }

@@ -11,6 +11,7 @@ class Console;
 class Pointer;
 class CellFactory; 
 class Cell;
+class ObjectDefinitions; 
 
 enum CAMERAMODE
 {
@@ -53,6 +54,7 @@ public:
 
 
 private: 
+	ObjectDefinitions* mObjectDefinitions;
 
 	std::vector<Cell*> testCells; 
 
@@ -60,7 +62,7 @@ private:
 	
 	//void steerCamera(const OIS::KeyEvent &e); 
 	void checkKeyboardInput(const FrameEvent &evt); 
-
+	void updateParameterOverlay(void);
 	bool updateCamera(const FrameEvent &evt); 
 
 	Ogre::Camera* mMainCam;

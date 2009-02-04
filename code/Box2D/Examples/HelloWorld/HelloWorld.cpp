@@ -102,7 +102,7 @@ int main(int argc, char** argv)
 
 		printf("%4.2f %4.2f %4.2f\n", position.x, position.y, angle);
 	}
-
+	getchar(); 
 	// When the world destructor is called, all bodies and joints are freed. This can
 	// create orphaned pointers, so be careful about your world management.
 

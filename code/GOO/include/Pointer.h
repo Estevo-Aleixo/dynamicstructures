@@ -3,6 +3,8 @@
 #include "Main.h"
 #include "Canvas.h"
 
+class CellSystemProperties;
+
 class Pointer 
 {
 
@@ -16,12 +18,15 @@ public:
 	bool mouseMoved(const OIS::MouseEvent &e);
 	bool mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id);
 	bool mouseReleased(const OIS::MouseEvent &e, OIS::MouseButtonID id);
-
-
+	unsigned int getCurrentCellModeID();
+	void setCreateType(unsigned int type);
 private:
+	unsigned int mCreateType; 
+
+	unsigned int mMode;
+	std::vector<CellSystemProperties*> mCellSystemModes; 
+
 	bool mPressed;
-
-
 	std::vector<Ogre::Vector2> samples;
 
 	Ogre::SceneNode* mPointerNode; 

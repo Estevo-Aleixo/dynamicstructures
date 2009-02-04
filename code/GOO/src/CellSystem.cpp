@@ -1,17 +1,20 @@
 #include "CellSystem.h"
 #include "CellFactory.h"
 #include "Canvas.h"
+#include "ObjectDefinitions.h"
 
-CellSystem::CellSystem(std::string& name, Canvas* canvas, Ogre::SceneManager* sceneMgr, Ogre::Vector2& startPosition, std::string& systemType, bool enabled, Ogre::Real speed)
+CellSystem::CellSystem(std::string& name, Canvas* canvas, Ogre::SceneManager* sceneMgr, Ogre::Vector2& startPosition, const char* systemType, bool enabled, Ogre::Real speed)
 : mName(name), mStartPos(startPosition), mSceneMgr(sceneMgr),mSystemType(systemType), mEnabled(enabled), mSpeed(speed), mCanvas(canvas) 
 {
 	
 	mStartEntity = mSceneMgr->createEntity(name+"_start_marker_entity",HEXAGON_LINE_MESH); 
 	mStartNode= mSceneMgr->getSceneNode("CanvasRootNode")->createChildSceneNode(name+ "_start_marker_node"); 
 	mStartNode->attachObject(mStartEntity); 
+	mStartNode->setScale(0.2,0.2,0.2);
 	mLabelNode= mStartNode->createChildSceneNode(Vector3(2,0,2)); 
 	
 	//create label:
+	
 	mLabel= new MovableText(name+ "_labelText",name); 
 	mLabel->setFontName( "mainfont" );
 	mLabel->setColor( ColourValue::Green );
@@ -22,23 +25,28 @@ CellSystem::CellSystem(std::string& name, Canvas* canvas, Ogre::SceneManager* sc
 	mLabelNode->setInheritScale(false); 
 	mStartNode->setPosition(startPosition.x, startPosition.y,0); 
 	
-	//load properties:
-	//mProperties= new CellSystemProperties(); 
-	//mLocalProperties= new CellSystemProperties(); 
-	//mDefaultType=CELLTYPE::HEXAGON; 
+	Object2DProperties props= ObjectDefinitions::getSingletonPtr()->getObjectByName(systemType); 
+	Cell* firstCell= mCanvas->getCellFactory()->createCell(props, mStartPos); 
 
-	//create Start Cell:
-	Cell* firstCell= mCanvas->getCellFactory()->requestCellFromPool(); 
-	firstCell->setPosition(mStartPos); 
-	//firstCell->getNode()->scale(10,10,10); 
-	firstCell->getBody()->WakeUp();
 	firstCell->enable(true); 
-
 	this->mEnabled=true;
 	mCells.push_back(firstCell);
 
-	//temp create array of cells: 
-	
+	//temp create surrounding array of cells: 
+	unsigned int cells= 6; 
+	Ogre::Radian angleInterval= Radian(Math::TWO_PI / cells); 
+	Ogre::Vector2 pos;
+	for (int i = 0; i < cells; i++)
+	{  
+		pos.x = Math::Cos(angleInterval*i) * 2;
+		pos.y = Math::Sin(angleInterval*i) * 2;
+		Cell* newCell=mCanvas->getCellFactory()->createCell(props, mStartPos+ pos); 
+		mCells.push_back(newCell);
+		newCell->enable(true); 
+	}
+
+	spawnTimeInterval=1;
+	TimePassed=0;
 
 }
 
@@ -59,19 +67,33 @@ bool CellSystem::frameStarted(const FrameEvent &evt)
 		mCells[i]->frameStarted(evt); 
 	}
 
-	//remember to call this function:
-	//processNewCells(evt);
+	//spawn a cell from any random cell
+	TimePassed+=evt.timeSinceLastFrame;
+
+	if (TimePassed > this->spawnTimeInterval)
+	{
+		TimePassed=0;
+		int chosen= (int)Ogre::Math::RangeRandom(0,mCells.size());
+		//vector from core
+		Ogre::Vector2 offset;
+		offset.x=Ogre::Math::RangeRandom(-1,1);
+		offset.y=Ogre::Math::RangeRandom(-1,1);
+		Ogre::Vector2 pos= mCells[chosen]->getPosition() + offset.normalisedCopy() * 2; 
+	
+		Object2DProperties props= ObjectDefinitions::getSingletonPtr()->getObjectByName(mSystemType); 
+		Cell* newCell= mCanvas->getCellFactory()->createCell(props, pos);
+		mCells.push_back(newCell);
+		offset*=1;
+		newCell->enable(true); 
+		newCell->getBody()->ApplyImpulse(b2Vec2((float32)offset.x,(float32)offset.y),b2Vec2(0,0)); 
+	}
 
 	return true;
 }
 
 void CellSystem::processNewCells(const FrameEvent &evt)
 {
-	//while(mCellBuffer.empty()==false)
-	//{
-	//	mCells.push_back(mCellBuffer.front());
-	//	mCellBuffer.pop(); 
-	//}
+
 }
 
 
@@ -99,12 +121,6 @@ void CellSystem::setOrientation(Ogre::Radian& orientation)
 Cell*  CellSystem::requestCell()
 {
 	Cell* newCell;
-	//load settings here	
-
-	//mutated variables:
-	//mLocalProperties->setCellSize(10.0);
-	//newCell= CellFactory::getSingletonPtr()->requestCell(this, mDefaultType); 
-	//mCellBuffer.push(newCell); 
-	//mCells.push_back(newCell); 
+	
 	return newCell;
 }

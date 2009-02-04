@@ -125,30 +125,10 @@ Core/DebugOverlay
 		}
 				
 	}
-	container Panel(Core/LogoPanel)
-	{	
-		metrics_mode pixels
-		horz_align right
-		vert_align bottom
-		top -75
-		left -165
-		width 150
-		height 75
-		material Core/OgreText
-	}
+	
 }
 
-// A silly example of how you would do a 3D cockpit
-//Examples/KnotCockpit
-//{
-//	zorder 100
-//	entity knot.mesh(hudKnot)
-//	{
-//		position 0 0 -50
-//		rotation 0 0 0 0
-//	}
-//
-//}
+
 
 
 

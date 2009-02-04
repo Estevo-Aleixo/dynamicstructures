@@ -16,6 +16,7 @@ public:
 
 	 Cell* requestCellFromPool();
 	 Cell* requestCell(CellSystem* cellSystem, CELLTYPE type);
+	 Cell* createCell(Object2DProperties& props, Vector2& position); 
 	 Cell* requestCustomCell(std::vector<Ogre::Vector2> vertices, std::vector<unsigned int> indices);
 	 
 	 Cell* getCellByID(unsigned int id); 
