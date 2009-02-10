@@ -29,7 +29,7 @@ The behavior of the cell structures is governed by these four things:
 
 \section{Properties of Cell Structures}
 
-\subsection{Properties of Individual Cells}
+\subsection{Properties of a Cell}
  
 An important part of the cell structure concept is the viral nature of the cells. This means that a cell i can transfer properties to neighbouring cell j thereby altering the behaviour of cell j. In this section I will first discuss the physical properties of the cells (shape, mass, size and friction). These properties affect the way cells translate and rotate in our 2D space, thereby shaping the boundary of the cell systems. Then I will discuss the different types of other viral properties of cells.    
 
@@ -46,16 +46,30 @@ The combination of shape, size and mass of a cell is important because it determ
 
 \subsubsection{Viral Properties}
 
-For the cells we have defined the following viral properties
+For the cells we have defined a set of viral properties
 
 
 
 
+\subsection{Properties of a System}
+
+The behaviour of a Cell system is defined by its property set. 
+It is the goal of this research to find certain configurations of properties which represent growth of natural phenomenon in an intuitive way. Such that the property set of a system could be labeled by names such as: land, water, vegetation, desert, mountains. Land could be a cellsystem that provides a surface desert and mountains to grow on. I will experiment with different configurations of parameters for the growing of natural phenomena. I will look at different kind of shapes and sizes for the cells of a system to see how they affect the growth process and the interaction between systems (both physically and virally). 
+
+For example, I could use large hexagon shaped cells to represent land and small triangle shaped cells to represent water. The land-system shall have a low density which means that there is much space between the cells which can be accomplished by making the springs that hold the cells relatively long. This way, water cells can enter the land-system which can then result in an event such as spawning a new type of cell system (river, vegetation, etc..). Also the collision between a water cell and a land cell can cause the expansion of the land to halt locally. With my experiments I hope to find out whether configurations such as this will lead to meaningful results. Ofcourse you can also think of more abstract property sets which do not nessecerily represent any natural phenomenon, but my primary goal is to find configurations of cellsystems that are useful for the generation of 2D outdoor maps.  
+
+I will now address the core behaviour of a cell structure. The core behaviour is the expansion of the cellsystem over time. Cellsystems consist of a set of cells connected with springs. The expansion is regulated by properties such as growth rate, maximal volume, cell spawning, cell sizing etc..    
+
+\begin{figure}
+\centering
+  \begin{center}
+	\includegraphics[width=250pt]{images/hexagon_cell_system.png}
+\end{center}
+	\caption{impressions}\label{fig:global_map}
+\end{figure}
 
 
-
-\subsection{Properties of the Systems}
-
+ \subsubsection{Growing of Cell systems}
 
 creating a medial axis skeleton with shape decomposition.
 
@@ -69,6 +83,11 @@ creating a medial axis skeleton with shape decomposition.
 \item destruction of a cell system
 \item merging of two cell systems
 \end{itemize}
+
+
+
+
+
 
 \subsection{Using LUA to store properties and events}
 
