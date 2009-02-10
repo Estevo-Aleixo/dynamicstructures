@@ -1,0 +1,80 @@
+\documentclass{article}
+
+\usepackage[usenames]{color} 
+\usepackage{graphicx} 
+
+\newcommand{\todo}[1]{\textcolor{red}{\textbf{TODO: }\it{#1}}}
+\newcommand{\inhoud}[1]{\textcolor{blue}{\textbf{Summary: }\it{#1}}}
+\newcommand{\revise}[1]{\textcolor{orange}{\textbf{Revise: }\it{#1}}}
+
+\definecolor{MyDarkGreen}{rgb}{0.13, 0.54,0.13} 
+\newcommand{\voegtoe}[1]{\textcolor{MyDarkGreen}{\textbf{-Insert: }\it{#1}}\newline}
+
+\title{Design decisions Dynamic Cell Structures \small{Properties and Interaction}}
+\author{Ruud op den Kelder}
+
+\begin{document}
+\maketitle
+
+For the 2D spatial growth model based editor I have chosen to represent the growth models with cell structures. 
+
+The behavior of the cell structures is governed by these four things:  
+
+\begin{enumerate}
+\item Mass Spring System. A mass spring system which connects neighbouring cells belonging to the same system. It has the responsibility of keeping the topology of the group of cells intact.  
+\item Properties and behaviour of the cells and cellsystems; shape, size, events (events occur when two or more cell structures collide.) 
+\item User input. What ever the editor tool provides to the user to manipulate the cellstructures.
+\item Automatic map generation. AI techniques to govern the map generation process.  
+\end{enumerate}  
+
+\section{Properties of Cell Structures}
+
+\subsection{Properties of Individual Cells}
+ 
+An important part of the cell structure concept is the viral nature of the cells. This means that a cell i can transfer properties to neighbouring cell j thereby altering the behaviour of cell j. In this section I will first discuss the physical properties of the cells (shape, mass, size and friction). These properties affect the way cells translate and rotate in our 2D space, thereby shaping the boundary of the cell systems. Then I will discuss the different types of other viral properties of cells.    
+
+
+
+
+
+\subsubsection{Physical Properties}
+A cell can have any of the shapes in figure \label{fig: shapes}:
+
+hexagon triangle square circle
+
+The combination of shape, size and mass of a cell is important because it determines the way cells physically react to collisions.
+
+\subsubsection{Viral Properties}
+
+For the cells we have defined the following viral properties
+
+
+
+
+
+
+
+\subsection{Properties of the Systems}
+
+
+creating a medial axis skeleton with shape decomposition.
+
+
+\subsection{Events}
+
+\begin{itemize}
+\item spawning of a cellsystem
+\item transfer of properties
+\item completion of a cell system
+\item destruction of a cell system
+\item merging of two cell systems
+\end{itemize}
+
+\subsection{Using LUA to store properties and events}
+
+The cellsystems have many different parameters which control there behaviour. Alteration of these parameters has to be an easy and swift process. Therefore, we will be using a scripting language to handle properties and part of the behaviour of cells. We have chosen Lua for our scripting system, due to its history in game development and straightforward usage.
+
+
+
+
+\end{document}
