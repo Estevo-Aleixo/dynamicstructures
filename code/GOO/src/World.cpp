@@ -5,6 +5,11 @@
 #include "CellFactory.h"
 #include "ObjectDefinitions.h"
 
+#include "LuaGlueFunctions.h"
+
+//cLua* pLua; 
+//World* pWorld;
+
 World::World(RenderWindow* win, Camera* cam, SceneManager *sceneMgr, CEGUI::OgreCEGUIRenderer *renderer, Root * root ): 
 ExampleFrameListener(win, cam, true, true), mGUIRenderer(renderer), mSceneMgr(sceneMgr),mRoot(root)
 {
@@ -40,15 +45,25 @@ ExampleFrameListener(win, cam, true, true), mGUIRenderer(renderer), mSceneMgr(sc
 	
 	Ogre::OverlayManager::getSingletonPtr()->getByName("GUI/editor")->show(); 
 	updateParameterOverlay(); 
-}
 
+	//lua: register all LuaGlue functions
+	pLua= new cLua();
+	pWorld=this;
+	RegisterFunctions(); 
+	//call lua initilizer:
+	pLua->RunScript("..\\..\\media\\Lua\\init.lua"); 
+}
 
 
 World::~World(void)
 {
 //delete all
+}
 
-
+void World::sayHello()
+{
+//register hello world: 
+	Ogre::LogManager::getSingletonPtr()->logMessage("hello i am the world."); 
 }
 
 bool World::frameStarted(const FrameEvent &evt)

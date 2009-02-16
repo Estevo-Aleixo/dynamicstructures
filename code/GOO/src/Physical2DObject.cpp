@@ -54,7 +54,6 @@ void Physical2DObject::updatePhysics(const Ogre::FrameEvent& evt)
 //update pos:
 	mNode->setPosition(mBody->GetPosition().x,mBody->GetPosition().y,0); 
 //update angle:
-	Ogre::LogManager::getSingletonPtr()->logMessage("x: " + StringConverter::toString(mBody->GetPosition().x));
 
 	if (mBody->GetAngularVelocity()>0.5)
 		mBody->SetAngularVelocity(0.5);

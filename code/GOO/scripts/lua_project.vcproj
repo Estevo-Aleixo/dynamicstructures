@@ -44,7 +44,7 @@
 				EnableIntrinsicFunctions="true"
 				FavorSizeOrSpeed="1"
 				WholeProgramOptimization="false"
-				AdditionalIncludeDirectories="..\include;&quot;$(OGRE_HOME)\include&quot;;&quot;$(OGRE_HOME)\samples\include&quot;;&quot;..\..\Box2D\Include&quot;"
+				AdditionalIncludeDirectories="..\include;&quot;$(OGRE_HOME)\include&quot;;&quot;$(OGRE_HOME)\samples\include&quot;;..\..\Box2D\Include;&quot;..\..\lua5.1\include&quot;;"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -65,9 +65,9 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="OgreMain_d.lib OIS_d.lib CEGUIBase_d.lib OgreGUIRenderer_d.lib box2d_d.lib  "
+				AdditionalDependencies="OgreMain_d.lib OIS_d.lib CEGUIBase_d.lib OgreGUIRenderer_d.lib box2d_d.lib lua5.1.lib"
 				LinkIncremental="2"
-				AdditionalLibraryDirectories="&quot;..\..\Box2D\Library&quot;;&quot;$(OGRE_HOME)\lib&quot;;&quot;$(OGRE_HOME)\Dependencies\lib\$(ConfigurationName)&quot;;"
+				AdditionalLibraryDirectories="..\..\Box2D\Library;&quot;$(OGRE_HOME)\lib&quot;;&quot;$(OGRE_HOME)\Dependencies\lib\$(ConfigurationName)&quot;;E:\thesis\code\lua5.1\lib\static"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				RandomizedBaseAddress="1"
@@ -125,7 +125,7 @@
 				InlineFunctionExpansion="2"
 				EnableIntrinsicFunctions="true"
 				FavorSizeOrSpeed="1"
-				AdditionalIncludeDirectories="..\include;&quot;$(OGRE_HOME)\include&quot;;&quot;$(OGRE_HOME)\samples\include&quot;;&quot;..\..\Box2D\Include&quot;"
+				AdditionalIncludeDirectories="..\include;&quot;$(OGRE_HOME)\include&quot;;&quot;$(OGRE_HOME)\samples\include&quot;;..\..\Box2D\Include; ..\..\lua5.1\include;"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS"
 				RuntimeLibrary="2"
 				FloatingPointModel="2"
@@ -145,9 +145,9 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="OgreMain.lib OIS.lib CEGUIBase.lib OgreGUIRenderer.lib box2d.lib  "
+				AdditionalDependencies="OgreMain.lib OIS.lib CEGUIBase.lib OgreGUIRenderer.lib box2d.lib"
 				LinkIncremental="1"
-				AdditionalLibraryDirectories="&quot;..\..\Box2D\Library&quot;;&quot;$(OGRE_HOME)\lib&quot;;&quot;$(OGRE_HOME)\Dependencies\lib\$(ConfigurationName)&quot;;..\lib\release"
+				AdditionalLibraryDirectories="..\..\Box2D\Library;&quot;$(OGRE_HOME)\lib&quot;;&quot;$(OGRE_HOME)\Dependencies\lib\$(ConfigurationName)&quot;;..\lib\release;"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				OptimizeReferences="2"
@@ -209,6 +209,10 @@
 			</File>
 			<File
 				RelativePath="..\src\CellSystemProperties.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\cLua.cpp"
 				>
 			</File>
 			<File
@@ -306,6 +310,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\include\cLua.h"
+				>
+			</File>
+			<File
 				RelativePath="..\include\Functions.h"
 				>
 			</File>
@@ -366,6 +374,18 @@
 				</File>
 				<File
 					RelativePath="..\include\World.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="LuaGlue"
+				>
+				<File
+					RelativePath=".\GuiEvents.h"
+					>
+				</File>
+				<File
+					RelativePath="..\include\LuaGlueFunctions.h"
 					>
 				</File>
 			</Filter>

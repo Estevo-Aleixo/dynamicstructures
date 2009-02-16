@@ -1,6 +1,7 @@
 #pragma once
 
-#include "Main.h"
+
+#include "cLua.h"
 #include "ExampleFrameListener.h"
 #include "Canvas.h"
 
@@ -52,7 +53,7 @@ public:
 	//!overloaded member function from ExampleFrameListener. buffered keyboard input key releases. 
 	bool keyReleased(const OIS::KeyEvent &e);
 
-
+	void sayHello();
 private: 
 	ObjectDefinitions* mObjectDefinitions;
 
@@ -80,10 +81,6 @@ private:
 	Ogre::SceneNode* coreNode; 
 	Ogre::Entity* coreEntity;
 
-
-	void createTestPolygon(); 
-	void updateTestPolygon(const FrameEvent &evt); 
-
 	Ogre::ManualObject* moTest; 
 
 	std::vector<Ogre::Vector2> points; 
@@ -93,14 +90,23 @@ private:
 	bool mContinue;
 	Console* mConsole;
 
+
+	//TEST VARS---------------------------
+	void createTestPolygon(); 
+	void updateTestPolygon(const FrameEvent &evt); 
 	Radian angle;  
 	double diameter;
 	Radian wave;
 	double counter;
+	//------------------------------------
+
+	
 
 protected: 
 	CEGUI::OgreCEGUIRenderer* mGUIRenderer;     // CEGUI renderer
 	Ogre::SceneManager* mSceneMgr;
-
+	
 	//void updateStats(void);
 };
+
+

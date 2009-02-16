@@ -11,6 +11,7 @@ Filename:    Main.h
 #include <assert.h>
 #include "Box2D.h"
 
+
 #include "Ogre.h"
 #include "OgreConfigFile.h"
 #include <OIS/OIS.h>
@@ -27,16 +28,14 @@ Filename:    Main.h
 
 #include "MovableText.h"
 
-/*
+
+
 extern "C"
 {
     #include "lua.h"
 	#include "lualib.h"
 	#include "lauxlib.h"
 }
-
-#include <luabind/luabind.hpp>
-*/
 
 
 class ExampleFrameListener;
