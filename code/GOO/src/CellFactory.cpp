@@ -37,7 +37,7 @@ Ogre::Mesh* CellFactory::createCustomCellMesh(std::string& name, std::vector<Ogr
 
 
 
-Cell* CellFactory::createCell(Object2DProperties& props, Vector2& position)
+Cell* CellFactory::createCell(Object2DProperties* props, Vector2& position)
 {
 	//todo alter!
 	Cell* newCell= new Cell("cell"+ Ogre::StringConverter::toString((int)mCells.size()),mCells.size(),mSceneMgr, props, mCanvas, position); 

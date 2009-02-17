@@ -6,6 +6,8 @@
 
 
 class Canvas; 
+class SkeletonPoint; 
+
 
 class CellSystem
 {
@@ -19,7 +21,7 @@ public:
 	bool isEnabled(){return mEnabled;}
 
 	void start(){mEnabled=true;}
-	void pause(){mEnabled=false;}
+	void halt(){mEnabled=false;}
 	void stop(){mEnabled=false; mDone=true;} 
 
 	Ogre::Real getSpeed(){return mSpeed;} 
@@ -27,6 +29,8 @@ public:
 	void setSpeed(Ogre::Real speed){mSpeed=speed;} 
 	void setPosition(Ogre::Vector2& position); //repositions entire cell system 
 	void setOrientation(Ogre::Radian& orientation); 
+
+
 	Cell* requestCell(); 
 	
 	bool frameStarted(const FrameEvent &evt); 
@@ -53,6 +57,9 @@ protected:
 	Ogre::Real mSpeed;
 	Ogre::Radian mOrientation;
 	
+	void updateSkeleton(); //just translate current spine positions 
+	void recalculateSkeleton(); //recalculate entire skeleton
+	std::vector<SkeletonPoint*> skeletonPoints;
 
 	std::vector<Cell*> mCells;
 	

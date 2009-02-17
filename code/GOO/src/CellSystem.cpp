@@ -25,7 +25,7 @@ CellSystem::CellSystem(std::string& name, Canvas* canvas, Ogre::SceneManager* sc
 	mLabelNode->setInheritScale(false); 
 	mStartNode->setPosition(startPosition.x, startPosition.y,0); 
 	
-	Object2DProperties props= ObjectDefinitions::getSingletonPtr()->getObjectByName(systemType); 
+	Object2DProperties* props= new Object2DProperties(ObjectDefinitions::getSingletonPtr()->getObjectByName(systemType)); 
 	Cell* firstCell= mCanvas->getCellFactory()->createCell(props, mStartPos); 
 
 	firstCell->enable(true); 
@@ -42,7 +42,9 @@ CellSystem::CellSystem(std::string& name, Canvas* canvas, Ogre::SceneManager* sc
 		pos.y = Math::Sin(angleInterval*i) * 2;
 		Cell* newCell=mCanvas->getCellFactory()->createCell(props, mStartPos+ pos); 
 		mCells.push_back(newCell);
-		newCell->enable(true); 
+		newCell->enable(true);
+		double scale=1.4;
+		newCell->setScale(scale); 
 	}
 
 	spawnTimeInterval=1;
@@ -80,12 +82,14 @@ bool CellSystem::frameStarted(const FrameEvent &evt)
 		offset.y=Ogre::Math::RangeRandom(-1,1);
 		Ogre::Vector2 pos= mCells[chosen]->getPosition() + offset.normalisedCopy() * 2; 
 	
-		Object2DProperties props= ObjectDefinitions::getSingletonPtr()->getObjectByName(mSystemType); 
+		Object2DProperties* props= new Object2DProperties(ObjectDefinitions::getSingletonPtr()->getObjectByName(mSystemType)); 
 		Cell* newCell= mCanvas->getCellFactory()->createCell(props, pos);
 		mCells.push_back(newCell);
 		offset*=1;
 		newCell->enable(true); 
 		newCell->getBody()->ApplyImpulse(b2Vec2((float32)offset.x,(float32)offset.y),b2Vec2(0,0)); 
+		double scale = Ogre::Math::RangeRandom(1.0,5.0); 
+		newCell->setScale(scale);
 	}
 
 	return true;
@@ -123,4 +127,16 @@ Cell*  CellSystem::requestCell()
 	Cell* newCell;
 	
 	return newCell;
+}	
+
+void CellSystem::updateSkeleton()
+{
+
+
+}  
+
+void CellSystem::recalculateSkeleton()
+{
+
+
 }

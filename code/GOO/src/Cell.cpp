@@ -1,7 +1,7 @@
 #include "Cell.h"
 #include "CellSystem.h"
 
-Cell::Cell(std::string name, unsigned int id, Ogre::SceneManager* sceneMgr, Object2DProperties& properties, Canvas* canvas, Ogre::Vector2 position, bool enabled):
+Cell::Cell(std::string name, unsigned int id, Ogre::SceneManager* sceneMgr, Object2DProperties* properties, Canvas* canvas, Ogre::Vector2 position, bool enabled):
 Physical2DObject(name + std::string("_2DObject"), canvas, sceneMgr, properties, position, enabled),
 mName(name), 
 mID(id), 

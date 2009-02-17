@@ -37,7 +37,38 @@ Object2DProperties::Object2DProperties(const char* name, std::string meshName, b
 
 }
 
+b2PolygonDef Object2DProperties::getShapeDef(double scale)
+{
+b2PolygonDef scaledDef;
+//scale the bitch
+	scaledDef.vertexCount= mShapeDef.vertexCount;
+	scaledDef.density= mShapeDef.density;
+	scaledDef.friction= mShapeDef.friction;
+	for (unsigned int i=0 ; i < mShapeDef.vertexCount; i++)
+	{   
+		scaledDef.vertices[i].x = mShapeDef.vertices[i].x * scale; 
+		scaledDef.vertices[i].y = mShapeDef.vertices[i].y * scale; 
+	}
 
+return scaledDef; 
+}
+
+
+
+
+
+
+/*
+Object2DProperties::Object2DProperties(Object2DProperties& p)
+{
+	this->mDensity = p.mDensity;
+	this->mFrictionConstant= p.mFrictionConstant;
+	this->mMeshName= p.mMeshName;
+	this->mName= p.mName;
+	this->mScale= p.mScale;
+	this->mShapeDef= p.getShapeDef();
+}
+*/
 
 Object2DProperties::~Object2DProperties(void)
 {

@@ -90,7 +90,7 @@ void ObjectDefinitions::loadDefaultObjects()
 		shapeDef.vertices[3].Set(-0.5*cellSize,0.5*cellSize); 
 		shapeDef.density= 5.0;
 		shapeDef.friction= 2.0;
-		newObject= Object2DProperties("Square",SQUARE_MESH,shapeDef,5.0); 
+		newObject= Object2DProperties("Square",SQUARE_MESH,shapeDef,1.0); 
 		mObjects.push_back(newObject);
 	
 	//LOAD HEXAGON 
@@ -120,7 +120,7 @@ void ObjectDefinitions::loadDefaultObjects()
 		cellHex->convertToMesh(HEXAGON_LINE_MESH);  
 		shapeDef.density= 5.0;
 		shapeDef.friction= 2.0;
-		newObject= Object2DProperties("Hexagon",HEXAGON_LINE_MESH,shapeDef,5.0); 
+		newObject= Object2DProperties("Hexagon",HEXAGON_LINE_MESH,shapeDef,1.0); 
 		mObjects.push_back(newObject);
 
 	//load triangle
@@ -155,7 +155,7 @@ void ObjectDefinitions::loadDefaultObjects()
 	cellTriangle->convertToMesh(TRIANGLE_MESH);  
 	shapeDef.density= 5.0;
 	shapeDef.friction= 2.0;
-	newObject= Object2DProperties("Triangle",TRIANGLE_MESH,shapeDef,5.0); 
+	newObject= Object2DProperties("Triangle",TRIANGLE_MESH,shapeDef,1.0); 
 	mObjects.push_back(newObject);
 
 }

@@ -7,7 +7,7 @@
 class Physical2DObject
 {
 public:
-	Physical2DObject(std::string& name, Canvas* canvas, Ogre::SceneManager* sceneMgr, Object2DProperties& properties, Ogre::Vector2& position, bool enabled=true);
+	Physical2DObject(std::string& name, Canvas* canvas, Ogre::SceneManager* sceneMgr, Object2DProperties* properties, Ogre::Vector2& position, bool enabled=true);
 	~Physical2DObject(void);
 
 	virtual void updatePhysics(const Ogre::FrameEvent& evt);
@@ -30,8 +30,13 @@ public:
 		mBody->SetXForm(b2Vec2((float)p.x,(float)p.y) ,0.0);
 	}; 
 	void setAngle(float& angle){mBody->SetXForm(mBody->GetPosition(),angle);}
+	
+	inline double getScale(){return mScale;}
+	void setScale(double& scale);
 
 private: 
+	double mScale; 
+
 	Canvas* mCanvas;
 	bool mEnabled; 
 //ogre 
@@ -42,7 +47,8 @@ private:
 //physics
 
 	//body
-	b2Body* mBody;
+	Object2DProperties* mProperties;
+	b2Body* mBody;	
 	//world
 	b2World* mWorld;
 	b2Shape* mShape; 

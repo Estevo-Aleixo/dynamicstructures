@@ -145,9 +145,9 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="OgreMain.lib OIS.lib CEGUIBase.lib OgreGUIRenderer.lib box2d.lib"
+				AdditionalDependencies="OgreMain.lib OIS.lib CEGUIBase.lib OgreGUIRenderer.lib box2d.lib lua5.1.lib"
 				LinkIncremental="1"
-				AdditionalLibraryDirectories="..\..\Box2D\Library;&quot;$(OGRE_HOME)\lib&quot;;&quot;$(OGRE_HOME)\Dependencies\lib\$(ConfigurationName)&quot;;..\lib\release;"
+				AdditionalLibraryDirectories="..\..\Box2D\Library;&quot;$(OGRE_HOME)\lib&quot;;&quot;$(OGRE_HOME)\Dependencies\lib\$(ConfigurationName)&quot;;..\lib\release;..\..\lua5.1\lib\static"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				OptimizeReferences="2"
@@ -241,6 +241,10 @@
 			</File>
 			<File
 				RelativePath="..\src\Seed.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\Skeleton2D.cpp"
 				>
 			</File>
 			<Filter
@@ -339,6 +343,10 @@
 			</File>
 			<File
 				RelativePath="..\include\Seed.h"
+				>
+			</File>
+			<File
+				RelativePath="..\include\Skeleton2D.h"
 				>
 			</File>
 			<Filter
