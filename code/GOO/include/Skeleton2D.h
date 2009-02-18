@@ -18,10 +18,13 @@ class Skeleton2D
 {
 public:
 	Skeleton2D(void);
-	Skeleton2D(Ogre::Vector2& startpos, CellSystem* cellSystem);
+	Skeleton2D(std::string& name, Ogre::Vector2& startpos, CellSystem* cellSystem, Ogre::SceneManager* sceneMgr);
 	//Skeleton2D(Ogre::Vector2& startpos, ObjectSystem* objectSystem);
 	//Skeleton2D(Ogre::Vector2& startpos, PathSystem* pathSystem);
 	~Skeleton2D(void);
+
+	
+	Ogre::Vector2 getPosition(){return mPosition;}
 
 	void update(const Ogre::FrameEvent& evt);		
 
@@ -34,9 +37,18 @@ public:
 	Skeleton2D* getClosestChild();
 	std::vector<Skeleton2D*>* getAllChildren();
 	
-
+	inline void setEffectRadius(double& radius){mRadius=radius;} 
+	inline void setPushForce(double& force){mForce=force;}  
 
 protected:
+	double mRadius;
+	double mForce;
+
+	Ogre::Vector2 mPosition;
+
+	Ogre::SceneManager* mSceneMgr;
+	CellSystem* mCellSystem;
+
 	void addPoint(Ogre::Vector2 point);
 	void findNearestPoint(Ogre::Vector2 position); 
 

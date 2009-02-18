@@ -16,6 +16,7 @@ mSceneMgr(sceneMgr), mWorld(canvas->getPhysicsWorld()),mCanvas(canvas), mEnabled
 	//create box2d physical body: 
 	
 		b2BodyDef bodyDef;
+		mPos=position;
 		bodyDef.position.Set(position.x, position.y);
 		mBody= mWorld->CreateBody(&bodyDef); 
 		//shape (just triangle for now)
@@ -24,7 +25,8 @@ mSceneMgr(sceneMgr), mWorld(canvas->getPhysicsWorld()),mCanvas(canvas), mEnabled
 		mShape = mBody->CreateShape(&shapeDef); 
 		mBody->SetMassFromShapes();
 		mBody->WakeUp(); 
-
+mScale=1.0;
+		this->mProperties = properties; 
 }
 
 Physical2DObject::~Physical2DObject(void)
@@ -39,6 +41,7 @@ void Physical2DObject::updatePhysics(const Ogre::FrameEvent& evt)
 //update pos:
 	mNode->setPosition(mBody->GetPosition().x,mBody->GetPosition().y,0); 
 //update angle:
+	mPos= Vector2(mBody->GetPosition().x, mBody->GetPosition().y); 
 
 	if (mBody->GetAngularVelocity()>0.5)
 		mBody->SetAngularVelocity(0.5);
@@ -52,11 +55,13 @@ void Physical2DObject::updatePhysics(const Ogre::FrameEvent& evt)
 
 void Physical2DObject::setScale(double& scale)
 {
-mScale= scale; 
 
+double newScale= scale / mScale;
 //set node size:
-mNode->scale(Vector3(mScale,mScale,mScale)); 
 
+mNode->scale(Vector3(newScale,newScale,newScale)); 
+
+mScale = scale;
 
 		mBody->DestroyShape(mShape); 	
 		b2PolygonDef shapeDef= mProperties->getShapeDef(scale);

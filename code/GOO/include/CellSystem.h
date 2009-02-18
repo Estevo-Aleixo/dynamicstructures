@@ -3,11 +3,9 @@
 #include "Main.h"
 #include "Cell.h"
 //#include "CellSystemProperties.h"
-
+#include "Skeleton2D.h"
 
 class Canvas; 
-class SkeletonPoint; 
-
 
 class CellSystem
 {
@@ -40,7 +38,14 @@ public:
 	CellSystemProperties* getProperties(){return mProperties;}
 	CellSystemProperties* getLocalProperties(){return mLocalProperties;}
 
+	//inline std::vector<Cell*>& getCellVector(){return mCells};
+	std::vector<Cell*> mCells;
+
+	inline void addCell(Cell* cell){mCells.push_back(cell);} 
 protected:
+	//Object2DProperties* mProperties;
+	Skeleton2D* mSkeleton;
+
 	Canvas* mCanvas;
 	void processNewCells(const FrameEvent &evt);
 	std::queue<Cell*> mCellBuffer;
@@ -59,9 +64,8 @@ protected:
 	
 	void updateSkeleton(); //just translate current spine positions 
 	void recalculateSkeleton(); //recalculate entire skeleton
-	std::vector<SkeletonPoint*> skeletonPoints;
 
-	std::vector<Cell*> mCells;
+
 	
 	Ogre::SceneNode* mStartNode; 
 	Ogre::SceneNode* mLabelNode;

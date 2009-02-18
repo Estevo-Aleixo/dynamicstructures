@@ -42,3 +42,15 @@ material triangle_cell
 	}
 }
 
+
+material ambient_red
+{
+	technique
+	{
+		pass
+		{
+			ambient 1.0 0.0 0.0
+		}
+	}
+}
+

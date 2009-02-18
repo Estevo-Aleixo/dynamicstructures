@@ -26,7 +26,6 @@ public:
 
 	//GETTERS
 	CELLTYPE getType(){return mType;}
-	Ogre::Vector2& getPosition(){return mPos;}
 	std::string getName(){return mName;} 
 
 	//SETTERS
@@ -47,19 +46,20 @@ public:
 	bool frameStarted(const FrameEvent &evt); 
 	bool frameEnded(const FrameEvent &evt);
 
+	void setCellBuddy(Cell* cellBuddy){mCellBuddy= cellBuddy;}
+	void setOrigin(Ogre::Vector2& origin){mOrigin=origin;} 
+	Cell* mCellBuddy;
 
-	
-	
 protected: 
-
+	Vector2 mOrigin;
 
 	int cellCount;
 	Ogre::SceneManager* mSceneMgr;
 	std::string mName; 
 	unsigned int mID;
-	CellProperties* mProperties; //properties will be handled by means of scripting
+	CellProperties* mCellProperties; //properties will be handled by means of scripting
 	CELLTYPE mType;
-	Ogre::Vector2 mPos;
+	//Ogre::Vector2 mPos;
 	Ogre::Real mSize;
 	Ogre::ColourValue colour;
 	

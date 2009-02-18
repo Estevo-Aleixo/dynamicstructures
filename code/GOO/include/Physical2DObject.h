@@ -26,18 +26,38 @@ public:
 
 	void setPosition(Ogre::Vector2& p)
 	{
+		mPos = p;
 		mNode->setPosition(p.x,p.y,0);
 		mBody->SetXForm(b2Vec2((float)p.x,(float)p.y) ,0.0);
 	}; 
+
+
+	Ogre::Vector2& getPosition()
+	{return mPos;}
+
 	void setAngle(float& angle){mBody->SetXForm(mBody->GetPosition(),angle);}
 	
 	inline double getScale(){return mScale;}
 	void setScale(double& scale);
 
-private: 
+	void ApplyForce(b2Vec2& force)
+	{
+		mBody->ApplyForce(force, mBody->GetPosition()); 
+	}
+	
+	void setLinearVelocity(b2Vec2& vel)
+	{
+		mBody->SetLinearVelocity(vel); 
+	}
+
+
+protected:
+	Canvas* mCanvas;
+	Object2DProperties* mProperties;
+	Ogre::Vector2 mPos;
 	double mScale; 
 
-	Canvas* mCanvas;
+	
 	bool mEnabled; 
 //ogre 
 	Ogre::SceneManager* mSceneMgr;
@@ -47,7 +67,6 @@ private:
 //physics
 
 	//body
-	Object2DProperties* mProperties;
 	b2Body* mBody;	
 	//world
 	b2World* mWorld;

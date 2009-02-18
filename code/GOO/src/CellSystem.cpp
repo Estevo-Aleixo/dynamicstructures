@@ -26,26 +26,37 @@ CellSystem::CellSystem(std::string& name, Canvas* canvas, Ogre::SceneManager* sc
 	mStartNode->setPosition(startPosition.x, startPosition.y,0); 
 	
 	Object2DProperties* props= new Object2DProperties(ObjectDefinitions::getSingletonPtr()->getObjectByName(systemType)); 
-	Cell* firstCell= mCanvas->getCellFactory()->createCell(props, mStartPos); 
+	//mProperties = props;
+	//Cell* firstCell= mCanvas->getCellFactory()->createCell(props, mStartPos); 
 
-	firstCell->enable(true); 
+	//firstCell->enable(true); 
 	this->mEnabled=true;
-	mCells.push_back(firstCell);
+	//mCells.push_back(firstCell);
 
 	//temp create surrounding array of cells: 
 	unsigned int cells= 6; 
 	Ogre::Radian angleInterval= Radian(Math::TWO_PI / cells); 
 	Ogre::Vector2 pos;
+	Cell* prevCell=0;
 	for (int i = 0; i < cells; i++)
 	{  
 		pos.x = Math::Cos(angleInterval*i) * 2;
 		pos.y = Math::Sin(angleInterval*i) * 2;
 		Cell* newCell=mCanvas->getCellFactory()->createCell(props, mStartPos+ pos); 
+		if (prevCell!=0)
+			prevCell->setCellBuddy(newCell);
 		mCells.push_back(newCell);
 		newCell->enable(true);
-		double scale=1.4;
+		newCell->setCellSystem(this); 
+		double scale=5;
 		newCell->setScale(scale); 
+		prevCell= newCell;
+
 	}
+	prevCell->setCellBuddy(mCells[0]);
+
+
+	mSkeleton= new Skeleton2D(name, startPosition,this,sceneMgr); 
 
 	spawnTimeInterval=1;
 	TimePassed=0;
@@ -66,12 +77,16 @@ bool CellSystem::frameStarted(const FrameEvent &evt)
 	//for(itr= mCells.begin(); itr!= mCells.end(); itr++)
 	for(int i=0; i < mCells.size(); i++)
 	{
-		mCells[i]->frameStarted(evt); 
+		bool retvalue = mCells[i]->frameStarted(evt);	
+		mCells[i]->setOrigin(mSkeleton->getPosition());
+		if (retvalue==false)
+			break;
 	}
-
+	mSkeleton->update(evt); 
 	//spawn a cell from any random cell
-	TimePassed+=evt.timeSinceLastFrame;
+	//TimePassed+=evt.timeSinceLastFrame;
 
+	/*
 	if (TimePassed > this->spawnTimeInterval)
 	{
 		TimePassed=0;
@@ -91,7 +106,7 @@ bool CellSystem::frameStarted(const FrameEvent &evt)
 		double scale = Ogre::Math::RangeRandom(1.0,5.0); 
 		newCell->setScale(scale);
 	}
-
+*/
 	return true;
 }
 
