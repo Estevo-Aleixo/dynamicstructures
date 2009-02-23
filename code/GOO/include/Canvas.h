@@ -42,6 +42,12 @@ public:
 	
 	//temp func!!!
 	inline CellFactory* getCellFactory(){return cellFactories[0];}
+
+	//woot
+	void clearCanvas(); 
+	void removeSystem(CellSystem* cellSystem); 
+
+
 protected: 
 	std::vector<CellFactory*> cellFactories;
 	b2AABB mAABB;

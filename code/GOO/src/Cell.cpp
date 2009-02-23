@@ -23,6 +23,8 @@ mSystem(0)
 Cell::~Cell(void)
 {
 
+
+
 }
 
 bool Cell::frameStarted(const FrameEvent &evt)

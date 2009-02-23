@@ -52,6 +52,7 @@ public:
 
 
 protected:
+	std::string mName;
 	Canvas* mCanvas;
 	Object2DProperties* mProperties;
 	Ogre::Vector2 mPos;

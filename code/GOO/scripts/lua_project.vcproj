@@ -121,10 +121,10 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				Optimization="2"
+				Optimization="0"
 				InlineFunctionExpansion="2"
 				EnableIntrinsicFunctions="true"
-				FavorSizeOrSpeed="1"
+				FavorSizeOrSpeed="0"
 				AdditionalIncludeDirectories="..\include;&quot;$(OGRE_HOME)\include&quot;;&quot;$(OGRE_HOME)\samples\include&quot;;..\..\Box2D\Include; ..\..\lua5.1\include;"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS"
 				RuntimeLibrary="2"

@@ -202,6 +202,9 @@ bool World::keyReleased(const OIS::KeyEvent &e)
 			this->mPointer->setCreateType(3);
 			updateParameterOverlay();
 			break;
+		case OIS::KC_C:
+			this->mCanvas->clearCanvas();
+			break;
 	}
 
 	if (mKeyboard->isKeyDown(OIS::KC_W)== false && 

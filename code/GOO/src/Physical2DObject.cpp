@@ -1,7 +1,7 @@
 #include "Physical2DObject.h"
 
 Physical2DObject::Physical2DObject(std::string& name, Canvas* canvas, Ogre::SceneManager* sceneMgr, Object2DProperties* properties, Ogre::Vector2& position, bool enabled):
-mSceneMgr(sceneMgr), mWorld(canvas->getPhysicsWorld()),mCanvas(canvas), mEnabled(enabled), mProperties(properties)
+mSceneMgr(sceneMgr),mName(name), mWorld(canvas->getPhysicsWorld()),mCanvas(canvas), mEnabled(enabled), mProperties(properties)
 {
 	//setup ogre things
 	mNode= mSceneMgr->getSceneNode("CanvasRootNode")->createChildSceneNode(name + "_node"); 
@@ -27,10 +27,21 @@ mSceneMgr(sceneMgr), mWorld(canvas->getPhysicsWorld()),mCanvas(canvas), mEnabled
 		mBody->WakeUp(); 
 mScale=1.0;
 		this->mProperties = properties; 
+
 }
 
 Physical2DObject::~Physical2DObject(void)
 {
+	Ogre::LogManager::getSingletonPtr()->logMessage("deleting physical object " +mName); 
+	
+	//ogre:
+	mNode->removeAndDestroyAllChildren(); 
+	mSceneMgr->destroySceneNode(mNode); 
+	mSceneMgr->destroyEntity(mEntity); 
+
+	//physics: 
+	mBody->DestroyShape(mShape); 
+	mWorld->DestroyBody(mBody); 
 
 }
 

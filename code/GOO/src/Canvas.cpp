@@ -130,3 +130,16 @@ bool  Canvas::addCellSystem(Ogre::Vector2& startPosition, const char* systemType
 
 	return true;
 }
+
+void Canvas::clearCanvas()
+{
+	std::vector<CellSystem*>::iterator itr; 
+
+	for (itr = mCellSystems.begin(); itr!= mCellSystems.end();itr++)
+	{
+		delete (*itr);
+		(*itr)=0;
+	}
+
+	mCellSystems.clear(); 
+}

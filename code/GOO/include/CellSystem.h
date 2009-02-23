@@ -40,15 +40,18 @@ public:
 
 	//inline std::vector<Cell*>& getCellVector(){return mCells};
 	std::vector<Cell*> mCells;
+	std::vector<Cell*>::iterator mCellItr;
 
 	inline void addCell(Cell* cell){mCells.push_back(cell);} 
 protected:
+	void initialize(); 
+	
+	
 	//Object2DProperties* mProperties;
 	Skeleton2D* mSkeleton;
 
 	Canvas* mCanvas;
 	void processNewCells(const FrameEvent &evt);
-	std::queue<Cell*> mCellBuffer;
 
 	CELLTYPE mDefaultType;
 	static std::vector<std::string> availableSystems;
@@ -77,7 +80,7 @@ protected:
 	//local properties (can change per cell):
 	CellSystemProperties* mLocalProperties; 
 
-
+	Object2DProperties* mObjectProps;
 
 	//temp: 
 	float spawnTimeInterval;

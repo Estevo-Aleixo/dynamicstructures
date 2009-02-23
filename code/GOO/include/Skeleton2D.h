@@ -26,6 +26,10 @@ public:
 	
 	Ogre::Vector2 getPosition(){return mPosition;}
 
+
+	void setPosition(Ogre::Vector2& position);
+
+
 	void update(const Ogre::FrameEvent& evt);		
 
 	void clear(); 
