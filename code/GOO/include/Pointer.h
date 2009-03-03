@@ -20,6 +20,10 @@ public:
 	bool mouseReleased(const OIS::MouseEvent &e, OIS::MouseButtonID id);
 	unsigned int getCurrentCellModeID();
 	void setCreateType(unsigned int type);
+
+	Ogre::Vector2& getPosition(){return mPos;} 
+	void setPosition(Ogre::Vector2& pos); 
+
 private:
 	unsigned int mCreateType; 
 
@@ -39,5 +43,8 @@ private:
 
 	Canvas* mCanvas;
 	Ogre::SceneManager* mSceneMgr;  
+
+
+	
 	
 };

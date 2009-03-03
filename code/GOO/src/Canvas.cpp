@@ -7,7 +7,7 @@ Canvas::Canvas(void)
 }
 
 
-Canvas::Canvas(std::string& name, CANVASTYPE type, Ogre::SceneManager* sceneMgr, unsigned int lines, unsigned int width, unsigned int height ): 
+Canvas::Canvas(std::string& name, CANVASTYPE type, SurfaceProperties* surfaceProperties, Ogre::SceneManager* sceneMgr, unsigned int lines, unsigned int width, unsigned int height ): 
 mType(type), mLines(lines), mSceneMgr(sceneMgr)
 {
 	//physics:
@@ -17,7 +17,6 @@ mType(type), mLines(lines), mSceneMgr(sceneMgr)
 	mTimeStep = 1.0f / 60.0f;
 	b2Vec2 gravity(0,0.0);
 	mb2World= new b2World(mAABB,gravity,false); 
-
 	this->dimensions.x= width;
 	this->dimensions.y= height;
 	
@@ -29,12 +28,45 @@ mType(type), mLines(lines), mSceneMgr(sceneMgr)
 	mRasterNode->attachObject(mRasterEntity); 
 	mRootCanvasNode->scale(1.0,1.0,1.0);
 	mPointer= new Pointer(name + "_pointer", this, mSceneMgr); 
+	mTimePassed = 0;
+	mTimeInterval = 0.5;
+
+//build surface
+	mSurfaceEntity= mSceneMgr->createEntity("canvas_surface",SQUARE_MESH); 
+	mSurfaceEntity->setMaterialName("basesurface"); 
+	mSurfaceNode = mRootCanvasNode->createChildSceneNode(); 
+	mSurfaceNode->attachObject(mSurfaceEntity); 
+	mSurfaceNode->scale((double)width,(double)height,0.0);
+	mSurfaceNode->translate(0.0,0.0,-1.0); 
+
 
 }
 	
 Canvas::~Canvas(void)
 {
 }
+
+void Canvas::pauseAllEntities()
+{
+	mRunning= true;
+	std::vector<CellSystem*>::iterator itr; 
+	//loop through cell systems
+	for (itr= mCellSystems.begin();itr != mCellSystems.end(); itr++)
+	{
+		(*itr)->halt(); 
+	}
+}
+
+void Canvas::startAllEntities()
+{
+	mRunning = false;
+	std::vector<CellSystem*>::iterator itr; 
+	//loop through cell systems
+	for (itr= mCellSystems.begin(); itr != mCellSystems.end(); itr++)
+	{
+		(*itr)->start(); 
+	}
+} 
 
 void Canvas::createRaster(CANVASTYPE type)
 {
@@ -106,12 +138,33 @@ bool  Canvas::frameStarted(const FrameEvent &evt)
 	//iterate through cell_systems
 	std::vector<CellSystem*>::iterator itr;
 
+
+	//check cursor position:
+	mTimePassed+=evt.timeSinceLastFrame;
+	
+	
+	//check position relative to systems on the canvas (do this 2 times per second)
+	if (mTimePassed > mTimeInterval)
+	{
+		mTimePassed =0;
+		mCurrentSelection=0;
+		for (itr= mCellSystems.begin(); itr!=mCellSystems.end(); itr++)
+		{	
+			if ((*itr)->containsPoint(mPointer->getPosition())==true)
+			{
+				mCurrentSelection= (*itr);
+				break; 
+			} 
+		}
+	
+	}
+
 	for (itr= mCellSystems.begin(); itr!=mCellSystems.end(); itr++)
 	{	
 		if ((*itr)->isEnabled())
 			(*itr)->frameStarted(evt); 	
 	}
-	
+
 	return true;
 }
 
@@ -142,4 +195,14 @@ void Canvas::clearCanvas()
 	}
 
 	mCellSystems.clear(); 
+}
+
+void Canvas::setSurface(SurfaceProperties* properties)
+{
+	mSurfaceProperties = properties;
+
+	//set texture
+
+
+	
 }

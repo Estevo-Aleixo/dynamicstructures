@@ -64,6 +64,10 @@ void Skeleton2D::update(const Ogre::FrameEvent& evt)
 	midPoint /= (double)mCellSystem->mCells.size(); 
 	setPosition(midPoint);
 
+	//update children
+
+
+
 }
 
 void Skeleton2D::setPosition(Ogre::Vector2& position)

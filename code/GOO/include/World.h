@@ -21,6 +21,8 @@ FREEROAM=1
 }; 
 #define MAX_ZOOM_SPEED 250
 #define MIN_ZOOM_SPEED -250
+#define MAX_DISTANCE 2000
+#define MIN_DISTANCE 10
 
 class World: public ExampleFrameListener, public OIS::MouseListener, public OIS::KeyListener
 {
@@ -54,6 +56,8 @@ public:
 	bool keyReleased(const OIS::KeyEvent &e);
 
 	void sayHello();
+
+	void PauseAll(); 
 private: 
 	ObjectDefinitions* mObjectDefinitions;
 

@@ -67,7 +67,7 @@
 				Name="VCLinkerTool"
 				AdditionalDependencies="OgreMain_d.lib OIS_d.lib CEGUIBase_d.lib OgreGUIRenderer_d.lib box2d_d.lib lua5.1.lib"
 				LinkIncremental="2"
-				AdditionalLibraryDirectories="..\..\Box2D\Library;&quot;$(OGRE_HOME)\lib&quot;;&quot;$(OGRE_HOME)\Dependencies\lib\$(ConfigurationName)&quot;;E:\thesis\code\lua5.1\lib\static"
+				AdditionalLibraryDirectories="..\..\Box2D\Library;&quot;$(OGRE_HOME)\lib&quot;;&quot;$(OGRE_HOME)\Dependencies\lib\$(ConfigurationName)&quot;;..\..\lua5.1\lib\static"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				RandomizedBaseAddress="1"
@@ -121,7 +121,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				Optimization="0"
+				Optimization="2"
 				InlineFunctionExpansion="2"
 				EnableIntrinsicFunctions="true"
 				FavorSizeOrSpeed="0"
@@ -247,6 +247,10 @@
 				RelativePath="..\src\Skeleton2D.cpp"
 				>
 			</File>
+			<File
+				RelativePath="..\src\SurfaceProperties.cpp"
+				>
+			</File>
 			<Filter
 				Name="Entities"
 				>
@@ -347,6 +351,10 @@
 			</File>
 			<File
 				RelativePath="..\include\Skeleton2D.h"
+				>
+			</File>
+			<File
+				RelativePath="..\include\SurfaceProperties.h"
 				>
 			</File>
 			<Filter

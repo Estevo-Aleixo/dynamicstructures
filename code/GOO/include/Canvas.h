@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Main.h"
-
+#include "SurfaceProperties.h"
 
 enum CANVASTYPE
 {
@@ -19,7 +19,7 @@ class Canvas
 {
 public:
 	Canvas(void);
-	Canvas(std::string& name, CANVASTYPE type,  Ogre::SceneManager* sceneMgr,unsigned int lines, unsigned int height, unsigned int width);
+	Canvas(std::string& name, CANVASTYPE type, SurfaceProperties* surfaceProperties,  Ogre::SceneManager* sceneMgr,unsigned int lines, unsigned int height, unsigned int width);
 	
 	~Canvas(void);
 
@@ -47,8 +47,18 @@ public:
 	void clearCanvas(); 
 	void removeSystem(CellSystem* cellSystem); 
 
+	void pauseAllEntities(); 
+	void startAllEntities(); 
 
+	bool isRunning(){return mRunning;} 
+	
+	std::vector<CellSystem*> mCellSystems; 
+
+	void setSurface(SurfaceProperties* properties); 
+	SurfaceProperties* mSurfaceProperties;  
 protected: 
+	bool mRunning; 
+
 	std::vector<CellFactory*> cellFactories;
 	b2AABB mAABB;
 	b2World* mb2World;
@@ -59,7 +69,7 @@ protected:
 	Ogre::Vector2 dimensions;
 	Ogre::Vector2 lastCursorPos;
 
-	std::vector<CellSystem*> mCellSystems; 
+	//b2DefaultFilter
 
 	Pointer* mPointer;
 
@@ -71,4 +81,15 @@ protected:
 	Ogre::SceneNode* mRasterNode; 
 	Ogre::Entity* mRasterEntity;
 	Ogre::Mesh* rasterMesh;
+
+	Ogre::SceneNode* mSurfaceNode;
+	Ogre::Entity* mSurfaceEntity;
+
+
+	float mTimePassed;
+	float mTimeInterval;
+
+	CellSystem* mCurrentSelection;
+
+
 };

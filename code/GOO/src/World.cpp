@@ -29,7 +29,7 @@ ExampleFrameListener(win, cam, true, true), mGUIRenderer(renderer), mSceneMgr(sc
 
 	CellFactory::createCellMeshes(); 
 
-	mCanvas= new Canvas(std::string("myFirstCanvas"), CANVASTYPE::RECTANGULAR, mSceneMgr,40,1000,1000);
+	mCanvas= new Canvas(std::string("myFirstCanvas"), CANVASTYPE::RECTANGULAR,0, mSceneMgr,40,1000,1000);
 	mPointer= mCanvas->getPointer(); 	
 
 	mCellFactory= new CellFactory(std::string("Triangle Cell Factory"),mSceneMgr, mCanvas); 
@@ -49,6 +49,7 @@ ExampleFrameListener(win, cam, true, true), mGUIRenderer(renderer), mSceneMgr(sc
 	//lua: register all LuaGlue functions
 	pLua= new cLua();
 	pWorld=this;
+	pCanvas= mCanvas; //straks maakt lua script canvas aan
 	RegisterFunctions(); 
 	//call lua initilizer:
 	pLua->RunScript("..\\..\\media\\Lua\\init.lua"); 
@@ -64,6 +65,11 @@ void World::sayHello()
 {
 //register hello world: 
 	Ogre::LogManager::getSingletonPtr()->logMessage("hello i am the world."); 
+}
+
+void World::PauseAll()
+{
+	mCanvas->pauseAllEntities();
 }
 
 bool World::frameStarted(const FrameEvent &evt)
@@ -205,6 +211,12 @@ bool World::keyReleased(const OIS::KeyEvent &e)
 		case OIS::KC_C:
 			this->mCanvas->clearCanvas();
 			break;
+		case OIS::KC_Z:
+			mCanvas->pauseAllEntities();
+			break;
+		case OIS::KC_X:
+			mCanvas->startAllEntities();
+			break;
 	}
 
 	if (mKeyboard->isKeyDown(OIS::KC_W)== false && 
@@ -273,11 +285,11 @@ bool World::updateCamera(const FrameEvent &evt)
 
 	newPos.z+= mCamZoomSpeed*evt.timeSinceLastFrame; 
 
-	if (newPos.z < 10.0)
-		newPos.z=10;
+	if (newPos.z < MIN_DISTANCE)
+		newPos.z= MIN_DISTANCE;
 
-	if (newPos.z > 500)
-		newPos.z= 500;
+	if (newPos.z > MAX_DISTANCE)
+		newPos.z= MAX_DISTANCE;
 
 	mMainCam->setPosition(newPos); 	
 

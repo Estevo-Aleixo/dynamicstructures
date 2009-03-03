@@ -83,18 +83,20 @@ void CellSystem::initialize()
 bool CellSystem::frameStarted(const FrameEvent &evt)
 {
 	std::vector<Cell*>::iterator itr;
-	
-	//update zhe system: iterate through cells: 
-	int i=0; 
-	//for(itr= mCells.begin(); itr!= mCells.end(); itr++)
-	for(int i=0; i < mCells.size(); i++)
+	if (mEnabled == true)
 	{
-		bool retvalue = mCells[i]->frameStarted(evt);	
-		mCells[i]->setOrigin(mSkeleton->getPosition());
-		if (retvalue==false)
-			break;
+		//update zhe system: iterate through cells: 
+		int i=0; 
+		//for(itr= mCells.begin(); itr!= mCells.end(); itr++)
+		for(int i=0; i < mCells.size(); i++)
+		{
+			bool retvalue = mCells[i]->frameStarted(evt);	
+			mCells[i]->setOrigin(mSkeleton->getPosition());
+			if (retvalue==false)
+				break;
+		}
+		mSkeleton->update(evt);
 	}
-	mSkeleton->update(evt); 
 	return true;
 }
 
@@ -142,4 +144,44 @@ void CellSystem::recalculateSkeleton()
 {
 
 
+}
+
+void CellSystem::start()
+{
+	mEnabled=true;
+	//loop trough cells 
+	
+	for(mCellItr= mCells.begin(); mCellItr !=mCells.end(); mCellItr++)
+	{
+		(*mCellItr)->proceed(); 
+	}
+
+}
+
+void CellSystem::halt()
+{	
+	mEnabled=false;
+		//loop trough cells 	
+	for(mCellItr= mCells.begin(); mCellItr!=mCells.end(); mCellItr++)
+	{
+		(*mCellItr)->halt(); 
+	}
+
+
+}
+void CellSystem::stop()
+{
+	mEnabled=false; 
+	mDone=true;
+} 
+
+bool CellSystem::containsPoint(Ogre::Vector2& point)
+{
+	//loop through skeleton and check wether the point lies closer 
+	//the skeleton point than the furthest cell of the cell set.
+
+
+
+
+	return true;
 }

@@ -29,6 +29,14 @@ Filename:    Main.h
 #include "MovableText.h"
 
 
+enum layerID
+{
+layer1=1,
+layer2=2,
+layer3=3
+};
+
+
 
 extern "C"
 {

@@ -7,6 +7,8 @@ LogMessage(DIR)
 RunScript("..\\..\\media\\LUA\\celldefinitions\\celldefinitions.lua")
 
 --load cell systems
+RunScript("..\\..\\media\\LUA\\systems\\system_definitions.lua")
+
 
 --register event handler
 

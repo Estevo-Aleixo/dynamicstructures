@@ -19,7 +19,9 @@ public:
 	double mFrictionConstant;
 	inline b2PolygonDef getShapeDef(){return mShapeDef;}
 	b2PolygonDef getShapeDef(double scale);
-
+	
+	layerID layer;
+	b2FilterData filterData; 
 private: 
 	b2PolygonDef mShapeDef; 
 

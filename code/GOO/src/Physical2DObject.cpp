@@ -23,11 +23,18 @@ mSceneMgr(sceneMgr),mName(name), mWorld(canvas->getPhysicsWorld()),mCanvas(canva
 		
 		b2PolygonDef shapeDef= properties->getShapeDef(); 
 		mShape = mBody->CreateShape(&shapeDef); 
+		
 		mBody->SetMassFromShapes();
 		mBody->WakeUp(); 
 mScale=1.0;
 		this->mProperties = properties; 
+		 mActive=true;
 
+		b2FilterData lFilter; 
+		//lFilter.groupIndex= mProperties->layer;
+		//Ogre::LogManager::getSingletonPtr()->logMessage(name + "filter id: " + StringConverter::toString((int)mProperties->layer)); 
+		mShape->SetFilterData(mProperties->filterData); 
+		mWorld->Refilter(mShape); 
 }
 
 Physical2DObject::~Physical2DObject(void)
@@ -82,3 +89,21 @@ mScale = scale;
 
 
 }
+
+
+void Physical2DObject::halt()
+{
+	mActive=false; 
+	//store lin and angular speed
+	mPrevAngVelocity= mBody->GetAngularVelocity(); 
+	mPrevLinVelocity= mBody->GetLinearVelocity(); 
+	mBody->SetLinearVelocity(b2Vec2(0,0)); 
+	mBody->SetAngularVelocity(0.0); 
+} 
+
+void Physical2DObject::proceed()
+{
+	mActive=true;
+	this->mBody->SetAngularVelocity(mPrevAngVelocity); 
+	this->mBody->SetLinearVelocity(mPrevLinVelocity);  
+} 

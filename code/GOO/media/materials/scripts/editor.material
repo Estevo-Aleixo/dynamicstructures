@@ -54,3 +54,19 @@ material ambient_red
 	}
 }
 
+material basesurface
+{
+	technique
+	{
+		pass
+		{
+			ambient 0.03 0.03 0.03 0.5
+
+			//texture_unit
+			//{
+			//	texture groundtexturetemp.jpg
+			//}
+
+		}
+	}
+}

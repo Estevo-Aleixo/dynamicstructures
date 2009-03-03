@@ -1,6 +1,7 @@
 #pragma once
 #include "Main.h"
 #include "CellProperties.h"
+#include "SurfaceProperties.h"
 
 enum CELLTYPE{
 	SQUARE=0,
@@ -10,7 +11,7 @@ enum CELLTYPE{
 	CUSTOM=4
 };
 
-class CellSystemProperties
+class CellSystemProperties: public SurfaceProperties
 {
 public:
 	CellSystemProperties(void);

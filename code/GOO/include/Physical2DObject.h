@@ -42,7 +42,8 @@ public:
 
 	void ApplyForce(b2Vec2& force)
 	{
-		mBody->ApplyForce(force, mBody->GetPosition()); 
+		if (mActive == true) 
+			mBody->ApplyForce(force, mBody->GetPosition()); 
 	}
 	
 	void setLinearVelocity(b2Vec2& vel)
@@ -50,15 +51,20 @@ public:
 		mBody->SetLinearVelocity(vel); 
 	}
 
+	void halt(); 
+	void proceed(); 
 
+	b2Vec2 mPrevLinVelocity;
+	float mPrevAngVelocity;
 protected:
+	bool mActive;
+
 	std::string mName;
 	Canvas* mCanvas;
 	Object2DProperties* mProperties;
 	Ogre::Vector2 mPos;
 	double mScale; 
 
-	
 	bool mEnabled; 
 //ogre 
 	Ogre::SceneManager* mSceneMgr;
@@ -73,9 +79,5 @@ protected:
 	b2World* mWorld;
 	b2Shape* mShape; 
 
-
-//shape
-
-//blaat
 
 };

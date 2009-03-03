@@ -12,6 +12,7 @@ mCanvas(canvas), mSceneMgr(sceneMgr)
 	mPos= Vector2(0,0); 
 	mPressed=false;
 	mMode=1;
+
 }
 
 Pointer::~Pointer(void)
@@ -22,6 +23,11 @@ Pointer::~Pointer(void)
 bool Pointer::frameStarted(const FrameEvent &evt)
 {
 
+	
+
+
+
+	
 	return true;
 } 
 bool Pointer::frameEnded(const FrameEvent &evt)
@@ -43,6 +49,13 @@ bool Pointer::mouseMoved(const OIS::MouseEvent &e)
 	mPos.y-= acceleration.y;
 
 	mPointerNode->setPosition(Vector3(mPos.x, mPos.y, 0)); 
+
+
+	
+	
+	
+
+
 
 
 return true;
@@ -89,4 +102,10 @@ unsigned int  Pointer::getCurrentCellModeID()
 void Pointer::setCreateType(unsigned int type)
 {
 	mMode=type;
+}
+
+void Pointer::setPosition(Ogre::Vector2& pos)
+{
+	mPos= pos;
+	mPointerNode->setPosition(Vector3(mPos.x, mPos.y, 0)); 
 }

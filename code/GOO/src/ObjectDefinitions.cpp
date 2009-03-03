@@ -91,6 +91,9 @@ void ObjectDefinitions::loadDefaultObjects()
 		shapeDef.density= 5.0;
 		shapeDef.friction= 2.0;
 		newObject= Object2DProperties("Square",SQUARE_MESH,shapeDef,1.0); 
+		newObject.filterData.groupIndex= -2;// layerID::layer1; 
+		newObject.filterData.categoryBits= 0x0004; 
+		newObject.filterData.maskBits = 0x0001;
 		mObjects.push_back(newObject);
 	
 	//LOAD HEXAGON 
@@ -120,7 +123,10 @@ void ObjectDefinitions::loadDefaultObjects()
 		cellHex->convertToMesh(HEXAGON_LINE_MESH);  
 		shapeDef.density= 5.0;
 		shapeDef.friction= 2.0;
-		newObject= Object2DProperties("Hexagon",HEXAGON_LINE_MESH,shapeDef,1.0); 
+		newObject= Object2DProperties("Hexagon",HEXAGON_LINE_MESH,shapeDef,1.0);
+		newObject.filterData.groupIndex = -2;//layerID::layer2; 
+		newObject.filterData.categoryBits= 0x0002 ; 
+		newObject.filterData.maskBits = 0x0002 ;
 		mObjects.push_back(newObject);
 
 	//load triangle
@@ -156,6 +162,9 @@ void ObjectDefinitions::loadDefaultObjects()
 	shapeDef.density= 5.0;
 	shapeDef.friction= 2.0;
 	newObject= Object2DProperties("Triangle",TRIANGLE_MESH,shapeDef,1.0); 
+	newObject.filterData.groupIndex= -2;//layerID::layer3; 
+	newObject.filterData.categoryBits= 0x0003 ; 
+	newObject.filterData.maskBits = 0x0003 ;
 	mObjects.push_back(newObject);
 
 }

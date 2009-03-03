@@ -2,7 +2,9 @@
 #include "World.h"
 
 cLua* pLua;
+
 World* pWorld;
+Canvas* pCanvas;
 
 #define LUA_DIR "..\\..\\media\\Lua\\"; 
 
@@ -50,6 +52,9 @@ LuaGlue Quit(lua_State* l);
 LuaGlue RegisterEventHandler(lua_State* l); 
 
 
+LuaGlue PauseAll(lua_State* l); 
+
+LuaGlue LoadCanvasSurface(lua_State* l); 
 
 
 //http://lua-users.org/lists/lua-l/2004-04/msg00201.html
@@ -90,6 +95,9 @@ pLua->AddFunction("PlaySound",PlaySound);
 pLua->AddFunction("PlayEffect",PlayEffect); 
 pLua->AddFunction("Save",Save);
 pLua->AddFunction("Quit",Quit);
+
+pLua->AddFunction("PauseAll",PauseAll);
+pLua->AddFunction("LoadCanvasSurface",LoadCanvasSurface);
 
 }
 
@@ -283,3 +291,30 @@ LuaGlue LogMessage(lua_State* l)
 
 return 0;
 }
+
+LuaGlue PauseAll(lua_State* l)
+{
+	pWorld->PauseAll(); 
+
+	return 0;
+}
+
+LuaGlue LoadCanvasSurface(lua_State* l)
+{
+	int argNum =1; 
+	const char* filename= pLua->GetStringArgument(argNum++); 
+	//todo concatenate filename with LUA DIR 
+	pLua->RunScript(filename);
+
+	//load globals
+
+
+
+
+
+
+	return 0;
+}
+
+
+

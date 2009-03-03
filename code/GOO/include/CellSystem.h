@@ -18,9 +18,9 @@ public:
 	void enable(bool on){mEnabled=on;}
 	bool isEnabled(){return mEnabled;}
 
-	void start(){mEnabled=true;}
-	void halt(){mEnabled=false;}
-	void stop(){mEnabled=false; mDone=true;} 
+	void start();//{mEnabled=true;}
+	void halt();//{mEnabled=false;}
+	void stop();//{mEnabled=false; mDone=true;} 
 
 	Ogre::Real getSpeed(){return mSpeed;} 
 
@@ -43,10 +43,16 @@ public:
 	std::vector<Cell*>::iterator mCellItr;
 
 	inline void addCell(Cell* cell){mCells.push_back(cell);} 
+	bool containsPoint(Ogre::Vector2& point); 
+	
+	void attachToCursor(){mAttachedToCursor = true;}
+	void detachFromCursor(){mAttachedToCursor = false;}
+	bool isAttachedToCursor(){return mAttachedToCursor;}
+
 protected:
 	void initialize(); 
-	
-	
+	bool mAttachedToCursor; 
+
 	//Object2DProperties* mProperties;
 	Skeleton2D* mSkeleton;
 

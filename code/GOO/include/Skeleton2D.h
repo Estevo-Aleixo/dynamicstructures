@@ -13,6 +13,14 @@ OBJECTS=2,
 };
 
 
+
+enum GROW_TYPE
+{
+EXPAND_CIRCULAR,
+EXPAND_MEDIAL_AXIS
+};
+
+
 //Skeleton2D is basically a simple graph
 class Skeleton2D
 {
