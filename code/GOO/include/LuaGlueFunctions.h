@@ -51,6 +51,9 @@ LuaGlue Quit(lua_State* l);
 
 LuaGlue RegisterEventHandler(lua_State* l); 
 
+void PrintTable(lua_State *L);
+std::string	getStringGlobal(lua_State *L, const char* varname);
+double getNumGlobal(lua_State *L, const char* varname); 
 
 LuaGlue PauseAll(lua_State* l); 
 
@@ -161,8 +164,40 @@ return 0;
 
 LuaGlue LoadSystemClass(lua_State* l)
 {
+	int argNum=1; 
+	//get scriptname
+	const char* scriptName = pLua->GetStringArgument(argNum++); 
 
+	Ogre::LogManager::getSingletonPtr()->logMessage("c++: loading system class: " + std::string(scriptName));
 	//load system
+	
+	if (pLua->RunScript(scriptName))
+	{
+		//create property set:
+		CellSystemProperties* newSet= new CellSystemProperties(); 
+		newSet->mName =getStringGlobal(pLua->GetScriptContext(),"name");
+		newSet->description =getStringGlobal(pLua->GetScriptContext(),"description");
+		newSet->cellType =getStringGlobal(pLua->GetScriptContext(),"cellType"); 
+		
+		//extra properties:
+		lua_getglobal(pLua->GetScriptContext(), "extraParameters");
+		lua_pushnil(pLua->GetScriptContext());
+
+		while(lua_next(pLua->GetScriptContext(), -2) != 0)
+		{
+				const char* key = lua_tostring(pLua->GetScriptContext(), -2);
+				double var = lua_tonumber(pLua->GetScriptContext(), -1); 
+				newSet->mExtraParameters[key]= var;
+				lua_pop(pLua->GetScriptContext(), 1);
+		}
+	
+		pWorld->mSystemFactory->registerSystemPropertySet(newSet); 
+
+
+	} 
+
+
+  
 
 
 return 0;
@@ -248,6 +283,8 @@ return 0;
 
 LuaGlue ClearCanvas(lua_State* l)
 {
+pWorld->mCanvas->clearCanvas();
+
 return 0;
 }
 
@@ -291,6 +328,40 @@ LuaGlue LogMessage(lua_State* l)
 
 return 0;
 }
+
+void PrintTable(lua_State *L)
+{
+    lua_pushnil(L);
+
+    while(lua_next(L, -2) != 0)
+    {
+		if(lua_isstring(L, -1)){
+          printf("%s = %s\n", lua_tostring(L, -2), lua_tostring(L, -1));
+		Ogre::LogManager::getSingletonPtr()->logMessage( std::string(lua_tostring(L, -2)) + " = " + std::string(lua_tostring(L, -1)) ) ;     
+		}
+		else if(lua_isnumber(L, -1)){
+          printf("%s = %d\n", lua_tostring(L, -2), lua_tonumber(L, -1));
+		Ogre::LogManager::getSingletonPtr()->logMessage( StringConverter::toString((Ogre::Real)lua_tonumber(L, -2)) + " = " + StringConverter::toString((Ogre::Real)lua_tonumber(L, -1)) ) ;     
+		}
+		else if(lua_istable(L, -1))
+		{
+          PrintTable(L);
+		}
+        lua_pop(L, 1);
+    }
+}
+
+std::string	getStringGlobal(lua_State *L, const char* varname)
+{
+	lua_getglobal(L, varname);
+	return std::string(lua_tostring(L, -1));
+}
+
+double getNumGlobal(lua_State *L, const char* varname)
+{
+	lua_getglobal(L, varname);
+	return lua_tonumber(L, -1);
+} 
 
 LuaGlue PauseAll(lua_State* l)
 {

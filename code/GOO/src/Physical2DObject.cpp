@@ -21,20 +21,21 @@ mSceneMgr(sceneMgr),mName(name), mWorld(canvas->getPhysicsWorld()),mCanvas(canva
 		mBody= mWorld->CreateBody(&bodyDef); 
 		//shape (just triangle for now)
 		
-		b2PolygonDef shapeDef= properties->getShapeDef(); 
-		mShape = mBody->CreateShape(&shapeDef); 
-		
+		b2ShapeDef* shapeDef= properties->getShapeDef(); 
+		Ogre::LogManager::getSingletonPtr()->logMessage(name + StringConverter::toString(shapeDef->density)); 
+	Ogre::LogManager::getSingletonPtr()->logMessage(name + StringConverter::toString(((b2PolygonDef*)shapeDef)->vertices[0].x)); 
+		mShape = mBody->CreateShape((b2PolygonDef*)shapeDef); 
 		mBody->SetMassFromShapes();
 		mBody->WakeUp(); 
 mScale=1.0;
 		this->mProperties = properties; 
 		 mActive=true;
 
-		b2FilterData lFilter; 
+		//b2FilterData lFilter; 
 		//lFilter.groupIndex= mProperties->layer;
 		//Ogre::LogManager::getSingletonPtr()->logMessage(name + "filter id: " + StringConverter::toString((int)mProperties->layer)); 
-		mShape->SetFilterData(mProperties->filterData); 
-		mWorld->Refilter(mShape); 
+		//mShape->SetFilterData(mProperties->filterData); 
+		//mWorld->Refilter(mShape); 
 }
 
 Physical2DObject::~Physical2DObject(void)
@@ -78,12 +79,12 @@ double newScale= scale / mScale;
 //set node size:
 
 mNode->scale(Vector3(newScale,newScale,newScale)); 
-
 mScale = scale;
-
+//CHANGE
 		mBody->DestroyShape(mShape); 	
-		b2PolygonDef shapeDef= mProperties->getShapeDef(scale);
-		mShape = mBody->CreateShape(&shapeDef); 
+		b2ShapeDef* shapeDef= mProperties->getShapeDef(scale);
+		mShape = mBody->CreateShape(shapeDef); 
+		delete shapeDef;
 		mBody->SetMassFromShapes();
 		mBody->WakeUp(); 
 

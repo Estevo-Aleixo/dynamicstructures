@@ -5,14 +5,13 @@ mCanvas(canvas), mSceneMgr(sceneMgr)
 {
 
 	mPointerNode= mCanvas->getSceneNode()->createChildSceneNode(); 
-	mPointerEntity= mSceneMgr->createEntity(name,"sphere.mesh"); 
+	mPointerEntity= mSceneMgr->createEntity(name,HEXAGON_LINE_MESH); 
 	mPointerNode->attachObject(mPointerEntity); 
-	mPointerNode->scale(0.01,0.01,0.01);
+	mPointerNode->scale(10,10,10);
 	acceleration= Vector2(0,0);
 	mPos= Vector2(0,0); 
 	mPressed=false;
-	mMode=1;
-
+	mSystemType=1; 
 }
 
 Pointer::~Pointer(void)
@@ -20,21 +19,12 @@ Pointer::~Pointer(void)
 
 }
 
-bool Pointer::frameStarted(const FrameEvent &evt)
+bool Pointer::update(const FrameEvent &evt)
 {
-
-	
-
-
-
-	
+	mPointerNode->roll(Ogre::Radian(2)*evt.timeSinceLastFrame); 	
 	return true;
 } 
-bool Pointer::frameEnded(const FrameEvent &evt)
-{
 
-	return true;
-}
 
 bool Pointer::mouseMoved(const OIS::MouseEvent &e)
 {
@@ -66,9 +56,9 @@ bool Pointer::mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id)
 	//plant  seed
 	if (mPressed==false)
 	{
-		switch(mMode){
+		switch(mSystemType){
 		
-		case 1:
+			case 1:
 			mCanvas->addCellSystem(mPos,"Square",true,1.0); 
 			break;
 		case 2:
@@ -76,6 +66,9 @@ bool Pointer::mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id)
 			break;
 		case 3:
 			mCanvas->addCellSystem(mPos,"Triangle",true,1.0); 
+			break;
+		case 4:
+			mCanvas->addCellSystem(mPos,"Circle",true,1.0); 
 			break;
 		}
 	}
@@ -96,12 +89,12 @@ bool Pointer::mouseReleased(const OIS::MouseEvent &e, OIS::MouseButtonID id)
 
 unsigned int  Pointer::getCurrentCellModeID()
 {
-	return mMode; 
+	return mSystemType; 
 } 
 
 void Pointer::setCreateType(unsigned int type)
 {
-	mMode=type;
+	mSystemType = type;
 }
 
 void Pointer::setPosition(Ogre::Vector2& pos)

@@ -57,7 +57,7 @@ bool Cell::frameStarted(const FrameEvent &evt)
 				Radian angle= Math::ATan2(pos.y-mOrigin.y,pos.x- mOrigin.x); 
 				b2Vec2 vel= b2Vec2(Math::Cos(angle)*speed, Math::Sin(angle)*speed);  
 				newCell->setLinearVelocity(vel);
-				double newScale= mScale + 0.5;
+				double newScale= mScale + 2.0;
 				this->setScale(newScale); 
 				newCell->setScale(mScale);
 				Cell* tempCell= mCellBuddy;

@@ -60,7 +60,7 @@ material basesurface
 	{
 		pass
 		{
-			ambient 0.03 0.03 0.03 0.5
+			ambient 0.03 0.2 0.03 1.0
 
 			//texture_unit
 			//{

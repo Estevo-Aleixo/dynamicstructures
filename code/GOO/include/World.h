@@ -1,4 +1,5 @@
 #pragma once
+#pragma warning( disable : 4482)
 
 
 #include "cLua.h"
@@ -13,7 +14,7 @@ class Pointer;
 class CellFactory; 
 class Cell;
 class ObjectDefinitions; 
-
+class SystemFactory;
 enum CAMERAMODE
 {
 ATTACHED=0,
@@ -58,6 +59,11 @@ public:
 	void sayHello();
 
 	void PauseAll(); 
+	Canvas* mCanvas;
+	Pointer* mPointer;
+	CellFactory* mCellFactory;
+	SystemFactory* mSystemFactory;
+
 private: 
 	ObjectDefinitions* mObjectDefinitions;
 
@@ -78,9 +84,6 @@ private:
 	bool moveButtonPressed;
 
 
-	Canvas* mCanvas;
-	Pointer* mPointer;
-	CellFactory* mCellFactory;
 
 	Ogre::SceneNode* coreNode; 
 	Ogre::Entity* coreEntity;

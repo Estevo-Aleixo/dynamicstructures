@@ -15,18 +15,23 @@ mType(type), mLines(lines), mSceneMgr(sceneMgr)
 	mAABB.upperBound.Set((width/2)+5, (height/2)+5);
 
 	mTimeStep = 1.0f / 60.0f;
-	b2Vec2 gravity(0,0.0);
+	b2Vec2 gravity(0, 0.0);
 	mb2World= new b2World(mAABB,gravity,false); 
+	mContactFilter= new ContactFilter(); 
+	//mb2World->SetContactFilter(mContactFilter); 
+	
 	this->dimensions.x= width;
 	this->dimensions.y= height;
 	
 //build raster:
-	createRaster(mType);
-	mRasterEntity = sceneMgr->createEntity("canvas_raster","Raster"); 
-	mRootCanvasNode= sceneMgr->getRootSceneNode()->createChildSceneNode("CanvasRootNode");
-	mRasterNode= mRootCanvasNode->createChildSceneNode(); 
-	mRasterNode->attachObject(mRasterEntity); 
-	mRootCanvasNode->scale(1.0,1.0,1.0);
+mRootCanvasNode= sceneMgr->getRootSceneNode()->createChildSceneNode("CanvasRootNode");
+mRootCanvasNode->scale(1.0,1.0,1.0);
+
+	//createRaster(mType);
+	//mRasterEntity = sceneMgr->createEntity("canvas_raster","Raster"); 
+	//mRasterNode= mRootCanvasNode->createChildSceneNode(); 
+	//mRasterNode->attachObject(mRasterEntity); 
+	
 	mPointer= new Pointer(name + "_pointer", this, mSceneMgr); 
 	mTimePassed = 0;
 	mTimeInterval = 0.5;
@@ -138,6 +143,7 @@ bool  Canvas::frameStarted(const FrameEvent &evt)
 	//iterate through cell_systems
 	std::vector<CellSystem*>::iterator itr;
 
+	mPointer->update(evt); 
 
 	//check cursor position:
 	mTimePassed+=evt.timeSinceLastFrame;

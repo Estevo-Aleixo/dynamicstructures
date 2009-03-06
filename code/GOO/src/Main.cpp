@@ -15,7 +15,7 @@ Main::Main()
 		mResourcePath = "";
 #endif
     }
-   
+
 /// Standard destructor
 Main::~Main()
     {
@@ -29,7 +29,6 @@ Main::~Main()
     {
         if (!setup())
             return;
-
         mRoot->startRendering();
 
         // clean up
@@ -44,7 +43,7 @@ Main::~Main()
 #ifndef OGRE_STATIC_LIB
 		pluginsPath = mResourcePath + "plugins.cfg";
 #endif
-		
+
         mRoot = new Root(pluginsPath, mResourcePath + "ogre.cfg", mResourcePath + "Ogre.log");
 
         setupResources();
@@ -115,12 +114,12 @@ Main::~Main()
         mFrameListener= new World(mWindow, mCamera, mSceneMgr, mGUIRenderer, mRoot );
         mFrameListener->showDebugOverlay(true);
         mRoot->addFrameListener(mFrameListener);
-		
+
     }
 
 	void Main::createScene(void)
 	{
-	
+
 	}
 
     void Main::destroyScene(void){}    // Optional to override this
@@ -142,7 +141,7 @@ Main::~Main()
         // Load resource paths from config file
         ConfigFile cf;
         cf.load("resources.cfg");
-        
+
 		// Go through all sections & settings in the file
         ConfigFile::SectionIterator seci = cf.getSectionIterator();
 
@@ -152,7 +151,7 @@ Main::~Main()
             secName = seci.peekNextKey();
             ConfigFile::SettingsMultiMap *settings = seci.getNext();
             ConfigFile::SettingsMultiMap::iterator i;
-            
+
 			for (i = settings->begin(); i != settings->end(); ++i)
             {
                 typeName = i->first;
@@ -192,7 +191,7 @@ Main::~Main()
 			Main app;
 			try
 			{
-				app.go();   
+				app.go();
 			}
 			catch (Exception& e)
 			{

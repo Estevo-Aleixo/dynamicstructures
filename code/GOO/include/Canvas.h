@@ -2,6 +2,7 @@
 
 #include "Main.h"
 #include "SurfaceProperties.h"
+#include "ContactFilter.h"
 
 enum CANVASTYPE
 {
@@ -56,11 +57,15 @@ public:
 
 	void setSurface(SurfaceProperties* properties); 
 	SurfaceProperties* mSurfaceProperties;  
+
+	void setVisualizationStyle(VISUALIZATION vis); 
+
 protected: 
 	bool mRunning; 
 
 	std::vector<CellFactory*> cellFactories;
 	b2AABB mAABB;
+	b2ContactFilter* mContactFilter;
 	b2World* mb2World;
 	float32 mTimeStep;
 

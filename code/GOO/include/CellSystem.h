@@ -7,11 +7,17 @@
 
 class Canvas; 
 
+
+enum MODE
+{
+FREE=0, 
+MOVING_DYNAMIC=1,
+MOVING_STATIC=2
+};
+
 class CellSystem
 {
 public: 
-	static void loadCellSystems(std::string& filename); //load with lua
-	
 	CellSystem(std::string& name, Canvas* canvas, Ogre::SceneManager* sceneMgr,Ogre::Vector2& startPosition, const char* systemType, bool enabled=true, Ogre::Real speed = 1.0);
 	~CellSystem(void);
 
@@ -48,8 +54,13 @@ public:
 	void attachToCursor(){mAttachedToCursor = true;}
 	void detachFromCursor(){mAttachedToCursor = false;}
 	bool isAttachedToCursor(){return mAttachedToCursor;}
+	
+	void reduce(int percent);
 
+	MODE getMode(){return mMode;} 
 protected:
+	MODE mMode;
+
 	void initialize(); 
 	bool mAttachedToCursor; 
 

@@ -3,6 +3,8 @@
 
 Object2DProperties::Object2DProperties(void)
 {
+
+	/*
 	this->mMeshName= TRIANGLE_MESH;
 	mScale= 1.0;
 	mDensity = 1.0;
@@ -26,36 +28,50 @@ Object2DProperties::Object2DProperties(void)
 	} 
 	mShapeDef.density=20.0f;
 	mShapeDef.friction= 8.0f;
-
+*/
 
 }
 
-Object2DProperties::Object2DProperties(const char* name, std::string meshName, b2PolygonDef& shapeDef, double scale)
+Object2DProperties::Object2DProperties(const char* name, std::string meshName, b2ShapeDef* shapeDef, double scale)
 :mName(std::string(name)), mMeshName(meshName), mShapeDef(shapeDef), mScale(scale)
 {
 
-
 }
 
-b2PolygonDef Object2DProperties::getShapeDef(double scale)
+b2ShapeDef* Object2DProperties::getShapeDef(double scale)
 {
-b2PolygonDef scaledDef;
-//scale the bitch
-	scaledDef.vertexCount= mShapeDef.vertexCount;
-	scaledDef.density= mShapeDef.density;
-	scaledDef.friction= mShapeDef.friction;
-	for (unsigned int i=0 ; i < mShapeDef.vertexCount; i++)
-	{   
-		scaledDef.vertices[i].x = mShapeDef.vertices[i].x * scale; 
-		scaledDef.vertices[i].y = mShapeDef.vertices[i].y * scale; 
-	}
+	b2PolygonDef* lPolygonDef= ((b2PolygonDef*)mShapeDef); 
 
-return scaledDef; 
+	if (mShapeDef->type == b2ShapeType::e_polygonShape){
+			b2PolygonDef* scaledDef =new b2PolygonDef();
+			scaledDef->vertexCount= lPolygonDef->vertexCount;
+			scaledDef->density= lPolygonDef->density;
+			scaledDef->friction= lPolygonDef->friction;
+			
+			for (unsigned int i=0 ; i < lPolygonDef->vertexCount; i++)
+			{   
+				scaledDef->vertices[i].x = lPolygonDef->vertices[i].x * scale; 
+				scaledDef->vertices[i].y = lPolygonDef->vertices[i].y * scale; 
+			}
+			
+			return (b2ShapeDef* )scaledDef;
+	
+	}else
+	{
+			b2CircleDef* scaledDef=new b2CircleDef();
+			scaledDef->density= mShapeDef->density;
+			scaledDef->friction= mShapeDef->friction;
+			scaledDef->radius= ((b2CircleDef*)mShapeDef)->radius * scale; 
+			return scaledDef;
+	}
 }
 
 
-
-
+/*
+b2ShapeDef Object2DProperties::getCircleDef(double scale)
+{
+}
+*/
 
 
 /*

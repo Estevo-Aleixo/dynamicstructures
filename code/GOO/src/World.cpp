@@ -3,6 +3,7 @@
 #include "Pointer.h"
 #include "CellSystem.h"
 #include "CellFactory.h"
+#include "SystemFactory.h"
 #include "ObjectDefinitions.h"
 
 #include "LuaGlueFunctions.h"
@@ -32,7 +33,8 @@ ExampleFrameListener(win, cam, true, true), mGUIRenderer(renderer), mSceneMgr(sc
 	mCanvas= new Canvas(std::string("myFirstCanvas"), CANVASTYPE::RECTANGULAR,0, mSceneMgr,40,1000,1000);
 	mPointer= mCanvas->getPointer(); 	
 
-	mCellFactory= new CellFactory(std::string("Triangle Cell Factory"),mSceneMgr, mCanvas); 
+	mCellFactory= new CellFactory(std::string("The Cell Factory"),mSceneMgr, mCanvas); 
+	mSystemFactory= new SystemFactory("myFirstSystemFactory",mCanvas,mSceneMgr); 
 
 	mMainCam= mSceneMgr->getCamera("MainCam");
 	camMode= CAMERAMODE::ATTACHED;
@@ -100,7 +102,6 @@ bool World::frameStarted(const FrameEvent &evt)
 		break;
 	case CAMERAMODE::ATTACHED:
 		checkKeyboardInput(evt); 
-		mPointer->frameStarted(evt); 
 		updateCamera(evt); 
 		break;
 
@@ -208,6 +209,10 @@ bool World::keyReleased(const OIS::KeyEvent &e)
 			this->mPointer->setCreateType(3);
 			updateParameterOverlay();
 			break;
+		case OIS::KC_4:
+			this->mPointer->setCreateType(4);
+			updateParameterOverlay();
+			break;
 		case OIS::KC_C:
 			this->mCanvas->clearCanvas();
 			break;
@@ -216,6 +221,9 @@ bool World::keyReleased(const OIS::KeyEvent &e)
 			break;
 		case OIS::KC_X:
 			mCanvas->startAllEntities();
+			break;
+		case OIS::KC_T:
+			this->mSystemFactory->getSystemList(); 
 			break;
 	}
 

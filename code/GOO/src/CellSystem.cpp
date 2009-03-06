@@ -185,3 +185,9 @@ bool CellSystem::containsPoint(Ogre::Vector2& point)
 
 	return true;
 }
+
+void CellSystem::reduce(int percent)
+{
+
+
+}

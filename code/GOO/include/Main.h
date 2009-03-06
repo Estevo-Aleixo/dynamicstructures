@@ -23,8 +23,7 @@ Filename:    Main.h
 #define SQUARE_MESH "rectangular_cell"
 #define HEXAGON_LINE_MESH "hexagon_cell"
 #define TRIANGLE_MESH "triangle_cell"
-#define CIRCLE_LINE_MESH "NONE"
-
+#define PLANE "plane.mesh"
 
 #include "MovableText.h"
 
@@ -36,6 +35,27 @@ layer2=2,
 layer3=3
 };
 
+enum VISUALIZATION
+{
+BASIC = 0,
+SURFACES = 1,
+FINAL2D = 2,
+FINAL3D = 3
+};
+
+enum CURSORMODE
+{
+	PLACE_SYSTEM = 0,
+	EDIT_SYSTEM  = 1, 
+	EDIT_OBJECT  = 2
+};
+
+enum shapeType
+{
+polygon=0, 
+circle=1
+};
+
 
 
 extern "C"
@@ -44,6 +64,15 @@ extern "C"
 	#include "lualib.h"
 	#include "lauxlib.h"
 }
+
+struct ltstr
+{
+  bool operator()(const char* s1, const char* s2) const
+  {
+    return strcmp(s1, s2) < 0;
+  }
+};
+
 
 
 class ExampleFrameListener;

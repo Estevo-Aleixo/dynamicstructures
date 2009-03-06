@@ -10,8 +10,6 @@ class CellSystem;
 class CellFactory
 {
 public:
-	//static void Create(Ogre::SceneManager* sceneMgr, Canvas* canvas); 
-	//static void Destroy(); 
 	static void createCellMeshes();
 
 	 Cell* requestCellFromPool();

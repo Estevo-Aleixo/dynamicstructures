@@ -12,8 +12,7 @@ public:
 	Pointer(std::string& name, Canvas* canvas, Ogre::SceneManager* sceneMgr);
 	~Pointer(void);
 
-	bool frameStarted(const FrameEvent &evt); 
-	bool frameEnded(const FrameEvent &evt);
+	bool update(const FrameEvent &evt); 
 
 	bool mouseMoved(const OIS::MouseEvent &e);
 	bool mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id);
@@ -24,10 +23,12 @@ public:
 	Ogre::Vector2& getPosition(){return mPos;} 
 	void setPosition(Ogre::Vector2& pos); 
 
+	CURSORMODE getMode(){return mMode;}
 private:
+	CURSORMODE mMode;
+	unsigned int mSystemType; 
 	unsigned int mCreateType; 
 
-	unsigned int mMode;
 	std::vector<CellSystemProperties*> mCellSystemModes; 
 
 	bool mPressed;

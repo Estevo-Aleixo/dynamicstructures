@@ -25,6 +25,12 @@ public:
 	
 	CellProperties& getCellProperties(){return mCellProperties;}
 
+	std::string mName;
+	std::string description; 
+	std::string cellType; 
+	
+	std::map<const char*, int> mExtraParameters;
+//, ltstr
 private: 
 	CellProperties mCellProperties;
 
@@ -32,3 +38,19 @@ private:
 	CELLTYPE mType;  
 
 };
+
+//PROPERTIES
+
+//SURFACE TYPE: controls much of the properties
+	//-enumerate: water, ground, desert, jungle, mountains
+
+
+//DENSITY
+//AUTO EXPAND
+//CELLTYPE
+//MAX CELLS
+//MAX VOLUME
+//MAX CELL SIZE
+
+//EVENT TYPES:
+
