@@ -2,7 +2,7 @@
 
 #include "Main.h"
 #include "Cell.h"
-//#include "CellSystemProperties.h"
+#include "DynamicSystem.h"
 #include "Skeleton2D.h"
 
 class Canvas; 
@@ -10,23 +10,23 @@ class Canvas;
 
 enum MODE
 {
-FREE=0, 
-MOVING_DYNAMIC=1,
-MOVING_STATIC=2
+	FREE=0, 
+	MOVING_DYNAMIC=1,
+	MOVING_STATIC=2
 };
 
-class CellSystem
+class CellSystem: public DynamicSystem
 {
 public: 
-	CellSystem(std::string& name, Canvas* canvas, Ogre::SceneManager* sceneMgr,Ogre::Vector2& startPosition, const char* systemType, bool enabled=true, Ogre::Real speed = 1.0);
+	CellSystem(std::string& name, Canvas* canvas, Ogre::SceneManager* sceneMgr,Ogre::Vector2& position, const char* systemType, bool enabled=true, Ogre::Real speed = 1.0);
 	~CellSystem(void);
 
 	void enable(bool on){mEnabled=on;}
 	bool isEnabled(){return mEnabled;}
 
-	void start();//{mEnabled=true;}
-	void halt();//{mEnabled=false;}
-	void stop();//{mEnabled=false; mDone=true;} 
+	void start();
+	void halt();
+	void stop();
 
 	Ogre::Real getSpeed(){return mSpeed;} 
 
@@ -75,7 +75,6 @@ protected:
 	
 	std::string mName;
 	Ogre::SceneManager* mSceneMgr; 
-	Ogre::Vector2 mStartPos;
 	const char* mSystemType;
 	bool mEnabled;
 	bool mDone;

@@ -216,6 +216,22 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\ContactFilter.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\ContactListener.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\Cursor.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\DynamicSystem.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\Functions.cpp"
 				>
 			</File>
@@ -236,14 +252,6 @@
 				>
 			</File>
 			<File
-				RelativePath="..\src\Pointer.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\src\Seed.cpp"
-				>
-			</File>
-			<File
 				RelativePath="..\src\Skeleton2D.cpp"
 				>
 			</File>
@@ -251,15 +259,15 @@
 				RelativePath="..\src\SurfaceProperties.cpp"
 				>
 			</File>
+			<File
+				RelativePath="..\src\SystemFactory.cpp"
+				>
+			</File>
 			<Filter
 				Name="Entities"
 				>
 				<File
-					RelativePath="..\src\BaseEntity.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\src\MovingEntity.cpp"
+					RelativePath="..\src\Movable2DObject.cpp"
 					>
 				</File>
 				<Filter
@@ -318,11 +326,19 @@
 				>
 			</File>
 			<File
-				RelativePath="..\include\cLua.h"
+				RelativePath="..\include\ContactFilter.h"
 				>
 			</File>
 			<File
-				RelativePath="..\include\Functions.h"
+				RelativePath="..\include\ContactListener.h"
+				>
+			</File>
+			<File
+				RelativePath="..\include\Cursor.h"
+				>
+			</File>
+			<File
+				RelativePath="..\include\DynamicSystem.h"
 				>
 			</File>
 			<File
@@ -342,14 +358,6 @@
 				>
 			</File>
 			<File
-				RelativePath="..\include\Pointer.h"
-				>
-			</File>
-			<File
-				RelativePath="..\include\Seed.h"
-				>
-			</File>
-			<File
 				RelativePath="..\include\Skeleton2D.h"
 				>
 			</File>
@@ -357,25 +365,17 @@
 				RelativePath="..\include\SurfaceProperties.h"
 				>
 			</File>
+			<File
+				RelativePath="..\include\SystemFactory.h"
+				>
+			</File>
 			<Filter
 				Name="Entities"
 				>
 				<File
-					RelativePath="..\include\BaseEntity.h"
+					RelativePath="..\include\Movable2DObject.h"
 					>
 				</File>
-				<File
-					RelativePath="..\include\MovingEntity.h"
-					>
-				</File>
-				<Filter
-					Name="Entity_properties"
-					>
-				</Filter>
-			</Filter>
-			<Filter
-				Name="Managers"
-				>
 			</Filter>
 			<Filter
 				Name="Governers"
@@ -397,7 +397,7 @@
 				Name="LuaGlue"
 				>
 				<File
-					RelativePath=".\GuiEvents.h"
+					RelativePath="..\include\cLua.h"
 					>
 				</File>
 				<File

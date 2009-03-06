@@ -56,6 +56,12 @@ polygon=0,
 circle=1
 };
 
+enum Object2DType
+{
+	CellType=1,
+	CellSystemType=2,
+	SkeletonPointType=3
+};
 
 
 extern "C"

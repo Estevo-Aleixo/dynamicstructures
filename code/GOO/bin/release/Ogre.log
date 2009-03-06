@@ -1,1122 +1,260 @@
-20:49:52: Creating resource group General
-20:49:52: Creating resource group Internal
-20:49:52: Creating resource group Autodetect
-20:49:52: SceneManagerFactory for type 'DefaultSceneManager' registered.
-20:49:52: Registering ResourceManager for type Material
-20:49:52: Registering ResourceManager for type Mesh
-20:49:52: Registering ResourceManager for type Skeleton
-20:49:52: MovableObjectFactory for type 'ParticleSystem' registered.
-20:49:52: OverlayElementFactory for type Panel registered.
-20:49:52: OverlayElementFactory for type BorderPanel registered.
-20:49:52: OverlayElementFactory for type TextArea registered.
-20:49:52: Registering ResourceManager for type Font
-20:49:52: ArchiveFactory for archive type FileSystem registered.
-20:49:52: ArchiveFactory for archive type Zip registered.
-20:49:52: FreeImage version: 3.10.0
-20:49:52: This program uses FreeImage, a free, open source image library supporting all common bitmap formats. See http://freeimage.sourceforge.net for details
-20:49:52: Supported formats: bmp,ico,jpg,jif,jpeg,jpe,jng,koa,iff,lbm,mng,pbm,pbm,pcd,pcx,pgm,pgm,png,ppm,ppm,ras,tga,targa,tif,tiff,wap,wbmp,wbm,psd,cut,xbm,xpm,gif,hdr,g3,sgi,exr,j2k,j2c,jp2
-20:49:52: DDS codec registering
-20:49:52: Registering ResourceManager for type HighLevelGpuProgram
-20:49:52: Registering ResourceManager for type Compositor
-20:49:52: MovableObjectFactory for type 'Entity' registered.
-20:49:52: MovableObjectFactory for type 'Light' registered.
-20:49:52: MovableObjectFactory for type 'BillboardSet' registered.
-20:49:52: MovableObjectFactory for type 'ManualObject' registered.
-20:49:52: MovableObjectFactory for type 'BillboardChain' registered.
-20:49:52: MovableObjectFactory for type 'RibbonTrail' registered.
-20:49:52: Loading library .\RenderSystem_Direct3D9
-20:49:52: Installing plugin: D3D9 RenderSystem
-20:49:52: D3D9 : Direct3D9 Rendering Subsystem created.
-20:49:52: D3D9: Driver Detection Starts
-20:49:52: D3D9: Driver Detection Ends
-20:49:52: Plugin successfully installed
-20:49:52: Loading library .\RenderSystem_GL
-20:49:52: Installing plugin: GL RenderSystem
-20:49:52: OpenGL Rendering Subsystem created.
-20:49:53: Plugin successfully installed
-20:49:53: Loading library .\Plugin_ParticleFX
-20:49:53: Installing plugin: ParticleFX
-20:49:53: Particle Emitter Type 'Point' registered
-20:49:53: Particle Emitter Type 'Box' registered
-20:49:53: Particle Emitter Type 'Ellipsoid' registered
-20:49:53: Particle Emitter Type 'Cylinder' registered
-20:49:53: Particle Emitter Type 'Ring' registered
-20:49:53: Particle Emitter Type 'HollowEllipsoid' registered
-20:49:53: Particle Affector Type 'LinearForce' registered
-20:49:53: Particle Affector Type 'ColourFader' registered
-20:49:53: Particle Affector Type 'ColourFader2' registered
-20:49:53: Particle Affector Type 'ColourImage' registered
-20:49:53: Particle Affector Type 'ColourInterpolator' registered
-20:49:53: Particle Affector Type 'Scaler' registered
-20:49:53: Particle Affector Type 'Rotator' registered
-20:49:53: Particle Affector Type 'DirectionRandomiser' registered
-20:49:53: Particle Affector Type 'DeflectorPlane' registered
-20:49:53: Plugin successfully installed
-20:49:53: Loading library .\Plugin_BSPSceneManager
-20:49:53: Installing plugin: BSP Scene Manager
-20:49:53: Plugin successfully installed
-20:49:53: Loading library .\Plugin_CgProgramManager
-20:49:53: Installing plugin: Cg Program Manager
-20:49:53: Plugin successfully installed
-20:49:53: *-*-* OGRE Initialising
-20:49:53: *-*-* Version 1.6.0RC1 (Shoggoth)
-20:49:53: Creating resource group Bootstrap
-20:49:53: Added resource location '../../media/packs/OgreCore.zip' of type 'Zip' to resource group 'Bootstrap'
-20:49:53: Added resource location '../../media' of type 'FileSystem' to resource group 'General'
-20:49:53: Added resource location '../../media/fonts' of type 'FileSystem' to resource group 'General'
-20:49:53: Added resource location '../../media/materials/programs' of type 'FileSystem' to resource group 'General'
-20:49:53: Added resource location '../../media/materials/scripts' of type 'FileSystem' to resource group 'General'
-20:49:53: Added resource location '../../media/materials/textures' of type 'FileSystem' to resource group 'General'
-20:49:53: Added resource location '../../media/models' of type 'FileSystem' to resource group 'General'
-20:49:53: Added resource location '../../media/overlays' of type 'FileSystem' to resource group 'General'
-20:49:53: Added resource location '../../media/particle' of type 'FileSystem' to resource group 'General'
-20:49:53: Added resource location '../../media/gui' of type 'FileSystem' to resource group 'General'
-20:49:53: Added resource location '../../media/DeferredShadingMedia' of type 'FileSystem' to resource group 'General'
-20:49:53: Added resource location '../../media/ObjectDefinitions' of type 'FileSystem' to resource group 'General'
-20:49:53: D3D9 : RenderSystem Option: Allow NVPerfHUD = No
-20:49:53: D3D9 : RenderSystem Option: Anti aliasing = None
-20:49:53: D3D9 : RenderSystem Option: Floating-point mode = Fastest
-20:49:53: D3D9 : RenderSystem Option: Full Screen = No
-20:49:53: D3D9 : RenderSystem Option: Rendering Device = RADEON X800 XT Platinum Edition
-20:49:53: D3D9 : RenderSystem Option: VSync = No
-20:49:53: D3D9 : RenderSystem Option: Video Mode = 1024 x 768 @ 32-bit colour
-20:49:53: D3D9 : RenderSystem Option: sRGB Gamma Conversion = No
-20:49:54: CPU Identifier & Features
-20:49:54: -------------------------
-20:49:54:  *   CPU ID: AuthenticAMD: AMD Athlon(tm) XP 3000+
-20:49:54:  *      SSE: yes
-20:49:54:  *     SSE2: no
-20:49:54:  *     SSE3: no
-20:49:54:  *      MMX: yes
-20:49:54:  *   MMXEXT: yes
-20:49:54:  *    3DNOW: yes
-20:49:54:  * 3DNOWEXT: yes
-20:49:54:  *     CMOV: yes
-20:49:54:  *      TSC: yes
-20:49:54:  *      FPU: yes
-20:49:54:  *      PRO: yes
-20:49:54:  *       HT: no
-20:49:54: -------------------------
-20:49:54: D3D9 : Subsystem Initialising
-20:49:54: D3D9RenderSystem::_createRenderWindow "GOO editor", 1024x768 windowed  miscParams: FSAA=0 FSAAQuality=0 colourDepth=32 gamma=false useNVPerfHUD=false vsync=false 
-20:49:54: D3D9 : Created D3D9 Rendering Window 'GOO editor' : 1024x768, 32bpp
-20:49:54: D3D9 : WARNING - disabling VSync in windowed mode can cause timing issues at lower frame rates, turn VSync on if you observe this problem.
-20:49:54: Registering ResourceManager for type Texture
-20:49:54: Registering ResourceManager for type GpuProgram
-20:49:54: RenderSystem capabilities
-20:49:54: -------------------------
-20:49:54: RenderSystem Name: Direct3D9 Rendering Subsystem
-20:49:54: GPU Vendor: ati
-20:49:54: Device Name: RADEON X800 XT Platinum Edition
-20:49:54: Driver Version: 6.14.10.6891
-20:49:54:  * Fixed function pipeline: yes
-20:49:54:  * Hardware generation of mipmaps: yes
-20:49:54:  * Texture blending: yes
-20:49:54:  * Anisotropic texture filtering: yes
-20:49:54:  * Dot product texture operation: yes
-20:49:54:  * Cube mapping: yes
-20:49:54:  * Hardware stencil buffer: yes
-20:49:54:    - Stencil depth: 8
-20:49:54:    - Two sided stencil support: yes
-20:49:54:    - Wrap stencil values: yes
-20:49:54:  * Hardware vertex / index buffers: yes
-20:49:54:  * Vertex programs: yes
-20:49:54:  * Fragment programs: yes
-20:49:54:  * Geometry programs: no
-20:49:54:  * Supported Shader Profiles: hlsl ps_1_1 ps_1_2 ps_1_3 ps_1_4 ps_2_0 ps_2_b ps_2_x vs_1_1 vs_2_0
-20:49:54:  * Texture Compression: yes
-20:49:54:    - DXT: yes
-20:49:54:    - VTC: no
-20:49:54:  * Scissor Rectangle: yes
-20:49:54:  * Hardware Occlusion Query: yes
-20:49:54:  * User clip planes: yes
-20:49:54:  * VET_UBYTE4 vertex element type: yes
-20:49:54:  * Infinite far plane projection: yes
-20:49:54:  * Hardware render-to-texture: yes
-20:49:54:  * Floating point textures: yes
-20:49:54:  * Non-power-of-two textures: yes (limited)
-20:49:54:  * Volume textures: yes
-20:49:54:  * Multiple Render Targets: 4
-20:49:54:    - With different bit depths: no
-20:49:54:  * Point Sprites: yes
-20:49:54:  * Extended point parameters: yes
-20:49:54:  * Max Point Size: 256
-20:49:54:  * Vertex texture fetch: no
-20:49:54:  * Render to Vertex Buffer : no
-20:49:54:  * DirectX per stage constants: no
-20:49:54: ***************************************
-20:49:54: *** D3D9 : Subsystem Initialised OK ***
-20:49:54: ***************************************
-20:49:54: ResourceBackgroundQueue - threading disabled
-20:49:54: Particle Renderer Type 'billboard' registered
-20:49:54: SceneManagerFactory for type 'BspSceneManager' registered.
-20:49:54: Registering ResourceManager for type BspLevel
-20:49:54: Parsing scripts for resource group Autodetect
-20:49:54: Finished parsing scripts for resource group Autodetect
-20:49:54: Parsing scripts for resource group Bootstrap
-20:49:54: Parsing script OgreCore.material
-20:49:54: Parsing script OgreProfiler.material
-20:49:54: Parsing script Ogre.fontdef
-20:49:54: Parsing script OgreDebugPanel.overlay
-20:49:54: Texture: New_Ogre_Border_Center.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x128x1.
-20:49:54: Texture: New_Ogre_Border.png: Loading 1 faces(PF_A8R8G8B8,256x256x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x256x1.
-20:49:54: Texture: New_Ogre_Border_Break.png: Loading 1 faces(PF_A8R8G8B8,32x32x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,32x32x1.
-20:49:54: Font BlueHighwayusing texture size 512x512
-20:49:54: Info: Freetype returned null for character 127 in font BlueHighway
-20:49:54: Info: Freetype returned null for character 128 in font BlueHighway
-20:49:54: Info: Freetype returned null for character 129 in font BlueHighway
-20:49:54: Info: Freetype returned null for character 130 in font BlueHighway
-20:49:54: Info: Freetype returned null for character 131 in font BlueHighway
-20:49:54: Info: Freetype returned null for character 132 in font BlueHighway
-20:49:54: Info: Freetype returned null for character 133 in font BlueHighway
-20:49:54: Info: Freetype returned null for character 134 in font BlueHighway
-20:49:54: Info: Freetype returned null for character 135 in font BlueHighway
-20:49:54: Info: Freetype returned null for character 136 in font BlueHighway
-20:49:54: Info: Freetype returned null for character 137 in font BlueHighway
-20:49:54: Info: Freetype returned null for character 138 in font BlueHighway
-20:49:54: Info: Freetype returned null for character 139 in font BlueHighway
-20:49:54: Info: Freetype returned null for character 140 in font BlueHighway
-20:49:54: Info: Freetype returned null for character 141 in font BlueHighway
-20:49:54: Info: Freetype returned null for character 142 in font BlueHighway
-20:49:54: Info: Freetype returned null for character 143 in font BlueHighway
-20:49:54: Info: Freetype returned null for character 144 in font BlueHighway
-20:49:54: Info: Freetype returned null for character 145 in font BlueHighway
-20:49:54: Info: Freetype returned null for character 146 in font BlueHighway
-20:49:54: Info: Freetype returned null for character 147 in font BlueHighway
-20:49:54: Info: Freetype returned null for character 148 in font BlueHighway
-20:49:54: Info: Freetype returned null for character 149 in font BlueHighway
-20:49:54: Info: Freetype returned null for character 150 in font BlueHighway
-20:49:54: Info: Freetype returned null for character 151 in font BlueHighway
-20:49:54: Info: Freetype returned null for character 152 in font BlueHighway
-20:49:54: Info: Freetype returned null for character 153 in font BlueHighway
-20:49:54: Info: Freetype returned null for character 154 in font BlueHighway
-20:49:54: Info: Freetype returned null for character 155 in font BlueHighway
-20:49:54: Info: Freetype returned null for character 156 in font BlueHighway
-20:49:54: Info: Freetype returned null for character 157 in font BlueHighway
-20:49:54: Info: Freetype returned null for character 158 in font BlueHighway
-20:49:54: Info: Freetype returned null for character 159 in font BlueHighway
-20:49:54: Info: Freetype returned null for character 160 in font BlueHighway
-20:49:54: Texture: BlueHighwayTexture: Loading 1 faces(PF_BYTE_LA,512x512x1) with 0 generated mipmaps from Image. Internal format is PF_BYTE_LA,512x512x1.
-20:49:54: Texture: ogretext.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x128x1.
-20:49:54: Parsing script OgreLoadingPanel.overlay
-20:49:54: Finished parsing scripts for resource group Bootstrap
-20:49:54: Parsing scripts for resource group General
-20:49:54: Parsing script Examples.program
-20:49:54: Parsing script deferred.glsl.program
-20:49:54: Parsing script deferred.hlsl.program
-20:49:54: Parsing script deferred.program
-20:49:54: Parsing script deferred_post_ambient.program
-20:49:54: Parsing script deferred_post_debug.glsl.program
-20:49:54: Parsing script deferred_post_debug.hlsl.program
-20:49:54: Parsing script deferred_post_debug.program
-20:49:54: Parsing script deferred_post_minilight.glsl.program
-20:49:54: Parsing script deferred_post_minilight.hlsl.program
-20:49:54: OGRE EXCEPTION(2:InvalidParametersException): Parameter called lightFalloff does not exist.  in GpuProgramParameters::_findNamedConstantDefinition at ..\src\OgreGpuProgram.cpp (line 1095)
-20:49:54: Compiler error: invalid parameters in deferred_post_minilight.hlsl.program(27): setting of constant failed
-20:49:54: Parsing script deferred_post_minilight.program
-20:49:54: Parsing script deferred_post_multipass.glsl.program
-20:49:54: Parsing script deferred_post_multipass.hlsl.program
-20:49:54: Parsing script deferred_post_onepass.glsl.program
-20:49:54: Parsing script deferred_post_onepass.hlsl.program
-20:49:54: Parsing script deferred_post_vs.program
-20:49:54: Parsing script editor.material
-20:49:54: Parsing script Example-DynTex.material
-20:49:54: Parsing script Example.material
-20:49:55: Parsing script lua_app.material
-20:49:55: Parsing script deferred.material
-20:49:55: Parsing script deferreddemo.material
-20:49:55: Parsing script deferred_post_ambient.material
-20:49:55: Parsing script deferred_post_debug.material
-20:49:55: Parsing script deferred_post_minilight.material
-20:49:55: Parsing script deferred_post_multipass.material
-20:49:55: Parsing script deferred_post_onepass.material
-20:49:55: Parsing script emitted_emitter.particle
-20:49:55: Parsing script Example-Water.particle
-20:49:55: Parsing script Example.particle
-20:49:55: Parsing script smoke.particle
-20:49:55: Parsing script Examples.compositor
-20:49:55: Parsing script deferred.compositor
-20:49:55: Parsing script editorfonts.fontdef
-20:49:55: Parsing script sample.fontdef
-20:49:55: Parsing script console.overlay
-20:49:55: Texture: console_bg.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x128x1.
-20:49:55: Texture: console_input_bg.png: Loading 1 faces(PF_A8R8G8B8,128x64x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,128x64x1.
-20:49:55: Parsing script parameters.overlay
-20:49:55: Finished parsing scripts for resource group General
-20:49:55: Parsing scripts for resource group Internal
-20:49:55: Finished parsing scripts for resource group Internal
-20:49:55: *** Initializing OIS ***
-20:49:55: Mesh: Loading sphere.mesh.
-20:49:55: World object instatiated
-20:49:55: Lua: loading init.lua..
-20:49:55: Lua: ..\..\media\LUA\
-20:49:55: Lua: loading celldefinitions.lua..
-20:49:55: Lua:  system definitions - Loading System Definitions
-20:49:55: c++: loading system class: ..\..\media\LUA\systems\systems\abstractsystem.lua
-20:49:55: lua error message:cannot open ..\..\media\LUA\systems\systems\abstractsystem.LUA: No such file or directory
-20:49:55: Lua: Loading land 0.1 canvas surface...
-20:49:55: Lua: Loading water 0.1 canvas surface
-20:49:57: cell0_2DObject5
-20:49:57: cell0_2DObject0
-20:49:57: cell1_2DObject5
-20:49:57: cell1_2DObject0
-20:49:57: cell2_2DObject5
-20:49:57: cell2_2DObject0
-20:49:57: cell3_2DObject5
-20:49:57: cell3_2DObject0
-20:49:57: cell4_2DObject5
-20:49:57: cell4_2DObject0
-20:49:57: cell5_2DObject5
-20:49:57: cell5_2DObject0
-20:50:00: cell6_2DObject5
-20:50:00: cell6_2DObject0
-20:50:00: cell7_2DObject5
-20:50:00: cell7_2DObject0
-20:50:00: cell8_2DObject5
-20:50:00: cell8_2DObject0
-20:50:00: cell9_2DObject5
-20:50:00: cell9_2DObject0
-20:50:00: cell10_2DObject5
-20:50:00: cell10_2DObject0
-20:50:00: cell11_2DObject5
-20:50:00: cell11_2DObject0
-20:50:04: cell12_2DObject5
-20:50:04: cell12_2DObject0
-20:50:04: cell13_2DObject5
-20:50:04: cell13_2DObject0
-20:50:04: cell14_2DObject5
-20:50:04: cell14_2DObject0
-20:50:04: cell15_2DObject5
-20:50:04: cell15_2DObject0
-20:50:04: cell16_2DObject5
-20:50:04: cell16_2DObject0
-20:50:04: cell17_2DObject5
-20:50:04: cell17_2DObject0
-20:50:04: cell18_2DObject5
-20:50:04: cell18_2DObject0
-20:50:04: cell19_2DObject5
-20:50:04: cell19_2DObject0
-20:50:04: cell20_2DObject5
-20:50:04: cell20_2DObject0
-20:50:04: cell21_2DObject5
-20:50:04: cell21_2DObject0
-20:50:04: cell22_2DObject5
-20:50:04: cell22_2DObject0
-20:50:04: cell23_2DObject5
-20:50:04: cell23_2DObject0
-20:50:07: cell24_2DObject5
-20:50:07: cell24_2DObject0
-20:50:07: cell25_2DObject5
-20:50:07: cell25_2DObject0
-20:50:07: cell26_2DObject5
-20:50:07: cell26_2DObject0
-20:50:07: cell27_2DObject5
-20:50:07: cell27_2DObject0
-20:50:07: cell28_2DObject5
-20:50:07: cell28_2DObject0
-20:50:07: cell29_2DObject5
-20:50:07: cell29_2DObject0
-20:50:11: cell30_2DObject5
-20:50:11: cell30_2DObject0
-20:50:11: cell31_2DObject5
-20:50:11: cell31_2DObject0
-20:50:11: cell32_2DObject5
-20:50:11: cell32_2DObject0
-20:50:11: cell33_2DObject5
-20:50:11: cell33_2DObject0
-20:50:11: cell34_2DObject5
-20:50:11: cell34_2DObject0
-20:50:11: cell35_2DObject5
-20:50:11: cell35_2DObject0
-20:50:12: cell36_2DObject5
-20:50:12: cell36_2DObject0
-20:50:12: cell37_2DObject5
-20:50:12: cell37_2DObject0
-20:50:12: cell38_2DObject5
-20:50:12: cell38_2DObject0
-20:50:12: cell39_2DObject5
-20:50:12: cell39_2DObject0
-20:50:12: cell40_2DObject5
-20:50:12: cell40_2DObject0
-20:50:12: cell41_2DObject5
-20:50:12: cell41_2DObject0
-20:50:12: cell42_2DObject5
-20:50:12: cell42_2DObject0
-20:50:12: cell43_2DObject5
-20:50:12: cell43_2DObject0
-20:50:12: cell44_2DObject5
-20:50:12: cell44_2DObject0
-20:50:12: cell45_2DObject5
-20:50:12: cell45_2DObject0
-20:50:12: cell46_2DObject5
-20:50:12: cell46_2DObject0
-20:50:12: cell47_2DObject5
-20:50:12: cell47_2DObject0
-20:50:12: cell48_2DObject5
-20:50:12: cell48_2DObject0
-20:50:12: cell49_2DObject5
-20:50:12: cell49_2DObject0
-20:50:12: cell50_2DObject5
-20:50:12: cell50_2DObject0
-20:50:12: cell51_2DObject5
-20:50:12: cell51_2DObject0
-20:50:12: cell52_2DObject5
-20:50:12: cell52_2DObject0
-20:50:12: cell53_2DObject5
-20:50:12: cell53_2DObject0
-20:50:13: cell54_2DObject5
-20:50:13: cell54_2DObject0
-20:50:13: cell55_2DObject5
-20:50:13: cell55_2DObject0
-20:50:13: cell56_2DObject5
-20:50:13: cell56_2DObject0
-20:50:13: cell57_2DObject5
-20:50:13: cell57_2DObject0
-20:50:13: cell58_2DObject5
-20:50:13: cell58_2DObject0
-20:50:13: cell59_2DObject5
-20:50:13: cell59_2DObject0
-20:50:16: cell60_2DObject5
-20:50:16: cell60_2DObject0
-20:50:16: cell61_2DObject5
-20:50:16: cell61_2DObject0
-20:50:16: cell62_2DObject5
-20:50:16: cell62_2DObject0
-20:50:16: cell63_2DObject5
-20:50:16: cell63_2DObject0
-20:50:16: cell64_2DObject5
-20:50:16: cell64_2DObject0
-20:50:16: cell65_2DObject5
-20:50:16: cell65_2DObject0
-20:50:18: cell66_2DObject5
-20:50:18: cell66_2DObject0
-20:50:18: cell67_2DObject5
-20:50:18: cell67_2DObject0
-20:50:20: cell68_2DObject5
-20:50:20: cell68_2DObject0
-20:50:20: cell69_2DObject5
-20:50:20: cell69_2DObject0
-20:50:20: cell70_2DObject5
-20:50:20: cell70_2DObject0
-20:50:21: cell71_2DObject5
-20:50:21: cell71_2DObject0
-20:50:21: cell72_2DObject5
-20:50:21: cell72_2DObject0
-20:50:21: cell73_2DObject5
-20:50:21: cell73_2DObject0
-20:50:22: cell74_2DObject5
-20:50:22: cell74_2DObject0
-20:50:22: cell75_2DObject5
-20:50:22: cell75_2DObject0
-20:50:22: cell76_2DObject5
-20:50:22: cell76_2DObject0
-20:50:22: cell77_2DObject5
-20:50:22: cell77_2DObject0
-20:50:22: cell78_2DObject5
-20:50:22: cell78_2DObject0
-20:50:22: cell79_2DObject5
-20:50:22: cell79_2DObject0
-20:50:22: cell80_2DObject5
-20:50:22: cell80_2DObject0
-20:50:22: cell81_2DObject5
-20:50:22: cell81_2DObject0
-20:50:22: cell82_2DObject5
-20:50:22: cell82_2DObject0
-20:50:22: cell83_2DObject5
-20:50:22: cell83_2DObject0
-20:50:22: cell84_2DObject5
-20:50:22: cell84_2DObject0
-20:50:22: cell85_2DObject5
-20:50:22: cell85_2DObject0
-20:50:22: cell86_2DObject5
-20:50:22: cell86_2DObject0
-20:50:22: cell87_2DObject5
-20:50:22: cell87_2DObject0
-20:50:22: cell88_2DObject5
-20:50:22: cell88_2DObject0
-20:50:22: cell89_2DObject5
-20:50:22: cell89_2DObject0
-20:50:23: cell90_2DObject5
-20:50:23: cell90_2DObject0
-20:50:23: cell91_2DObject5
-20:50:23: cell91_2DObject0
-20:50:23: cell92_2DObject5
-20:50:23: cell92_2DObject0
-20:50:23: cell93_2DObject5
-20:50:23: cell93_2DObject0
-20:50:23: cell94_2DObject5
-20:50:23: cell94_2DObject0
-20:50:23: cell95_2DObject5
-20:50:23: cell95_2DObject0
-20:50:23: cell96_2DObject5
-20:50:23: cell96_2DObject0
-20:50:24: cell97_2DObject5
-20:50:24: cell97_2DObject0
-20:50:25: cell98_2DObject5
-20:50:25: cell98_2DObject0
-20:50:25: cell99_2DObject5
-20:50:25: cell99_2DObject0
-20:50:25: cell100_2DObject5
-20:50:25: cell100_2DObject0
-20:50:26: cell101_2DObject5
-20:50:26: cell101_2DObject0
-20:50:27: cell102_2DObject5
-20:50:27: cell102_2DObject0
-20:50:27: cell103_2DObject5
-20:50:27: cell103_2DObject0
-20:50:27: cell104_2DObject5
-20:50:27: cell104_2DObject0
-20:50:27: cell105_2DObject5
-20:50:27: cell105_2DObject0
-20:50:27: cell106_2DObject5
-20:50:27: cell106_2DObject0
-20:50:27: cell107_2DObject5
-20:50:27: cell107_2DObject0
-20:50:27: cell108_2DObject5
-20:50:27: cell108_2DObject0
-20:50:27: cell109_2DObject5
-20:50:27: cell109_2DObject0
-20:50:27: cell110_2DObject5
-20:50:27: cell110_2DObject0
-20:50:28: cell111_2DObject5
-20:50:28: cell111_2DObject0
-20:50:28: cell112_2DObject5
-20:50:28: cell112_2DObject0
-20:50:28: cell113_2DObject5
-20:50:28: cell113_2DObject0
-20:50:28: cell114_2DObject5
-20:50:28: cell114_2DObject0
-20:50:28: cell115_2DObject5
-20:50:28: cell115_2DObject0
-20:50:28: cell116_2DObject5
-20:50:28: cell116_2DObject0
-20:50:28: cell117_2DObject5
-20:50:28: cell117_2DObject0
-20:50:28: cell118_2DObject5
-20:50:28: cell118_2DObject0
-20:50:28: cell119_2DObject5
-20:50:28: cell119_2DObject0
-20:50:28: cell120_2DObject5
-20:50:28: cell120_2DObject0
-20:50:28: cell121_2DObject5
-20:50:28: cell121_2DObject0
-20:50:28: cell122_2DObject5
-20:50:28: cell122_2DObject0
-20:50:28: cell123_2DObject5
-20:50:28: cell123_2DObject0
-20:50:28: cell124_2DObject5
-20:50:28: cell124_2DObject0
-20:50:29: cell125_2DObject5
-20:50:29: cell125_2DObject0
-20:50:29: cell126_2DObject5
-20:50:29: cell126_2DObject0
-20:50:29: cell127_2DObject5
-20:50:29: cell127_2DObject0
-20:50:29: cell128_2DObject5
-20:50:29: cell128_2DObject0
-20:50:29: cell129_2DObject5
-20:50:29: cell129_2DObject0
-20:50:29: cell130_2DObject5
-20:50:29: cell130_2DObject0
-20:50:29: cell131_2DObject5
-20:50:29: cell131_2DObject0
-20:50:29: cell132_2DObject5
-20:50:29: cell132_2DObject0
-20:50:29: cell133_2DObject5
-20:50:29: cell133_2DObject0
-20:50:29: cell134_2DObject5
-20:50:29: cell134_2DObject0
-20:50:30: cell135_2DObject5
-20:50:30: cell135_2DObject0
-20:50:30: cell136_2DObject5
-20:50:30: cell136_2DObject0
-20:50:30: cell137_2DObject5
-20:50:30: cell137_2DObject0
-20:50:30: cell138_2DObject5
-20:50:30: cell138_2DObject0
-20:50:31: cell139_2DObject5
-20:50:31: cell139_2DObject0
-20:50:31: cell140_2DObject5
-20:50:31: cell140_2DObject0
-20:50:31: cell141_2DObject5
-20:50:31: cell141_2DObject0
-20:50:31: cell142_2DObject5
-20:50:31: cell142_2DObject0
-20:50:31: cell143_2DObject5
-20:50:31: cell143_2DObject0
-20:50:31: cell144_2DObject5
-20:50:31: cell144_2DObject0
-20:50:32: cell145_2DObject5
-20:50:32: cell145_2DObject0
-20:50:32: cell146_2DObject5
-20:50:32: cell146_2DObject0
-20:50:32: cell147_2DObject5
-20:50:32: cell147_2DObject0
-20:50:32: cell148_2DObject5
-20:50:32: cell148_2DObject0
-20:50:33: cell149_2DObject5
-20:50:33: cell149_2DObject0
-20:50:33: cell150_2DObject5
-20:50:33: cell150_2DObject0
-20:50:33: cell151_2DObject5
-20:50:33: cell151_2DObject0
-20:50:33: cell152_2DObject5
-20:50:33: cell152_2DObject0
-20:50:33: cell153_2DObject5
-20:50:33: cell153_2DObject0
-20:50:33: cell154_2DObject5
-20:50:33: cell154_2DObject0
-20:50:33: cell155_2DObject5
-20:50:33: cell155_2DObject0
-20:50:33: cell156_2DObject5
-20:50:33: cell156_2DObject0
-20:50:33: cell157_2DObject5
-20:50:33: cell157_2DObject0
-20:50:33: cell158_2DObject5
-20:50:33: cell158_2DObject0
-20:50:33: cell159_2DObject5
-20:50:33: cell159_2DObject0
-20:50:34: cell160_2DObject5
-20:50:34: cell160_2DObject0
-20:50:34: cell161_2DObject5
-20:50:34: cell161_2DObject0
-20:50:34: cell162_2DObject5
-20:50:34: cell162_2DObject0
-20:50:34: cell163_2DObject5
-20:50:34: cell163_2DObject0
-20:50:34: cell164_2DObject5
-20:50:34: cell164_2DObject0
-20:50:34: cell165_2DObject5
-20:50:34: cell165_2DObject0
-20:50:34: cell166_2DObject5
-20:50:34: cell166_2DObject0
-20:50:34: cell167_2DObject5
-20:50:34: cell167_2DObject0
-20:50:34: cell168_2DObject5
-20:50:34: cell168_2DObject0
-20:50:34: cell169_2DObject5
-20:50:34: cell169_2DObject0
-20:50:34: cell170_2DObject5
-20:50:34: cell170_2DObject0
-20:50:34: cell171_2DObject5
-20:50:34: cell171_2DObject0
-20:50:34: cell172_2DObject5
-20:50:34: cell172_2DObject0
-20:50:34: cell173_2DObject5
-20:50:34: cell173_2DObject1
-20:50:34: cell174_2DObject5
-20:50:34: cell174_2DObject1
-20:50:34: cell175_2DObject5
-20:50:34: cell175_2DObject1
-20:50:34: cell176_2DObject5
-20:50:34: cell176_2DObject1
-20:50:34: cell177_2DObject5
-20:50:34: cell177_2DObject1
-20:50:34: cell178_2DObject5
-20:50:34: cell178_2DObject1
-20:50:35: cell179_2DObject5
-20:50:35: cell179_2DObject0
-20:50:35: cell180_2DObject5
-20:50:35: cell180_2DObject0
-20:50:35: cell181_2DObject5
-20:50:35: cell181_2DObject0
-20:50:35: cell182_2DObject5
-20:50:35: cell182_2DObject0
-20:50:35: cell183_2DObject5
-20:50:35: cell183_2DObject0
-20:50:35: cell184_2DObject5
-20:50:35: cell184_2DObject0
-20:50:35: cell185_2DObject5
-20:50:35: cell185_2DObject-0.5
-20:50:35: cell186_2DObject5
-20:50:35: cell186_2DObject-0.5
-20:50:35: cell187_2DObject5
-20:50:35: cell187_2DObject-0.5
-20:50:35: cell188_2DObject5
-20:50:35: cell188_2DObject-0.5
-20:50:35: cell189_2DObject5
-20:50:35: cell189_2DObject-0.5
-20:50:35: cell190_2DObject5
-20:50:35: cell190_2DObject-0.5
-20:50:35: cell191_2DObject5
-20:50:35: cell191_2DObject0
-20:50:35: cell192_2DObject5
-20:50:35: cell192_2DObject0
-20:50:35: cell193_2DObject5
-20:50:35: cell193_2DObject0
-20:50:35: cell194_2DObject5
-20:50:35: cell194_2DObject-0.5
-20:50:35: cell195_2DObject5
-20:50:35: cell195_2DObject-0.5
-20:50:35: cell196_2DObject5
-20:50:35: cell196_2DObject-0.5
-20:50:35: cell197_2DObject5
-20:50:35: cell197_2DObject-0.5
-20:50:35: cell198_2DObject5
-20:50:35: cell198_2DObject-0.5
-20:50:35: cell199_2DObject5
-20:50:35: cell199_2DObject-0.5
-20:50:35: cell200_2DObject5
-20:50:35: cell200_2DObject0
-20:50:36: cell201_2DObject5
-20:50:36: cell201_2DObject0
-20:50:36: cell202_2DObject5
-20:50:36: cell202_2DObject0
-20:50:36: cell203_2DObject5
-20:50:36: cell203_2DObject0
-20:50:36: cell204_2DObject5
-20:50:36: cell204_2DObject0
-20:50:36: cell205_2DObject5
-20:50:36: cell205_2DObject0
-20:50:36: cell206_2DObject5
-20:50:36: cell206_2DObject0
-20:50:36: cell207_2DObject5
-20:50:36: cell207_2DObject0
-20:50:36: cell208_2DObject5
-20:50:36: cell208_2DObject0
-20:50:36: cell209_2DObject5
-20:50:36: cell209_2DObject0
-20:50:36: cell210_2DObject5
-20:50:36: cell210_2DObject0
-20:50:36: cell211_2DObject5
-20:50:36: cell211_2DObject0
-20:50:36: cell212_2DObject5
-20:50:36: cell212_2DObject0
-20:50:36: cell213_2DObject5
-20:50:36: cell213_2DObject0
-20:50:36: cell214_2DObject5
-20:50:36: cell214_2DObject0
-20:50:36: cell215_2DObject5
-20:50:36: cell215_2DObject0
-20:50:36: cell216_2DObject5
-20:50:36: cell216_2DObject0
-20:50:37: cell217_2DObject5
-20:50:37: cell217_2DObject0
-20:50:37: cell218_2DObject5
-20:50:37: cell218_2DObject0
-20:50:37: cell219_2DObject5
-20:50:37: cell219_2DObject-4.37114e-008
-20:50:37: cell220_2DObject5
-20:50:37: cell220_2DObject-4.37114e-008
-20:50:37: cell221_2DObject5
-20:50:37: cell221_2DObject-4.37114e-008
-20:50:37: cell222_2DObject5
-20:50:37: cell222_2DObject-4.37114e-008
-20:50:37: cell223_2DObject5
-20:50:37: cell223_2DObject-4.37114e-008
-20:50:37: cell224_2DObject5
-20:50:37: cell224_2DObject-4.37114e-008
-20:50:38: cell225_2DObject5
-20:50:38: cell225_2DObject0
-20:50:38: cell226_2DObject5
-20:50:38: cell226_2DObject0
-20:50:39: cell227_2DObject5
-20:50:39: cell227_2DObject0
-20:50:39: cell228_2DObject5
-20:50:39: cell228_2DObject0
-20:50:39: cell229_2DObject5
-20:50:39: cell229_2DObject0
-20:50:39: cell230_2DObject5
-20:50:39: cell230_2DObject0
-20:50:39: cell231_2DObject5
-20:50:39: cell231_2DObject0
-20:50:39: cell232_2DObject5
-20:50:39: cell232_2DObject0
-20:50:39: cell233_2DObject5
-20:50:39: cell233_2DObject0
-20:50:39: cell234_2DObject5
-20:50:39: cell234_2DObject0
-20:50:39: cell235_2DObject5
-20:50:39: cell235_2DObject0
-20:50:40: cell236_2DObject5
-20:50:40: cell236_2DObject0
-20:50:40: cell237_2DObject5
-20:50:40: cell237_2DObject0
-20:50:40: cell238_2DObject5
-20:50:40: cell238_2DObject0
-20:50:40: cell239_2DObject5
-20:50:40: cell239_2DObject0
-20:50:40: cell240_2DObject5
-20:50:40: cell240_2DObject0
-20:50:41: cell241_2DObject5
-20:50:41: cell241_2DObject0
-20:50:41: cell242_2DObject5
-20:50:41: cell242_2DObject0
-20:50:42: cell243_2DObject5
-20:50:42: cell243_2DObject0
-20:50:42: cell244_2DObject5
-20:50:42: cell244_2DObject1
-20:50:42: cell245_2DObject5
-20:50:42: cell245_2DObject1
-20:50:42: cell246_2DObject5
-20:50:42: cell246_2DObject0
-20:50:42: cell247_2DObject5
-20:50:42: cell247_2DObject-0.5
-20:50:43: cell248_2DObject5
-20:50:43: cell248_2DObject-0.5
-20:50:43: cell249_2DObject5
-20:50:43: cell249_2DObject-0.5
-20:50:43: cell250_2DObject5
-20:50:43: cell250_2DObject-0.5
-20:50:43: cell251_2DObject5
-20:50:43: cell251_2DObject0
-20:50:43: cell252_2DObject5
-20:50:43: cell252_2DObject0
-20:50:43: cell253_2DObject5
-20:50:43: cell253_2DObject0
-20:50:43: cell254_2DObject5
-20:50:43: cell254_2DObject0
-20:50:43: cell255_2DObject5
-20:50:43: cell255_2DObject0
-20:50:43: cell256_2DObject5
-20:50:43: cell256_2DObject0
-20:50:43: cell257_2DObject5
-20:50:43: cell257_2DObject-0.5
-20:50:43: cell258_2DObject5
-20:50:43: cell258_2DObject-0.5
-20:50:43: cell259_2DObject5
-20:50:43: cell259_2DObject-0.5
-20:50:43: cell260_2DObject5
-20:50:43: cell260_2DObject0
-20:50:43: cell261_2DObject5
-20:50:43: cell261_2DObject0
-20:50:43: cell262_2DObject5
-20:50:43: cell262_2DObject-0.5
-20:50:43: cell263_2DObject5
-20:50:43: cell263_2DObject0
-20:50:43: cell264_2DObject5
-20:50:43: cell264_2DObject-0.5
-20:50:43: cell265_2DObject5
-20:50:43: cell265_2DObject0
-20:50:43: cell266_2DObject5
-20:50:43: cell266_2DObject-0.5
-20:50:43: cell267_2DObject5
-20:50:43: cell267_2DObject-0.5
-20:50:43: cell268_2DObject5
-20:50:43: cell268_2DObject0
-20:50:44: cell269_2DObject5
-20:50:44: cell269_2DObject0
-20:50:44: cell270_2DObject5
-20:50:44: cell270_2DObject1
-20:50:44: cell271_2DObject5
-20:50:44: cell271_2DObject1
-20:50:44: cell272_2DObject5
-20:50:44: cell272_2DObject0
-20:50:44: cell273_2DObject5
-20:50:44: cell273_2DObject0
-20:50:44: cell274_2DObject5
-20:50:44: cell274_2DObject0
-20:50:44: cell275_2DObject5
-20:50:44: cell275_2DObject0
-20:50:44: cell276_2DObject5
-20:50:44: cell276_2DObject0
-20:50:44: cell277_2DObject5
-20:50:44: cell277_2DObject0
-20:50:44: cell278_2DObject5
-20:50:44: cell278_2DObject0
-20:50:45: cell279_2DObject5
-20:50:45: cell279_2DObject1
-20:50:45: cell280_2DObject5
-20:50:45: cell280_2DObject0
-20:50:45: cell281_2DObject5
-20:50:45: cell281_2DObject0
-20:50:45: cell282_2DObject5
-20:50:45: cell282_2DObject0
-20:50:45: cell283_2DObject5
-20:50:45: cell283_2DObject0
-20:50:45: cell284_2DObject5
-20:50:45: cell284_2DObject-4.37114e-008
-20:50:45: cell285_2DObject5
-20:50:45: cell285_2DObject0
-20:50:45: cell286_2DObject5
-20:50:45: cell286_2DObject0
-20:50:45: cell287_2DObject5
-20:50:45: cell287_2DObject-4.37114e-008
-20:50:45: cell288_2DObject5
-20:50:45: cell288_2DObject-0.5
-20:50:45: cell289_2DObject5
-20:50:45: cell289_2DObject0
-20:50:45: cell290_2DObject5
-20:50:45: cell290_2DObject0
-20:50:46: cell291_2DObject5
-20:50:46: cell291_2DObject0
-20:50:46: cell292_2DObject5
-20:50:46: cell292_2DObject0
-20:50:46: cell293_2DObject5
-20:50:46: cell293_2DObject-4.37114e-008
-20:50:46: cell294_2DObject5
-20:50:46: cell294_2DObject0
-20:50:46: cell295_2DObject5
-20:50:46: cell295_2DObject0
-20:50:46: cell296_2DObject5
-20:50:46: cell296_2DObject0
-20:50:46: cell297_2DObject5
-20:50:46: cell297_2DObject0
-20:50:46: cell298_2DObject5
-20:50:46: cell298_2DObject-4.37114e-008
-20:50:46: cell299_2DObject5
-20:50:46: cell299_2DObject0
-20:50:46: cell300_2DObject5
-20:50:46: cell300_2DObject0
-20:50:47: cell301_2DObject5
-20:50:47: cell301_2DObject-0.5
-20:50:47: cell302_2DObject5
-20:50:47: cell302_2DObject0
-20:50:47: cell303_2DObject5
-20:50:47: cell303_2DObject-4.37114e-008
-20:50:47: cell304_2DObject5
-20:50:47: cell304_2DObject0
-20:50:47: cell305_2DObject5
-20:50:47: cell305_2DObject1
-20:50:47: cell306_2DObject5
-20:50:47: cell306_2DObject0
-20:50:47: cell307_2DObject5
-20:50:47: cell307_2DObject-4.37114e-008
-20:50:47: cell308_2DObject5
-20:50:47: cell308_2DObject0
-20:50:47: cell309_2DObject5
-20:50:47: cell309_2DObject0
-20:50:47: cell310_2DObject5
-20:50:47: cell310_2DObject-0.5
-20:50:47: cell311_2DObject5
-20:50:47: cell311_2DObject0
-20:50:47: cell312_2DObject5
-20:50:47: cell312_2DObject0
-20:50:47: cell313_2DObject5
-20:50:47: cell313_2DObject0
-20:50:47: cell314_2DObject5
-20:50:47: cell314_2DObject0
-20:50:47: cell315_2DObject5
-20:50:47: cell315_2DObject0
-20:50:47: cell316_2DObject5
-20:50:47: cell316_2DObject0
-20:50:48: cell317_2DObject5
-20:50:48: cell317_2DObject0
-20:50:48: cell318_2DObject5
-20:50:48: cell318_2DObject-0.5
-20:50:48: cell319_2DObject5
-20:50:48: cell319_2DObject0
-20:50:48: cell320_2DObject5
-20:50:48: cell320_2DObject0
-20:50:48: cell321_2DObject5
-20:50:48: cell321_2DObject0
-20:50:48: cell322_2DObject5
-20:50:48: cell322_2DObject0
-20:50:48: cell323_2DObject5
-20:50:48: cell323_2DObject0
-20:50:48: cell324_2DObject5
-20:50:48: cell324_2DObject0
-20:50:49: cell325_2DObject5
-20:50:49: cell325_2DObject1
-20:50:49: cell326_2DObject5
-20:50:49: cell326_2DObject-0.5
-20:50:49: cell327_2DObject5
-20:50:49: cell327_2DObject1
-20:50:49: cell328_2DObject5
-20:50:49: cell328_2DObject0
-20:50:49: cell329_2DObject5
-20:50:49: cell329_2DObject0
-20:50:49: cell330_2DObject5
-20:50:49: cell330_2DObject0
-20:50:49: cell331_2DObject5
-20:50:49: cell331_2DObject0
-20:50:49: cell332_2DObject5
-20:50:49: cell332_2DObject1
-20:50:49: cell333_2DObject5
-20:50:49: cell333_2DObject0
-20:50:49: cell334_2DObject5
-20:50:49: cell334_2DObject0
-20:50:49: cell335_2DObject5
-20:50:49: cell335_2DObject0
-20:50:50: cell336_2DObject5
-20:50:50: cell336_2DObject1
-20:50:50: cell337_2DObject5
-20:50:50: cell337_2DObject0
-20:50:50: cell338_2DObject5
-20:50:50: cell338_2DObject-0.5
-20:50:50: cell339_2DObject5
-20:50:50: cell339_2DObject0
-20:50:50: cell340_2DObject5
-20:50:50: cell340_2DObject0
-20:50:50: cell341_2DObject5
-20:50:50: cell341_2DObject0
-20:50:50: cell342_2DObject5
-20:50:50: cell342_2DObject0
-20:50:50: cell343_2DObject5
-20:50:50: cell343_2DObject0
-20:50:50: cell344_2DObject5
-20:50:50: cell344_2DObject-0.5
-20:50:50: cell345_2DObject5
-20:50:50: cell345_2DObject0
-20:50:50: cell346_2DObject5
-20:50:50: cell346_2DObject0
-20:50:50: cell347_2DObject5
-20:50:50: cell347_2DObject0
-20:50:50: cell348_2DObject5
-20:50:50: cell348_2DObject0
-20:50:51: cell349_2DObject5
-20:50:51: cell349_2DObject0
-20:50:51: cell350_2DObject5
-20:50:51: cell350_2DObject0
-20:50:51: cell351_2DObject5
-20:50:51: cell351_2DObject-0.5
-20:50:51: cell352_2DObject5
-20:50:51: cell352_2DObject0
-20:50:51: cell353_2DObject5
-20:50:51: cell353_2DObject0
-20:50:51: cell354_2DObject5
-20:50:51: cell354_2DObject0
-20:50:51: cell355_2DObject5
-20:50:51: cell355_2DObject0
-20:50:51: cell356_2DObject5
-20:50:51: cell356_2DObject-0.5
-20:50:51: cell357_2DObject5
-20:50:51: cell357_2DObject1
-20:50:51: cell358_2DObject5
-20:50:51: cell358_2DObject1
-20:50:51: cell359_2DObject5
-20:50:51: cell359_2DObject0
-20:50:51: cell360_2DObject5
-20:50:51: cell360_2DObject0
-20:50:52: cell361_2DObject5
-20:50:52: cell361_2DObject0
-20:50:52: cell362_2DObject5
-20:50:52: cell362_2DObject0
-20:50:52: cell363_2DObject5
-20:50:52: cell363_2DObject0
-20:50:52: cell364_2DObject5
-20:50:52: cell364_2DObject0
-20:50:52: cell365_2DObject5
-20:50:52: cell365_2DObject0
-20:50:52: cell366_2DObject5
-20:50:52: cell366_2DObject-0.5
-20:50:52: cell367_2DObject5
-20:50:52: cell367_2DObject0
-20:50:52: cell368_2DObject5
-20:50:52: cell368_2DObject0
-20:50:52: cell369_2DObject5
-20:50:52: cell369_2DObject0
-20:50:53: cell370_2DObject5
-20:50:53: cell370_2DObject0
-20:50:53: cell371_2DObject5
-20:50:53: cell371_2DObject0
-20:50:53: cell372_2DObject5
-20:50:53: cell372_2DObject0
-20:50:53: cell373_2DObject5
-20:50:53: cell373_2DObject1
-20:50:54: cell374_2DObject5
-20:50:54: cell374_2DObject0
-20:50:54: cell375_2DObject5
-20:50:54: cell375_2DObject0
-20:50:54: cell376_2DObject5
-20:50:54: cell376_2DObject-0.5
-20:50:54: cell377_2DObject5
-20:50:54: cell377_2DObject0
-20:50:54: cell378_2DObject5
-20:50:54: cell378_2DObject0
-20:50:55: cell379_2DObject5
-20:50:55: cell379_2DObject0
-20:50:55: cell380_2DObject5
-20:50:55: cell380_2DObject0
-20:50:55: cell381_2DObject5
-20:50:55: cell381_2DObject-0.5
-20:50:56: cell382_2DObject5
-20:50:56: cell382_2DObject0
-20:50:56: cell383_2DObject5
-20:50:56: cell383_2DObject0
-20:50:56: cell384_2DObject5
-20:50:56: cell384_2DObject-4.37114e-008
-20:50:56: cell385_2DObject5
-20:50:56: cell385_2DObject0
-20:50:56: cell386_2DObject5
-20:50:56: cell386_2DObject0
-20:50:57: cell387_2DObject5
-20:50:57: cell387_2DObject-4.37114e-008
-20:50:57: cell388_2DObject5
-20:50:57: cell388_2DObject-4.37114e-008
-20:50:57: cell389_2DObject5
-20:50:57: cell389_2DObject-0.5
-20:50:58: cell390_2DObject5
-20:50:58: cell390_2DObject0
-20:50:58: cell391_2DObject5
-20:50:58: cell391_2DObject0
-20:50:58: cell392_2DObject5
-20:50:58: cell392_2DObject-4.37114e-008
-20:50:58: cell393_2DObject5
-20:50:58: cell393_2DObject0
-20:50:58: cell394_2DObject5
-20:50:58: cell394_2DObject0
-20:50:59: cell395_2DObject5
-20:50:59: cell395_2DObject0
-20:50:59: cell396_2DObject5
-20:50:59: cell396_2DObject0
-20:50:59: cell397_2DObject5
-20:50:59: cell397_2DObject-0.5
-20:50:59: cell398_2DObject5
-20:50:59: cell398_2DObject0
-20:51:00: cell399_2DObject5
-20:51:00: cell399_2DObject0
-20:51:00: cell400_2DObject5
-20:51:00: cell400_2DObject-0.5
-20:51:00: cell401_2DObject5
-20:51:00: cell401_2DObject-0.5
-20:51:00: cell402_2DObject5
-20:51:00: cell402_2DObject0
-20:51:00: cell403_2DObject5
-20:51:00: cell403_2DObject-0.5
-20:51:01: cell404_2DObject5
-20:51:01: cell404_2DObject-0.5
-20:51:01: cell405_2DObject5
-20:51:01: cell405_2DObject0
-20:51:01: cell406_2DObject5
-20:51:01: cell406_2DObject-4.37114e-008
-20:51:01: cell407_2DObject5
-20:51:01: cell407_2DObject0
-20:51:01: cell408_2DObject5
-20:51:01: cell408_2DObject0
-20:51:02: cell409_2DObject5
-20:51:02: cell409_2DObject-0.5
-20:51:02: cell410_2DObject5
-20:51:02: cell410_2DObject0
-20:51:03: cell411_2DObject5
-20:51:03: cell411_2DObject0
-20:51:03: cell412_2DObject5
-20:51:03: cell412_2DObject0
-20:51:03: cell413_2DObject5
-20:51:03: cell413_2DObject0
-20:51:04: cell414_2DObject5
-20:51:04: cell414_2DObject0
-20:51:04: cell415_2DObject5
-20:51:04: cell415_2DObject0
-20:51:04: cell416_2DObject5
-20:51:04: cell416_2DObject0
-20:51:05: cell417_2DObject5
-20:51:05: cell417_2DObject0
-20:51:05: cell418_2DObject5
-20:51:05: cell418_2DObject0
-20:51:05: cell419_2DObject5
-20:51:05: cell419_2DObject0
-20:51:05: cell420_2DObject5
-20:51:05: cell420_2DObject-0.5
-20:51:05: cell421_2DObject5
-20:51:05: cell421_2DObject0
-20:51:05: cell422_2DObject5
-20:51:05: cell422_2DObject0
-20:51:05: cell423_2DObject5
-20:51:05: cell423_2DObject-0.5
-20:51:05: cell424_2DObject5
-20:51:05: cell424_2DObject0
-20:51:05: cell425_2DObject5
-20:51:05: cell425_2DObject0
-20:51:06: cell426_2DObject5
-20:51:06: cell426_2DObject-0.5
-20:51:06: cell427_2DObject5
-20:51:06: cell427_2DObject0
-20:51:06: cell428_2DObject5
-20:51:06: cell428_2DObject-4.37114e-008
-20:51:06: cell429_2DObject5
-20:51:06: cell429_2DObject0
-20:51:06: cell430_2DObject5
-20:51:06: cell430_2DObject0
-20:51:06: Unregistering ResourceManager for type BspLevel
-20:51:06: *-*-* OGRE Shutdown
+00:34:56: Creating resource group General
+00:34:56: Creating resource group Internal
+00:34:56: Creating resource group Autodetect
+00:34:56: SceneManagerFactory for type 'DefaultSceneManager' registered.
+00:34:56: Registering ResourceManager for type Material
+00:34:56: Registering ResourceManager for type Mesh
+00:34:56: Registering ResourceManager for type Skeleton
+00:34:56: MovableObjectFactory for type 'ParticleSystem' registered.
+00:34:56: OverlayElementFactory for type Panel registered.
+00:34:56: OverlayElementFactory for type BorderPanel registered.
+00:34:56: OverlayElementFactory for type TextArea registered.
+00:34:56: Registering ResourceManager for type Font
+00:34:56: ArchiveFactory for archive type FileSystem registered.
+00:34:56: ArchiveFactory for archive type Zip registered.
+00:34:56: FreeImage version: 3.10.0
+00:34:56: This program uses FreeImage, a free, open source image library supporting all common bitmap formats. See http://freeimage.sourceforge.net for details
+00:34:56: Supported formats: bmp,ico,jpg,jif,jpeg,jpe,jng,koa,iff,lbm,mng,pbm,pbm,pcd,pcx,pgm,pgm,png,ppm,ppm,ras,tga,targa,tif,tiff,wap,wbmp,wbm,psd,cut,xbm,xpm,gif,hdr,g3,sgi,exr,j2k,j2c,jp2
+00:34:56: DDS codec registering
+00:34:56: Registering ResourceManager for type HighLevelGpuProgram
+00:34:56: Registering ResourceManager for type Compositor
+00:34:56: MovableObjectFactory for type 'Entity' registered.
+00:34:56: MovableObjectFactory for type 'Light' registered.
+00:34:56: MovableObjectFactory for type 'BillboardSet' registered.
+00:34:56: MovableObjectFactory for type 'ManualObject' registered.
+00:34:56: MovableObjectFactory for type 'BillboardChain' registered.
+00:34:56: MovableObjectFactory for type 'RibbonTrail' registered.
+00:34:56: Loading library .\RenderSystem_Direct3D9
+00:34:56: Installing plugin: D3D9 RenderSystem
+00:34:56: D3D9 : Direct3D9 Rendering Subsystem created.
+00:34:56: D3D9: Driver Detection Starts
+00:34:56: D3D9: Driver Detection Ends
+00:34:56: Plugin successfully installed
+00:34:56: Loading library .\RenderSystem_GL
+00:34:56: Installing plugin: GL RenderSystem
+00:34:56: OpenGL Rendering Subsystem created.
+00:34:57: Plugin successfully installed
+00:34:57: Loading library .\Plugin_ParticleFX
+00:34:57: Installing plugin: ParticleFX
+00:34:57: Particle Emitter Type 'Point' registered
+00:34:57: Particle Emitter Type 'Box' registered
+00:34:57: Particle Emitter Type 'Ellipsoid' registered
+00:34:57: Particle Emitter Type 'Cylinder' registered
+00:34:57: Particle Emitter Type 'Ring' registered
+00:34:57: Particle Emitter Type 'HollowEllipsoid' registered
+00:34:57: Particle Affector Type 'LinearForce' registered
+00:34:57: Particle Affector Type 'ColourFader' registered
+00:34:57: Particle Affector Type 'ColourFader2' registered
+00:34:57: Particle Affector Type 'ColourImage' registered
+00:34:57: Particle Affector Type 'ColourInterpolator' registered
+00:34:57: Particle Affector Type 'Scaler' registered
+00:34:57: Particle Affector Type 'Rotator' registered
+00:34:57: Particle Affector Type 'DirectionRandomiser' registered
+00:34:57: Particle Affector Type 'DeflectorPlane' registered
+00:34:57: Plugin successfully installed
+00:34:57: Loading library .\Plugin_BSPSceneManager
+00:34:57: Installing plugin: BSP Scene Manager
+00:34:57: Plugin successfully installed
+00:34:57: Loading library .\Plugin_CgProgramManager
+00:34:57: Installing plugin: Cg Program Manager
+00:34:57: Plugin successfully installed
+00:34:57: *-*-* OGRE Initialising
+00:34:57: *-*-* Version 1.6.0RC1 (Shoggoth)
+00:34:57: Creating resource group Bootstrap
+00:34:57: Added resource location '../../media/packs/OgreCore.zip' of type 'Zip' to resource group 'Bootstrap'
+00:34:57: Added resource location '../../media' of type 'FileSystem' to resource group 'General'
+00:34:57: Added resource location '../../media/fonts' of type 'FileSystem' to resource group 'General'
+00:34:57: Added resource location '../../media/materials/programs' of type 'FileSystem' to resource group 'General'
+00:34:57: Added resource location '../../media/materials/scripts' of type 'FileSystem' to resource group 'General'
+00:34:57: Added resource location '../../media/materials/textures' of type 'FileSystem' to resource group 'General'
+00:34:57: Added resource location '../../media/models' of type 'FileSystem' to resource group 'General'
+00:34:57: Added resource location '../../media/overlays' of type 'FileSystem' to resource group 'General'
+00:34:57: Added resource location '../../media/particle' of type 'FileSystem' to resource group 'General'
+00:34:57: Added resource location '../../media/gui' of type 'FileSystem' to resource group 'General'
+00:34:57: Added resource location '../../media/DeferredShadingMedia' of type 'FileSystem' to resource group 'General'
+00:34:57: Added resource location '../../media/ObjectDefinitions' of type 'FileSystem' to resource group 'General'
+00:34:57: D3D9 : RenderSystem Option: Allow NVPerfHUD = No
+00:34:57: D3D9 : RenderSystem Option: Anti aliasing = None
+00:34:57: D3D9 : RenderSystem Option: Floating-point mode = Fastest
+00:34:57: D3D9 : RenderSystem Option: Full Screen = No
+00:34:57: D3D9 : RenderSystem Option: Rendering Device = RADEON X800 XT Platinum Edition
+00:34:57: D3D9 : RenderSystem Option: VSync = No
+00:34:57: D3D9 : RenderSystem Option: Video Mode = 1024 x 768 @ 32-bit colour
+00:34:57: D3D9 : RenderSystem Option: sRGB Gamma Conversion = No
+00:34:58: CPU Identifier & Features
+00:34:58: -------------------------
+00:34:58:  *   CPU ID: AuthenticAMD: AMD Athlon(tm) XP 3000+
+00:34:58:  *      SSE: yes
+00:34:58:  *     SSE2: no
+00:34:58:  *     SSE3: no
+00:34:58:  *      MMX: yes
+00:34:58:  *   MMXEXT: yes
+00:34:58:  *    3DNOW: yes
+00:34:58:  * 3DNOWEXT: yes
+00:34:58:  *     CMOV: yes
+00:34:58:  *      TSC: yes
+00:34:58:  *      FPU: yes
+00:34:58:  *      PRO: yes
+00:34:58:  *       HT: no
+00:34:58: -------------------------
+00:34:58: D3D9 : Subsystem Initialising
+00:34:58: D3D9RenderSystem::_createRenderWindow "GOO editor", 1024x768 windowed  miscParams: FSAA=0 FSAAQuality=0 colourDepth=32 gamma=false useNVPerfHUD=false vsync=false 
+00:34:58: D3D9 : Created D3D9 Rendering Window 'GOO editor' : 1024x768, 32bpp
+00:34:58: D3D9 : WARNING - disabling VSync in windowed mode can cause timing issues at lower frame rates, turn VSync on if you observe this problem.
+00:34:58: Registering ResourceManager for type Texture
+00:34:58: Registering ResourceManager for type GpuProgram
+00:34:58: RenderSystem capabilities
+00:34:58: -------------------------
+00:34:58: RenderSystem Name: Direct3D9 Rendering Subsystem
+00:34:58: GPU Vendor: ati
+00:34:58: Device Name: RADEON X800 XT Platinum Edition
+00:34:58: Driver Version: 6.14.10.6891
+00:34:58:  * Fixed function pipeline: yes
+00:34:58:  * Hardware generation of mipmaps: yes
+00:34:58:  * Texture blending: yes
+00:34:58:  * Anisotropic texture filtering: yes
+00:34:58:  * Dot product texture operation: yes
+00:34:58:  * Cube mapping: yes
+00:34:58:  * Hardware stencil buffer: yes
+00:34:58:    - Stencil depth: 8
+00:34:58:    - Two sided stencil support: yes
+00:34:58:    - Wrap stencil values: yes
+00:34:58:  * Hardware vertex / index buffers: yes
+00:34:58:  * Vertex programs: yes
+00:34:58:  * Fragment programs: yes
+00:34:58:  * Geometry programs: no
+00:34:58:  * Supported Shader Profiles: hlsl ps_1_1 ps_1_2 ps_1_3 ps_1_4 ps_2_0 ps_2_b ps_2_x vs_1_1 vs_2_0
+00:34:58:  * Texture Compression: yes
+00:34:58:    - DXT: yes
+00:34:58:    - VTC: no
+00:34:58:  * Scissor Rectangle: yes
+00:34:58:  * Hardware Occlusion Query: yes
+00:34:58:  * User clip planes: yes
+00:34:58:  * VET_UBYTE4 vertex element type: yes
+00:34:58:  * Infinite far plane projection: yes
+00:34:58:  * Hardware render-to-texture: yes
+00:34:58:  * Floating point textures: yes
+00:34:58:  * Non-power-of-two textures: yes (limited)
+00:34:58:  * Volume textures: yes
+00:34:58:  * Multiple Render Targets: 4
+00:34:58:    - With different bit depths: no
+00:34:58:  * Point Sprites: yes
+00:34:58:  * Extended point parameters: yes
+00:34:58:  * Max Point Size: 256
+00:34:58:  * Vertex texture fetch: no
+00:34:58:  * Render to Vertex Buffer : no
+00:34:58:  * DirectX per stage constants: no
+00:34:58: ***************************************
+00:34:58: *** D3D9 : Subsystem Initialised OK ***
+00:34:58: ***************************************
+00:34:58: ResourceBackgroundQueue - threading disabled
+00:34:58: Particle Renderer Type 'billboard' registered
+00:34:58: SceneManagerFactory for type 'BspSceneManager' registered.
+00:34:58: Registering ResourceManager for type BspLevel
+00:34:58: Parsing scripts for resource group Autodetect
+00:34:58: Finished parsing scripts for resource group Autodetect
+00:34:58: Parsing scripts for resource group Bootstrap
+00:34:58: Parsing script OgreCore.material
+00:34:58: Parsing script OgreProfiler.material
+00:34:58: Parsing script Ogre.fontdef
+00:34:58: Parsing script OgreDebugPanel.overlay
+00:34:58: Texture: New_Ogre_Border_Center.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x128x1.
+00:34:58: Texture: New_Ogre_Border.png: Loading 1 faces(PF_A8R8G8B8,256x256x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x256x1.
+00:34:58: Texture: New_Ogre_Border_Break.png: Loading 1 faces(PF_A8R8G8B8,32x32x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,32x32x1.
+00:34:58: Font BlueHighwayusing texture size 512x512
+00:34:58: Info: Freetype returned null for character 127 in font BlueHighway
+00:34:58: Info: Freetype returned null for character 128 in font BlueHighway
+00:34:58: Info: Freetype returned null for character 129 in font BlueHighway
+00:34:58: Info: Freetype returned null for character 130 in font BlueHighway
+00:34:58: Info: Freetype returned null for character 131 in font BlueHighway
+00:34:58: Info: Freetype returned null for character 132 in font BlueHighway
+00:34:58: Info: Freetype returned null for character 133 in font BlueHighway
+00:34:58: Info: Freetype returned null for character 134 in font BlueHighway
+00:34:58: Info: Freetype returned null for character 135 in font BlueHighway
+00:34:58: Info: Freetype returned null for character 136 in font BlueHighway
+00:34:58: Info: Freetype returned null for character 137 in font BlueHighway
+00:34:58: Info: Freetype returned null for character 138 in font BlueHighway
+00:34:58: Info: Freetype returned null for character 139 in font BlueHighway
+00:34:58: Info: Freetype returned null for character 140 in font BlueHighway
+00:34:58: Info: Freetype returned null for character 141 in font BlueHighway
+00:34:58: Info: Freetype returned null for character 142 in font BlueHighway
+00:34:58: Info: Freetype returned null for character 143 in font BlueHighway
+00:34:58: Info: Freetype returned null for character 144 in font BlueHighway
+00:34:58: Info: Freetype returned null for character 145 in font BlueHighway
+00:34:58: Info: Freetype returned null for character 146 in font BlueHighway
+00:34:58: Info: Freetype returned null for character 147 in font BlueHighway
+00:34:58: Info: Freetype returned null for character 148 in font BlueHighway
+00:34:58: Info: Freetype returned null for character 149 in font BlueHighway
+00:34:58: Info: Freetype returned null for character 150 in font BlueHighway
+00:34:58: Info: Freetype returned null for character 151 in font BlueHighway
+00:34:58: Info: Freetype returned null for character 152 in font BlueHighway
+00:34:58: Info: Freetype returned null for character 153 in font BlueHighway
+00:34:58: Info: Freetype returned null for character 154 in font BlueHighway
+00:34:58: Info: Freetype returned null for character 155 in font BlueHighway
+00:34:58: Info: Freetype returned null for character 156 in font BlueHighway
+00:34:58: Info: Freetype returned null for character 157 in font BlueHighway
+00:34:58: Info: Freetype returned null for character 158 in font BlueHighway
+00:34:58: Info: Freetype returned null for character 159 in font BlueHighway
+00:34:58: Info: Freetype returned null for character 160 in font BlueHighway
+00:34:58: Texture: BlueHighwayTexture: Loading 1 faces(PF_BYTE_LA,512x512x1) with 0 generated mipmaps from Image. Internal format is PF_BYTE_LA,512x512x1.
+00:34:58: Texture: ogretext.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x128x1.
+00:34:58: Parsing script OgreLoadingPanel.overlay
+00:34:58: Finished parsing scripts for resource group Bootstrap
+00:34:58: Parsing scripts for resource group General
+00:34:58: Parsing script Examples.program
+00:34:58: Parsing script deferred.glsl.program
+00:34:58: Parsing script deferred.hlsl.program
+00:34:58: Parsing script deferred.program
+00:34:58: Parsing script deferred_post_ambient.program
+00:34:58: Parsing script deferred_post_debug.glsl.program
+00:34:58: Parsing script deferred_post_debug.hlsl.program
+00:34:58: Parsing script deferred_post_debug.program
+00:34:58: Parsing script deferred_post_minilight.glsl.program
+00:34:58: Parsing script deferred_post_minilight.hlsl.program
+00:34:58: OGRE EXCEPTION(2:InvalidParametersException): Parameter called lightFalloff does not exist.  in GpuProgramParameters::_findNamedConstantDefinition at ..\src\OgreGpuProgram.cpp (line 1095)
+00:34:58: Compiler error: invalid parameters in deferred_post_minilight.hlsl.program(27): setting of constant failed
+00:34:58: Parsing script deferred_post_minilight.program
+00:34:58: Parsing script deferred_post_multipass.glsl.program
+00:34:58: Parsing script deferred_post_multipass.hlsl.program
+00:34:58: Parsing script deferred_post_onepass.glsl.program
+00:34:58: Parsing script deferred_post_onepass.hlsl.program
+00:34:58: Parsing script deferred_post_vs.program
+00:34:58: Parsing script editor.material
+00:34:58: Parsing script Example-DynTex.material
+00:34:58: Parsing script Example.material
+00:34:59: Parsing script lua_app.material
+00:34:59: Parsing script deferred.material
+00:34:59: Parsing script deferreddemo.material
+00:34:59: Parsing script deferred_post_ambient.material
+00:34:59: Parsing script deferred_post_debug.material
+00:34:59: Parsing script deferred_post_minilight.material
+00:34:59: Parsing script deferred_post_multipass.material
+00:34:59: Parsing script deferred_post_onepass.material
+00:34:59: Parsing script emitted_emitter.particle
+00:34:59: Parsing script Example-Water.particle
+00:34:59: Parsing script Example.particle
+00:34:59: Parsing script smoke.particle
+00:34:59: Parsing script Examples.compositor
+00:34:59: Parsing script deferred.compositor
+00:34:59: Parsing script editorfonts.fontdef
+00:34:59: Parsing script sample.fontdef
+00:34:59: Parsing script console.overlay
+00:34:59: Texture: console_bg.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x128x1.
+00:34:59: Texture: console_input_bg.png: Loading 1 faces(PF_A8R8G8B8,128x64x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,128x64x1.
+00:34:59: Parsing script parameters.overlay
+00:34:59: Finished parsing scripts for resource group General
+00:34:59: Parsing scripts for resource group Internal
+00:34:59: Finished parsing scripts for resource group Internal
+00:34:59: *** Initializing OIS ***
+00:34:59: Mesh: Loading sphere.mesh.
+00:34:59: World object instatiated
+00:34:59: Lua: loading init.lua..
+00:34:59: Lua: ..\..\media\LUA\
+00:34:59: Lua: loading celldefinitions.lua..
+00:34:59: Lua:  system definitions - Loading System Definitions
+00:34:59: c++: loading system class: ..\..\media\LUA\systems\systems\abstractsystem.lua
+00:34:59: lua error message:cannot open ..\..\media\LUA\systems\systems\abstractsystem.LUA: No such file or directory
+00:34:59: Lua: Loading land 0.1 canvas surface...
+00:34:59: Lua: Loading water 0.1 canvas surface
+00:35:23: Unregistering ResourceManager for type BspLevel
+00:35:23: *-*-* OGRE Shutdown

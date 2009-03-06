@@ -1,7 +1,7 @@
 #include "Physical2DObject.h"
 
-Physical2DObject::Physical2DObject(std::string& name, Canvas* canvas, Ogre::SceneManager* sceneMgr, Object2DProperties* properties, Ogre::Vector2& position, bool enabled):
-mSceneMgr(sceneMgr),mName(name), mWorld(canvas->getPhysicsWorld()),mCanvas(canvas), mEnabled(enabled), mProperties(properties)
+Physical2DObject::Physical2DObject(std::string& name, Canvas* canvas, Ogre::SceneManager* sceneMgr, Object2DProperties* properties, Ogre::Vector2& position, bool enabled)
+:Movable2DObject(name, sceneMgr, position), mWorld(canvas->getPhysicsWorld()), mCanvas(canvas)
 {
 	//setup ogre things
 	mNode= mSceneMgr->getSceneNode("CanvasRootNode")->createChildSceneNode(name + "_node"); 
@@ -22,12 +22,10 @@ mSceneMgr(sceneMgr),mName(name), mWorld(canvas->getPhysicsWorld()),mCanvas(canva
 		//shape (just triangle for now)
 		
 		b2ShapeDef* shapeDef= properties->getShapeDef(); 
-		Ogre::LogManager::getSingletonPtr()->logMessage(name + StringConverter::toString(shapeDef->density)); 
-	Ogre::LogManager::getSingletonPtr()->logMessage(name + StringConverter::toString(((b2PolygonDef*)shapeDef)->vertices[0].x)); 
 		mShape = mBody->CreateShape((b2PolygonDef*)shapeDef); 
 		mBody->SetMassFromShapes();
 		mBody->WakeUp(); 
-mScale=1.0;
+		mScale=1.0;
 		this->mProperties = properties; 
 		 mActive=true;
 
@@ -87,7 +85,6 @@ mScale = scale;
 		delete shapeDef;
 		mBody->SetMassFromShapes();
 		mBody->WakeUp(); 
-
 
 }
 

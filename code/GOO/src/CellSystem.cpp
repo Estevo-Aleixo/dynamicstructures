@@ -3,8 +3,8 @@
 #include "Canvas.h"
 #include "ObjectDefinitions.h"
 
-CellSystem::CellSystem(std::string& name, Canvas* canvas, Ogre::SceneManager* sceneMgr, Ogre::Vector2& startPosition, const char* systemType, bool enabled, Ogre::Real speed)
-: mName(name), mStartPos(startPosition), mSceneMgr(sceneMgr),mSystemType(systemType), mEnabled(enabled), mSpeed(speed), mCanvas(canvas) 
+CellSystem::CellSystem(std::string& name, Canvas* canvas, Ogre::SceneManager* sceneMgr, Ogre::Vector2& position, const char* systemType, bool enabled, Ogre::Real speed)
+:DynamicSystem(name, sceneMgr, position) , mSystemType(systemType), mEnabled(enabled), mSpeed(speed), mCanvas(canvas) 
 {
 	
 	//mStartEntity = mSceneMgr->createEntity(name+"_start_marker_entity",HEXAGON_LINE_MESH); 
@@ -31,7 +31,7 @@ CellSystem::CellSystem(std::string& name, Canvas* canvas, Ogre::SceneManager* sc
 
 	this->mEnabled=true;
 	this->initialize(); 
-	mSkeleton= new Skeleton2D(name, startPosition,this,sceneMgr); 
+	mSkeleton= new Skeleton2D(name, position,this,sceneMgr); 
 
 	spawnTimeInterval=1;
 	TimePassed=0;
@@ -66,7 +66,7 @@ void CellSystem::initialize()
 	{  
 		pos.x = Math::Cos(angleInterval*i) * 2;
 		pos.y = Math::Sin(angleInterval*i) * 2;
-		Cell* newCell=mCanvas->getCellFactory()->createCell(mObjectProps, mStartPos+ pos); 
+		Cell* newCell=mCanvas->getCellFactory()->createCell(mObjectProps, mPos+ pos); 
 		if (prevCell!=0)
 			prevCell->setCellBuddy(newCell);
 		mCells.push_back(newCell);

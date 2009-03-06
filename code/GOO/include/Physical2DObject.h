@@ -1,10 +1,10 @@
 #pragma once
-#include "Main.h"
+
+#include "Movable2DObject.h"
 #include "Canvas.h" 
 #include "Object2DProperties.h"
 
-
-class Physical2DObject
+class Physical2DObject: public Movable2DObject
 {
 public:
 	Physical2DObject(std::string& name, Canvas* canvas, Ogre::SceneManager* sceneMgr, Object2DProperties* properties, Ogre::Vector2& position, bool enabled=true);
@@ -13,7 +13,8 @@ public:
 	virtual void updatePhysics(const Ogre::FrameEvent& evt);
 	inline b2Body* getBody(){return mBody;} 
 	inline Ogre::SceneNode* getSceneNode(){return mNode;} 
-	inline bool isEnabled(){return mEnabled;} 
+	inline bool isEnabled(){return mActive;} 
+	
 	void enable(bool on)
 	{
 		if (on==true)
@@ -21,7 +22,7 @@ public:
 		else
 			mBody->PutToSleep();
 		
-		mEnabled = on;
+		mActive = on;
 	}  
 
 	void setPosition(Ogre::Vector2& p)
@@ -57,21 +58,10 @@ public:
 	b2Vec2 mPrevLinVelocity;
 	float mPrevAngVelocity;
 protected:
-	bool mActive;
-
-	std::string mName;
-	Canvas* mCanvas;
-	Object2DProperties* mProperties;
-	Ogre::Vector2 mPos;
-	double mScale; 
-
-	bool mEnabled; 
-//ogre 
-	Ogre::SceneManager* mSceneMgr;
-	Ogre::SceneNode* mNode; 
-	Ogre::Entity* mEntity;	
 
 //physics
+	Canvas* mCanvas;
+	Object2DProperties* mProperties;
 
 	//body
 	b2Body* mBody;	

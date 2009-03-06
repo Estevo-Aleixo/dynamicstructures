@@ -3,6 +3,7 @@
 #include "Main.h"
 #include "SurfaceProperties.h"
 #include "ContactFilter.h"
+#include "ContactListener.h"
 
 enum CANVASTYPE
 {
@@ -12,7 +13,7 @@ enum CANVASTYPE
 	ELIPSOID=3
 };
 
-class Pointer;
+class Cursor;
 class CellSystem;
 class CellFactory;
 
@@ -30,7 +31,7 @@ public:
 	
 	bool addCellSystem(Ogre::Vector2& startPosition, const char* systemType, bool enabled=true, Ogre::Real speed = 1.0); 
 
-	Pointer* getPointer(){return mPointer;}
+	Cursor* getCursor(){return mCursor;}
 
 	CANVASTYPE getCanvasType(){return mType;}
 
@@ -66,6 +67,8 @@ protected:
 	std::vector<CellFactory*> cellFactories;
 	b2AABB mAABB;
 	b2ContactFilter* mContactFilter;
+	b2ContactListener* mContactListener;
+	
 	b2World* mb2World;
 	float32 mTimeStep;
 
@@ -76,7 +79,7 @@ protected:
 
 	//b2DefaultFilter
 
-	Pointer* mPointer;
+	Cursor* mCursor;
 
 	void createRaster(CANVASTYPE type);
 	unsigned int mLines;

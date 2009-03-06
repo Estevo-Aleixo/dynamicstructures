@@ -1,5 +1,5 @@
 #include "Canvas.h"
-#include "Pointer.h"
+#include "Cursor.h"
 #include "CellSystem.h"
 
 Canvas::Canvas(void)
@@ -18,8 +18,10 @@ mType(type), mLines(lines), mSceneMgr(sceneMgr)
 	b2Vec2 gravity(0, 0.0);
 	mb2World= new b2World(mAABB,gravity,false); 
 	mContactFilter= new ContactFilter(); 
-	//mb2World->SetContactFilter(mContactFilter); 
-	
+	mContactListener= new ContactListener(); 
+	mb2World->SetContactFilter(mContactFilter); 
+	mb2World->SetContactListener(mContactListener); 
+
 	this->dimensions.x= width;
 	this->dimensions.y= height;
 	
@@ -32,7 +34,7 @@ mRootCanvasNode->scale(1.0,1.0,1.0);
 	//mRasterNode= mRootCanvasNode->createChildSceneNode(); 
 	//mRasterNode->attachObject(mRasterEntity); 
 	
-	mPointer= new Pointer(name + "_pointer", this, mSceneMgr); 
+	mCursor= new Cursor(name + "_Cursor", this, mSceneMgr); 
 	mTimePassed = 0;
 	mTimeInterval = 0.5;
 
@@ -143,7 +145,7 @@ bool  Canvas::frameStarted(const FrameEvent &evt)
 	//iterate through cell_systems
 	std::vector<CellSystem*>::iterator itr;
 
-	mPointer->update(evt); 
+	mCursor->update(evt); 
 
 	//check cursor position:
 	mTimePassed+=evt.timeSinceLastFrame;
@@ -156,7 +158,7 @@ bool  Canvas::frameStarted(const FrameEvent &evt)
 		mCurrentSelection=0;
 		for (itr= mCellSystems.begin(); itr!=mCellSystems.end(); itr++)
 		{	
-			if ((*itr)->containsPoint(mPointer->getPosition())==true)
+			if ((*itr)->containsPoint(mCursor->getPosition())==true)
 			{
 				mCurrentSelection= (*itr);
 				break; 

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Ogre.h"
-
+#include "Movable2DObject.h" 
 
 class CellSystem; 
 
@@ -22,17 +22,14 @@ EXPAND_MEDIAL_AXIS
 
 
 //Skeleton2D is basically a simple graph
-class Skeleton2D
+class Skeleton2D: public Movable2DObject
 {
 public:
-	Skeleton2D(void);
 	Skeleton2D(std::string& name, Ogre::Vector2& startpos, CellSystem* cellSystem, Ogre::SceneManager* sceneMgr);
-	//Skeleton2D(Ogre::Vector2& startpos, ObjectSystem* objectSystem);
-	//Skeleton2D(Ogre::Vector2& startpos, PathSystem* pathSystem);
 	~Skeleton2D(void);
 
 	
-	Ogre::Vector2 getPosition(){return mPosition;}
+	Ogre::Vector2 getPosition(){return mPos;}
 
 
 	void setPosition(Ogre::Vector2& position);
@@ -55,8 +52,6 @@ public:
 protected:
 	double mRadius;
 	double mForce;
-
-	Ogre::Vector2 mPosition;
 
 	Ogre::SceneManager* mSceneMgr;
 	CellSystem* mCellSystem;

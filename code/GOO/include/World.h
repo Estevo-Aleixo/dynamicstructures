@@ -10,7 +10,7 @@
 using namespace Ogre;
 
 class Console;
-class Pointer;
+class Cursor;
 class CellFactory; 
 class Cell;
 class ObjectDefinitions; 
@@ -60,7 +60,7 @@ public:
 
 	void PauseAll(); 
 	Canvas* mCanvas;
-	Pointer* mPointer;
+	Cursor* mCursor;
 	CellFactory* mCellFactory;
 	SystemFactory* mSystemFactory;
 

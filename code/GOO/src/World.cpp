@@ -1,6 +1,6 @@
 #include "World.h"
 #include "Console.h"
-#include "Pointer.h"
+#include "Cursor.h"
 #include "CellSystem.h"
 #include "CellFactory.h"
 #include "SystemFactory.h"
@@ -31,7 +31,7 @@ ExampleFrameListener(win, cam, true, true), mGUIRenderer(renderer), mSceneMgr(sc
 	CellFactory::createCellMeshes(); 
 
 	mCanvas= new Canvas(std::string("myFirstCanvas"), CANVASTYPE::RECTANGULAR,0, mSceneMgr,40,1000,1000);
-	mPointer= mCanvas->getPointer(); 	
+	mCursor= mCanvas->getCursor(); 	
 
 	mCellFactory= new CellFactory(std::string("The Cell Factory"),mSceneMgr, mCanvas); 
 	mSystemFactory= new SystemFactory("myFirstSystemFactory",mCanvas,mSceneMgr); 
@@ -119,7 +119,7 @@ return mContinue;
 bool World::mouseMoved(const OIS::MouseEvent &e)
 {
 
-	mPointer->mouseMoved(e); 
+	mCursor->mouseMoved(e); 
 
 	//scroll wheel: 
 	
@@ -137,7 +137,7 @@ return mContinue;
 	
 bool World::mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id)
 {
-	mPointer->mousePressed(e,id); 
+	mCursor->mousePressed(e,id); 
 
 	
 
@@ -146,7 +146,7 @@ bool World::mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id)
 	
 bool World::mouseReleased(const OIS::MouseEvent &e, OIS::MouseButtonID id)
 {
-	mPointer->mouseReleased(e,id); 
+	mCursor->mouseReleased(e,id); 
 
 
 return mContinue;
@@ -198,19 +198,19 @@ bool World::keyReleased(const OIS::KeyEvent &e)
 			mToggle=false;
 			break;	
 		case OIS::KC_1:
-			this->mPointer->setCreateType(1);
+			this->mCursor->setCreateType(1);
 			updateParameterOverlay();
 			break;
 		case OIS::KC_2:
-			this->mPointer->setCreateType(2);
+			this->mCursor->setCreateType(2);
 			updateParameterOverlay();
 			break;
 		case OIS::KC_3:
-			this->mPointer->setCreateType(3);
+			this->mCursor->setCreateType(3);
 			updateParameterOverlay();
 			break;
 		case OIS::KC_4:
-			this->mPointer->setCreateType(4);
+			this->mCursor->setCreateType(4);
 			updateParameterOverlay();
 			break;
 		case OIS::KC_C:
@@ -323,7 +323,7 @@ void  World::updateParameterOverlay(void)
 		OverlayElement* guiCellTypes = OverlayManager::getSingleton().getOverlayElement("GUI/cellTypes");
 		guiCellTypes->setCaption(cellTypes); 
 		OverlayElement* guiCellSelection = OverlayManager::getSingleton().getOverlayElement("GUI/currentCellSelection");
-		guiCellSelection->setCaption("Current Selection: " + StringConverter::toString(this->mPointer->getCurrentCellModeID())); 
+		guiCellSelection->setCaption("Current Selection: " + StringConverter::toString(this->mCursor->getCurrentCellModeID())); 
 
 
 }
