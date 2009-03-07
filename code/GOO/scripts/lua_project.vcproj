@@ -232,6 +232,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\EventHandler.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\Functions.cpp"
 				>
 			</File>
@@ -264,20 +268,12 @@
 				>
 			</File>
 			<Filter
-				Name="Entities"
+				Name="base classes"
 				>
 				<File
 					RelativePath="..\src\Movable2DObject.cpp"
 					>
 				</File>
-				<Filter
-					Name="Entity_properties"
-					>
-				</Filter>
-			</Filter>
-			<Filter
-				Name="Managers"
-				>
 			</Filter>
 			<Filter
 				Name="Governers"
@@ -301,79 +297,19 @@
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
-			<File
-				RelativePath="..\include\Canvas.h"
-				>
-			</File>
-			<File
-				RelativePath="..\include\Cell.h"
-				>
-			</File>
-			<File
-				RelativePath="..\include\CellFactory.h"
-				>
-			</File>
-			<File
-				RelativePath="..\include\CellProperties.h"
-				>
-			</File>
-			<File
-				RelativePath="..\include\CellSystem.h"
-				>
-			</File>
-			<File
-				RelativePath="..\include\CellSystemProperties.h"
-				>
-			</File>
-			<File
-				RelativePath="..\include\ContactFilter.h"
-				>
-			</File>
-			<File
-				RelativePath="..\include\ContactListener.h"
-				>
-			</File>
-			<File
-				RelativePath="..\include\Cursor.h"
-				>
-			</File>
-			<File
-				RelativePath="..\include\DynamicSystem.h"
-				>
-			</File>
-			<File
-				RelativePath="..\include\MovableText.h"
-				>
-			</File>
-			<File
-				RelativePath="..\include\Object2DProperties.h"
-				>
-			</File>
-			<File
-				RelativePath="..\include\ObjectDefinitions.h"
-				>
-			</File>
-			<File
-				RelativePath="..\include\Physical2DObject.h"
-				>
-			</File>
-			<File
-				RelativePath="..\include\Skeleton2D.h"
-				>
-			</File>
-			<File
-				RelativePath="..\include\SurfaceProperties.h"
-				>
-			</File>
-			<File
-				RelativePath="..\include\SystemFactory.h"
-				>
-			</File>
 			<Filter
-				Name="Entities"
+				Name="base classes"
 				>
 				<File
 					RelativePath="..\include\Movable2DObject.h"
+					>
+				</File>
+				<File
+					RelativePath="..\include\Object2DProperties.h"
+					>
+				</File>
+				<File
+					RelativePath="..\include\ObjectDefinitions.h"
 					>
 				</File>
 			</Filter>
@@ -382,6 +318,10 @@
 				>
 				<File
 					RelativePath="..\include\Console.h"
+					>
+				</File>
+				<File
+					RelativePath="..\include\EventHandler.h"
 					>
 				</File>
 				<File
@@ -402,6 +342,82 @@
 				</File>
 				<File
 					RelativePath="..\include\LuaGlueFunctions.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="systems"
+				>
+				<File
+					RelativePath="..\include\DynamicSystem.h"
+					>
+				</File>
+				<File
+					RelativePath="..\include\SurfaceProperties.h"
+					>
+				</File>
+				<File
+					RelativePath="..\include\SystemFactory.h"
+					>
+				</File>
+				<Filter
+					Name="cell"
+					>
+					<File
+						RelativePath="..\include\Cell.h"
+						>
+					</File>
+					<File
+						RelativePath="..\include\CellFactory.h"
+						>
+					</File>
+					<File
+						RelativePath="..\include\CellProperties.h"
+						>
+					</File>
+					<File
+						RelativePath="..\include\CellSystem.h"
+						>
+					</File>
+					<File
+						RelativePath="..\include\CellSystemProperties.h"
+						>
+					</File>
+					<File
+						RelativePath="..\include\Skeleton2D.h"
+						>
+					</File>
+				</Filter>
+			</Filter>
+			<Filter
+				Name="physics"
+				>
+				<File
+					RelativePath="..\include\ContactFilter.h"
+					>
+				</File>
+				<File
+					RelativePath="..\include\ContactListener.h"
+					>
+				</File>
+				<File
+					RelativePath="..\include\Physical2DObject.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Editor"
+				>
+				<File
+					RelativePath="..\include\Canvas.h"
+					>
+				</File>
+				<File
+					RelativePath="..\include\Cursor.h"
+					>
+				</File>
+				<File
+					RelativePath="..\include\MovableText.h"
 					>
 				</File>
 			</Filter>

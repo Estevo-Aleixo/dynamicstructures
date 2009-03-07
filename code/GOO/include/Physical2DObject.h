@@ -55,6 +55,8 @@ public:
 	void halt(); 
 	void proceed(); 
 
+	void moveTo(Ogre::Vector2& position); 
+
 	b2Vec2 mPrevLinVelocity;
 	float mPrevAngVelocity;
 protected:
@@ -69,5 +71,6 @@ protected:
 	b2World* mWorld;
 	b2Shape* mShape; 
 
-
+	Ogre::Vector2 goalPosition;
+	
 };

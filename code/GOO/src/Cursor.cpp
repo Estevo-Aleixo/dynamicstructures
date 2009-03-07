@@ -3,15 +3,14 @@
 #include "Movable2DObject.h"
 
 Cursor::Cursor(std::string& name, Canvas* canvas, Ogre::SceneManager* sceneMgr): 
-mCanvas(canvas), mSceneMgr(sceneMgr) 
+Movable2DObject(name,sceneMgr,Ogre::Vector2(0,0)),mCanvas(canvas), mSceneMgr(sceneMgr) 
 {
 
 	mCursorNode= mCanvas->getSceneNode()->createChildSceneNode(); 
 	mCursorEntity= mSceneMgr->createEntity(name,HEXAGON_LINE_MESH); 
 	mCursorNode->attachObject(mCursorEntity); 
 	mCursorNode->scale(10,10,10);
-	acceleration= Vector2(0,0);
-	mPos= Vector2(0,0); 
+	acceleration= Vector2(0,0); 
 	mPressed=false;
 	mSystemType=1; 
 }
@@ -109,6 +108,5 @@ void Cursor::attachObject(Movable2DObject* object)
 {
 
 
-
-
+	mAttachedObject= object; 
 }

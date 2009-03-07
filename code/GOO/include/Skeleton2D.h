@@ -28,13 +28,6 @@ public:
 	Skeleton2D(std::string& name, Ogre::Vector2& startpos, CellSystem* cellSystem, Ogre::SceneManager* sceneMgr);
 	~Skeleton2D(void);
 
-	
-	Ogre::Vector2 getPosition(){return mPos;}
-
-
-	void setPosition(Ogre::Vector2& position);
-
-
 	void update(const Ogre::FrameEvent& evt);		
 
 	void clear(); 

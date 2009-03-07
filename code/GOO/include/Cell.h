@@ -5,9 +5,6 @@
 #include "CellSystemProperties.h"
 #include "Physical2DObject.h"
 
-
-
-
 //cell types
 /*
 enum CELLTYPE{
@@ -31,7 +28,6 @@ public:
 	//SETTERS
 	void setType();
 
-	Ogre::SceneNode* getNode(){return node;}
 
 	Cell(std::string name, unsigned int id, Ogre::SceneManager* sceneMgr, Object2DProperties* properties, Canvas* canvas, Ogre::Vector2 position= Vector2(0,0), bool enabled=false);
 	~Cell(void);
@@ -63,15 +59,14 @@ protected:
 	Ogre::Real mSize;
 	Ogre::ColourValue colour;
 	
-	Ogre::SceneNode* node; 
-	Ogre::Entity* outlineEntity; 
+	//Ogre::SceneNode* node; 
+	//Ogre::Entity* outlineEntity; 
 
 	CellSystem* mSystem;
 	Ogre::Radian mDivideDirection; 
 	Ogre::Radian mDirectionInterval;
 
 	CellProperties retrieveProperties(CellSystem* system); 
-
 
 	//TEMP: 
 	Ogre::Real mTimePassed;

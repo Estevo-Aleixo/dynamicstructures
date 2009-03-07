@@ -14,6 +14,13 @@ public:
 
 	Object2DType type; //to allow casting
 
+	virtual void attach(Movable2DObject* object); 
+	virtual void detach(); 
+	
+	virtual bool update(Ogre::FrameEvent& evt);
+	virtual void setPosition(Ogre::Vector2& position);
+	virtual Ogre::Vector2& getPosition(){return mPos;}
+
 protected:
 	bool mActive;
 

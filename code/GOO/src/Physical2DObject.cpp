@@ -102,6 +102,12 @@ void Physical2DObject::halt()
 void Physical2DObject::proceed()
 {
 	mActive=true;
-	this->mBody->SetAngularVelocity(mPrevAngVelocity); 
-	this->mBody->SetLinearVelocity(mPrevLinVelocity);  
+	mBody->SetAngularVelocity(mPrevAngVelocity); 
+	mBody->SetLinearVelocity(mPrevLinVelocity);  
+} 
+
+
+void  Physical2DObject::moveTo(Ogre::Vector2& position)
+{
+	goalPosition = position;
 } 

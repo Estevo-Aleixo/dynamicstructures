@@ -2,12 +2,12 @@
 
 #include "Main.h"
 #include "Canvas.h"
-
+#include "Movable2DObject.h"
 
 class CellSystemProperties;
 class Movable2DObject;
 
-class Cursor 
+class Cursor :public Movable2DObject
 {
 
 public:
@@ -30,6 +30,8 @@ public:
 	void attachObject(Movable2DObject* object); 
 
 private:
+	Movable2DObject* mAttachedObject;
+	
 	CURSORMODE mMode;
 	unsigned int mSystemType; 
 	unsigned int mCreateType; 

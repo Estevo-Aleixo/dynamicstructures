@@ -63,12 +63,6 @@ void Skeleton2D::update(const Ogre::FrameEvent& evt)
 
 }
 
-void Skeleton2D::setPosition(Ogre::Vector2& position)
-{
-	mPos = position;
-	node->setPosition(position.x,position.y,0); 
-}
-
 
 
 void Skeleton2D::addPoint(Ogre::Vector2 point)
