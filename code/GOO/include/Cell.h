@@ -46,7 +46,17 @@ public:
 	void setOrigin(Ogre::Vector2& origin){mOrigin=origin;} 
 	Cell* mCellBuddy;
 
+	void showPolyLine(bool on){mShowPolyLine = on;}
+	void updatePolyLine();
 protected: 
+
+	bool mShowPolyLine;
+
+	Ogre::ManualObject* mPolyLine;
+	Ogre::SceneNode* mLineNode;
+	Ogre::SceneNode* mCenterNode;
+	Ogre::Entity* mCenterEntity;
+
 	Vector2 mOrigin;
 
 	int cellCount;

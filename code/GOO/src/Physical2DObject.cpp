@@ -22,7 +22,7 @@ Physical2DObject::Physical2DObject(std::string& name, Canvas* canvas, Ogre::Scen
 		//shape (just triangle for now)
 		
 		b2ShapeDef* shapeDef= properties->getShapeDef(); 
-		mShape = mBody->CreateShape((b2PolygonDef*)shapeDef); 
+		mShape = mBody->CreateShape(shapeDef); 
 		mBody->SetMassFromShapes();
 		mBody->WakeUp(); 
 		mScale=1.0;
@@ -41,9 +41,9 @@ Physical2DObject::~Physical2DObject(void)
 	Ogre::LogManager::getSingletonPtr()->logMessage("deleting physical object " +mName); 
 	
 	//ogre:
-	mNode->removeAndDestroyAllChildren(); 
-	mSceneMgr->destroySceneNode(mNode); 
-	mSceneMgr->destroyEntity(mEntity); 
+	//mNode->removeAndDestroyAllChildren(); 
+	//mSceneMgr->destroySceneNode(mNode); 
+	//mSceneMgr->destroyEntity(mEntity); 
 
 	//physics: 
 	mBody->DestroyShape(mShape); 

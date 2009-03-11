@@ -34,7 +34,9 @@ CellSystem::CellSystem(std::string& name, Canvas* canvas, Ogre::SceneManager* sc
 	mSkeleton= new Skeleton2D(name, position,this,sceneMgr); 
 
 	spawnTimeInterval=1;
+	mShowPolyLines= true; 
 	TimePassed=0;
+
 
 }
 
@@ -85,9 +87,8 @@ bool CellSystem::frameStarted(const FrameEvent &evt)
 	std::vector<Cell*>::iterator itr;
 	if (mEnabled == true)
 	{
-		//update zhe system: iterate through cells: 
 		int i=0; 
-		//for(itr= mCells.begin(); itr!= mCells.end(); itr++)
+
 		for(int i=0; i < mCells.size(); i++)
 		{
 			bool retvalue = mCells[i]->frameStarted(evt);	
@@ -96,6 +97,10 @@ bool CellSystem::frameStarted(const FrameEvent &evt)
 				break;
 		}
 		mSkeleton->update(evt);
+		if (mShowPolyLines)
+		{
+			
+		}
 	}
 	return true;
 }
@@ -112,12 +117,7 @@ bool CellSystem::frameEnded(const FrameEvent &evt)
 	return true;
 }
 
-//repositions entire cell system
-void CellSystem::setPosition(Ogre::Vector2& position)
-{
 
-
-} 
 
 //reorients entire cell system
 void CellSystem::setOrientation(Ogre::Radian& orientation)
@@ -190,4 +190,23 @@ void CellSystem::reduce(int percent)
 {
 
 
+}
+
+//the position that is given to setposition is taken as the main skeleton position
+void CellSystem::setPosition(Ogre::Vector2& position)
+{
+	//translate skeleton: translation of the skeleton automatically translates the cells.  
+	mSkeleton->setPosition(position); 
+}
+
+
+void CellSystem::showPolyLines(bool on)
+{
+
+}
+
+void CellSystem::updatePolyLines(const Ogre::FrameEvent& evt)
+{
+	
+	
 }

@@ -21,6 +21,9 @@ EXPAND_MEDIAL_AXIS
 };
 
 
+
+
+
 //Skeleton2D is basically a simple graph
 class Skeleton2D: public Movable2DObject
 {
@@ -42,7 +45,15 @@ public:
 	inline void setEffectRadius(double& radius){mRadius=radius;} 
 	inline void setPushForce(double& force){mForce=force;}  
 
+	void setPosition(Ogre::Vector2& position);
 protected:
+
+	void expand(const Ogre::FrameEvent& evt); 
+	void rigid(const Ogre::FrameEvent& evt); 
+	void shrink(const Ogre::FrameEvent& evt); 
+	void explode(const Ogre::FrameEvent& evt); 
+
+
 	double mRadius;
 	double mForce;
 

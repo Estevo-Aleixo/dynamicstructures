@@ -6,13 +6,15 @@ Cursor::Cursor(std::string& name, Canvas* canvas, Ogre::SceneManager* sceneMgr):
 Movable2DObject(name,sceneMgr,Ogre::Vector2(0,0)),mCanvas(canvas), mSceneMgr(sceneMgr) 
 {
 
-	mCursorNode= mCanvas->getSceneNode()->createChildSceneNode(); 
-	mCursorEntity= mSceneMgr->createEntity(name,HEXAGON_LINE_MESH); 
-	mCursorNode->attachObject(mCursorEntity); 
-	mCursorNode->scale(10,10,10);
+	mNode= mCanvas->getSceneNode()->createChildSceneNode(); 
+	mEntity= mSceneMgr->createEntity(name,HEXAGON_LINE_MESH); 
+	mNode->attachObject(mEntity); 
+	mNode->scale(10,10,10);
 	acceleration= Vector2(0,0); 
 	mPressed=false;
 	mSystemType=1; 
+
+	mPos= Vector2(0,0); 
 }
 
 Cursor::~Cursor(void)
@@ -22,7 +24,7 @@ Cursor::~Cursor(void)
 
 bool Cursor::update(const FrameEvent &evt)
 {
-	mCursorNode->roll(Ogre::Radian(2)*evt.timeSinceLastFrame); 	
+	mNode->roll(Ogre::Radian(2)*evt.timeSinceLastFrame); 	
 	return true;
 } 
 
@@ -39,7 +41,7 @@ bool Cursor::mouseMoved(const OIS::MouseEvent &e)
 	mPos.x+= acceleration.x; 
 	mPos.y-= acceleration.y;
 
-	mCursorNode->setPosition(Vector3(mPos.x, mPos.y, 0)); 
+	mNode->setPosition(Vector3(mPos.x, mPos.y, 0)); 
 
 
 	

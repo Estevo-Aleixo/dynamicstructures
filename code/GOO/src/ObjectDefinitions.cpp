@@ -68,6 +68,7 @@ void ObjectDefinitions::loadDefaultObjects()
 		Ogre::ManualObject* cellHex; 
 		Ogre::ManualObject* cellSquare; 
 		Ogre::ManualObject* cellTriangle; 
+		Ogre::ManualObject* circlePolygon; 
 		Object2DProperties newObject;
 		
 	//SQUARE
@@ -171,17 +172,36 @@ void ObjectDefinitions::loadDefaultObjects()
 
 	
 //create Circle
-
-	b2CircleDef* circleDef=new b2CircleDef();
-
+	b2CircleDef* circleDef= new b2CircleDef();
 	circleDef->density= 5.0;
 	circleDef->friction= 2.0;
-	circleDef->radius = 0.5f;
+	circleDef->radius = 1.0f;
 
-	newObject= Object2DProperties("Circle",SQUARE_MESH,circleDef,1.0); 
-	//newObject.filterData.groupIndex= -2;//layerID::layer3; 
-	//newObject.filterData.categoryBits= 0x0003 ; 
-	//newObject.filterData.maskBits = 0x0003 ;
+
+	int vertices = 12;
+		
+		angle= Ogre::Radian(Math::TWO_PI /vertices ); 
+		circlePolygon= new Ogre::ManualObject("wirecircle"); 
+		circlePolygon->clear(); 
+		circlePolygon->begin("circle_polygon",RenderOperation::OT_LINE_LIST); 
+		for (int i=0; i < vertices  ;i++){
+			x= Math::Cos(angle * i);
+			y= Math::Sin(angle * i);
+			//mesh pos:
+			circlePolygon->position(x,y,0); 
+			circlePolygon->colour(colour); 
+		} 
+		for (int i=1; i < vertices ;i++){
+			circlePolygon->index(i-1);	
+			circlePolygon->index(i);	
+		}
+		circlePolygon->index(vertices-1);
+		circlePolygon->index(0);
+		circlePolygon->end(); 
+		circlePolygon->convertToMesh(CIRCLE_POLYGON);  
+
+	newObject= Object2DProperties("Circle",CIRCLE_POLYGON,circleDef,1.0); 
+
 	mObjects.push_back(newObject);
 
 }

@@ -3,6 +3,14 @@
 #include "Main.h"
 
 
+enum OBJECTSTATE
+{
+GROW=0,
+RIGID=1,
+FREE=2,
+EXPLODE=3
+};
+
 class Movable2DObject
 {
 public:
@@ -21,8 +29,13 @@ public:
 	virtual void setPosition(Ogre::Vector2& position);
 	virtual Ogre::Vector2& getPosition(){return mPos;}
 
+	OBJECTSTATE getState(){return mState;}
+
+	void setState(OBJECTSTATE state){mState=state;}
+
 protected:
 	bool mActive;
+	OBJECTSTATE mState;
 
 	std::string mName;
 	Ogre::Vector2 mPos;

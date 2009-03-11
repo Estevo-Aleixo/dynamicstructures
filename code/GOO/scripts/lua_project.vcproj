@@ -228,6 +228,14 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\DebugCircle.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\DebugShape.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\DynamicSystem.cpp"
 				>
 			</File>
@@ -297,6 +305,14 @@
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
+			<File
+				RelativePath="..\include\DebugCircle.h"
+				>
+			</File>
+			<File
+				RelativePath="..\include\DebugShape.h"
+				>
+			</File>
 			<Filter
 				Name="base classes"
 				>

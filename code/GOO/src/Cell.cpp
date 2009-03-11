@@ -15,7 +15,30 @@ mSystem(0)
 	mCloneIntervalTime = 2.0;
 	mTimePassed=0.0;
 	mCellBuddy=0;
+	mShowPolyLine = false; 
+	mPolyLine= new Ogre::ManualObject(name + "_polyline"); 
 
+	mPolyLine->begin("polyline",RenderOperation::OT_LINE_LIST); 		
+			mPolyLine->position(0,0,0); 
+			mPolyLine->position(0,0,0); 
+			mPolyLine->index(1);
+			mPolyLine->index(0);
+	mPolyLine->end(); 
+	
+
+	mLineNode= mNode->createChildSceneNode();
+	mLineNode->attachObject(mPolyLine);
+	mLineNode->setInheritOrientation(false);
+	mLineNode->setInheritScale(false);
+
+	//mCenterNode
+		mCenterNode= mNode->createChildSceneNode();  
+		mCenterEntity= mSceneMgr->createEntity(name +  "_center",SQUARE_MESH);
+		mCenterEntity->setMaterialName("ambient_white"); 
+		mCenterNode->attachObject(mCenterEntity); 
+		mCenterNode->translate(0,0,0.001); 
+		mCenterNode->scale(0.2,0.2,0.2); 
+		
 }
 
 
@@ -69,6 +92,8 @@ bool Cell::frameStarted(const FrameEvent &evt)
 			return false;
 			}
 		
+		//draw manual object line:
+			updatePolyLine(); 
 		}else
 		{
 		
@@ -115,3 +140,25 @@ CellProperties  Cell::retrieveProperties(CellSystem* system)
 	return properties;
 }
 
+void Cell::updatePolyLine()
+{
+
+
+	Ogre::Vector2 pos;
+
+
+	pos= mCellBuddy->getPosition()- mPos ;
+	//pos = pos.normalisedCopy()* (pos.length()/3);
+//refresh polyline
+		//mPolyLine->clear(); 
+		mPolyLine->beginUpdate(0); 		
+			mPolyLine->position(0,0,0.001); 
+			mPolyLine->position(pos.x,pos.y,0.001); 
+			mPolyLine->index(1);
+			mPolyLine->index(0);
+		mPolyLine->end(); 
+		
+		//mPolyLine->convertToMesh(CIRCLE_POLYGON);  
+
+
+}

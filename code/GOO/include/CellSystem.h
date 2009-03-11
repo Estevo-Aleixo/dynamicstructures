@@ -8,12 +8,12 @@
 class Canvas; 
 
 
-enum MODE
-{
-	FREE=0, 
-	MOVING_DYNAMIC=1,
-	MOVING_STATIC=2
-};
+//enum MODE
+//{
+//	FREE=0, 
+//	MOVING_DYNAMIC=1,
+//	MOVING_STATIC=2
+//};
 
 class CellSystem: public DynamicSystem
 {
@@ -57,9 +57,14 @@ public:
 	
 	void reduce(int percent);
 
-	MODE getMode(){return mMode;} 
+	//MODE getMode(){return mMode;} 
+
+	void showPolyLines(bool on);  
+
 protected:
-	MODE mMode;
+	//MODE mMode;
+	void updatePolyLines(const Ogre::FrameEvent& evt);  
+	bool mShowPolyLines;
 
 	void initialize(); 
 	bool mAttachedToCursor; 

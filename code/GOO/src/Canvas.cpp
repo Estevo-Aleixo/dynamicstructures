@@ -29,23 +29,24 @@ mType(type), mLines(lines), mSceneMgr(sceneMgr)
 mRootCanvasNode= sceneMgr->getRootSceneNode()->createChildSceneNode("CanvasRootNode");
 mRootCanvasNode->scale(1.0,1.0,1.0);
 
-	//createRaster(mType);
-	//mRasterEntity = sceneMgr->createEntity("canvas_raster","Raster"); 
-	//mRasterNode= mRootCanvasNode->createChildSceneNode(); 
-	//mRasterNode->attachObject(mRasterEntity); 
+	createRaster(mType);
+	mRasterEntity = sceneMgr->createEntity("canvas_raster","Raster"); 
+	mRasterNode= mRootCanvasNode->createChildSceneNode(); 
+	mRasterNode->attachObject(mRasterEntity); 
 	
 	mCursor= new Cursor(name + "_Cursor", this, mSceneMgr); 
 	mTimePassed = 0;
 	mTimeInterval = 0.5;
 
 //build surface
+	/*
 	mSurfaceEntity= mSceneMgr->createEntity("canvas_surface",SQUARE_MESH); 
 	mSurfaceEntity->setMaterialName("basesurface"); 
 	mSurfaceNode = mRootCanvasNode->createChildSceneNode(); 
 	mSurfaceNode->attachObject(mSurfaceEntity); 
 	mSurfaceNode->scale((double)width,(double)height,0.0);
 	mSurfaceNode->translate(0.0,0.0,-1.0); 
-
+*/
 
 }
 	

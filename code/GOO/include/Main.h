@@ -23,6 +23,7 @@ Filename:    Main.h
 #define SQUARE_MESH "rectangular_cell"
 #define HEXAGON_LINE_MESH "hexagon_cell"
 #define TRIANGLE_MESH "triangle_cell"
+#define CIRCLE_POLYGON "circle_polygon"
 #define PLANE "plane.mesh"
 
 #include "MovableText.h"
