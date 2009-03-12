@@ -44,7 +44,7 @@
 				EnableIntrinsicFunctions="true"
 				FavorSizeOrSpeed="1"
 				WholeProgramOptimization="false"
-				AdditionalIncludeDirectories="..\include;&quot;$(OGRE_HOME)\include&quot;;&quot;$(OGRE_HOME)\samples\include&quot;;..\..\Box2D\Include;&quot;..\..\lua5.1\include&quot;;"
+				AdditionalIncludeDirectories="..\include;&quot;$(OGRE_HOME)\include&quot;;&quot;$(OGRE_HOME)\samples\include&quot;;..\..\Box2D\Include;&quot;..\..\lua5.1\include&quot;;$(CGALROOT)\include\CGAL\config\msvc;$(CGALROOT)\include;$(CGALROOT)\auxiliary\gmp\include;$(CGALROOT)\auxiliary\TAUCS\include;$(BOOSTROOT)"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -67,7 +67,7 @@
 				Name="VCLinkerTool"
 				AdditionalDependencies="OgreMain_d.lib OIS_d.lib CEGUIBase_d.lib OgreGUIRenderer_d.lib box2d_d.lib lua5.1.lib"
 				LinkIncremental="2"
-				AdditionalLibraryDirectories="..\..\Box2D\Library;&quot;$(OGRE_HOME)\lib&quot;;&quot;$(OGRE_HOME)\Dependencies\lib\$(ConfigurationName)&quot;;..\..\lua5.1\lib\static"
+				AdditionalLibraryDirectories="..\..\Box2D\Library;&quot;$(OGRE_HOME)\lib&quot;;&quot;$(OGRE_HOME)\Dependencies\lib\$(ConfigurationName)&quot;;..\..\lua5.1\lib\static;$(CGALROOT)\lib;$(CGALROOT)\auxiliary\gmp\lib;$(CGALROOT)\auxiliary\TAUCS\lib"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				RandomizedBaseAddress="1"
@@ -124,8 +124,8 @@
 				Optimization="2"
 				InlineFunctionExpansion="2"
 				EnableIntrinsicFunctions="true"
-				FavorSizeOrSpeed="0"
-				AdditionalIncludeDirectories="..\include;&quot;$(OGRE_HOME)\include&quot;;&quot;$(OGRE_HOME)\samples\include&quot;;..\..\Box2D\Include; ..\..\lua5.1\include;"
+				FavorSizeOrSpeed="1"
+				AdditionalIncludeDirectories="..\include;&quot;$(OGRE_HOME)\include&quot;;&quot;$(OGRE_HOME)\samples\include&quot;;..\..\Box2D\Include; ..\..\lua5.1\include;$(CGALROOT)\include\CGAL\config\msvc;$(CGALROOT)\include;$(CGALROOT)\auxiliary\gmp\include;$(CGALROOT)\auxiliary\TAUCS\include;$(BOOSTROOT)"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS"
 				RuntimeLibrary="2"
 				FloatingPointModel="2"
@@ -147,7 +147,7 @@
 				Name="VCLinkerTool"
 				AdditionalDependencies="OgreMain.lib OIS.lib CEGUIBase.lib OgreGUIRenderer.lib box2d.lib lua5.1.lib"
 				LinkIncremental="1"
-				AdditionalLibraryDirectories="..\..\Box2D\Library;&quot;$(OGRE_HOME)\lib&quot;;&quot;$(OGRE_HOME)\Dependencies\lib\$(ConfigurationName)&quot;;..\lib\release;..\..\lua5.1\lib\static"
+				AdditionalLibraryDirectories="..\..\Box2D\Library;&quot;$(OGRE_HOME)\lib&quot;;&quot;$(OGRE_HOME)\Dependencies\lib\$(ConfigurationName)&quot;;..\lib\release;..\..\lua5.1\lib\static;$(CGALROOT)\lib;$(CGALROOT)\auxiliary\gmp\lib;;$(CGALROOT)\auxiliary\TAUCS\lib"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				OptimizeReferences="2"
@@ -264,6 +264,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\PolygonAlgorithms.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\Skeleton2D.cpp"
 				>
 			</File>
@@ -311,6 +315,14 @@
 			</File>
 			<File
 				RelativePath="..\include\DebugShape.h"
+				>
+			</File>
+			<File
+				RelativePath="..\include\PolygonAlgorithms.h"
+				>
+			</File>
+			<File
+				RelativePath="..\include\ss_types.h"
 				>
 			</File>
 			<Filter

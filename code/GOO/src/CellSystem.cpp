@@ -3,18 +3,15 @@
 #include "Canvas.h"
 #include "ObjectDefinitions.h"
 
+
+
+typedef PolygonAlgorithms PA;
+
 CellSystem::CellSystem(std::string& name, Canvas* canvas, Ogre::SceneManager* sceneMgr, Ogre::Vector2& position, const char* systemType, bool enabled, Ogre::Real speed)
 :DynamicSystem(name, sceneMgr, position) , mSystemType(systemType), mEnabled(enabled), mSpeed(speed), mCanvas(canvas) 
 {
 	
-	//mStartEntity = mSceneMgr->createEntity(name+"_start_marker_entity",HEXAGON_LINE_MESH); 
-	//mStartNode= mSceneMgr->getSceneNode("CanvasRootNode")->createChildSceneNode(name+ "_start_marker_node"); 
-	//mStartNode->attachObject(mStartEntity); 
-	//mStartNode->setScale(0.2,0.2,0.2);
-	//mLabelNode= mStartNode->createChildSceneNode(Vector3(2,0,2)); 
-	
 	//create label:
-	
 	/*
 	mLabel= new MovableText(name+ "_labelText",name); 
 	mLabel->setFontName( "mainfont" );
@@ -32,6 +29,7 @@ CellSystem::CellSystem(std::string& name, Canvas* canvas, Ogre::SceneManager* sc
 	this->mEnabled=true;
 	this->initialize(); 
 	mSkeleton= new Skeleton2D(name, position,this,sceneMgr); 
+	mSkeletonPoints= new std::vector<Point_2>();
 
 	spawnTimeInterval=1;
 	mShowPolyLines= true; 
@@ -85,22 +83,36 @@ void CellSystem::initialize()
 bool CellSystem::frameStarted(const FrameEvent &evt)
 {
 	std::vector<Cell*>::iterator itr;
+
+   std::vector<Point_2> result;
 	if (mEnabled == true)
 	{
 		int i=0; 
-
+		mVertices.clear(); 
 		for(int i=0; i < mCells.size(); i++)
 		{
 			bool retvalue = mCells[i]->frameStarted(evt);	
 			mCells[i]->setOrigin(mSkeleton->getPosition());
 			if (retvalue==false)
 				break;
+
+		
+			//CREATE CGAL POLYGON 
+			mVertices.push_back(Point_2(mCells[i]->getPosition().x,mCells[i]->getPosition().y)); 		
+	
+
 		}
 		mSkeleton->update(evt);
-		if (mShowPolyLines)
-		{
-			
-		}
+		
+		//CGAL::convex_hull_2( mVertices.begin(),mVertices.end(), std::back_inserter(result) );
+		 // Ogre::LogManager::getSingletonPtr()->logMessage(Ogre::StringConverter::toString(result.size()) + " points on the convex hull"); 
+
+
+
+		//calculate skeleton from polygon
+		  PA::constructSkeleton(&mVertices, mSkeletonPoints); 
+
+
 	}
 	return true;
 }

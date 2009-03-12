@@ -41,7 +41,7 @@ enum QueryFlags
 	NON_SELECTABLE_TILE				= 1<<18 /*!< Mask for corresponding objects*/  
 };
 
-MovableText::MovableText(const String &name, const String &caption, const String &fontName, Real charHeight, const ColourValue &color)
+MovableText::MovableText(const String &name, const String &caption, const String &fontName, Ogre::Real charHeight, const ColourValue &color)
 : mpCam(NULL)
 , mpWin(NULL)
 , mpFont(NULL)
@@ -128,7 +128,7 @@ void MovableText::setColor(const ColourValue &color)
     }
 }
 
-void MovableText::setCharacterHeight(Real height)
+void MovableText::setCharacterHeight(Ogre::Real height)
 {
     if (height != mCharHeight)
     {
@@ -137,7 +137,7 @@ void MovableText::setCharacterHeight(Real height)
     }
 }
 
-void MovableText::setSpaceWidth(Real width)
+void MovableText::setSpaceWidth(Ogre::Real width)
 {
     if (width != mSpaceWidth)
     {
@@ -160,7 +160,7 @@ void MovableText::setTextAlignment(const HorizontalAlignment& horizontalAlignmen
     }
 }
 
-void MovableText::setAdditionalHeight( Real height )
+void MovableText::setAdditionalHeight( Ogre::Real height )
 {
     if( mAdditionalHeight != height )
     {
@@ -237,7 +237,7 @@ void MovableText::_setupGeometry()
     bind->setBinding(COLOUR_BINDING, cbuf);
 
     size_t charlen = mCaption.size();
-    Real *pPCBuff = static_cast<Real*>(ptbuf->lock(HardwareBuffer::HBL_DISCARD));
+    Ogre::Real *pPCBuff = static_cast<Ogre::Real*>(ptbuf->lock(HardwareBuffer::HBL_DISCARD));
 
     float largestWidth = 0;
     float left = 0 * 2.0 - 1.0;
@@ -249,16 +249,16 @@ void MovableText::_setupGeometry()
 
     // for calculation of AABB
     Vector3 min, max, currPos;
-    Real maxSquaredRadius = 0;
+    Ogre::Real maxSquaredRadius = 0;
     bool first = true;
 
     // Use iterator
     String::iterator i, iend;
     iend = mCaption.end();
     bool newLine = true;
-    Real len = 0.0f;
+    Ogre::Real len = 0.0f;
 
-    Real verticalOffset = 0;
+    Ogre::Real verticalOffset = 0;
     switch (mVerticalAlignment)
     {
     case MovableText::V_ABOVE:
@@ -311,8 +311,8 @@ void MovableText::_setupGeometry()
             continue;
         }
 
-        Real horiz_height = mpFont->getGlyphAspectRatio(*i);
-        Real u1, u2, v1, v2; 
+        Ogre::Real horiz_height = mpFont->getGlyphAspectRatio(*i);
+        Ogre::Real u1, u2, v1, v2; 
         Font::UVRect utmp;
         utmp = mpFont->getGlyphTexCoords(*i);
         u1 = utmp.left;

@@ -22,16 +22,16 @@ protected:
 	AxisAlignedBox	mAABB;
 	LightList		mLList;
 
-	Real			mCharHeight;
-	Real			mSpaceWidth;
+	Ogre::Real			mCharHeight;
+	Ogre::Real			mSpaceWidth;
 
 	bool			mNeedUpdate;
 	bool			mUpdateColors;
 	bool			mOnTop;
 
-	Real			mTimeUntilNextToggle;
-	Real			mRadius;
-    Real            mAdditionalHeight;
+	Ogre::Real			mTimeUntilNextToggle;
+	Ogre::Real			mRadius;
+    Ogre::Real            mAdditionalHeight;
 
 	Camera			*mpCam;
 	RenderWindow	*mpWin;
@@ -41,7 +41,7 @@ protected:
 
     /******************************** public methods ******************************/
 public:
-	MovableText(const String &name, const String &caption, const String &fontName = "BlueHighway", Real charHeight = 1.0, const ColourValue &color = ColourValue::White);
+	MovableText(const String &name, const String &caption, const String &fontName = "BlueHighway", Ogre::Real charHeight = 1.0, const ColourValue &color = ColourValue::White);
 	virtual ~MovableText();
 
 	// Add to build on Shoggoth:
@@ -53,10 +53,10 @@ public:
 	void    setFontName(const String &fontName);
 	void    setCaption(const String &caption);
 	void    setColor(const ColourValue &color);
-	void    setCharacterHeight(Real height);
-	void    setSpaceWidth(Real width);
+	void    setCharacterHeight(Ogre::Real height);
+	void    setSpaceWidth(Ogre::Real width);
 	void    setTextAlignment(const HorizontalAlignment& horizontalAlignment, const VerticalAlignment& verticalAlignment);
-	void    setAdditionalHeight( Real height );
+	void    setAdditionalHeight( Ogre::Real height );
     void    showOnTop(bool show=true);
 
     // Get settings
@@ -66,7 +66,7 @@ public:
 	
     uint    getCharacterHeight() const {return mCharHeight;}
 	uint    getSpaceWidth() const {return mSpaceWidth;}
-    Real    getAdditionalHeight() const {return mAdditionalHeight;}
+    Ogre::Real    getAdditionalHeight() const {return mAdditionalHeight;}
     bool    getShowOnTop() const {return mOnTop;}
     AxisAlignedBox	        GetAABB(void) { return mAABB; }
 
@@ -81,8 +81,8 @@ protected:
 
 	// from MovableObject
 	void    getWorldTransforms(Matrix4 *xform) const;
-    Real    getBoundingRadius(void) const {return mRadius;};
-	Real    getSquaredViewDepth(const Camera *cam) const {return 0;};
+    Ogre::Real    getBoundingRadius(void) const {return mRadius;};
+	Ogre::Real    getSquaredViewDepth(const Camera *cam) const {return 0;};
     const   Quaternion        &getWorldOrientation(void) const;
     const   Vector3           &getWorldPosition(void) const;
 	const   AxisAlignedBox    &getBoundingBox(void) const {return mAABB;};

@@ -2,6 +2,7 @@
 #include "CellSystem.h"
 
 
+#pragma warning( disable : 4482)
 
 Skeleton2D::Skeleton2D(std::string& name, Ogre::Vector2& startpos, CellSystem* cellSystem, Ogre::SceneManager* sceneMgr):
 Movable2DObject(name, sceneMgr, startpos), mCellSystem(cellSystem), mSceneMgr(sceneMgr)

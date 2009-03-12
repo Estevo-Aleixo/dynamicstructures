@@ -14,7 +14,7 @@ mType(type), mLines(lines), mSceneMgr(sceneMgr)
 	mAABB.lowerBound.Set(-1*(width/2.0)- 5.0, -1*(height/2.0) -5.0);
 	mAABB.upperBound.Set((width/2)+5, (height/2)+5);
 
-	mTimeStep = 1.0f / 60.0f;
+	mTimeStep = 1.0f / 20.0f;
 	b2Vec2 gravity(0, 0.0);
 	mb2World= new b2World(mAABB,gravity,false); 
 	mContactFilter= new ContactFilter(); 

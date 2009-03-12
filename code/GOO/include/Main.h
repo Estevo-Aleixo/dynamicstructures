@@ -1,5 +1,7 @@
 #pragma once
 
+#pragma warning( disable : 4267 44 82)
+#pragma warning( disable : 4311)
 
 /*
 -----------------------------------$(OGRE_HOME)\------------------------------------------
@@ -10,7 +12,6 @@ Filename:    Main.h
 #include <iostream>
 #include <assert.h>
 #include "Box2D.h"
-
 
 #include "Ogre.h"
 #include "OgreConfigFile.h"
@@ -27,7 +28,6 @@ Filename:    Main.h
 #define PLANE "plane.mesh"
 
 #include "MovableText.h"
-
 
 enum layerID
 {

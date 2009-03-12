@@ -132,7 +132,7 @@ Main::~Main()
 
         // Alter the camera aspect ratio to match the viewport
         mCamera->setAspectRatio(
-            Real(vp->getActualWidth()) / Real(vp->getActualHeight()));
+            Ogre::Real(vp->getActualWidth()) / Ogre::Real(vp->getActualHeight()));
     }
 
      /// Method which will define the source of resources (other than current folder)

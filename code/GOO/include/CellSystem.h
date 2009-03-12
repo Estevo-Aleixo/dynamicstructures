@@ -5,6 +5,7 @@
 #include "DynamicSystem.h"
 #include "Skeleton2D.h"
 
+
 class Canvas; 
 
 
@@ -62,9 +63,12 @@ public:
 	void showPolyLines(bool on);  
 
 protected:
+	std::vector<Point_2>* mSkeletonPoints;
+	
 	//MODE mMode;
 	void updatePolyLines(const Ogre::FrameEvent& evt);  
 	bool mShowPolyLines;
+
 
 	void initialize(); 
 	bool mAttachedToCursor; 

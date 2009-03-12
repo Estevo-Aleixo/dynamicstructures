@@ -63,7 +63,7 @@ std::vector<Object2DProperties>& ObjectDefinitions::getAll2DObjects()
 
 void ObjectDefinitions::loadDefaultObjects()
 {
-		Real cellSize= 1.0;
+		Ogre::Real cellSize= 1.0;
 		Ogre::ColourValue colour=  Ogre::ColourValue(); 
 		Ogre::ManualObject* cellHex; 
 		Ogre::ManualObject* cellSquare; 
