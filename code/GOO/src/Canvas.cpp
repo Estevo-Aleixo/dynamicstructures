@@ -1,13 +1,14 @@
 #include "Canvas.h"
 #include "Cursor.h"
 #include "CellSystem.h"
+#include "SystemFactory.h"
 
 Canvas::Canvas(void)
 {
 }
 
 
-Canvas::Canvas(std::string& name, CANVASTYPE type, SurfaceProperties* surfaceProperties, Ogre::SceneManager* sceneMgr, unsigned int lines, unsigned int width, unsigned int height ): 
+Canvas::Canvas(std::string& name, CANVASTYPE type, SystemProperties* SystemProperties, Ogre::SceneManager* sceneMgr, unsigned int lines, unsigned int width, unsigned int height ): 
 mType(type), mLines(lines), mSceneMgr(sceneMgr)
 {
 	//physics:
@@ -25,6 +26,9 @@ mType(type), mLines(lines), mSceneMgr(sceneMgr)
 	this->dimensions.x= width;
 	this->dimensions.y= height;
 	
+	//create system factory
+	mSystemFactory= new SystemFactory(name + "_system_factory",this,mSceneMgr); 
+
 //build raster:
 mRootCanvasNode= sceneMgr->getRootSceneNode()->createChildSceneNode("CanvasRootNode");
 mRootCanvasNode->scale(1.0,1.0,1.0);
@@ -187,8 +191,20 @@ bool  Canvas::addCellSystem(Ogre::Vector2& startPosition, const char* systemType
 {
 	CellSystem* newCellSystem; 
 
-	newCellSystem = new CellSystem("Cell_system_" +StringConverter::toString((Ogre::Real)mCellSystems.size()) +"_" +std::string(systemType),this,mSceneMgr, startPosition, systemType, enabled, speed); 
-	mCellSystems.push_back(newCellSystem); 
+	CellSystemProperties props;
+	props.type= SystemType::CELLSYSTEM;
+	props.mCellObjectName= systemType;
+
+// properties
+
+
+	newCellSystem= (CellSystem*)mSystemFactory->spawnSystem(props,startPosition); 
+	mCellSystems.push_back(newCellSystem);
+	//newCellSystem = new CellSystem("Cell_system_" +StringConverter::toString((Ogre::Real)mCellSystems.size()) +"_" +std::string(systemType),this,mSceneMgr, startPosition, systemType, enabled, speed); 
+
+
+
+	//use system factory
 
 	return true;
 }
@@ -206,12 +222,23 @@ void Canvas::clearCanvas()
 	mCellSystems.clear(); 
 }
 
-void Canvas::setSurface(SurfaceProperties* properties)
+void Canvas::setSurface(SystemProperties* properties)
 {
-	mSurfaceProperties = properties;
+	mSystemProperties = properties;
 
 	//set texture
-
-
 	
+}
+
+void Canvas::save(std::string& name) //save all to lua file 
+{
+//use exception here
+
+
+}
+
+void Canvas::load(std::string& name) //load all from lua file
+{
+//use exception here
+
 }

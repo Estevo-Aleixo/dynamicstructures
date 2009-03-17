@@ -1,9 +1,11 @@
 #pragma once
 
 #include "Main.h"
-#include "SurfaceProperties.h"
+//#include "SystemProperties.h"
 #include "ContactFilter.h"
 #include "ContactListener.h"
+
+
 
 enum CANVASTYPE
 {
@@ -16,12 +18,14 @@ enum CANVASTYPE
 class Cursor;
 class CellSystem;
 class CellFactory;
+class SystemFactory;
+class SystemProperties; 
 
 class Canvas
 {
 public:
 	Canvas(void);
-	Canvas(std::string& name, CANVASTYPE type, SurfaceProperties* surfaceProperties,  Ogre::SceneManager* sceneMgr,unsigned int lines, unsigned int height, unsigned int width);
+	Canvas(std::string& name, CANVASTYPE type, SystemProperties* SystemProperties,  Ogre::SceneManager* sceneMgr,unsigned int lines, unsigned int height, unsigned int width);
 	
 	~Canvas(void);
 
@@ -56,13 +60,18 @@ public:
 	
 	std::vector<CellSystem*> mCellSystems; 
 
-	void setSurface(SurfaceProperties* properties); 
-	SurfaceProperties* mSurfaceProperties;  
+	void setSurface(SystemProperties* properties); 
+	SystemProperties* mSystemProperties;  
 
 	void setVisualizationStyle(VISUALIZATION vis); 
+	
+	void save(std::string& name); //save all to lua file 
+	void load(std::string& name); //load all from lua file
 
 protected: 
 	bool mRunning; 
+
+	SystemFactory* mSystemFactory;
 
 	std::vector<CellFactory*> cellFactories;
 	b2AABB mAABB;

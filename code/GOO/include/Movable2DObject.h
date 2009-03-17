@@ -28,12 +28,16 @@ public:
 	virtual bool update(Ogre::FrameEvent& evt);
 	virtual void setPosition(Ogre::Vector2& position);
 	virtual Ogre::Vector2& getPosition(){return mPos;}
+	virtual void save(std::string& name); //lua script filename
+	virtual void load(std::string& name); //lua script filename
 
 	OBJECTSTATE getState(){return mState;}
 
 	void setState(OBJECTSTATE state){mState=state;}
 
-protected:
+	inline std::string& getName(){return mName;} 
+	inline void setName(std::string& name){mName=name;}
+ protected:
 	bool mActive;
 	OBJECTSTATE mState;
 

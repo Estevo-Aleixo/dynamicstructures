@@ -34,6 +34,7 @@ Physical2DObject::Physical2DObject(std::string& name, Canvas* canvas, Ogre::Scen
 		//Ogre::LogManager::getSingletonPtr()->logMessage(name + "filter id: " + StringConverter::toString((int)mProperties->layer)); 
 		//mShape->SetFilterData(mProperties->filterData); 
 		//mWorld->Refilter(mShape); 
+		 
 }
 
 Physical2DObject::~Physical2DObject(void)

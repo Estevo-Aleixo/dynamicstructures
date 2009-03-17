@@ -40,3 +40,13 @@ void Movable2DObject::attach(Movable2DObject* object)
 void Movable2DObject::detach()
 {
 } 
+
+void  Movable2DObject::save(std::string& name)
+{
+
+}
+void  Movable2DObject::load(std::string& name)
+{
+
+
+}

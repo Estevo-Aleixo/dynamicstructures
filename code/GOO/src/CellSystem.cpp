@@ -3,12 +3,13 @@
 #include "Canvas.h"
 #include "ObjectDefinitions.h"
 
+#include "PolygonAlgorithms.h"
 
 
 typedef PolygonAlgorithms PA;
 
-CellSystem::CellSystem(std::string& name, Canvas* canvas, Ogre::SceneManager* sceneMgr, Ogre::Vector2& position, const char* systemType, bool enabled, Ogre::Real speed)
-:DynamicSystem(name, sceneMgr, position) , mSystemType(systemType), mEnabled(enabled), mSpeed(speed), mCanvas(canvas) 
+CellSystem::CellSystem(std::string& name, Canvas* canvas, Ogre::SceneManager* sceneMgr, Ogre::Vector2& position, CellSystemProperties& properties, bool enabled, Ogre::Real speed)
+:DynamicSystem(name, sceneMgr, position) , mProperties(properties), mEnabled(enabled), mSpeed(speed), mCanvas(canvas) 
 {
 	
 	//create label:
@@ -24,12 +25,14 @@ CellSystem::CellSystem(std::string& name, Canvas* canvas, Ogre::SceneManager* sc
 	mStartNode->setPosition(startPosition.x, startPosition.y,0); 
 	*/
 
-	mObjectProps = new Object2DProperties(ObjectDefinitions::getSingletonPtr()->getObjectByName(systemType)); 
+	
+	
+	mObjectProps = new Object2DProperties(ObjectDefinitions::getSingletonPtr()->getObjectByName(properties.mCellObjectName)); 
 
 	this->mEnabled=true;
 	this->initialize(); 
 	mSkeleton= new Skeleton2D(name, position,this,sceneMgr); 
-	mSkeletonPoints= new std::vector<Point_2>();
+	//mSkeletonPoints= new std::vector<Point_2>();
 
 	spawnTimeInterval=1;
 	mShowPolyLines= true; 
@@ -84,11 +87,13 @@ bool CellSystem::frameStarted(const FrameEvent &evt)
 {
 	std::vector<Cell*>::iterator itr;
 
-   std::vector<Point_2> result;
+    //std::vector<Point_2> result;
+	//std::vector<Point_2> mVertices;
+	
 	if (mEnabled == true)
 	{
 		int i=0; 
-		mVertices.clear(); 
+		//mVertices.clear(); 
 		for(int i=0; i < mCells.size(); i++)
 		{
 			bool retvalue = mCells[i]->frameStarted(evt);	
@@ -98,9 +103,8 @@ bool CellSystem::frameStarted(const FrameEvent &evt)
 
 		
 			//CREATE CGAL POLYGON 
-			mVertices.push_back(Point_2(mCells[i]->getPosition().x,mCells[i]->getPosition().y)); 		
+			//mVertices.push_back(Point_2(mCells[i]->getPosition().x,mCells[i]->getPosition().y)); 		
 	
-
 		}
 		mSkeleton->update(evt);
 		
@@ -110,7 +114,7 @@ bool CellSystem::frameStarted(const FrameEvent &evt)
 
 
 		//calculate skeleton from polygon
-		  PA::constructSkeleton(&mVertices, mSkeletonPoints); 
+		  //PA::constructSkeleton(mVertices, result); 
 
 
 	}
@@ -220,5 +224,28 @@ void CellSystem::showPolyLines(bool on)
 void CellSystem::updatePolyLines(const Ogre::FrameEvent& evt)
 {
 	
+	
+}
+
+void  CellSystem::save(std::string& name)
+{
+//hierarchy: 
+
+	//open lua file for writing: 
+
+		//write loadCellSystem with properties of system
+
+			//add cell to system
+			//add cell to system
+			//...
+			//spawnsystem
+
+
+		
+
+
+}
+void  CellSystem::load(std::string& name)
+{
 	
 }

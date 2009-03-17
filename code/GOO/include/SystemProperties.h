@@ -3,17 +3,20 @@
 #include "Main.h" 
 
 
-class SurfaceProperties
+class SystemProperties
 {
 public:
-	SurfaceProperties(void);
-	~SurfaceProperties(void);
+	SystemProperties(void);
+	~SystemProperties(void);
 
 	std::string mTexture;
 	std::string mDescription; 
 	Ogre::ColourValue mSurfaceColour;
 
 	//surface properties that effect cellsystems
+	
+	SystemType type; 
+	
 
 
 };

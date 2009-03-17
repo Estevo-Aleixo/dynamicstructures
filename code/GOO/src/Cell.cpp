@@ -15,6 +15,10 @@ mSystem(0)
 	mCloneIntervalTime = 2.0;
 	mTimePassed=0.0;
 	mCellBuddy=0;
+
+	mBody->SetUserData(this); 
+	mBody->GetShapeList()->SetUserData(this); 
+	
 	mShowPolyLine = false; 
 	mPolyLine= new Ogre::ManualObject(name + "_polyline"); 
 

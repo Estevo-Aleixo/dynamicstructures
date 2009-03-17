@@ -1,7 +1,7 @@
 #pragma once
 #include "Main.h"
 #include "CellProperties.h"
-#include "SurfaceProperties.h"
+#include "SystemProperties.h"
 
 enum CELLTYPE{
 	SQUARE=0,
@@ -11,7 +11,7 @@ enum CELLTYPE{
 	CUSTOM=4
 };
 
-class CellSystemProperties: public SurfaceProperties
+class CellSystemProperties: public SystemProperties
 {
 public:
 	CellSystemProperties(void);
@@ -31,11 +31,14 @@ public:
 	
 	std::map<const char*, int> mExtraParameters;
 //, ltstr
+
+	const char* mCellObjectName;
 private: 
 	CellProperties mCellProperties;
 
 	Ogre::Real mCellSize;
 	CELLTYPE mType;  
+
 
 };
 

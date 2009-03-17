@@ -1,4 +1,5 @@
 #include "SystemFactory.h"
+#include  "Canvas.h"
 
 SystemFactory::SystemFactory(const Ogre::String& name, Canvas* canvas, Ogre::SceneManager* sceneMgr)
 : mName(name), mCanvas(canvas), mSceneMgr(sceneMgr)
@@ -11,12 +12,39 @@ SystemFactory::~SystemFactory(void)
 
 }
 
-CellSystem* SystemFactory::getSystem(int id, Vector2& position)
+DynamicSystem* SystemFactory::spawnSystem(SystemProperties& properties, Vector2& position)
 {
-	CellSystem* system= new CellSystem(mName + StringConverter::toString((int)systemList.size()),mCanvas,mSceneMgr, position, "bullshit",true); 
+	DynamicSystem* system;
+
+	switch(properties.type){
+		case SystemType::CELLSYSTEM:
+			system= new CellSystem("cellsystem"  + StringConverter::toString((int)systemList.size()),mCanvas,mSceneMgr, position, (CellSystemProperties&)properties,true); 
+			break;
+		
+		case SystemType::CUSTOMSYSTEM:
+			//system= new CellSystem(mName + StringConverter::toString((int)systemList.size()),mCanvas,mSceneMgr, position, "bullshit",true); 
+			break;
+		
+		case SystemType::PATHSYSTEM:
+			//system= new CellSystem(mName + StringConverter::toString((int)systemList.size()),mCanvas,mSceneMgr, position, "bullshit",true); 
+			break;
+		default:
+			//throw exception 
+			break;
+	}
+	
 	systemList.push_back(system); 
 	return system;
+} 
+
+DynamicSystem* SystemFactory::loadSystem(std::string& name, Vector2& position)
+{
+	DynamicSystem* system;
+	
+	return system;
 }
+
+
 
 
 std::string& SystemFactory::getSystemList()

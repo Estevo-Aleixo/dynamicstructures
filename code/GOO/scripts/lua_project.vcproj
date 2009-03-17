@@ -44,7 +44,7 @@
 				EnableIntrinsicFunctions="true"
 				FavorSizeOrSpeed="1"
 				WholeProgramOptimization="false"
-				AdditionalIncludeDirectories="..\include;&quot;$(OGRE_HOME)\include&quot;;&quot;$(OGRE_HOME)\samples\include&quot;;..\..\Box2D\Include;&quot;..\..\lua5.1\include&quot;;$(CGALROOT)\include\CGAL\config\msvc;$(CGALROOT)\include;$(CGALROOT)\auxiliary\gmp\include;$(CGALROOT)\auxiliary\TAUCS\include;$(BOOSTROOT)"
+				AdditionalIncludeDirectories="..\include;&quot;$(OGRE_HOME)\include&quot;;&quot;$(OGRE_HOME)\samples\include&quot;;..\..\Box2D\Include;..\..\lua5.1\include;&quot;$(CGALROOT)\include\CGAL\config\msvc&quot;;&quot;$(CGALROOT)\include&quot;;&quot;$(CGALROOT)\auxiliary\gmp\include&quot;;&quot;$(CGALROOT)\auxiliary\TAUCS\include&quot;;&quot;$(BOOSTROOT)&quot;"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -125,7 +125,7 @@
 				InlineFunctionExpansion="2"
 				EnableIntrinsicFunctions="true"
 				FavorSizeOrSpeed="1"
-				AdditionalIncludeDirectories="..\include;&quot;$(OGRE_HOME)\include&quot;;&quot;$(OGRE_HOME)\samples\include&quot;;..\..\Box2D\Include; ..\..\lua5.1\include;$(CGALROOT)\include\CGAL\config\msvc;$(CGALROOT)\include;$(CGALROOT)\auxiliary\gmp\include;$(CGALROOT)\auxiliary\TAUCS\include;$(BOOSTROOT)"
+				AdditionalIncludeDirectories="..\include;&quot;$(OGRE_HOME)\include&quot;;&quot;$(OGRE_HOME)\samples\include&quot;;..\..\Box2D\Include;..\..\lua5.1\include;&quot;$(CGALROOT)\include\CGAL\config\msvc&quot;;&quot;$(CGALROOT)\include&quot;;&quot;$(CGALROOT)\auxiliary\gmp\include&quot;;&quot;$(CGALROOT)\auxiliary\TAUCS\include&quot;;&quot;$(BOOSTROOT)&quot;;&quot;$(CGALROOT)\include\CGAL\config\msvc\CGAL&quot;"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS"
 				RuntimeLibrary="2"
 				FloatingPointModel="2"
@@ -146,8 +146,10 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="OgreMain.lib OIS.lib CEGUIBase.lib OgreGUIRenderer.lib box2d.lib lua5.1.lib"
-				LinkIncremental="1"
+				LinkIncremental="0"
 				AdditionalLibraryDirectories="..\..\Box2D\Library;&quot;$(OGRE_HOME)\lib&quot;;&quot;$(OGRE_HOME)\Dependencies\lib\$(ConfigurationName)&quot;;..\lib\release;..\..\lua5.1\lib\static;$(CGALROOT)\lib;$(CGALROOT)\auxiliary\gmp\lib;;$(CGALROOT)\auxiliary\TAUCS\lib"
+				IgnoreAllDefaultLibraries="false"
+				IgnoreDefaultLibraryNames=""
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				OptimizeReferences="2"
@@ -272,11 +274,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\src\SurfaceProperties.cpp"
+				RelativePath="..\src\SystemFactory.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\SystemFactory.cpp"
+				RelativePath="..\src\SystemProperties.cpp"
 				>
 			</File>
 			<Filter
@@ -381,11 +383,11 @@
 					>
 				</File>
 				<File
-					RelativePath="..\include\SurfaceProperties.h"
+					RelativePath="..\include\SystemFactory.h"
 					>
 				</File>
 				<File
-					RelativePath="..\include\SystemFactory.h"
+					RelativePath="..\include\SystemProperties.h"
 					>
 				</File>
 				<Filter

@@ -34,7 +34,7 @@ ExampleFrameListener(win, cam, true, true), mGUIRenderer(renderer), mSceneMgr(sc
 	mCursor= mCanvas->getCursor(); 	
 
 	mCellFactory= new CellFactory(std::string("The Cell Factory"),mSceneMgr, mCanvas); 
-	mSystemFactory= new SystemFactory("myFirstSystemFactory",mCanvas,mSceneMgr); 
+	//mSystemFactory= new SystemFactory("myFirstSystemFactory",mCanvas,mSceneMgr); 
 
 	mMainCam= mSceneMgr->getCamera("MainCam");
 	camMode= CAMERAMODE::ATTACHED;

@@ -19,7 +19,7 @@ class Canvas;
 class CellSystem: public DynamicSystem
 {
 public: 
-	CellSystem(std::string& name, Canvas* canvas, Ogre::SceneManager* sceneMgr,Ogre::Vector2& position, const char* systemType, bool enabled=true, Ogre::Real speed = 1.0);
+	CellSystem(std::string& name, Canvas* canvas, Ogre::SceneManager* sceneMgr,Ogre::Vector2& position, CellSystemProperties& properties, bool enabled=true, Ogre::Real speed = 1.0);
 	~CellSystem(void);
 
 	void enable(bool on){mEnabled=on;}
@@ -42,7 +42,7 @@ public:
 	bool frameEnded(const FrameEvent &evt);
 
 	Canvas* getCanvas(){return mCanvas;} 
-	CellSystemProperties* getProperties(){return mProperties;}
+	CellSystemProperties& getProperties(){return mProperties;}
 	CellSystemProperties* getLocalProperties(){return mLocalProperties;}
 
 	//inline std::vector<Cell*>& getCellVector(){return mCells};
@@ -62,8 +62,11 @@ public:
 
 	void showPolyLines(bool on);  
 
+	void save(std::string& name);
+	void load(std::string& name); 
+
 protected:
-	std::vector<Point_2>* mSkeletonPoints;
+	//std::vector<Point_2> mSkeletonPoints;
 	
 	//MODE mMode;
 	void updatePolyLines(const Ogre::FrameEvent& evt);  
@@ -100,7 +103,7 @@ protected:
 	Ogre::Entity* mStartEntity; 
 	MovableText* mLabel;
 
-	CellSystemProperties* mProperties; 
+	CellSystemProperties mProperties; 
 	
 	//local properties (can change per cell):
 	CellSystemProperties* mLocalProperties; 

@@ -64,6 +64,13 @@ enum Object2DType
 	SkeletonPointType=3
 };
 
+enum SystemType
+{
+	CELLSYSTEM = 0,
+	PATHSYSTEM = 1,
+	CUSTOMSYSTEM = 2
+};
+
 
 extern "C"
 {

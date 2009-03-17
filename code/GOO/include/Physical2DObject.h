@@ -61,12 +61,13 @@ public:
 	float mPrevAngVelocity;
 protected:
 
-//physics
+	//physics
 	Canvas* mCanvas;
 	Object2DProperties* mProperties;
 
 	//body
 	b2Body* mBody;	
+
 	//world
 	b2World* mWorld;
 	b2Shape* mShape; 
