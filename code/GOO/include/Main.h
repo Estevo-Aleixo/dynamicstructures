@@ -10,6 +10,7 @@ Filename:    Main.h
 */
 
 #include <iostream>
+#include <process.h>
 #include <assert.h>
 #include "Box2D.h"
 

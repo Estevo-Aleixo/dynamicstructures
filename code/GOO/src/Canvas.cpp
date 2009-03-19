@@ -2,14 +2,15 @@
 #include "Cursor.h"
 #include "CellSystem.h"
 #include "SystemFactory.h"
+#include "World.h"
 
 Canvas::Canvas(void)
 {
 }
 
 
-Canvas::Canvas(std::string& name, CANVASTYPE type, SystemProperties* SystemProperties, Ogre::SceneManager* sceneMgr, unsigned int lines, unsigned int width, unsigned int height ): 
-mType(type), mLines(lines), mSceneMgr(sceneMgr)
+Canvas::Canvas(std::string& name, World* world, CANVASTYPE type, SystemProperties* SystemProperties, unsigned int lines, unsigned int width, unsigned int height ): 
+mType(type), mLines(lines), mSceneMgr(world->getSceneMgr())
 {
 	//physics:
 	mAABB.lowerBound.Set(-1*(width/2.0)- 5.0, -1*(height/2.0) -5.0);
@@ -19,7 +20,7 @@ mType(type), mLines(lines), mSceneMgr(sceneMgr)
 	b2Vec2 gravity(0, 0.0);
 	mb2World= new b2World(mAABB,gravity,false); 
 	mContactFilter= new ContactFilter(); 
-	mContactListener= new ContactListener(); 
+	mContactListener= new ContactListener(world); 
 	mb2World->SetContactFilter(mContactFilter); 
 	mb2World->SetContactListener(mContactListener); 
 
@@ -30,11 +31,11 @@ mType(type), mLines(lines), mSceneMgr(sceneMgr)
 	mSystemFactory= new SystemFactory(name + "_system_factory",this,mSceneMgr); 
 
 //build raster:
-mRootCanvasNode= sceneMgr->getRootSceneNode()->createChildSceneNode("CanvasRootNode");
+mRootCanvasNode= mSceneMgr->getRootSceneNode()->createChildSceneNode("CanvasRootNode");
 mRootCanvasNode->scale(1.0,1.0,1.0);
 
 	createRaster(mType);
-	mRasterEntity = sceneMgr->createEntity("canvas_raster","Raster"); 
+	mRasterEntity = mSceneMgr->createEntity("canvas_raster","Raster"); 
 	mRasterNode= mRootCanvasNode->createChildSceneNode(); 
 	mRasterNode->attachObject(mRasterEntity); 
 	

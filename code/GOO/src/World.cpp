@@ -6,6 +6,8 @@
 #include "SystemFactory.h"
 #include "ObjectDefinitions.h"
 
+#include "EventHandler.h"
+
 #include "LuaGlueFunctions.h"
 
 //cLua* pLua; 
@@ -30,11 +32,10 @@ ExampleFrameListener(win, cam, true, true), mGUIRenderer(renderer), mSceneMgr(sc
 
 	CellFactory::createCellMeshes(); 
 
-	mCanvas= new Canvas(std::string("myFirstCanvas"), CANVASTYPE::RECTANGULAR,0, mSceneMgr,40,1000,1000);
+	mCanvas= new Canvas(std::string("myFirstCanvas"),this, CANVASTYPE::RECTANGULAR,0,40,1000,1000);
 	mCursor= mCanvas->getCursor(); 	
 
 	mCellFactory= new CellFactory(std::string("The Cell Factory"),mSceneMgr, mCanvas); 
-	//mSystemFactory= new SystemFactory("myFirstSystemFactory",mCanvas,mSceneMgr); 
 
 	mMainCam= mSceneMgr->getCamera("MainCam");
 	camMode= CAMERAMODE::ATTACHED;
@@ -48,11 +49,16 @@ ExampleFrameListener(win, cam, true, true), mGUIRenderer(renderer), mSceneMgr(sc
 	Ogre::OverlayManager::getSingletonPtr()->getByName("GUI/editor")->show(); 
 	updateParameterOverlay(); 
 
+
 	//lua: register all LuaGlue functions
 	pLua= new cLua();
+	mLuaMgr= pLua;
 	pWorld=this;
 	pCanvas= mCanvas; //straks maakt lua script canvas aan
 	RegisterFunctions(); 
+
+	mEventHandler= new EventHandler(pLua);
+
 	//call lua initilizer:
 	pLua->RunScript("..\\..\\media\\Lua\\init.lua"); 
 }

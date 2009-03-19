@@ -37,7 +37,10 @@ public:
 
 	inline std::string& getName(){return mName;} 
 	inline void setName(std::string& name){mName=name;}
- protected:
+ 
+	inline const char* getEventHandlerName(){return mEventHandlerName;} 
+
+protected:
 	bool mActive;
 	OBJECTSTATE mState;
 
@@ -48,6 +51,8 @@ public:
 	Ogre::SceneManager* mSceneMgr;
 	Ogre::SceneNode* mNode; 
 	Ogre::Entity* mEntity;	
+
+	const char* mEventHandlerName;
 
 private:
 

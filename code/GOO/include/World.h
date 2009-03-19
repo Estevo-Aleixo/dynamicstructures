@@ -15,6 +15,9 @@ class CellFactory;
 class Cell;
 class ObjectDefinitions; 
 class SystemFactory;
+class EventHandler;
+
+
 enum CAMERAMODE
 {
 ATTACHED=0,
@@ -55,6 +58,12 @@ public:
 	
 	//!overloaded member function from ExampleFrameListener. buffered keyboard input key releases. 
 	bool keyReleased(const OIS::KeyEvent &e);
+
+
+	Ogre::SceneManager* getSceneMgr(){return mSceneMgr;} 
+	cLua* getLuaMgr(){return mLuaMgr;}
+	EventHandler* getEventHandler(){return mEventHandler;}
+
 
 	void sayHello();
 
@@ -110,6 +119,8 @@ private:
 	
 
 protected: 
+	EventHandler* mEventHandler;
+	cLua* mLuaMgr; 
 	CEGUI::OgreCEGUIRenderer* mGUIRenderer;     // CEGUI renderer
 	Ogre::SceneManager* mSceneMgr;
 	

@@ -20,12 +20,13 @@ class CellSystem;
 class CellFactory;
 class SystemFactory;
 class SystemProperties; 
+class World;
 
 class Canvas
 {
 public:
 	Canvas(void);
-	Canvas(std::string& name, CANVASTYPE type, SystemProperties* SystemProperties,  Ogre::SceneManager* sceneMgr,unsigned int lines, unsigned int height, unsigned int width);
+	Canvas(std::string& name, World* world,  CANVASTYPE type, SystemProperties* SystemProperties ,unsigned int lines, unsigned int height, unsigned int width);
 	
 	~Canvas(void);
 
