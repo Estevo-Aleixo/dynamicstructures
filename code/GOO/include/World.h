@@ -73,6 +73,10 @@ public:
 	CellFactory* mCellFactory;
 	SystemFactory* mSystemFactory;
 
+//	cLua* getLuaMgr(){return mLuaMgr;} 
+//	Ogre::SceneManager* getSceneMgr(){return mSceneMgr;} 
+
+
 private: 
 	ObjectDefinitions* mObjectDefinitions;
 
@@ -115,6 +119,7 @@ private:
 	Radian wave;
 	double counter;
 	//------------------------------------
+
 
 	
 

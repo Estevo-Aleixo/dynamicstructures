@@ -8,6 +8,8 @@
 
 #include "Movable2DObject.h"
 
+class World;
+
 enum EVENTTYPE
 {
 	SPAWN=0,
@@ -60,13 +62,20 @@ public:
 class EventHandler
 {
 public:
-	EventHandler(cLua* LuaManager);
+	EventHandler(World* world);
 	~EventHandler(void);
 
 	void handleBufferedEvents();
 	void addEventToBuffer(Event* newEvent); 
+	void notifyActorDestruction(Movable2DObject* actor); 
 
-private:
+
+	void clearDeletedActorsList(); 
+protected:
+
+	std::vector<Movable2DObject*> mDeletedActors; 
+
+	World* mWorld;
 	std::queue<Event*> mEventBuffer; 
 	cLua* mLuaMgr; 
 

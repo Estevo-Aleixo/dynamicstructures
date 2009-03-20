@@ -69,9 +69,9 @@ void CellSystem::initialize()
 	{  
 		pos.x = Math::Cos(angleInterval*i) * 2;
 		pos.y = Math::Sin(angleInterval*i) * 2;
-		Cell* newCell=mCanvas->getCellFactory()->createCell(mObjectProps, mPos+ pos); 
+		Cell* newCell=mCanvas->getCellFactory()->createCell(mObjectProps,this, mPos+ pos); 
 		if (prevCell!=0)
-			prevCell->setCellBuddy(newCell);
+			prevCell->setCellChild(newCell);
 		mCells.push_back(newCell);
 		newCell->enable(true);
 		newCell->setCellSystem(this); 
@@ -79,7 +79,7 @@ void CellSystem::initialize()
 		newCell->setScale(scale); 
 		prevCell= newCell;
 	}
-	prevCell->setCellBuddy(mCells[0]);
+	prevCell->setCellChild(mCells[0]);
 }
 
 
@@ -96,11 +96,13 @@ bool CellSystem::frameStarted(const FrameEvent &evt)
 		//mVertices.clear(); 
 		for(int i=0; i < mCells.size(); i++)
 		{
-			bool retvalue = mCells[i]->frameStarted(evt);	
-			mCells[i]->setOrigin(mSkeleton->getPosition());
-			if (retvalue==false)
-				break;
-
+			if (mCells[i]!=0)
+			{
+				bool retvalue = mCells[i]->frameStarted(evt);	
+				mCells[i]->setOrigin(mSkeleton->getPosition());
+				if (retvalue==false)
+					break;
+			}
 		
 			//CREATE CGAL POLYGON 
 			//mVertices.push_back(Point_2(mCells[i]->getPosition().x,mCells[i]->getPosition().y)); 		
@@ -248,4 +250,17 @@ void  CellSystem::save(std::string& name)
 void  CellSystem::load(std::string& name)
 {
 	
+}
+
+void CellSystem::destroyCell(Cell* cell)
+{
+	Cell* temp;
+	std::vector<Cell*>::iterator result;
+	result = find(mCells.begin(), mCells.end(), cell);
+	temp = (*result);
+	delete (*result);
+	(*result)=0;
+	
+	//mCells.erase(result); 
+	//delete temp;
 }

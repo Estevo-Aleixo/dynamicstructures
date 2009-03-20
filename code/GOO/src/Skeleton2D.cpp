@@ -119,21 +119,23 @@ std::vector<Cell*>::iterator itr;
 
 	for (itr = mCellSystem->mCells.begin(); itr!= mCellSystem->mCells.end(); itr++)
 	{
-		//calculate force
-		
-		//if expanding: 
+		if ((*itr)!=0){
+			//calculate force
+			
+			//if expanding: 
 
-		double distance=((*itr)->getPosition()-mPos).length();
-		double magnitude= mForce - distance*3.0;
-		Radian angle= Ogre::Math::ATan2(  (*itr)->getPosition().y- mPos.y ,  (*itr)->getPosition().x-mPos.x);
-		force.x= Math::Cos(angle)*magnitude*evt.timeSinceLastFrame;
-		force.y= Math::Sin(angle)*magnitude*evt.timeSinceLastFrame;
+			double distance=((*itr)->getPosition()-mPos).length();
+			double magnitude= mForce - distance*3.0;
+			Radian angle= Ogre::Math::ATan2(  (*itr)->getPosition().y- mPos.y ,  (*itr)->getPosition().x-mPos.x);
+			force.x= Math::Cos(angle)*magnitude*evt.timeSinceLastFrame;
+			force.y= Math::Sin(angle)*magnitude*evt.timeSinceLastFrame;
 
-		midPoint += (*itr)->getPosition();  
+			midPoint += (*itr)->getPosition();  
 
-		//temporary rule
-		if (distance < 200)
-			(*itr)->ApplyForce(force);
+			//temporary rule
+			if (distance < 200)
+				(*itr)->ApplyForce(force);
+		}
 	} 
 
 	midPoint /= (double)mCellSystem->mCells.size(); 

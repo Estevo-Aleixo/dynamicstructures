@@ -1,13 +1,14 @@
 #include "EventHandler.h"
-
+#include "CellSystem.h"
 #include <deque>
 #include <list>
 #include <queue>
 
+#include "World.h"
 
 
-EventHandler::EventHandler(cLua* LuaManager)
-:mLuaMgr(LuaManager)
+EventHandler::EventHandler(World* mWorld)
+:mLuaMgr(mWorld->getLuaMgr())
 {
 
 
@@ -22,27 +23,72 @@ EventHandler::~EventHandler(void)
 void EventHandler::handleBufferedEvents()
 {
 
-	Event* currentEvent= mEventBuffer.front(); 
-	mEventBuffer.pop();
-	//handle it:
-	mLuaMgr->RunScript(currentEvent->mActor1->getEventHandlerName()); 
-	mLuaMgr->RunScript(currentEvent->mActor2->getEventHandlerName()); 
+	std::vector<Movable2DObject*>::iterator itr;
+	bool actor1Deleted=false;
+	bool actor2Deleted=false;
 
+	while (!mEventBuffer.empty()) {
+		
+			Event* currentEvent= mEventBuffer.front(); 
+			mEventBuffer.pop();
+
+
+			//delete both cells if different cellsystems
+			Cell* actor1= static_cast<Cell*>(currentEvent->mActor1);
+			Cell* actor2= static_cast<Cell*>(currentEvent->mActor2);
+
+			CellSystem* system1 = actor1->getCellSystem();
+			CellSystem* system2 = actor2->getCellSystem();
+
+			if (system1 != system2)
+				{
+					for(itr=mDeletedActors.begin(); itr!=mDeletedActors.end();itr++)
+					{
+						if ((*itr)==actor1)
+							actor1Deleted=true;
+
+						if ((*itr)==actor2)
+							actor2Deleted=true;
+					} 
+			
+					mDeletedActors.push_back(actor1);
+					mDeletedActors.push_back(actor2);
+					
+					//Ogre::LogManager::getSingletonPtr()->logMessage(currentEvent->toString() +" DESTRUCTION EXECUTION")	;
+					if (actor1Deleted==false)
+						system1->destroyCell(actor1);
+					if (actor2Deleted==false)
+						system2->destroyCell(actor2);
+				}
+	
+	}
+
+
+
+	//handle it:
+	//mLuaMgr->RunScript(currentEvent->mActor1->getEventHandlerName()); 
+	//mLuaMgr->RunScript(currentEvent->mActor2->getEventHandlerName()); 
+mDeletedActors.clear();
 }
 
 void EventHandler::addEventToBuffer(Event* newEvent)
 {
 	
 	if (!mEventBuffer.empty()){
-		if ( mEventBuffer.back()->compare(newEvent))
+		if (mEventBuffer.back()->compare(newEvent))
 		{
 			return;
 		}
 	}
 
-		Ogre::LogManager::getSingletonPtr()->logMessage(newEvent->toString()); 
+		//Ogre::LogManager::getSingletonPtr()->logMessage(newEvent->toString()); 
 		mEventBuffer.push(newEvent); 
 	
 
 }
 
+void EventHandler::notifyActorDestruction(Movable2DObject* actor)
+{
+
+
+}

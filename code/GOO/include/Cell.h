@@ -29,7 +29,7 @@ public:
 	void setType();
 
 
-	Cell(std::string name, unsigned int id, Ogre::SceneManager* sceneMgr, Object2DProperties* properties, Canvas* canvas, Ogre::Vector2 position= Vector2(0,0), bool enabled=false);
+	Cell(std::string name, unsigned int id,CellSystem* system, Ogre::SceneManager* sceneMgr, Object2DProperties* properties, Canvas* canvas, Ogre::Vector2 position= Vector2(0,0), bool enabled=false);
 	~Cell(void);
 
 	
@@ -42,12 +42,24 @@ public:
 	bool frameStarted(const FrameEvent &evt); 
 	bool frameEnded(const FrameEvent &evt);
 
-	void setCellBuddy(Cell* cellBuddy){mCellBuddy= cellBuddy;}
+	void setCellChild(Cell* cellBuddy)
+	{
+		mCellChild= cellBuddy; 
+		
+		if (cellBuddy!=0)
+			mCellChild->setParent(this);
+		//else
+		//	this->mLineNode->setVisible(false);
+	}
 	void setOrigin(Ogre::Vector2& origin){mOrigin=origin;} 
-	Cell* mCellBuddy;
+	Cell* mCellChild; //TODO change to child
+	Cell* mCellParent; 
 
-	void showPolyLine(bool on){mShowPolyLine = on;}
+	void showPolyLine(bool on){mShowPolyLine = on;mLineNode->setVisible(on);}
 	void updatePolyLine();
+
+	void setParent(Cell* parent){mCellParent=parent;} 
+	CellSystem* getCellSystem(){return mSystem;} 
 protected: 
 
 	bool mShowPolyLine;

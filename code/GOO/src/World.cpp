@@ -57,7 +57,7 @@ ExampleFrameListener(win, cam, true, true), mGUIRenderer(renderer), mSceneMgr(sc
 	pCanvas= mCanvas; //straks maakt lua script canvas aan
 	RegisterFunctions(); 
 
-	mEventHandler= new EventHandler(pLua);
+	//mEventHandler= new EventHandler(pLua);
 
 	//call lua initilizer:
 	pLua->RunScript("..\\..\\media\\Lua\\init.lua"); 

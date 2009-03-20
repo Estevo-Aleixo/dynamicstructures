@@ -69,6 +69,7 @@ public:
 	void save(std::string& name); //save all to lua file 
 	void load(std::string& name); //load all from lua file
 
+	ContactListener* getContactListener(){return mContactListener;}  
 protected: 
 	bool mRunning; 
 
@@ -77,7 +78,7 @@ protected:
 	std::vector<CellFactory*> cellFactories;
 	b2AABB mAABB;
 	b2ContactFilter* mContactFilter;
-	b2ContactListener* mContactListener;
+	ContactListener* mContactListener;
 	
 	b2World* mb2World;
 	float32 mTimeStep;

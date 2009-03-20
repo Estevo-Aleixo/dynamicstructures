@@ -1,10 +1,11 @@
 #pragma once
 #include "Main.h"
 
+#include "EventHandler.h" 
 class World;
-class EventHandler; 
 
-class ContactListener: public b2ContactListener
+
+class ContactListener: public b2ContactListener, public EventHandler
 {
 public:
 	ContactListener(World* world);
@@ -16,8 +17,4 @@ public:
     void Result(const b2ContactResult* point);
 
 protected: 
-	EventHandler* mEventHandler; 
-
-
-
 };

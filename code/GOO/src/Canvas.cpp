@@ -152,7 +152,7 @@ bool  Canvas::frameStarted(const FrameEvent &evt)
 	std::vector<CellSystem*>::iterator itr;
 
 	mCursor->update(evt); 
-
+	
 	//check cursor position:
 	mTimePassed+=evt.timeSinceLastFrame;
 	
@@ -185,6 +185,7 @@ bool  Canvas::frameStarted(const FrameEvent &evt)
 bool  Canvas::frameEnded(const FrameEvent &evt)
 {
 	mb2World->Step(mTimeStep, 10);
+	mContactListener->handleBufferedEvents(); 
 	return true;
 }
 

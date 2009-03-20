@@ -2,19 +2,19 @@
 #include "CellSystem.h"
 #include "CellFactory.h"
 
-Cell::Cell(std::string name, unsigned int id, Ogre::SceneManager* sceneMgr, Object2DProperties* properties, Canvas* canvas, Ogre::Vector2 position, bool enabled):
+Cell::Cell(std::string name, unsigned int id,CellSystem* system, Ogre::SceneManager* sceneMgr, Object2DProperties* properties, Canvas* canvas, Ogre::Vector2 position, bool enabled):
 Physical2DObject(name + std::string("_2DObject"), canvas, sceneMgr, properties, position, enabled),
 mName(name), 
 mID(id), 
 mSceneMgr(sceneMgr), 
-mSystem(0)
+mSystem(system)
 {
 	cellCount=0;
 	mDirectionInterval= Math::TWO_PI /6;
 	mDivideDirection= Radian(0);
 	mCloneIntervalTime = 2.0;
 	mTimePassed=0.0;
-	mCellBuddy=0;
+	mCellChild=0;
 
 	mBody->SetUserData(this); 
 	mBody->GetShapeList()->SetUserData(this); 
@@ -50,7 +50,12 @@ mSystem(0)
 Cell::~Cell(void)
 {
 
+//notify parent
+	mCellParent->setCellChild(0);
 
+//connect parent to orphaned child of this
+	//if (mCellChild!=0)
+	//	mCellParent->setCellChild
 
 }
 
@@ -69,13 +74,13 @@ bool Cell::frameStarted(const FrameEvent &evt)
 		}
 
 		//create a brother
-		if (mCellBuddy!=0)
+		if (mCellChild!=0)
 		{
-			if ((mCellBuddy->getPosition()- mPos).length() > (this->mScale*2)*1.5) 
+			if ((mCellChild->getPosition()- mPos).length() > (this->mScale*2)*1.5) 
 			{
 				//create new cell at midpoint:
-				Ogre::Vector2 pos = mPos + (mCellBuddy->getPosition() - mPos)/2; 
-				Cell* newCell= mCanvas->getCellFactory()->createCell(mProperties, pos); 
+				Ogre::Vector2 pos = mPos + (mCellChild->getPosition() - mPos)/2; 
+				Cell* newCell= mCanvas->getCellFactory()->createCell(mProperties,this->mSystem, pos); 
 				mSystem->addCell(newCell);
 				newCell->enable(true);
 				newCell->setCellSystem(this->mSystem);
@@ -87,9 +92,10 @@ bool Cell::frameStarted(const FrameEvent &evt)
 				double newScale= mScale + 2.0;
 				this->setScale(newScale); 
 				newCell->setScale(mScale);
-				Cell* tempCell= mCellBuddy;
-				setCellBuddy(newCell);
-				newCell->setCellBuddy(tempCell); 
+				Cell* tempCell= mCellChild;
+				setCellChild(newCell);
+				newCell->setCellChild(tempCell); 
+			
 			
 				
 				//Ogre::LogManager::getSingletonPtr()->logMessage(mName + ": I spawned a buddy!!!"); 
@@ -151,7 +157,7 @@ void Cell::updatePolyLine()
 	Ogre::Vector2 pos;
 
 
-	pos= mCellBuddy->getPosition()- mPos ;
+	pos= mCellChild->getPosition()- mPos ;
 	//pos = pos.normalisedCopy()* (pos.length()/3);
 //refresh polyline
 		//mPolyLine->clear(); 

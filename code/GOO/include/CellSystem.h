@@ -65,6 +65,8 @@ public:
 	void save(std::string& name);
 	void load(std::string& name); 
 
+	void notifyCellDeletion();
+	void destroyCell(Cell* cell); 
 protected:
 	//std::vector<Point_2> mSkeletonPoints;
 	
