@@ -224,6 +224,43 @@ void Canvas::clearCanvas()
 	mCellSystems.clear(); 
 }
 
+void Canvas::removeObject(Movable2DObject* object)
+{
+	std::vector<CellSystem*>::iterator itr;
+	CellSystem* cs;
+
+	Ogre::LogManager::getSingletonPtr()->logMessage("deleting object with cursor!"); 
+
+	if (object!=0)
+	{
+		Ogre::LogManager::getSingletonPtr()->logMessage("OBJECT: " + object->getName()); 
+		switch(object->type)
+		{
+			case Object2DType::CellSystemType:
+				cs= static_cast<CellSystem*>(object);  
+			
+				itr = std::find(mCellSystems.begin() , mCellSystems.end() , cs);
+				delete (*itr);
+				(*itr)=0;
+				mCellSystems.erase(itr); 
+				break;
+				/*
+				case Object2DType::
+				//not implemented
+				break;
+			case SystemType::PATHSYSTEM:
+					//not implemented
+				break;
+				*/
+		}
+	}
+
+
+
+}
+
+
+
 void Canvas::setSurface(SystemProperties* properties)
 {
 	mSystemProperties = properties;
@@ -243,4 +280,31 @@ void Canvas::load(std::string& name) //load all from lua file
 {
 //use exception here
 
+}
+
+DynamicSystem*  Canvas::getNearestSystem(Ogre::Vector2& pos )
+{
+double closestDistance=10000;
+double distance;
+DynamicSystem* system=0;
+
+//loop through systems
+for (systemItr=mCellSystems.begin(); systemItr!=mCellSystems.end();systemItr++)
+{
+	 distance= ( (*systemItr)->getPosition()-pos).squaredLength();
+	 if (distance < closestDistance)
+	 {
+		 closestDistance = distance;
+		 system =  (*systemItr);
+	 }
+}
+
+
+return system;
+}
+
+Movable2DObject* Canvas::getNearestObject(Ogre::Vector2& pos )
+{
+
+return 0;
 }

@@ -38,6 +38,8 @@ public:
 	inline std::string& getName(){return mName;} 
 	inline void setName(std::string& name){mName=name;}
  
+	void handleCollisionWith(Movable2DObject* object);
+
 	inline const char* getEventHandlerName(){return mEventHandlerName;} 
 
 protected:

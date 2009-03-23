@@ -31,7 +31,9 @@ public:
 
 private:
 	Movable2DObject* mAttachedObject;
-	
+	Movable2DObject* mCurrentSelection; 
+
+
 	CURSORMODE mMode;
 	unsigned int mSystemType; 
 	unsigned int mCreateType; 

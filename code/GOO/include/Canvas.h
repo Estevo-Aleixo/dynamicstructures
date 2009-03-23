@@ -16,6 +16,7 @@ enum CANVASTYPE
 };
 
 class Cursor;
+class DynamicSystem;
 class CellSystem;
 class CellFactory;
 class SystemFactory;
@@ -52,13 +53,15 @@ public:
 
 	//woot
 	void clearCanvas(); 
-	void removeSystem(CellSystem* cellSystem); 
+	void removeObject(Movable2DObject* object); 
+	void notifyDestruction(Movable2DObject* object); 
 
 	void pauseAllEntities(); 
 	void startAllEntities(); 
 
 	bool isRunning(){return mRunning;} 
 	
+	std::vector<CellSystem*>::iterator systemItr;
 	std::vector<CellSystem*> mCellSystems; 
 
 	void setSurface(SystemProperties* properties); 
@@ -69,7 +72,11 @@ public:
 	void save(std::string& name); //save all to lua file 
 	void load(std::string& name); //load all from lua file
 
-	ContactListener* getContactListener(){return mContactListener;}  
+	ContactListener* getContactListener(){return mContactListener;}
+
+	DynamicSystem* getNearestSystem(Ogre::Vector2& pos ); 
+	Movable2DObject* getNearestObject(Ogre::Vector2& pos ); 
+
 protected: 
 	bool mRunning; 
 

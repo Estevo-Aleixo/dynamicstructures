@@ -50,3 +50,9 @@ void  Movable2DObject::load(std::string& name)
 
 
 }
+
+void Movable2DObject::handleCollisionWith(Movable2DObject* object)
+{
+
+
+}

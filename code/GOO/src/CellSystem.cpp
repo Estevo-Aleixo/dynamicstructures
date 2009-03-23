@@ -9,36 +9,19 @@
 typedef PolygonAlgorithms PA;
 
 CellSystem::CellSystem(std::string& name, Canvas* canvas, Ogre::SceneManager* sceneMgr, Ogre::Vector2& position, CellSystemProperties& properties, bool enabled, Ogre::Real speed)
-:DynamicSystem(name, sceneMgr, position) , mProperties(properties), mEnabled(enabled), mSpeed(speed), mCanvas(canvas) 
+:DynamicSystem(name, sceneMgr, position) , mProperties(properties), mEnabled(enabled), mSpeed(speed), mCanvas(canvas)
 {
-	
-	//create label:
-	/*
-	mLabel= new MovableText(name+ "_labelText",name); 
-	mLabel->setFontName( "mainfont" );
-	mLabel->setColor( ColourValue::Green );
-	mLabel->setCharacterHeight(1.0);
-    mLabel->showOnTop();
-    mLabelNode->attachObject( mLabel);
-	mLabelNode->pitch(Ogre::Radian(Math::PI/2));
-	mLabelNode->setInheritScale(false); 
-	mStartNode->setPosition(startPosition.x, startPosition.y,0); 
-	*/
+type= Object2DType::CellSystemType; 
 
-	
-	
 	mObjectProps = new Object2DProperties(ObjectDefinitions::getSingletonPtr()->getObjectByName(properties.mCellObjectName)); 
 
 	this->mEnabled=true;
 	this->initialize(); 
 	mSkeleton= new Skeleton2D(name, position,this,sceneMgr); 
-	//mSkeletonPoints= new std::vector<Point_2>();
 
 	spawnTimeInterval=1;
 	mShowPolyLines= true; 
 	TimePassed=0;
-
-
 }
 
 CellSystem::~CellSystem(void)
@@ -109,7 +92,8 @@ bool CellSystem::frameStarted(const FrameEvent &evt)
 	
 		}
 		mSkeleton->update(evt);
-		
+		mPos= mSkeleton->getPosition(); 
+
 		//CGAL::convex_hull_2( mVertices.begin(),mVertices.end(), std::back_inserter(result) );
 		 // Ogre::LogManager::getSingletonPtr()->logMessage(Ogre::StringConverter::toString(result.size()) + " points on the convex hull"); 
 

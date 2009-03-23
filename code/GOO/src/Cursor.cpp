@@ -15,6 +15,7 @@ Movable2DObject(name,sceneMgr,Ogre::Vector2(0,0)),mCanvas(canvas), mSceneMgr(sce
 	mSystemType=1; 
 
 	mPos= Vector2(0,0); 
+	mCurrentSelection=0;
 }
 
 Cursor::~Cursor(void)
@@ -25,6 +26,12 @@ Cursor::~Cursor(void)
 bool Cursor::update(const FrameEvent &evt)
 {
 	mNode->roll(Ogre::Radian(2)*evt.timeSinceLastFrame); 	
+
+	//refresh current selection (SIMPLE), ALTER THIS
+
+	mCurrentSelection= (Movable2DObject*)mCanvas->getNearestSystem(mPos); 
+
+
 	return true;
 } 
 
@@ -57,28 +64,37 @@ return true;
 bool Cursor::mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id)
 {
 	//plant  seed
-	if (mPressed==false)
-	{
-		switch(mSystemType){
-		
-			case 1:
-			mCanvas->addCellSystem(mPos,"Square",true,1.0); 
-			break;
-		case 2:
-			mCanvas->addCellSystem(mPos,"Hexagon",true,1.0); 
-			break;
-		case 3:
-			mCanvas->addCellSystem(mPos,"Triangle",true,1.0); 
-			break;
-		case 4:
-			mCanvas->addCellSystem(mPos,"Circle",true,1.0); 
-			break;
-		}
+
+	switch(id){
+		case OIS::MouseButtonID::MB_Left:
+			//create
+			if (mPressed==false)
+			{
+				switch(mSystemType){
+				
+					case 1:
+					mCanvas->addCellSystem(mPos,"Square",true,1.0); 
+					break;
+				case 2:
+					mCanvas->addCellSystem(mPos,"Hexagon",true,1.0); 
+					break;
+				case 3:
+					mCanvas->addCellSystem(mPos,"Triangle",true,1.0); 
+					break;
+				case 4:
+					mCanvas->addCellSystem(mPos,"Circle",true,1.0); 
+					break;
+				}
+			}
+			mPressed=true;
+		break;
+		case OIS::MouseButtonID::MB_Right:
+			//delete
+			mCanvas->removeObject(mCurrentSelection); 
+		break;
 	}
-
-
 	
-	mPressed=true;
+	
 	return true;
 }
 

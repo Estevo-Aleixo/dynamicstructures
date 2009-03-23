@@ -32,7 +32,6 @@ void EventHandler::handleBufferedEvents()
 			Event* currentEvent= mEventBuffer.front(); 
 			mEventBuffer.pop();
 
-
 			//delete both cells if different cellsystems
 			Cell* actor1= static_cast<Cell*>(currentEvent->mActor1);
 			Cell* actor2= static_cast<Cell*>(currentEvent->mActor2);
@@ -40,6 +39,28 @@ void EventHandler::handleBufferedEvents()
 			CellSystem* system1 = actor1->getCellSystem();
 			CellSystem* system2 = actor2->getCellSystem();
 
+
+			switch(currentEvent->mType){
+				case EVENTTYPE::COLLISION:
+					handleCollisionEvent(actor1, actor2);
+					break;
+				case EVENTTYPE::CONTAINS:
+					
+					break;
+				case EVENTTYPE::DIE:
+					
+					break;
+				case EVENTTYPE::SPAWN:
+					
+					break;
+				case EVENTTYPE::MAXVOLUME:
+					
+					break;
+			}
+
+
+
+			/*
 			if (system1 != system2)
 				{
 					for(itr=mDeletedActors.begin(); itr!=mDeletedActors.end();itr++)
@@ -54,16 +75,13 @@ void EventHandler::handleBufferedEvents()
 					mDeletedActors.push_back(actor1);
 					mDeletedActors.push_back(actor2);
 					
-					//Ogre::LogManager::getSingletonPtr()->logMessage(currentEvent->toString() +" DESTRUCTION EXECUTION")	;
 					if (actor1Deleted==false)
 						system1->destroyCell(actor1);
 					if (actor2Deleted==false)
 						system2->destroyCell(actor2);
-				}
+				}*/
 	
 	}
-
-
 
 	//handle it:
 	//mLuaMgr->RunScript(currentEvent->mActor1->getEventHandlerName()); 
@@ -92,3 +110,15 @@ void EventHandler::notifyActorDestruction(Movable2DObject* actor)
 
 
 }
+
+void EventHandler::handleCollisionEvent(Movable2DObject* actor1,Movable2DObject* actor2)
+{
+
+
+}
+void EventHandler::handleScriptedEvent(int eventID, Movable2DObject* actor1, Movable2DObject* actor2)
+{
+
+
+}
+	

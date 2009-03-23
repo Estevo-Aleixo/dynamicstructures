@@ -36,11 +36,12 @@ public:
 	static std::string names[];
 
 	Event(EVENTTYPE type, Movable2DObject* actor1, Movable2DObject* actor2)
-	:mType(type),mActor1(actor1),mActor2(actor2)
+	:mType(type),mActor1(actor1),mActor2(actor2), mCustomID(0) 
 	{
 	}
 	
 	EVENTTYPE mType; 
+	int mCustomID;
 	Movable2DObject* mActor1;
 	Movable2DObject* mActor2;
 
@@ -72,6 +73,10 @@ public:
 
 	void clearDeletedActorsList(); 
 protected:
+	void handleCollisionEvent(Movable2DObject* actor1,Movable2DObject* actor2);
+	void handleScriptedEvent(int eventID, Movable2DObject* actor1, Movable2DObject* actor2);
+	
+
 
 	std::vector<Movable2DObject*> mDeletedActors; 
 
