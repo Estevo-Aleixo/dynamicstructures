@@ -103,7 +103,7 @@ Main::~Main()
         // Create the camera
         mCamera = mSceneMgr->createCamera("MainCam");
         // Position it at 500 in Z direction
-        mCamera->setPosition(Vector3(0,0,300));
+        mCamera->setPosition(Vector3(0,-150,300));
         // Look back along -Z
         mCamera->lookAt(Vector3(0,0,0));
         mCamera->setNearClipDistance(5);

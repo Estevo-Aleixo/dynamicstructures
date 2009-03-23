@@ -1,752 +1,442 @@
-12:18:57: Creating resource group General
-12:18:57: Creating resource group Internal
-12:18:57: Creating resource group Autodetect
-12:18:57: SceneManagerFactory for type 'DefaultSceneManager' registered.
-12:18:57: Registering ResourceManager for type Material
-12:18:57: Registering ResourceManager for type Mesh
-12:18:57: Registering ResourceManager for type Skeleton
-12:18:57: MovableObjectFactory for type 'ParticleSystem' registered.
-12:18:57: OverlayElementFactory for type Panel registered.
-12:18:57: OverlayElementFactory for type BorderPanel registered.
-12:18:57: OverlayElementFactory for type TextArea registered.
-12:18:57: Registering ResourceManager for type Font
-12:18:57: ArchiveFactory for archive type FileSystem registered.
-12:18:57: ArchiveFactory for archive type Zip registered.
-12:18:57: FreeImage version: 3.10.0
-12:18:57: This program uses FreeImage, a free, open source image library supporting all common bitmap formats. See http://freeimage.sourceforge.net for details
-12:18:57: Supported formats: bmp,ico,jpg,jif,jpeg,jpe,jng,koa,iff,lbm,mng,pbm,pbm,pcd,pcx,pgm,pgm,png,ppm,ppm,ras,tga,targa,tif,tiff,wap,wbmp,wbm,psd,cut,xbm,xpm,gif,hdr,g3,sgi,exr,j2k,j2c,jp2
-12:18:57: DDS codec registering
-12:18:57: Registering ResourceManager for type HighLevelGpuProgram
-12:18:57: Registering ResourceManager for type Compositor
-12:18:57: MovableObjectFactory for type 'Entity' registered.
-12:18:57: MovableObjectFactory for type 'Light' registered.
-12:18:57: MovableObjectFactory for type 'BillboardSet' registered.
-12:18:57: MovableObjectFactory for type 'ManualObject' registered.
-12:18:57: MovableObjectFactory for type 'BillboardChain' registered.
-12:18:57: MovableObjectFactory for type 'RibbonTrail' registered.
-12:18:57: Loading library .\RenderSystem_Direct3D9
-12:18:57: Installing plugin: D3D9 RenderSystem
-12:18:57: D3D9 : Direct3D9 Rendering Subsystem created.
-12:18:57: D3D9: Driver Detection Starts
-12:18:57: D3D9: Driver Detection Ends
-12:18:57: Plugin successfully installed
-12:18:57: Loading library .\RenderSystem_GL
-12:18:57: Installing plugin: GL RenderSystem
-12:18:57: OpenGL Rendering Subsystem created.
-12:18:57: Plugin successfully installed
-12:18:57: Loading library .\Plugin_ParticleFX
-12:18:57: Installing plugin: ParticleFX
-12:18:57: Particle Emitter Type 'Point' registered
-12:18:57: Particle Emitter Type 'Box' registered
-12:18:57: Particle Emitter Type 'Ellipsoid' registered
-12:18:57: Particle Emitter Type 'Cylinder' registered
-12:18:57: Particle Emitter Type 'Ring' registered
-12:18:57: Particle Emitter Type 'HollowEllipsoid' registered
-12:18:57: Particle Affector Type 'LinearForce' registered
-12:18:57: Particle Affector Type 'ColourFader' registered
-12:18:57: Particle Affector Type 'ColourFader2' registered
-12:18:57: Particle Affector Type 'ColourImage' registered
-12:18:57: Particle Affector Type 'ColourInterpolator' registered
-12:18:57: Particle Affector Type 'Scaler' registered
-12:18:57: Particle Affector Type 'Rotator' registered
-12:18:57: Particle Affector Type 'DirectionRandomiser' registered
-12:18:57: Particle Affector Type 'DeflectorPlane' registered
-12:18:57: Plugin successfully installed
-12:18:57: Loading library .\Plugin_BSPSceneManager
-12:18:57: Installing plugin: BSP Scene Manager
-12:18:57: Plugin successfully installed
-12:18:57: Loading library .\Plugin_CgProgramManager
-12:18:57: Installing plugin: Cg Program Manager
-12:18:58: Plugin successfully installed
-12:18:58: *-*-* OGRE Initialising
-12:18:58: *-*-* Version 1.6.0RC1 (Shoggoth)
-12:18:58: Creating resource group Bootstrap
-12:18:58: Added resource location '../../media/packs/OgreCore.zip' of type 'Zip' to resource group 'Bootstrap'
-12:18:58: Added resource location '../../media' of type 'FileSystem' to resource group 'General'
-12:18:58: Added resource location '../../media/fonts' of type 'FileSystem' to resource group 'General'
-12:18:58: Added resource location '../../media/materials/programs' of type 'FileSystem' to resource group 'General'
-12:18:58: Added resource location '../../media/materials/scripts' of type 'FileSystem' to resource group 'General'
-12:18:58: Added resource location '../../media/materials/textures' of type 'FileSystem' to resource group 'General'
-12:18:58: Added resource location '../../media/models' of type 'FileSystem' to resource group 'General'
-12:18:58: Added resource location '../../media/overlays' of type 'FileSystem' to resource group 'General'
-12:18:58: Added resource location '../../media/particle' of type 'FileSystem' to resource group 'General'
-12:18:58: Added resource location '../../media/gui' of type 'FileSystem' to resource group 'General'
-12:18:58: Added resource location '../../media/DeferredShadingMedia' of type 'FileSystem' to resource group 'General'
-12:18:58: Added resource location '../../media/ObjectDefinitions' of type 'FileSystem' to resource group 'General'
-12:18:58: D3D9 : RenderSystem Option: Allow NVPerfHUD = No
-12:18:58: D3D9 : RenderSystem Option: Anti aliasing = None
-12:18:58: D3D9 : RenderSystem Option: Floating-point mode = Fastest
-12:18:58: D3D9 : RenderSystem Option: Full Screen = No
-12:18:58: D3D9 : RenderSystem Option: Rendering Device = NVIDIA Quadro FX 1700
-12:18:58: D3D9 : RenderSystem Option: VSync = No
-12:18:58: D3D9 : RenderSystem Option: Video Mode = 1024 x 768 @ 32-bit colour
-12:18:58: D3D9 : RenderSystem Option: sRGB Gamma Conversion = No
-12:18:58: CPU Identifier & Features
-12:18:58: -------------------------
-12:18:58:  *   CPU ID: GenuineIntel: Intel(R) Xeon(R) CPU           E5420  @ 2.50GHz
-12:18:58:  *      SSE: yes
-12:18:58:  *     SSE2: yes
-12:18:58:  *     SSE3: yes
-12:18:58:  *      MMX: yes
-12:18:58:  *   MMXEXT: yes
-12:18:58:  *    3DNOW: no
-12:18:58:  * 3DNOWEXT: no
-12:18:58:  *     CMOV: yes
-12:18:58:  *      TSC: yes
-12:18:58:  *      FPU: yes
-12:18:58:  *      PRO: yes
-12:18:58:  *       HT: no
-12:18:58: -------------------------
-12:18:58: D3D9 : Subsystem Initialising
-12:18:58: D3D9RenderSystem::_createRenderWindow "GOO editor", 1024x768 windowed  miscParams: FSAA=0 FSAAQuality=0 colourDepth=32 gamma=false useNVPerfHUD=false vsync=false 
-12:18:58: D3D9 : Created D3D9 Rendering Window 'GOO editor' : 1024x768, 32bpp
-12:18:58: D3D9 : WARNING - disabling VSync in windowed mode can cause timing issues at lower frame rates, turn VSync on if you observe this problem.
-12:18:58: Registering ResourceManager for type Texture
-12:18:58: Registering ResourceManager for type GpuProgram
-12:18:58: D3D9: Vertex texture format supported - PF_FLOAT16_RGB
-12:18:58: D3D9: Vertex texture format supported - PF_FLOAT16_RGBA
-12:18:58: D3D9: Vertex texture format supported - PF_FLOAT32_RGB
-12:18:58: D3D9: Vertex texture format supported - PF_FLOAT32_RGBA
-12:18:58: D3D9: Vertex texture format supported - PF_FLOAT16_R
-12:18:58: D3D9: Vertex texture format supported - PF_FLOAT32_R
-12:18:58: D3D9: Vertex texture format supported - PF_FLOAT16_GR
-12:18:58: D3D9: Vertex texture format supported - PF_FLOAT32_GR
-12:18:58: RenderSystem capabilities
-12:18:58: -------------------------
-12:18:58: RenderSystem Name: Direct3D9 Rendering Subsystem
-12:18:58: GPU Vendor: nvidia
-12:18:58: Device Name: NVIDIA Quadro FX 1700
-12:18:58: Driver Version: 6.14.11.6926
-12:18:58:  * Fixed function pipeline: yes
-12:18:58:  * Hardware generation of mipmaps: yes
-12:18:58:  * Texture blending: yes
-12:18:58:  * Anisotropic texture filtering: yes
-12:18:58:  * Dot product texture operation: yes
-12:18:58:  * Cube mapping: yes
-12:18:58:  * Hardware stencil buffer: yes
-12:18:58:    - Stencil depth: 8
-12:18:58:    - Two sided stencil support: yes
-12:18:58:    - Wrap stencil values: yes
-12:18:58:  * Hardware vertex / index buffers: yes
-12:18:58:  * Vertex programs: yes
-12:18:58:  * Fragment programs: yes
-12:18:58:  * Geometry programs: no
-12:18:58:  * Supported Shader Profiles: hlsl ps_1_1 ps_1_2 ps_1_3 ps_1_4 ps_2_0 ps_2_a ps_2_b ps_2_x ps_3_0 vs_1_1 vs_2_0 vs_2_a vs_2_x vs_3_0
-12:18:58:  * Texture Compression: yes
-12:18:58:    - DXT: yes
-12:18:58:    - VTC: no
-12:18:58:  * Scissor Rectangle: yes
-12:18:58:  * Hardware Occlusion Query: yes
-12:18:58:  * User clip planes: yes
-12:18:58:  * VET_UBYTE4 vertex element type: yes
-12:18:58:  * Infinite far plane projection: yes
-12:18:58:  * Hardware render-to-texture: yes
-12:18:58:  * Floating point textures: yes
-12:18:58:  * Non-power-of-two textures: yes
-12:18:58:  * Volume textures: yes
-12:18:58:  * Multiple Render Targets: 4
-12:18:58:    - With different bit depths: yes
-12:18:58:  * Point Sprites: yes
-12:18:58:  * Extended point parameters: yes
-12:18:58:  * Max Point Size: 8192
-12:18:58:  * Vertex texture fetch: yes
-12:18:58:    - Max vertex textures: 4
-12:18:58:    - Vertex textures shared: no
-12:18:58:  * Render to Vertex Buffer : no
-12:18:58:  * DirectX per stage constants: yes
-12:18:58: ***************************************
-12:18:58: *** D3D9 : Subsystem Initialised OK ***
-12:18:58: ***************************************
-12:18:58: ResourceBackgroundQueue - threading disabled
-12:18:58: Particle Renderer Type 'billboard' registered
-12:18:58: SceneManagerFactory for type 'BspSceneManager' registered.
-12:18:58: Registering ResourceManager for type BspLevel
-12:18:58: Parsing scripts for resource group Autodetect
-12:18:58: Finished parsing scripts for resource group Autodetect
-12:18:58: Parsing scripts for resource group Bootstrap
-12:18:58: Parsing script OgreCore.material
-12:18:58: Parsing script OgreProfiler.material
-12:18:58: Parsing script Ogre.fontdef
-12:18:58: Parsing script OgreDebugPanel.overlay
-12:18:58: Texture: New_Ogre_Border_Center.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x128x1.
-12:18:58: Texture: New_Ogre_Border.png: Loading 1 faces(PF_A8R8G8B8,256x256x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x256x1.
-12:18:58: Texture: New_Ogre_Border_Break.png: Loading 1 faces(PF_A8R8G8B8,32x32x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,32x32x1.
-12:18:58: Font BlueHighwayusing texture size 512x512
-12:18:58: Info: Freetype returned null for character 127 in font BlueHighway
-12:18:58: Info: Freetype returned null for character 128 in font BlueHighway
-12:18:58: Info: Freetype returned null for character 129 in font BlueHighway
-12:18:58: Info: Freetype returned null for character 130 in font BlueHighway
-12:18:58: Info: Freetype returned null for character 131 in font BlueHighway
-12:18:58: Info: Freetype returned null for character 132 in font BlueHighway
-12:18:58: Info: Freetype returned null for character 133 in font BlueHighway
-12:18:58: Info: Freetype returned null for character 134 in font BlueHighway
-12:18:58: Info: Freetype returned null for character 135 in font BlueHighway
-12:18:58: Info: Freetype returned null for character 136 in font BlueHighway
-12:18:58: Info: Freetype returned null for character 137 in font BlueHighway
-12:18:58: Info: Freetype returned null for character 138 in font BlueHighway
-12:18:58: Info: Freetype returned null for character 139 in font BlueHighway
-12:18:58: Info: Freetype returned null for character 140 in font BlueHighway
-12:18:58: Info: Freetype returned null for character 141 in font BlueHighway
-12:18:58: Info: Freetype returned null for character 142 in font BlueHighway
-12:18:58: Info: Freetype returned null for character 143 in font BlueHighway
-12:18:58: Info: Freetype returned null for character 144 in font BlueHighway
-12:18:58: Info: Freetype returned null for character 145 in font BlueHighway
-12:18:58: Info: Freetype returned null for character 146 in font BlueHighway
-12:18:58: Info: Freetype returned null for character 147 in font BlueHighway
-12:18:58: Info: Freetype returned null for character 148 in font BlueHighway
-12:18:58: Info: Freetype returned null for character 149 in font BlueHighway
-12:18:58: Info: Freetype returned null for character 150 in font BlueHighway
-12:18:58: Info: Freetype returned null for character 151 in font BlueHighway
-12:18:58: Info: Freetype returned null for character 152 in font BlueHighway
-12:18:58: Info: Freetype returned null for character 153 in font BlueHighway
-12:18:58: Info: Freetype returned null for character 154 in font BlueHighway
-12:18:58: Info: Freetype returned null for character 155 in font BlueHighway
-12:18:58: Info: Freetype returned null for character 156 in font BlueHighway
-12:18:58: Info: Freetype returned null for character 157 in font BlueHighway
-12:18:58: Info: Freetype returned null for character 158 in font BlueHighway
-12:18:58: Info: Freetype returned null for character 159 in font BlueHighway
-12:18:58: Info: Freetype returned null for character 160 in font BlueHighway
-12:18:58: Texture: BlueHighwayTexture: Loading 1 faces(PF_BYTE_LA,512x512x1) with 0 generated mipmaps from Image. Internal format is PF_BYTE_LA,512x512x1.
-12:18:58: Texture: ogretext.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x128x1.
-12:18:58: Parsing script OgreLoadingPanel.overlay
-12:18:58: Finished parsing scripts for resource group Bootstrap
-12:18:58: Parsing scripts for resource group General
-12:18:58: Parsing script Examples.program
-12:18:58: Parsing script deferred.glsl.program
-12:18:58: Parsing script deferred.hlsl.program
-12:18:58: Parsing script deferred.program
-12:18:58: Parsing script deferred_post_ambient.program
-12:18:58: Parsing script deferred_post_debug.glsl.program
-12:18:58: Parsing script deferred_post_debug.hlsl.program
-12:18:58: Parsing script deferred_post_debug.program
-12:18:58: Parsing script deferred_post_minilight.glsl.program
-12:18:58: Parsing script deferred_post_minilight.hlsl.program
-12:18:58: OGRE EXCEPTION(2:InvalidParametersException): Parameter called lightFalloff does not exist.  in GpuProgramParameters::_findNamedConstantDefinition at ..\src\OgreGpuProgram.cpp (line 1095)
-12:18:58: Compiler error: invalid parameters in deferred_post_minilight.hlsl.program(27): setting of constant failed
-12:18:58: Parsing script deferred_post_minilight.program
-12:18:58: Parsing script deferred_post_multipass.glsl.program
-12:18:58: Parsing script deferred_post_multipass.hlsl.program
-12:18:58: Parsing script deferred_post_onepass.glsl.program
-12:18:58: Parsing script deferred_post_onepass.hlsl.program
-12:18:58: Parsing script deferred_post_vs.program
-12:18:58: Parsing script editor.material
-12:18:58: Parsing script Example-DynTex.material
-12:18:58: Parsing script Example.material
-12:18:59: Parsing script lua_app.material
-12:18:59: Parsing script deferred.material
-12:18:59: Parsing script deferreddemo.material
-12:18:59: Parsing script deferred_post_ambient.material
-12:18:59: Parsing script deferred_post_debug.material
-12:18:59: Parsing script deferred_post_minilight.material
-12:18:59: Parsing script deferred_post_multipass.material
-12:18:59: Parsing script deferred_post_onepass.material
-12:18:59: Parsing script emitted_emitter.particle
-12:18:59: Parsing script Example-Water.particle
-12:18:59: Parsing script Example.particle
-12:18:59: Parsing script smoke.particle
-12:18:59: Parsing script Examples.compositor
-12:18:59: Parsing script deferred.compositor
-12:18:59: Parsing script sample.fontdef
-12:18:59: Parsing script console.overlay
-12:18:59: Texture: console_bg.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x128x1.
-12:18:59: Texture: console_input_bg.png: Loading 1 faces(PF_A8R8G8B8,128x64x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,128x64x1.
-12:18:59: Parsing script parameters.overlay
-12:18:59: Finished parsing scripts for resource group General
-12:18:59: Parsing scripts for resource group Internal
-12:18:59: Finished parsing scripts for resource group Internal
-12:18:59: *** Initializing OIS ***
-12:18:59: Mesh: Loading sphere.mesh.
-12:18:59: World object instatiated
-12:18:59: Lua: loading init.lua..
-12:18:59: Lua: ..\..\media\LUA\
-12:18:59: Lua: loading celldefinitions.lua..
-12:18:59: Lua:  system definitions - Loading System Definitions
-12:18:59: c++: loading system class: ..\..\media\LUA\systems\systems\abstractsystem.lua
-12:18:59: lua error message:cannot open ..\..\media\LUA\systems\systems\abstractsystem.LUA: No such file or directory
-12:18:59: Lua: Loading land 0.1 canvas surface...
-12:18:59: Lua: Loading water 0.1 canvas surface
-12:18:59: deleting object with cursor!
-12:18:59: OBJECT: cellsystem0
-12:18:59: deleting physical object cell0_2DObject
-12:18:59: deleting physical object cell1_2DObject
-12:18:59: deleting physical object cell2_2DObject
-12:18:59: deleting physical object cell3_2DObject
-12:18:59: deleting physical object cell4_2DObject
-12:18:59: deleting physical object cell5_2DObject
-12:19:02: deleting object with cursor!
-12:19:02: OBJECT: cellsystem1
-12:19:02: deleting physical object cell6_2DObject
-12:19:02: deleting physical object cell7_2DObject
-12:19:02: deleting physical object cell8_2DObject
-12:19:02: deleting physical object cell9_2DObject
-12:19:02: deleting physical object cell10_2DObject
-12:19:02: deleting physical object cell11_2DObject
-12:19:02: deleting physical object cell18_2DObject
-12:19:02: deleting physical object cell19_2DObject
-12:19:02: deleting physical object cell20_2DObject
-12:19:02: deleting physical object cell21_2DObject
-12:19:02: deleting physical object cell22_2DObject
-12:19:02: deleting physical object cell23_2DObject
-12:19:02: deleting object with cursor!
-12:19:02: OBJECT: cellsystem2
-12:19:02: deleting physical object cell12_2DObject
-12:19:02: deleting physical object cell13_2DObject
-12:19:02: deleting physical object cell14_2DObject
-12:19:02: deleting physical object cell15_2DObject
-12:19:02: deleting physical object cell16_2DObject
-12:19:02: deleting physical object cell17_2DObject
-12:19:02: deleting physical object cell24_2DObject
-12:19:02: deleting physical object cell25_2DObject
-12:19:02: deleting physical object cell26_2DObject
-12:19:02: deleting physical object cell27_2DObject
-12:19:02: deleting physical object cell28_2DObject
-12:19:02: deleting physical object cell29_2DObject
-12:19:04: deleting object with cursor!
-12:19:04: OBJECT: cellsystem4
-12:19:04: deleting physical object cell36_2DObject
-12:19:04: deleting physical object cell37_2DObject
-12:19:04: deleting physical object cell38_2DObject
-12:19:04: deleting physical object cell39_2DObject
-12:19:04: deleting physical object cell40_2DObject
-12:19:04: deleting physical object cell41_2DObject
-12:19:05: deleting object with cursor!
-12:19:05: OBJECT: cellsystem6
-12:19:05: deleting physical object cell48_2DObject
-12:19:05: deleting physical object cell49_2DObject
-12:19:05: deleting physical object cell50_2DObject
-12:19:05: deleting physical object cell51_2DObject
-12:19:05: deleting physical object cell52_2DObject
-12:19:05: deleting physical object cell53_2DObject
-12:19:05: deleting object with cursor!
-12:19:06: deleting object with cursor!
-12:19:06: deleting object with cursor!
-12:19:06: deleting object with cursor!
-12:19:06: deleting object with cursor!
-12:19:07: deleting object with cursor!
-12:19:07: deleting object with cursor!
-12:19:07: OBJECT: cellsystem3
-12:19:07: deleting physical object cell30_2DObject
-12:19:07: deleting physical object cell31_2DObject
-12:19:07: deleting physical object cell32_2DObject
-12:19:07: deleting physical object cell33_2DObject
-12:19:07: deleting physical object cell34_2DObject
-12:19:07: deleting physical object cell35_2DObject
-12:19:07: deleting physical object cell66_2DObject
-12:19:07: deleting physical object cell67_2DObject
-12:19:07: deleting physical object cell68_2DObject
-12:19:07: deleting physical object cell69_2DObject
-12:19:07: deleting physical object cell70_2DObject
-12:19:07: deleting physical object cell71_2DObject
-12:19:07: deleting physical object cell90_2DObject
-12:19:07: deleting physical object cell91_2DObject
-12:19:07: deleting physical object cell92_2DObject
-12:19:07: deleting physical object cell93_2DObject
-12:19:07: deleting physical object cell94_2DObject
-12:19:07: deleting physical object cell95_2DObject
-12:19:07: deleting physical object cell96_2DObject
-12:19:07: deleting physical object cell97_2DObject
-12:19:07: deleting physical object cell98_2DObject
-12:19:07: deleting physical object cell99_2DObject
-12:19:07: deleting physical object cell100_2DObject
-12:19:07: deleting physical object cell101_2DObject
-12:19:07: deleting object with cursor!
-12:19:08: deleting object with cursor!
-12:19:08: OBJECT: cellsystem5
-12:19:08: deleting physical object cell42_2DObject
-12:19:08: deleting physical object cell43_2DObject
-12:19:08: deleting physical object cell44_2DObject
-12:19:08: deleting physical object cell45_2DObject
-12:19:08: deleting physical object cell46_2DObject
-12:19:08: deleting physical object cell47_2DObject
-12:19:08: deleting physical object cell72_2DObject
-12:19:08: deleting physical object cell73_2DObject
-12:19:08: deleting physical object cell74_2DObject
-12:19:08: deleting physical object cell75_2DObject
-12:19:08: deleting physical object cell76_2DObject
-12:19:08: deleting physical object cell77_2DObject
-12:19:08: deleting physical object cell102_2DObject
-12:19:08: deleting physical object cell103_2DObject
-12:19:08: deleting physical object cell104_2DObject
-12:19:08: deleting physical object cell105_2DObject
-12:19:08: deleting physical object cell106_2DObject
-12:19:08: deleting physical object cell107_2DObject
-12:19:08: deleting physical object cell108_2DObject
-12:19:08: deleting physical object cell109_2DObject
-12:19:08: deleting physical object cell110_2DObject
-12:19:08: deleting physical object cell111_2DObject
-12:19:08: deleting physical object cell112_2DObject
-12:19:08: deleting physical object cell113_2DObject
-12:19:09: deleting object with cursor!
-12:19:09: deleting object with cursor!
-12:19:09: deleting object with cursor!
-12:19:09: OBJECT: cellsystem7
-12:19:09: deleting physical object cell54_2DObject
-12:19:09: deleting physical object cell55_2DObject
-12:19:09: deleting physical object cell56_2DObject
-12:19:09: deleting physical object cell57_2DObject
-12:19:09: deleting physical object cell58_2DObject
-12:19:09: deleting physical object cell59_2DObject
-12:19:09: deleting physical object cell78_2DObject
-12:19:09: deleting physical object cell79_2DObject
-12:19:09: deleting physical object cell80_2DObject
-12:19:09: deleting physical object cell81_2DObject
-12:19:09: deleting physical object cell82_2DObject
-12:19:09: deleting physical object cell83_2DObject
-12:19:09: deleting physical object cell114_2DObject
-12:19:09: deleting physical object cell115_2DObject
-12:19:09: deleting physical object cell116_2DObject
-12:19:09: deleting physical object cell117_2DObject
-12:19:09: deleting physical object cell122_2DObject
-12:19:09: deleting physical object cell123_2DObject
-12:19:09: deleting physical object cell124_2DObject
-12:19:09: deleting physical object cell125_2DObject
-12:19:09: deleting physical object cell126_2DObject
-12:19:09: deleting physical object cell127_2DObject
-12:19:09: deleting physical object cell128_2DObject
-12:19:09: deleting physical object cell129_2DObject
-12:19:09: deleting physical object cell138_2DObject
-12:19:10: deleting object with cursor!
-12:19:10: OBJECT: cellsystem8
-12:19:10: deleting physical object cell60_2DObject
-12:19:10: deleting physical object cell61_2DObject
-12:19:10: deleting physical object cell62_2DObject
-12:19:10: deleting physical object cell63_2DObject
-12:19:10: deleting physical object cell64_2DObject
-12:19:10: deleting physical object cell65_2DObject
-12:19:10: deleting physical object cell84_2DObject
-12:19:10: deleting physical object cell85_2DObject
-12:19:10: deleting physical object cell86_2DObject
-12:19:10: deleting physical object cell87_2DObject
-12:19:10: deleting physical object cell88_2DObject
-12:19:10: deleting physical object cell89_2DObject
-12:19:10: deleting physical object cell118_2DObject
-12:19:10: deleting physical object cell119_2DObject
-12:19:10: deleting physical object cell120_2DObject
-12:19:10: deleting physical object cell121_2DObject
-12:19:10: deleting physical object cell130_2DObject
-12:19:10: deleting physical object cell131_2DObject
-12:19:10: deleting physical object cell132_2DObject
-12:19:10: deleting physical object cell133_2DObject
-12:19:10: deleting physical object cell134_2DObject
-12:19:10: deleting physical object cell135_2DObject
-12:19:10: deleting physical object cell136_2DObject
-12:19:10: deleting physical object cell137_2DObject
-12:19:10: deleting physical object cell139_2DObject
-12:19:10: deleting physical object cell140_2DObject
-12:19:10: deleting physical object cell141_2DObject
-12:19:10: deleting physical object cell142_2DObject
-12:19:10: deleting physical object cell143_2DObject
-12:19:10: deleting physical object cell144_2DObject
-12:19:10: deleting physical object cell145_2DObject
-12:19:10: deleting physical object cell146_2DObject
-12:19:13: deleting object with cursor!
-12:19:13: OBJECT: cellsystem9
-12:19:13: deleting physical object cell147_2DObject
-12:19:13: deleting physical object cell148_2DObject
-12:19:13: deleting physical object cell149_2DObject
-12:19:13: deleting physical object cell150_2DObject
-12:19:13: deleting physical object cell151_2DObject
-12:19:13: deleting physical object cell152_2DObject
-12:19:13: deleting physical object cell171_2DObject
-12:19:13: deleting physical object cell172_2DObject
-12:19:13: deleting physical object cell173_2DObject
-12:19:13: deleting physical object cell174_2DObject
-12:19:13: deleting physical object cell175_2DObject
-12:19:13: deleting physical object cell176_2DObject
-12:19:14: deleting object with cursor!
-12:19:14: OBJECT: cellsystem11
-12:19:14: deleting physical object cell159_2DObject
-12:19:14: deleting physical object cell160_2DObject
-12:19:14: deleting physical object cell161_2DObject
-12:19:14: deleting physical object cell162_2DObject
-12:19:14: deleting physical object cell163_2DObject
-12:19:14: deleting physical object cell164_2DObject
-12:19:14: deleting physical object cell183_2DObject
-12:19:14: deleting physical object cell184_2DObject
-12:19:14: deleting physical object cell185_2DObject
-12:19:14: deleting physical object cell186_2DObject
-12:19:14: deleting physical object cell187_2DObject
-12:19:14: deleting physical object cell188_2DObject
-12:19:14: deleting object with cursor!
-12:19:14: OBJECT: cellsystem12
-12:19:14: deleting physical object cell165_2DObject
-12:19:14: deleting physical object cell166_2DObject
-12:19:14: deleting physical object cell167_2DObject
-12:19:14: deleting physical object cell168_2DObject
-12:19:14: deleting physical object cell169_2DObject
-12:19:14: deleting physical object cell170_2DObject
-12:19:14: deleting physical object cell189_2DObject
-12:19:14: deleting physical object cell190_2DObject
-12:19:14: deleting physical object cell191_2DObject
-12:19:14: deleting physical object cell192_2DObject
-12:19:14: deleting physical object cell193_2DObject
-12:19:14: deleting physical object cell194_2DObject
-12:19:15: deleting object with cursor!
-12:19:15: OBJECT: cellsystem10
-12:19:15: deleting physical object cell153_2DObject
-12:19:15: deleting physical object cell154_2DObject
-12:19:15: deleting physical object cell155_2DObject
-12:19:15: deleting physical object cell156_2DObject
-12:19:15: deleting physical object cell157_2DObject
-12:19:15: deleting physical object cell158_2DObject
-12:19:15: deleting physical object cell177_2DObject
-12:19:15: deleting physical object cell178_2DObject
-12:19:15: deleting physical object cell179_2DObject
-12:19:15: deleting physical object cell180_2DObject
-12:19:15: deleting physical object cell181_2DObject
-12:19:15: deleting physical object cell182_2DObject
-12:19:15: deleting physical object cell195_2DObject
-12:19:15: deleting physical object cell196_2DObject
-12:19:15: deleting physical object cell197_2DObject
-12:19:15: deleting physical object cell198_2DObject
-12:19:15: deleting physical object cell199_2DObject
-12:19:15: deleting physical object cell200_2DObject
-12:19:15: deleting physical object cell201_2DObject
-12:19:15: deleting physical object cell202_2DObject
-12:19:15: deleting physical object cell203_2DObject
-12:19:15: deleting physical object cell204_2DObject
-12:19:15: deleting physical object cell205_2DObject
-12:19:15: deleting physical object cell206_2DObject
-12:19:18: deleting object with cursor!
-12:19:18: OBJECT: cellsystem14
-12:19:18: deleting physical object cell213_2DObject
-12:19:18: deleting physical object cell214_2DObject
-12:19:18: deleting physical object cell215_2DObject
-12:19:18: deleting physical object cell216_2DObject
-12:19:18: deleting physical object cell217_2DObject
-12:19:18: deleting physical object cell218_2DObject
-12:19:18: deleting physical object cell249_2DObject
-12:19:18: deleting physical object cell250_2DObject
-12:19:18: deleting physical object cell251_2DObject
-12:19:18: deleting physical object cell252_2DObject
-12:19:18: deleting physical object cell253_2DObject
-12:19:18: deleting physical object cell254_2DObject
-12:19:18: deleting object with cursor!
-12:19:18: OBJECT: cellsystem13
-12:19:18: deleting physical object cell207_2DObject
-12:19:18: deleting physical object cell208_2DObject
-12:19:18: deleting physical object cell209_2DObject
-12:19:18: deleting physical object cell210_2DObject
-12:19:18: deleting physical object cell211_2DObject
-12:19:18: deleting physical object cell212_2DObject
-12:19:18: deleting physical object cell243_2DObject
-12:19:18: deleting physical object cell244_2DObject
-12:19:18: deleting physical object cell245_2DObject
-12:19:18: deleting physical object cell246_2DObject
-12:19:18: deleting physical object cell247_2DObject
-12:19:18: deleting physical object cell248_2DObject
-12:19:19: deleting object with cursor!
-12:19:19: OBJECT: cellsystem18
-12:19:19: deleting physical object cell237_2DObject
-12:19:19: deleting physical object cell238_2DObject
-12:19:19: deleting physical object cell239_2DObject
-12:19:19: deleting physical object cell240_2DObject
-12:19:19: deleting physical object cell241_2DObject
-12:19:19: deleting physical object cell242_2DObject
-12:19:19: deleting physical object cell273_2DObject
-12:19:19: deleting physical object cell274_2DObject
-12:19:19: deleting physical object cell275_2DObject
-12:19:19: deleting physical object cell276_2DObject
-12:19:19: deleting physical object cell277_2DObject
-12:19:19: deleting physical object cell278_2DObject
-12:19:19: deleting object with cursor!
-12:19:19: OBJECT: cellsystem17
-12:19:19: deleting physical object cell231_2DObject
-12:19:19: deleting physical object cell232_2DObject
-12:19:19: deleting physical object cell233_2DObject
-12:19:19: deleting physical object cell234_2DObject
-12:19:19: deleting physical object cell235_2DObject
-12:19:19: deleting physical object cell236_2DObject
-12:19:19: deleting physical object cell267_2DObject
-12:19:19: deleting physical object cell268_2DObject
-12:19:19: deleting physical object cell269_2DObject
-12:19:19: deleting physical object cell270_2DObject
-12:19:19: deleting physical object cell271_2DObject
-12:19:19: deleting physical object cell272_2DObject
-12:19:19: deleting object with cursor!
-12:19:19: OBJECT: cellsystem16
-12:19:19: deleting physical object cell225_2DObject
-12:19:19: deleting physical object cell226_2DObject
-12:19:19: deleting physical object cell227_2DObject
-12:19:19: deleting physical object cell228_2DObject
-12:19:19: deleting physical object cell229_2DObject
-12:19:19: deleting physical object cell230_2DObject
-12:19:19: deleting physical object cell261_2DObject
-12:19:19: deleting physical object cell262_2DObject
-12:19:19: deleting physical object cell263_2DObject
-12:19:19: deleting physical object cell264_2DObject
-12:19:19: deleting physical object cell265_2DObject
-12:19:19: deleting physical object cell266_2DObject
-12:19:20: deleting object with cursor!
-12:19:20: OBJECT: cellsystem15
-12:19:20: deleting physical object cell219_2DObject
-12:19:20: deleting physical object cell220_2DObject
-12:19:20: deleting physical object cell221_2DObject
-12:19:20: deleting physical object cell222_2DObject
-12:19:20: deleting physical object cell223_2DObject
-12:19:20: deleting physical object cell224_2DObject
-12:19:20: deleting physical object cell255_2DObject
-12:19:20: deleting physical object cell256_2DObject
-12:19:20: deleting physical object cell257_2DObject
-12:19:20: deleting physical object cell258_2DObject
-12:19:20: deleting physical object cell259_2DObject
-12:19:20: deleting physical object cell260_2DObject
-12:19:20: deleting physical object cell279_2DObject
-12:19:20: deleting physical object cell280_2DObject
-12:19:20: deleting physical object cell281_2DObject
-12:19:20: deleting physical object cell282_2DObject
-12:19:20: deleting physical object cell283_2DObject
-12:19:20: deleting physical object cell284_2DObject
-12:19:20: deleting physical object cell285_2DObject
-12:19:20: deleting physical object cell286_2DObject
-12:19:20: deleting physical object cell287_2DObject
-12:19:20: deleting physical object cell288_2DObject
-12:19:20: deleting physical object cell289_2DObject
-12:19:20: deleting physical object cell290_2DObject
-12:19:26: deleting object with cursor!
-12:19:26: OBJECT: cellsystem22
-12:19:26: deleting physical object cell311_2DObject
-12:19:26: deleting physical object cell312_2DObject
-12:19:26: deleting physical object cell313_2DObject
-12:19:26: deleting physical object cell314_2DObject
-12:19:26: deleting physical object cell315_2DObject
-12:19:26: deleting physical object cell316_2DObject
-12:19:26: deleting object with cursor!
-12:19:26: OBJECT: cellsystem19
-12:19:26: deleting physical object cell291_2DObject
-12:19:26: deleting physical object cell292_2DObject
-12:19:26: deleting physical object cell293_2DObject
-12:19:26: deleting physical object cell294_2DObject
-12:19:26: deleting physical object cell295_2DObject
-12:19:26: deleting physical object cell296_2DObject
-12:19:26: deleting physical object cell309_2DObject
-12:19:26: deleting physical object cell310_2DObject
-12:19:26: deleting physical object cell317_2DObject
-12:19:26: deleting physical object cell318_2DObject
-12:19:26: deleting physical object cell321_2DObject
-12:19:26: deleting physical object cell322_2DObject
-12:19:26: deleting physical object cell333_2DObject
-12:19:26: deleting physical object cell334_2DObject
-12:19:27: deleting object with cursor!
-12:19:27: OBJECT: cellsystem20
-12:19:27: deleting physical object cell297_2DObject
-12:19:27: deleting physical object cell298_2DObject
-12:19:27: deleting physical object cell299_2DObject
-12:19:27: deleting physical object cell300_2DObject
-12:19:27: deleting physical object cell301_2DObject
-12:19:27: deleting physical object cell302_2DObject
-12:19:27: deleting physical object cell319_2DObject
-12:19:27: deleting physical object cell320_2DObject
-12:19:27: deleting physical object cell323_2DObject
-12:19:27: deleting physical object cell324_2DObject
-12:19:27: deleting physical object cell325_2DObject
-12:19:27: deleting physical object cell326_2DObject
-12:19:27: deleting object with cursor!
-12:19:27: OBJECT: cellsystem21
-12:19:27: deleting physical object cell303_2DObject
-12:19:27: deleting physical object cell304_2DObject
-12:19:27: deleting physical object cell305_2DObject
-12:19:27: deleting physical object cell306_2DObject
-12:19:27: deleting physical object cell307_2DObject
-12:19:27: deleting physical object cell308_2DObject
-12:19:27: deleting physical object cell327_2DObject
-12:19:27: deleting physical object cell328_2DObject
-12:19:27: deleting physical object cell329_2DObject
-12:19:27: deleting physical object cell330_2DObject
-12:19:27: deleting physical object cell331_2DObject
-12:19:27: deleting physical object cell332_2DObject
-12:19:31: deleting object with cursor!
-12:19:31: OBJECT: cellsystem23
-12:19:31: deleting physical object cell335_2DObject
-12:19:31: deleting physical object cell336_2DObject
-12:19:31: deleting physical object cell337_2DObject
-12:19:31: deleting physical object cell338_2DObject
-12:19:31: deleting physical object cell339_2DObject
-12:19:31: deleting physical object cell340_2DObject
-12:19:31: deleting physical object cell371_2DObject
-12:19:31: deleting physical object cell372_2DObject
-12:19:31: deleting physical object cell373_2DObject
-12:19:31: deleting physical object cell374_2DObject
-12:19:31: deleting physical object cell382_2DObject
-12:19:31: deleting physical object cell384_2DObject
-12:19:32: deleting object with cursor!
-12:19:32: OBJECT: cellsystem24
-12:19:32: deleting physical object cell341_2DObject
-12:19:32: deleting physical object cell342_2DObject
-12:19:32: deleting physical object cell343_2DObject
-12:19:32: deleting physical object cell344_2DObject
-12:19:32: deleting physical object cell345_2DObject
-12:19:32: deleting physical object cell346_2DObject
-12:19:32: deleting physical object cell375_2DObject
-12:19:32: deleting physical object cell376_2DObject
-12:19:32: deleting physical object cell379_2DObject
-12:19:32: deleting physical object cell380_2DObject
-12:19:32: deleting physical object cell391_2DObject
-12:19:32: deleting physical object cell392_2DObject
-12:19:32: deleting object with cursor!
-12:19:32: OBJECT: cellsystem25
-12:19:32: deleting physical object cell347_2DObject
-12:19:32: deleting physical object cell348_2DObject
-12:19:32: deleting physical object cell349_2DObject
-12:19:32: deleting physical object cell350_2DObject
-12:19:32: deleting physical object cell351_2DObject
-12:19:32: deleting physical object cell352_2DObject
-12:19:32: deleting physical object cell377_2DObject
-12:19:32: deleting physical object cell378_2DObject
-12:19:32: deleting physical object cell381_2DObject
-12:19:32: deleting physical object cell383_2DObject
-12:19:32: deleting physical object cell397_2DObject
-12:19:32: deleting physical object cell398_2DObject
-12:19:33: deleting object with cursor!
-12:19:33: OBJECT: cellsystem26
-12:19:33: deleting physical object cell353_2DObject
-12:19:33: deleting physical object cell354_2DObject
-12:19:33: deleting physical object cell355_2DObject
-12:19:33: deleting physical object cell356_2DObject
-12:19:33: deleting physical object cell357_2DObject
-12:19:33: deleting physical object cell358_2DObject
-12:19:33: deleting physical object cell385_2DObject
-12:19:33: deleting physical object cell386_2DObject
-12:19:33: deleting physical object cell389_2DObject
-12:19:33: deleting physical object cell390_2DObject
-12:19:33: deleting physical object cell401_2DObject
-12:19:33: deleting physical object cell402_2DObject
-12:19:33: deleting physical object cell407_2DObject
-12:19:33: deleting object with cursor!
-12:19:33: OBJECT: cellsystem27
-12:19:33: deleting physical object cell359_2DObject
-12:19:33: deleting physical object cell360_2DObject
-12:19:33: deleting physical object cell361_2DObject
-12:19:33: deleting physical object cell362_2DObject
-12:19:33: deleting physical object cell363_2DObject
-12:19:33: deleting physical object cell364_2DObject
-12:19:33: deleting physical object cell387_2DObject
-12:19:33: deleting physical object cell388_2DObject
-12:19:33: deleting physical object cell395_2DObject
-12:19:33: deleting physical object cell396_2DObject
-12:19:33: deleting physical object cell403_2DObject
-12:19:33: deleting physical object cell404_2DObject
-12:19:33: deleting physical object cell408_2DObject
-12:19:33: deleting physical object cell409_2DObject
-12:19:33: deleting physical object cell410_2DObject
-12:19:33: deleting physical object cell413_2DObject
-12:19:34: deleting object with cursor!
-12:19:34: OBJECT: cellsystem28
-12:19:34: deleting physical object cell365_2DObject
-12:19:34: deleting physical object cell366_2DObject
-12:19:34: deleting physical object cell367_2DObject
-12:19:34: deleting physical object cell368_2DObject
-12:19:34: deleting physical object cell369_2DObject
-12:19:34: deleting physical object cell370_2DObject
-12:19:34: deleting physical object cell393_2DObject
-12:19:34: deleting physical object cell394_2DObject
-12:19:34: deleting physical object cell399_2DObject
-12:19:34: deleting physical object cell400_2DObject
-12:19:34: deleting physical object cell405_2DObject
-12:19:34: deleting physical object cell406_2DObject
-12:19:34: deleting physical object cell411_2DObject
-12:19:34: deleting physical object cell412_2DObject
-12:19:34: deleting physical object cell414_2DObject
-12:19:34: deleting physical object cell415_2DObject
-12:19:36: Unregistering ResourceManager for type BspLevel
-12:19:36: *-*-* OGRE Shutdown
+13:14:47: Creating resource group General
+13:14:47: Creating resource group Internal
+13:14:47: Creating resource group Autodetect
+13:14:47: SceneManagerFactory for type 'DefaultSceneManager' registered.
+13:14:47: Registering ResourceManager for type Material
+13:14:47: Registering ResourceManager for type Mesh
+13:14:47: Registering ResourceManager for type Skeleton
+13:14:47: MovableObjectFactory for type 'ParticleSystem' registered.
+13:14:47: OverlayElementFactory for type Panel registered.
+13:14:47: OverlayElementFactory for type BorderPanel registered.
+13:14:47: OverlayElementFactory for type TextArea registered.
+13:14:47: Registering ResourceManager for type Font
+13:14:47: ArchiveFactory for archive type FileSystem registered.
+13:14:47: ArchiveFactory for archive type Zip registered.
+13:14:47: FreeImage version: 3.10.0
+13:14:47: This program uses FreeImage, a free, open source image library supporting all common bitmap formats. See http://freeimage.sourceforge.net for details
+13:14:47: Supported formats: bmp,ico,jpg,jif,jpeg,jpe,jng,koa,iff,lbm,mng,pbm,pbm,pcd,pcx,pgm,pgm,png,ppm,ppm,ras,tga,targa,tif,tiff,wap,wbmp,wbm,psd,cut,xbm,xpm,gif,hdr,g3,sgi,exr,j2k,j2c,jp2
+13:14:47: DDS codec registering
+13:14:47: Registering ResourceManager for type HighLevelGpuProgram
+13:14:47: Registering ResourceManager for type Compositor
+13:14:47: MovableObjectFactory for type 'Entity' registered.
+13:14:47: MovableObjectFactory for type 'Light' registered.
+13:14:47: MovableObjectFactory for type 'BillboardSet' registered.
+13:14:47: MovableObjectFactory for type 'ManualObject' registered.
+13:14:47: MovableObjectFactory for type 'BillboardChain' registered.
+13:14:47: MovableObjectFactory for type 'RibbonTrail' registered.
+13:14:47: Loading library .\RenderSystem_Direct3D9
+13:14:47: Installing plugin: D3D9 RenderSystem
+13:14:47: D3D9 : Direct3D9 Rendering Subsystem created.
+13:14:47: D3D9: Driver Detection Starts
+13:14:47: D3D9: Driver Detection Ends
+13:14:47: Plugin successfully installed
+13:14:47: Loading library .\RenderSystem_GL
+13:14:47: Installing plugin: GL RenderSystem
+13:14:47: OpenGL Rendering Subsystem created.
+13:14:47: Plugin successfully installed
+13:14:47: Loading library .\Plugin_ParticleFX
+13:14:47: Installing plugin: ParticleFX
+13:14:47: Particle Emitter Type 'Point' registered
+13:14:47: Particle Emitter Type 'Box' registered
+13:14:47: Particle Emitter Type 'Ellipsoid' registered
+13:14:47: Particle Emitter Type 'Cylinder' registered
+13:14:47: Particle Emitter Type 'Ring' registered
+13:14:47: Particle Emitter Type 'HollowEllipsoid' registered
+13:14:47: Particle Affector Type 'LinearForce' registered
+13:14:47: Particle Affector Type 'ColourFader' registered
+13:14:47: Particle Affector Type 'ColourFader2' registered
+13:14:47: Particle Affector Type 'ColourImage' registered
+13:14:47: Particle Affector Type 'ColourInterpolator' registered
+13:14:47: Particle Affector Type 'Scaler' registered
+13:14:47: Particle Affector Type 'Rotator' registered
+13:14:47: Particle Affector Type 'DirectionRandomiser' registered
+13:14:47: Particle Affector Type 'DeflectorPlane' registered
+13:14:47: Plugin successfully installed
+13:14:47: Loading library .\Plugin_BSPSceneManager
+13:14:47: Installing plugin: BSP Scene Manager
+13:14:47: Plugin successfully installed
+13:14:47: Loading library .\Plugin_CgProgramManager
+13:14:47: Installing plugin: Cg Program Manager
+13:14:47: Plugin successfully installed
+13:14:47: *-*-* OGRE Initialising
+13:14:47: *-*-* Version 1.6.0RC1 (Shoggoth)
+13:14:47: Creating resource group Bootstrap
+13:14:47: Added resource location '../../media/packs/OgreCore.zip' of type 'Zip' to resource group 'Bootstrap'
+13:14:47: Added resource location '../../media' of type 'FileSystem' to resource group 'General'
+13:14:47: Added resource location '../../media/fonts' of type 'FileSystem' to resource group 'General'
+13:14:47: Added resource location '../../media/materials/programs' of type 'FileSystem' to resource group 'General'
+13:14:47: Added resource location '../../media/materials/scripts' of type 'FileSystem' to resource group 'General'
+13:14:47: Added resource location '../../media/materials/textures' of type 'FileSystem' to resource group 'General'
+13:14:47: Added resource location '../../media/models' of type 'FileSystem' to resource group 'General'
+13:14:47: Added resource location '../../media/overlays' of type 'FileSystem' to resource group 'General'
+13:14:47: Added resource location '../../media/particle' of type 'FileSystem' to resource group 'General'
+13:14:47: Added resource location '../../media/gui' of type 'FileSystem' to resource group 'General'
+13:14:47: Added resource location '../../media/DeferredShadingMedia' of type 'FileSystem' to resource group 'General'
+13:14:47: Added resource location '../../media/ObjectDefinitions' of type 'FileSystem' to resource group 'General'
+13:14:47: D3D9 : RenderSystem Option: Allow NVPerfHUD = No
+13:14:47: D3D9 : RenderSystem Option: Anti aliasing = None
+13:14:47: D3D9 : RenderSystem Option: Floating-point mode = Fastest
+13:14:47: D3D9 : RenderSystem Option: Full Screen = No
+13:14:47: D3D9 : RenderSystem Option: Rendering Device = NVIDIA Quadro FX 1700
+13:14:47: D3D9 : RenderSystem Option: VSync = No
+13:14:47: D3D9 : RenderSystem Option: Video Mode = 1024 x 768 @ 32-bit colour
+13:14:47: D3D9 : RenderSystem Option: sRGB Gamma Conversion = No
+13:14:50: CPU Identifier & Features
+13:14:50: -------------------------
+13:14:50:  *   CPU ID: GenuineIntel: Intel(R) Xeon(R) CPU           E5420  @ 2.50GHz
+13:14:50:  *      SSE: yes
+13:14:50:  *     SSE2: yes
+13:14:50:  *     SSE3: yes
+13:14:50:  *      MMX: yes
+13:14:50:  *   MMXEXT: yes
+13:14:50:  *    3DNOW: no
+13:14:50:  * 3DNOWEXT: no
+13:14:50:  *     CMOV: yes
+13:14:50:  *      TSC: yes
+13:14:50:  *      FPU: yes
+13:14:50:  *      PRO: yes
+13:14:50:  *       HT: no
+13:14:50: -------------------------
+13:14:50: D3D9 : Subsystem Initialising
+13:14:50: D3D9RenderSystem::_createRenderWindow "GOO editor", 1024x768 windowed  miscParams: FSAA=0 FSAAQuality=0 colourDepth=32 gamma=false useNVPerfHUD=false vsync=false 
+13:14:50: D3D9 : Created D3D9 Rendering Window 'GOO editor' : 1024x768, 32bpp
+13:14:50: D3D9 : WARNING - disabling VSync in windowed mode can cause timing issues at lower frame rates, turn VSync on if you observe this problem.
+13:14:50: Registering ResourceManager for type Texture
+13:14:50: Registering ResourceManager for type GpuProgram
+13:14:50: D3D9: Vertex texture format supported - PF_FLOAT16_RGB
+13:14:50: D3D9: Vertex texture format supported - PF_FLOAT16_RGBA
+13:14:50: D3D9: Vertex texture format supported - PF_FLOAT32_RGB
+13:14:50: D3D9: Vertex texture format supported - PF_FLOAT32_RGBA
+13:14:50: D3D9: Vertex texture format supported - PF_FLOAT16_R
+13:14:50: D3D9: Vertex texture format supported - PF_FLOAT32_R
+13:14:50: D3D9: Vertex texture format supported - PF_FLOAT16_GR
+13:14:50: D3D9: Vertex texture format supported - PF_FLOAT32_GR
+13:14:50: RenderSystem capabilities
+13:14:50: -------------------------
+13:14:50: RenderSystem Name: Direct3D9 Rendering Subsystem
+13:14:50: GPU Vendor: nvidia
+13:14:50: Device Name: NVIDIA Quadro FX 1700
+13:14:50: Driver Version: 6.14.11.6926
+13:14:50:  * Fixed function pipeline: yes
+13:14:50:  * Hardware generation of mipmaps: yes
+13:14:50:  * Texture blending: yes
+13:14:50:  * Anisotropic texture filtering: yes
+13:14:50:  * Dot product texture operation: yes
+13:14:50:  * Cube mapping: yes
+13:14:50:  * Hardware stencil buffer: yes
+13:14:50:    - Stencil depth: 8
+13:14:50:    - Two sided stencil support: yes
+13:14:50:    - Wrap stencil values: yes
+13:14:50:  * Hardware vertex / index buffers: yes
+13:14:50:  * Vertex programs: yes
+13:14:50:  * Fragment programs: yes
+13:14:50:  * Geometry programs: no
+13:14:50:  * Supported Shader Profiles: hlsl ps_1_1 ps_1_2 ps_1_3 ps_1_4 ps_2_0 ps_2_a ps_2_b ps_2_x ps_3_0 vs_1_1 vs_2_0 vs_2_a vs_2_x vs_3_0
+13:14:50:  * Texture Compression: yes
+13:14:50:    - DXT: yes
+13:14:50:    - VTC: no
+13:14:50:  * Scissor Rectangle: yes
+13:14:50:  * Hardware Occlusion Query: yes
+13:14:50:  * User clip planes: yes
+13:14:50:  * VET_UBYTE4 vertex element type: yes
+13:14:50:  * Infinite far plane projection: yes
+13:14:50:  * Hardware render-to-texture: yes
+13:14:50:  * Floating point textures: yes
+13:14:50:  * Non-power-of-two textures: yes
+13:14:50:  * Volume textures: yes
+13:14:50:  * Multiple Render Targets: 4
+13:14:50:    - With different bit depths: yes
+13:14:50:  * Point Sprites: yes
+13:14:50:  * Extended point parameters: yes
+13:14:50:  * Max Point Size: 8192
+13:14:50:  * Vertex texture fetch: yes
+13:14:50:    - Max vertex textures: 4
+13:14:50:    - Vertex textures shared: no
+13:14:50:  * Render to Vertex Buffer : no
+13:14:50:  * DirectX per stage constants: yes
+13:14:50: ***************************************
+13:14:50: *** D3D9 : Subsystem Initialised OK ***
+13:14:50: ***************************************
+13:14:50: ResourceBackgroundQueue - threading disabled
+13:14:50: Particle Renderer Type 'billboard' registered
+13:14:50: SceneManagerFactory for type 'BspSceneManager' registered.
+13:14:50: Registering ResourceManager for type BspLevel
+13:14:50: Parsing scripts for resource group Autodetect
+13:14:50: Finished parsing scripts for resource group Autodetect
+13:14:50: Parsing scripts for resource group Bootstrap
+13:14:50: Parsing script OgreCore.material
+13:14:50: Parsing script OgreProfiler.material
+13:14:50: Parsing script Ogre.fontdef
+13:14:50: Parsing script OgreDebugPanel.overlay
+13:14:50: Texture: New_Ogre_Border_Center.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x128x1.
+13:14:50: Texture: New_Ogre_Border.png: Loading 1 faces(PF_A8R8G8B8,256x256x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x256x1.
+13:14:50: Texture: New_Ogre_Border_Break.png: Loading 1 faces(PF_A8R8G8B8,32x32x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,32x32x1.
+13:14:50: Font BlueHighwayusing texture size 512x512
+13:14:50: Info: Freetype returned null for character 127 in font BlueHighway
+13:14:50: Info: Freetype returned null for character 128 in font BlueHighway
+13:14:50: Info: Freetype returned null for character 129 in font BlueHighway
+13:14:50: Info: Freetype returned null for character 130 in font BlueHighway
+13:14:50: Info: Freetype returned null for character 131 in font BlueHighway
+13:14:50: Info: Freetype returned null for character 132 in font BlueHighway
+13:14:50: Info: Freetype returned null for character 133 in font BlueHighway
+13:14:50: Info: Freetype returned null for character 134 in font BlueHighway
+13:14:50: Info: Freetype returned null for character 135 in font BlueHighway
+13:14:50: Info: Freetype returned null for character 136 in font BlueHighway
+13:14:50: Info: Freetype returned null for character 137 in font BlueHighway
+13:14:50: Info: Freetype returned null for character 138 in font BlueHighway
+13:14:50: Info: Freetype returned null for character 139 in font BlueHighway
+13:14:50: Info: Freetype returned null for character 140 in font BlueHighway
+13:14:50: Info: Freetype returned null for character 141 in font BlueHighway
+13:14:50: Info: Freetype returned null for character 142 in font BlueHighway
+13:14:50: Info: Freetype returned null for character 143 in font BlueHighway
+13:14:50: Info: Freetype returned null for character 144 in font BlueHighway
+13:14:50: Info: Freetype returned null for character 145 in font BlueHighway
+13:14:50: Info: Freetype returned null for character 146 in font BlueHighway
+13:14:50: Info: Freetype returned null for character 147 in font BlueHighway
+13:14:50: Info: Freetype returned null for character 148 in font BlueHighway
+13:14:50: Info: Freetype returned null for character 149 in font BlueHighway
+13:14:50: Info: Freetype returned null for character 150 in font BlueHighway
+13:14:50: Info: Freetype returned null for character 151 in font BlueHighway
+13:14:50: Info: Freetype returned null for character 152 in font BlueHighway
+13:14:50: Info: Freetype returned null for character 153 in font BlueHighway
+13:14:50: Info: Freetype returned null for character 154 in font BlueHighway
+13:14:50: Info: Freetype returned null for character 155 in font BlueHighway
+13:14:50: Info: Freetype returned null for character 156 in font BlueHighway
+13:14:50: Info: Freetype returned null for character 157 in font BlueHighway
+13:14:50: Info: Freetype returned null for character 158 in font BlueHighway
+13:14:50: Info: Freetype returned null for character 159 in font BlueHighway
+13:14:50: Info: Freetype returned null for character 160 in font BlueHighway
+13:14:50: Texture: BlueHighwayTexture: Loading 1 faces(PF_BYTE_LA,512x512x1) with 0 generated mipmaps from Image. Internal format is PF_BYTE_LA,512x512x1.
+13:14:50: Texture: ogretext.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x128x1.
+13:14:50: Parsing script OgreLoadingPanel.overlay
+13:14:50: Finished parsing scripts for resource group Bootstrap
+13:14:50: Parsing scripts for resource group General
+13:14:50: Parsing script Examples.program
+13:14:50: Parsing script deferred.glsl.program
+13:14:50: Parsing script deferred.hlsl.program
+13:14:51: Parsing script deferred.program
+13:14:51: Parsing script deferred_post_ambient.program
+13:14:51: Parsing script deferred_post_debug.glsl.program
+13:14:51: Parsing script deferred_post_debug.hlsl.program
+13:14:51: Parsing script deferred_post_debug.program
+13:14:51: Parsing script deferred_post_minilight.glsl.program
+13:14:51: Parsing script deferred_post_minilight.hlsl.program
+13:14:51: OGRE EXCEPTION(2:InvalidParametersException): Parameter called lightFalloff does not exist.  in GpuProgramParameters::_findNamedConstantDefinition at ..\src\OgreGpuProgram.cpp (line 1095)
+13:14:51: Compiler error: invalid parameters in deferred_post_minilight.hlsl.program(27): setting of constant failed
+13:14:51: Parsing script deferred_post_minilight.program
+13:14:51: Parsing script deferred_post_multipass.glsl.program
+13:14:51: Parsing script deferred_post_multipass.hlsl.program
+13:14:51: Parsing script deferred_post_onepass.glsl.program
+13:14:51: Parsing script deferred_post_onepass.hlsl.program
+13:14:51: Parsing script deferred_post_vs.program
+13:14:51: Parsing script editor.material
+13:14:51: Parsing script Example-DynTex.material
+13:14:51: Parsing script Example.material
+13:14:51: Parsing script lua_app.material
+13:14:51: Parsing script deferred.material
+13:14:51: Parsing script deferreddemo.material
+13:14:51: Parsing script deferred_post_ambient.material
+13:14:51: Parsing script deferred_post_debug.material
+13:14:51: Parsing script deferred_post_minilight.material
+13:14:51: Parsing script deferred_post_multipass.material
+13:14:51: Parsing script deferred_post_onepass.material
+13:14:51: Parsing script emitted_emitter.particle
+13:14:51: Parsing script Example-Water.particle
+13:14:51: Parsing script Example.particle
+13:14:51: Parsing script smoke.particle
+13:14:51: Parsing script Examples.compositor
+13:14:51: Parsing script deferred.compositor
+13:14:51: Parsing script sample.fontdef
+13:14:51: Parsing script console.overlay
+13:14:51: Texture: console_bg.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x128x1.
+13:14:51: Texture: console_input_bg.png: Loading 1 faces(PF_A8R8G8B8,128x64x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,128x64x1.
+13:14:51: Parsing script parameters.overlay
+13:14:51: Finished parsing scripts for resource group General
+13:14:51: Parsing scripts for resource group Internal
+13:14:51: Finished parsing scripts for resource group Internal
+13:14:51: *** Initializing OIS ***
+13:14:51: Mesh: Loading sphere.mesh.
+13:14:51: World object instatiated
+13:14:51: Lua: loading init.lua..
+13:14:51: Lua: ..\..\media\LUA\
+13:14:51: Lua: loading celldefinitions.lua..
+13:14:51: Lua:  system definitions - Loading System Definitions
+13:14:51: c++: loading system class: ..\..\media\LUA\systems\systems\abstractsystem.lua
+13:14:51: lua error message:cannot open ..\..\media\LUA\systems\systems\abstractsystem.LUA: No such file or directory
+13:14:51: Lua: Loading land 0.1 canvas surface...
+13:14:51: Lua: Loading water 0.1 canvas surface
+13:14:58: deleting physical object cell52_2DObject
+13:14:58: deleting physical object cell34_2DObject
+13:14:59: deleting physical object cell5_2DObject
+13:14:59: deleting physical object cell33_2DObject
+13:14:59: deleting physical object cell22_2DObject
+13:14:59: deleting physical object cell35_2DObject
+13:15:07: deleting physical object cell39_2DObject
+13:15:07: deleting physical object cell106_2DObject
+13:15:08: deleting physical object cell82_2DObject
+13:15:08: deleting physical object cell107_2DObject
+13:15:08: deleting physical object cell78_2DObject
+13:15:08: deleting physical object cell105_2DObject
+13:15:14: deleting physical object cell32_2DObject
+13:15:14: deleting physical object cell139_2DObject
+13:15:17: deleting physical object cell57_2DObject
+13:15:17: deleting physical object cell108_2DObject
+13:15:17: deleting physical object cell0_2DObject
+13:15:17: deleting physical object cell1_2DObject
+13:15:17: deleting physical object cell2_2DObject
+13:15:17: deleting physical object cell3_2DObject
+13:15:17: deleting physical object cell4_2DObject
+13:15:17: deleting physical object cell6_2DObject
+13:15:17: deleting physical object cell7_2DObject
+13:15:17: deleting physical object cell8_2DObject
+13:15:17: deleting physical object cell9_2DObject
+13:15:17: deleting physical object cell10_2DObject
+13:15:17: deleting physical object cell11_2DObject
+13:15:17: deleting physical object cell12_2DObject
+13:15:17: deleting physical object cell13_2DObject
+13:15:17: deleting physical object cell14_2DObject
+13:15:17: deleting physical object cell15_2DObject
+13:15:17: deleting physical object cell16_2DObject
+13:15:17: deleting physical object cell17_2DObject
+13:15:17: deleting physical object cell18_2DObject
+13:15:17: deleting physical object cell19_2DObject
+13:15:17: deleting physical object cell20_2DObject
+13:15:17: deleting physical object cell21_2DObject
+13:15:17: deleting physical object cell23_2DObject
+13:15:17: deleting physical object cell24_2DObject
+13:15:17: deleting physical object cell25_2DObject
+13:15:17: deleting physical object cell26_2DObject
+13:15:17: deleting physical object cell27_2DObject
+13:15:17: deleting physical object cell28_2DObject
+13:15:17: deleting physical object cell29_2DObject
+13:15:17: deleting physical object cell30_2DObject
+13:15:17: deleting physical object cell31_2DObject
+13:15:17: deleting physical object cell38_2DObject
+13:15:17: deleting physical object cell40_2DObject
+13:15:17: deleting physical object cell41_2DObject
+13:15:17: deleting physical object cell42_2DObject
+13:15:17: deleting physical object cell43_2DObject
+13:15:17: deleting physical object cell44_2DObject
+13:15:17: deleting physical object cell45_2DObject
+13:15:17: deleting physical object cell46_2DObject
+13:15:17: deleting physical object cell47_2DObject
+13:15:17: deleting physical object cell48_2DObject
+13:15:17: deleting physical object cell49_2DObject
+13:15:17: deleting physical object cell50_2DObject
+13:15:17: deleting physical object cell51_2DObject
+13:15:17: deleting physical object cell53_2DObject
+13:15:17: deleting physical object cell58_2DObject
+13:15:17: deleting physical object cell59_2DObject
+13:15:17: deleting physical object cell60_2DObject
+13:15:17: deleting physical object cell61_2DObject
+13:15:17: deleting physical object cell62_2DObject
+13:15:17: deleting physical object cell63_2DObject
+13:15:17: deleting physical object cell64_2DObject
+13:15:17: deleting physical object cell65_2DObject
+13:15:17: deleting physical object cell66_2DObject
+13:15:17: deleting physical object cell67_2DObject
+13:15:17: deleting physical object cell68_2DObject
+13:15:17: deleting physical object cell69_2DObject
+13:15:17: deleting physical object cell70_2DObject
+13:15:17: deleting physical object cell71_2DObject
+13:15:17: deleting physical object cell72_2DObject
+13:15:17: deleting physical object cell73_2DObject
+13:15:17: deleting physical object cell74_2DObject
+13:15:17: deleting physical object cell75_2DObject
+13:15:17: deleting physical object cell76_2DObject
+13:15:17: deleting physical object cell77_2DObject
+13:15:17: deleting physical object cell79_2DObject
+13:15:17: deleting physical object cell80_2DObject
+13:15:17: deleting physical object cell81_2DObject
+13:15:17: deleting physical object cell83_2DObject
+13:15:17: deleting physical object cell84_2DObject
+13:15:17: deleting physical object cell85_2DObject
+13:15:17: deleting physical object cell86_2DObject
+13:15:17: deleting physical object cell87_2DObject
+13:15:17: deleting physical object cell88_2DObject
+13:15:17: deleting physical object cell89_2DObject
+13:15:17: deleting physical object cell90_2DObject
+13:15:17: deleting physical object cell91_2DObject
+13:15:17: deleting physical object cell92_2DObject
+13:15:17: deleting physical object cell93_2DObject
+13:15:17: deleting physical object cell94_2DObject
+13:15:17: deleting physical object cell95_2DObject
+13:15:17: deleting physical object cell97_2DObject
+13:15:17: deleting physical object cell98_2DObject
+13:15:17: deleting physical object cell99_2DObject
+13:15:17: deleting physical object cell100_2DObject
+13:15:17: deleting physical object cell101_2DObject
+13:15:17: deleting physical object cell103_2DObject
+13:15:17: deleting physical object cell115_2DObject
+13:15:17: deleting physical object cell117_2DObject
+13:15:17: deleting physical object cell118_2DObject
+13:15:17: deleting physical object cell120_2DObject
+13:15:17: deleting physical object cell121_2DObject
+13:15:17: deleting physical object cell123_2DObject
+13:15:17: deleting physical object cell124_2DObject
+13:15:17: deleting physical object cell125_2DObject
+13:15:17: deleting physical object cell126_2DObject
+13:15:17: deleting physical object cell127_2DObject
+13:15:17: deleting physical object cell129_2DObject
+13:15:17: deleting physical object cell131_2DObject
+13:15:17: deleting physical object cell132_2DObject
+13:15:17: deleting physical object cell133_2DObject
+13:15:17: deleting physical object cell134_2DObject
+13:15:17: deleting physical object cell135_2DObject
+13:15:17: deleting physical object cell137_2DObject
+13:15:17: deleting physical object cell138_2DObject
+13:15:17: deleting physical object cell141_2DObject
+13:15:17: deleting physical object cell142_2DObject
+13:15:17: deleting physical object cell143_2DObject
+13:15:17: deleting physical object cell145_2DObject
+13:15:17: deleting physical object cell149_2DObject
+13:15:17: deleting physical object cell150_2DObject
+13:15:17: deleting physical object cell151_2DObject
+13:15:17: deleting physical object cell152_2DObject
+13:15:17: deleting physical object cell153_2DObject
+13:15:17: deleting physical object cell154_2DObject
+13:15:17: deleting physical object cell155_2DObject
+13:15:17: deleting physical object cell156_2DObject
+13:15:17: deleting physical object cell158_2DObject
+13:15:17: deleting physical object cell159_2DObject
+13:15:17: deleting physical object cell161_2DObject
+13:15:17: deleting physical object cell36_2DObject
+13:15:17: deleting physical object cell37_2DObject
+13:15:17: deleting physical object cell54_2DObject
+13:15:17: deleting physical object cell55_2DObject
+13:15:17: deleting physical object cell56_2DObject
+13:15:17: deleting physical object cell96_2DObject
+13:15:17: deleting physical object cell102_2DObject
+13:15:17: deleting physical object cell110_2DObject
+13:15:17: deleting physical object cell111_2DObject
+13:15:17: deleting physical object cell113_2DObject
+13:15:17: deleting physical object cell114_2DObject
+13:15:17: deleting physical object cell119_2DObject
+13:15:17: deleting physical object cell122_2DObject
+13:15:17: deleting physical object cell128_2DObject
+13:15:17: deleting physical object cell130_2DObject
+13:15:17: deleting physical object cell140_2DObject
+13:15:17: deleting physical object cell144_2DObject
+13:15:17: deleting physical object cell146_2DObject
+13:15:17: deleting physical object cell147_2DObject
+13:15:17: deleting physical object cell148_2DObject
+13:15:17: deleting physical object cell157_2DObject
+13:15:17: deleting physical object cell162_2DObject
+13:15:17: deleting physical object cell104_2DObject
+13:15:17: deleting physical object cell109_2DObject
+13:15:17: deleting physical object cell112_2DObject
+13:15:17: deleting physical object cell116_2DObject
+13:15:17: deleting physical object cell136_2DObject
+13:15:17: deleting physical object cell160_2DObject
+13:15:29: deleting physical object cell180_2DObject
+13:15:29: deleting physical object cell172_2DObject
+13:15:29: deleting physical object cell253_2DObject
+13:15:29: deleting physical object cell179_2DObject
+13:15:29: deleting physical object cell175_2DObject
+13:15:29: deleting physical object cell171_2DObject
+13:15:29: deleting physical object cell286_2DObject
+13:15:29: deleting physical object cell182_2DObject
+13:15:29: deleting physical object cell238_2DObject
+13:15:29: deleting physical object cell168_2DObject
+13:15:29: deleting physical object cell274_2DObject
+13:15:29: deleting physical object cell284_2DObject

@@ -23,26 +23,18 @@ EventHandler::~EventHandler(void)
 void EventHandler::handleBufferedEvents()
 {
 
-	std::vector<Movable2DObject*>::iterator itr;
-	bool actor1Deleted=false;
-	bool actor2Deleted=false;
+	
+
 
 	while (!mEventBuffer.empty()) {
 		
 			Event* currentEvent= mEventBuffer.front(); 
 			mEventBuffer.pop();
-
-			//delete both cells if different cellsystems
-			Cell* actor1= static_cast<Cell*>(currentEvent->mActor1);
-			Cell* actor2= static_cast<Cell*>(currentEvent->mActor2);
-
-			CellSystem* system1 = actor1->getCellSystem();
-			CellSystem* system2 = actor2->getCellSystem();
-
+	
 
 			switch(currentEvent->mType){
 				case EVENTTYPE::COLLISION:
-					handleCollisionEvent(actor1, actor2);
+					//handleCollisionEvent(currentEvent->mActor1, currentEvent->mActor2);
 					break;
 				case EVENTTYPE::CONTAINS:
 					
@@ -60,26 +52,6 @@ void EventHandler::handleBufferedEvents()
 
 
 
-			/*
-			if (system1 != system2)
-				{
-					for(itr=mDeletedActors.begin(); itr!=mDeletedActors.end();itr++)
-					{
-						if ((*itr)==actor1)
-							actor1Deleted=true;
-
-						if ((*itr)==actor2)
-							actor2Deleted=true;
-					} 
-			
-					mDeletedActors.push_back(actor1);
-					mDeletedActors.push_back(actor2);
-					
-					if (actor1Deleted==false)
-						system1->destroyCell(actor1);
-					if (actor2Deleted==false)
-						system2->destroyCell(actor2);
-				}*/
 	
 	}
 
@@ -113,8 +85,37 @@ void EventHandler::notifyActorDestruction(Movable2DObject* actor)
 
 void EventHandler::handleCollisionEvent(Movable2DObject* actor1,Movable2DObject* actor2)
 {
+	bool actor1Deleted=false;
+	bool actor2Deleted=false;	
+	
+	std::vector<Movable2DObject*>::iterator itr;
+			Cell* _actor1= static_cast<Cell*>(actor1);
+			Cell* _actor2= static_cast<Cell*>(actor2);
 
+			CellSystem* system1 = _actor1->getCellSystem();
+			CellSystem* system2 = _actor2->getCellSystem();
 
+			if (system1 != system2)
+				{
+					for(itr=mDeletedActors.begin(); itr!=mDeletedActors.end();itr++)
+					{
+						if ((*itr)==_actor1)
+							actor1Deleted=true;
+
+						if ((*itr)==_actor2)
+							actor2Deleted=true;
+					} 
+			
+					mDeletedActors.push_back(_actor1);
+					mDeletedActors.push_back(_actor2);
+					
+					if (actor1Deleted==false)
+						system1->destroyCell(_actor1);
+					if (actor2Deleted==false)
+						system2->destroyCell(_actor2);
+				}
+
+	
 }
 void EventHandler::handleScriptedEvent(int eventID, Movable2DObject* actor1, Movable2DObject* actor2)
 {
