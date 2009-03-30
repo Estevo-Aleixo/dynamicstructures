@@ -1,442 +1,282 @@
-13:14:47: Creating resource group General
-13:14:47: Creating resource group Internal
-13:14:47: Creating resource group Autodetect
-13:14:47: SceneManagerFactory for type 'DefaultSceneManager' registered.
-13:14:47: Registering ResourceManager for type Material
-13:14:47: Registering ResourceManager for type Mesh
-13:14:47: Registering ResourceManager for type Skeleton
-13:14:47: MovableObjectFactory for type 'ParticleSystem' registered.
-13:14:47: OverlayElementFactory for type Panel registered.
-13:14:47: OverlayElementFactory for type BorderPanel registered.
-13:14:47: OverlayElementFactory for type TextArea registered.
-13:14:47: Registering ResourceManager for type Font
-13:14:47: ArchiveFactory for archive type FileSystem registered.
-13:14:47: ArchiveFactory for archive type Zip registered.
-13:14:47: FreeImage version: 3.10.0
-13:14:47: This program uses FreeImage, a free, open source image library supporting all common bitmap formats. See http://freeimage.sourceforge.net for details
-13:14:47: Supported formats: bmp,ico,jpg,jif,jpeg,jpe,jng,koa,iff,lbm,mng,pbm,pbm,pcd,pcx,pgm,pgm,png,ppm,ppm,ras,tga,targa,tif,tiff,wap,wbmp,wbm,psd,cut,xbm,xpm,gif,hdr,g3,sgi,exr,j2k,j2c,jp2
-13:14:47: DDS codec registering
-13:14:47: Registering ResourceManager for type HighLevelGpuProgram
-13:14:47: Registering ResourceManager for type Compositor
-13:14:47: MovableObjectFactory for type 'Entity' registered.
-13:14:47: MovableObjectFactory for type 'Light' registered.
-13:14:47: MovableObjectFactory for type 'BillboardSet' registered.
-13:14:47: MovableObjectFactory for type 'ManualObject' registered.
-13:14:47: MovableObjectFactory for type 'BillboardChain' registered.
-13:14:47: MovableObjectFactory for type 'RibbonTrail' registered.
-13:14:47: Loading library .\RenderSystem_Direct3D9
-13:14:47: Installing plugin: D3D9 RenderSystem
-13:14:47: D3D9 : Direct3D9 Rendering Subsystem created.
-13:14:47: D3D9: Driver Detection Starts
-13:14:47: D3D9: Driver Detection Ends
-13:14:47: Plugin successfully installed
-13:14:47: Loading library .\RenderSystem_GL
-13:14:47: Installing plugin: GL RenderSystem
-13:14:47: OpenGL Rendering Subsystem created.
-13:14:47: Plugin successfully installed
-13:14:47: Loading library .\Plugin_ParticleFX
-13:14:47: Installing plugin: ParticleFX
-13:14:47: Particle Emitter Type 'Point' registered
-13:14:47: Particle Emitter Type 'Box' registered
-13:14:47: Particle Emitter Type 'Ellipsoid' registered
-13:14:47: Particle Emitter Type 'Cylinder' registered
-13:14:47: Particle Emitter Type 'Ring' registered
-13:14:47: Particle Emitter Type 'HollowEllipsoid' registered
-13:14:47: Particle Affector Type 'LinearForce' registered
-13:14:47: Particle Affector Type 'ColourFader' registered
-13:14:47: Particle Affector Type 'ColourFader2' registered
-13:14:47: Particle Affector Type 'ColourImage' registered
-13:14:47: Particle Affector Type 'ColourInterpolator' registered
-13:14:47: Particle Affector Type 'Scaler' registered
-13:14:47: Particle Affector Type 'Rotator' registered
-13:14:47: Particle Affector Type 'DirectionRandomiser' registered
-13:14:47: Particle Affector Type 'DeflectorPlane' registered
-13:14:47: Plugin successfully installed
-13:14:47: Loading library .\Plugin_BSPSceneManager
-13:14:47: Installing plugin: BSP Scene Manager
-13:14:47: Plugin successfully installed
-13:14:47: Loading library .\Plugin_CgProgramManager
-13:14:47: Installing plugin: Cg Program Manager
-13:14:47: Plugin successfully installed
-13:14:47: *-*-* OGRE Initialising
-13:14:47: *-*-* Version 1.6.0RC1 (Shoggoth)
-13:14:47: Creating resource group Bootstrap
-13:14:47: Added resource location '../../media/packs/OgreCore.zip' of type 'Zip' to resource group 'Bootstrap'
-13:14:47: Added resource location '../../media' of type 'FileSystem' to resource group 'General'
-13:14:47: Added resource location '../../media/fonts' of type 'FileSystem' to resource group 'General'
-13:14:47: Added resource location '../../media/materials/programs' of type 'FileSystem' to resource group 'General'
-13:14:47: Added resource location '../../media/materials/scripts' of type 'FileSystem' to resource group 'General'
-13:14:47: Added resource location '../../media/materials/textures' of type 'FileSystem' to resource group 'General'
-13:14:47: Added resource location '../../media/models' of type 'FileSystem' to resource group 'General'
-13:14:47: Added resource location '../../media/overlays' of type 'FileSystem' to resource group 'General'
-13:14:47: Added resource location '../../media/particle' of type 'FileSystem' to resource group 'General'
-13:14:47: Added resource location '../../media/gui' of type 'FileSystem' to resource group 'General'
-13:14:47: Added resource location '../../media/DeferredShadingMedia' of type 'FileSystem' to resource group 'General'
-13:14:47: Added resource location '../../media/ObjectDefinitions' of type 'FileSystem' to resource group 'General'
-13:14:47: D3D9 : RenderSystem Option: Allow NVPerfHUD = No
-13:14:47: D3D9 : RenderSystem Option: Anti aliasing = None
-13:14:47: D3D9 : RenderSystem Option: Floating-point mode = Fastest
-13:14:47: D3D9 : RenderSystem Option: Full Screen = No
-13:14:47: D3D9 : RenderSystem Option: Rendering Device = NVIDIA Quadro FX 1700
-13:14:47: D3D9 : RenderSystem Option: VSync = No
-13:14:47: D3D9 : RenderSystem Option: Video Mode = 1024 x 768 @ 32-bit colour
-13:14:47: D3D9 : RenderSystem Option: sRGB Gamma Conversion = No
-13:14:50: CPU Identifier & Features
-13:14:50: -------------------------
-13:14:50:  *   CPU ID: GenuineIntel: Intel(R) Xeon(R) CPU           E5420  @ 2.50GHz
-13:14:50:  *      SSE: yes
-13:14:50:  *     SSE2: yes
-13:14:50:  *     SSE3: yes
-13:14:50:  *      MMX: yes
-13:14:50:  *   MMXEXT: yes
-13:14:50:  *    3DNOW: no
-13:14:50:  * 3DNOWEXT: no
-13:14:50:  *     CMOV: yes
-13:14:50:  *      TSC: yes
-13:14:50:  *      FPU: yes
-13:14:50:  *      PRO: yes
-13:14:50:  *       HT: no
-13:14:50: -------------------------
-13:14:50: D3D9 : Subsystem Initialising
-13:14:50: D3D9RenderSystem::_createRenderWindow "GOO editor", 1024x768 windowed  miscParams: FSAA=0 FSAAQuality=0 colourDepth=32 gamma=false useNVPerfHUD=false vsync=false 
-13:14:50: D3D9 : Created D3D9 Rendering Window 'GOO editor' : 1024x768, 32bpp
-13:14:50: D3D9 : WARNING - disabling VSync in windowed mode can cause timing issues at lower frame rates, turn VSync on if you observe this problem.
-13:14:50: Registering ResourceManager for type Texture
-13:14:50: Registering ResourceManager for type GpuProgram
-13:14:50: D3D9: Vertex texture format supported - PF_FLOAT16_RGB
-13:14:50: D3D9: Vertex texture format supported - PF_FLOAT16_RGBA
-13:14:50: D3D9: Vertex texture format supported - PF_FLOAT32_RGB
-13:14:50: D3D9: Vertex texture format supported - PF_FLOAT32_RGBA
-13:14:50: D3D9: Vertex texture format supported - PF_FLOAT16_R
-13:14:50: D3D9: Vertex texture format supported - PF_FLOAT32_R
-13:14:50: D3D9: Vertex texture format supported - PF_FLOAT16_GR
-13:14:50: D3D9: Vertex texture format supported - PF_FLOAT32_GR
-13:14:50: RenderSystem capabilities
-13:14:50: -------------------------
-13:14:50: RenderSystem Name: Direct3D9 Rendering Subsystem
-13:14:50: GPU Vendor: nvidia
-13:14:50: Device Name: NVIDIA Quadro FX 1700
-13:14:50: Driver Version: 6.14.11.6926
-13:14:50:  * Fixed function pipeline: yes
-13:14:50:  * Hardware generation of mipmaps: yes
-13:14:50:  * Texture blending: yes
-13:14:50:  * Anisotropic texture filtering: yes
-13:14:50:  * Dot product texture operation: yes
-13:14:50:  * Cube mapping: yes
-13:14:50:  * Hardware stencil buffer: yes
-13:14:50:    - Stencil depth: 8
-13:14:50:    - Two sided stencil support: yes
-13:14:50:    - Wrap stencil values: yes
-13:14:50:  * Hardware vertex / index buffers: yes
-13:14:50:  * Vertex programs: yes
-13:14:50:  * Fragment programs: yes
-13:14:50:  * Geometry programs: no
-13:14:50:  * Supported Shader Profiles: hlsl ps_1_1 ps_1_2 ps_1_3 ps_1_4 ps_2_0 ps_2_a ps_2_b ps_2_x ps_3_0 vs_1_1 vs_2_0 vs_2_a vs_2_x vs_3_0
-13:14:50:  * Texture Compression: yes
-13:14:50:    - DXT: yes
-13:14:50:    - VTC: no
-13:14:50:  * Scissor Rectangle: yes
-13:14:50:  * Hardware Occlusion Query: yes
-13:14:50:  * User clip planes: yes
-13:14:50:  * VET_UBYTE4 vertex element type: yes
-13:14:50:  * Infinite far plane projection: yes
-13:14:50:  * Hardware render-to-texture: yes
-13:14:50:  * Floating point textures: yes
-13:14:50:  * Non-power-of-two textures: yes
-13:14:50:  * Volume textures: yes
-13:14:50:  * Multiple Render Targets: 4
-13:14:50:    - With different bit depths: yes
-13:14:50:  * Point Sprites: yes
-13:14:50:  * Extended point parameters: yes
-13:14:50:  * Max Point Size: 8192
-13:14:50:  * Vertex texture fetch: yes
-13:14:50:    - Max vertex textures: 4
-13:14:50:    - Vertex textures shared: no
-13:14:50:  * Render to Vertex Buffer : no
-13:14:50:  * DirectX per stage constants: yes
-13:14:50: ***************************************
-13:14:50: *** D3D9 : Subsystem Initialised OK ***
-13:14:50: ***************************************
-13:14:50: ResourceBackgroundQueue - threading disabled
-13:14:50: Particle Renderer Type 'billboard' registered
-13:14:50: SceneManagerFactory for type 'BspSceneManager' registered.
-13:14:50: Registering ResourceManager for type BspLevel
-13:14:50: Parsing scripts for resource group Autodetect
-13:14:50: Finished parsing scripts for resource group Autodetect
-13:14:50: Parsing scripts for resource group Bootstrap
-13:14:50: Parsing script OgreCore.material
-13:14:50: Parsing script OgreProfiler.material
-13:14:50: Parsing script Ogre.fontdef
-13:14:50: Parsing script OgreDebugPanel.overlay
-13:14:50: Texture: New_Ogre_Border_Center.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x128x1.
-13:14:50: Texture: New_Ogre_Border.png: Loading 1 faces(PF_A8R8G8B8,256x256x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x256x1.
-13:14:50: Texture: New_Ogre_Border_Break.png: Loading 1 faces(PF_A8R8G8B8,32x32x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,32x32x1.
-13:14:50: Font BlueHighwayusing texture size 512x512
-13:14:50: Info: Freetype returned null for character 127 in font BlueHighway
-13:14:50: Info: Freetype returned null for character 128 in font BlueHighway
-13:14:50: Info: Freetype returned null for character 129 in font BlueHighway
-13:14:50: Info: Freetype returned null for character 130 in font BlueHighway
-13:14:50: Info: Freetype returned null for character 131 in font BlueHighway
-13:14:50: Info: Freetype returned null for character 132 in font BlueHighway
-13:14:50: Info: Freetype returned null for character 133 in font BlueHighway
-13:14:50: Info: Freetype returned null for character 134 in font BlueHighway
-13:14:50: Info: Freetype returned null for character 135 in font BlueHighway
-13:14:50: Info: Freetype returned null for character 136 in font BlueHighway
-13:14:50: Info: Freetype returned null for character 137 in font BlueHighway
-13:14:50: Info: Freetype returned null for character 138 in font BlueHighway
-13:14:50: Info: Freetype returned null for character 139 in font BlueHighway
-13:14:50: Info: Freetype returned null for character 140 in font BlueHighway
-13:14:50: Info: Freetype returned null for character 141 in font BlueHighway
-13:14:50: Info: Freetype returned null for character 142 in font BlueHighway
-13:14:50: Info: Freetype returned null for character 143 in font BlueHighway
-13:14:50: Info: Freetype returned null for character 144 in font BlueHighway
-13:14:50: Info: Freetype returned null for character 145 in font BlueHighway
-13:14:50: Info: Freetype returned null for character 146 in font BlueHighway
-13:14:50: Info: Freetype returned null for character 147 in font BlueHighway
-13:14:50: Info: Freetype returned null for character 148 in font BlueHighway
-13:14:50: Info: Freetype returned null for character 149 in font BlueHighway
-13:14:50: Info: Freetype returned null for character 150 in font BlueHighway
-13:14:50: Info: Freetype returned null for character 151 in font BlueHighway
-13:14:50: Info: Freetype returned null for character 152 in font BlueHighway
-13:14:50: Info: Freetype returned null for character 153 in font BlueHighway
-13:14:50: Info: Freetype returned null for character 154 in font BlueHighway
-13:14:50: Info: Freetype returned null for character 155 in font BlueHighway
-13:14:50: Info: Freetype returned null for character 156 in font BlueHighway
-13:14:50: Info: Freetype returned null for character 157 in font BlueHighway
-13:14:50: Info: Freetype returned null for character 158 in font BlueHighway
-13:14:50: Info: Freetype returned null for character 159 in font BlueHighway
-13:14:50: Info: Freetype returned null for character 160 in font BlueHighway
-13:14:50: Texture: BlueHighwayTexture: Loading 1 faces(PF_BYTE_LA,512x512x1) with 0 generated mipmaps from Image. Internal format is PF_BYTE_LA,512x512x1.
-13:14:50: Texture: ogretext.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x128x1.
-13:14:50: Parsing script OgreLoadingPanel.overlay
-13:14:50: Finished parsing scripts for resource group Bootstrap
-13:14:50: Parsing scripts for resource group General
-13:14:50: Parsing script Examples.program
-13:14:50: Parsing script deferred.glsl.program
-13:14:50: Parsing script deferred.hlsl.program
-13:14:51: Parsing script deferred.program
-13:14:51: Parsing script deferred_post_ambient.program
-13:14:51: Parsing script deferred_post_debug.glsl.program
-13:14:51: Parsing script deferred_post_debug.hlsl.program
-13:14:51: Parsing script deferred_post_debug.program
-13:14:51: Parsing script deferred_post_minilight.glsl.program
-13:14:51: Parsing script deferred_post_minilight.hlsl.program
-13:14:51: OGRE EXCEPTION(2:InvalidParametersException): Parameter called lightFalloff does not exist.  in GpuProgramParameters::_findNamedConstantDefinition at ..\src\OgreGpuProgram.cpp (line 1095)
-13:14:51: Compiler error: invalid parameters in deferred_post_minilight.hlsl.program(27): setting of constant failed
-13:14:51: Parsing script deferred_post_minilight.program
-13:14:51: Parsing script deferred_post_multipass.glsl.program
-13:14:51: Parsing script deferred_post_multipass.hlsl.program
-13:14:51: Parsing script deferred_post_onepass.glsl.program
-13:14:51: Parsing script deferred_post_onepass.hlsl.program
-13:14:51: Parsing script deferred_post_vs.program
-13:14:51: Parsing script editor.material
-13:14:51: Parsing script Example-DynTex.material
-13:14:51: Parsing script Example.material
-13:14:51: Parsing script lua_app.material
-13:14:51: Parsing script deferred.material
-13:14:51: Parsing script deferreddemo.material
-13:14:51: Parsing script deferred_post_ambient.material
-13:14:51: Parsing script deferred_post_debug.material
-13:14:51: Parsing script deferred_post_minilight.material
-13:14:51: Parsing script deferred_post_multipass.material
-13:14:51: Parsing script deferred_post_onepass.material
-13:14:51: Parsing script emitted_emitter.particle
-13:14:51: Parsing script Example-Water.particle
-13:14:51: Parsing script Example.particle
-13:14:51: Parsing script smoke.particle
-13:14:51: Parsing script Examples.compositor
-13:14:51: Parsing script deferred.compositor
-13:14:51: Parsing script sample.fontdef
-13:14:51: Parsing script console.overlay
-13:14:51: Texture: console_bg.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x128x1.
-13:14:51: Texture: console_input_bg.png: Loading 1 faces(PF_A8R8G8B8,128x64x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,128x64x1.
-13:14:51: Parsing script parameters.overlay
-13:14:51: Finished parsing scripts for resource group General
-13:14:51: Parsing scripts for resource group Internal
-13:14:51: Finished parsing scripts for resource group Internal
-13:14:51: *** Initializing OIS ***
-13:14:51: Mesh: Loading sphere.mesh.
-13:14:51: World object instatiated
-13:14:51: Lua: loading init.lua..
-13:14:51: Lua: ..\..\media\LUA\
-13:14:51: Lua: loading celldefinitions.lua..
-13:14:51: Lua:  system definitions - Loading System Definitions
-13:14:51: c++: loading system class: ..\..\media\LUA\systems\systems\abstractsystem.lua
-13:14:51: lua error message:cannot open ..\..\media\LUA\systems\systems\abstractsystem.LUA: No such file or directory
-13:14:51: Lua: Loading land 0.1 canvas surface...
-13:14:51: Lua: Loading water 0.1 canvas surface
-13:14:58: deleting physical object cell52_2DObject
-13:14:58: deleting physical object cell34_2DObject
-13:14:59: deleting physical object cell5_2DObject
-13:14:59: deleting physical object cell33_2DObject
-13:14:59: deleting physical object cell22_2DObject
-13:14:59: deleting physical object cell35_2DObject
-13:15:07: deleting physical object cell39_2DObject
-13:15:07: deleting physical object cell106_2DObject
-13:15:08: deleting physical object cell82_2DObject
-13:15:08: deleting physical object cell107_2DObject
-13:15:08: deleting physical object cell78_2DObject
-13:15:08: deleting physical object cell105_2DObject
-13:15:14: deleting physical object cell32_2DObject
-13:15:14: deleting physical object cell139_2DObject
-13:15:17: deleting physical object cell57_2DObject
-13:15:17: deleting physical object cell108_2DObject
-13:15:17: deleting physical object cell0_2DObject
-13:15:17: deleting physical object cell1_2DObject
-13:15:17: deleting physical object cell2_2DObject
-13:15:17: deleting physical object cell3_2DObject
-13:15:17: deleting physical object cell4_2DObject
-13:15:17: deleting physical object cell6_2DObject
-13:15:17: deleting physical object cell7_2DObject
-13:15:17: deleting physical object cell8_2DObject
-13:15:17: deleting physical object cell9_2DObject
-13:15:17: deleting physical object cell10_2DObject
-13:15:17: deleting physical object cell11_2DObject
-13:15:17: deleting physical object cell12_2DObject
-13:15:17: deleting physical object cell13_2DObject
-13:15:17: deleting physical object cell14_2DObject
-13:15:17: deleting physical object cell15_2DObject
-13:15:17: deleting physical object cell16_2DObject
-13:15:17: deleting physical object cell17_2DObject
-13:15:17: deleting physical object cell18_2DObject
-13:15:17: deleting physical object cell19_2DObject
-13:15:17: deleting physical object cell20_2DObject
-13:15:17: deleting physical object cell21_2DObject
-13:15:17: deleting physical object cell23_2DObject
-13:15:17: deleting physical object cell24_2DObject
-13:15:17: deleting physical object cell25_2DObject
-13:15:17: deleting physical object cell26_2DObject
-13:15:17: deleting physical object cell27_2DObject
-13:15:17: deleting physical object cell28_2DObject
-13:15:17: deleting physical object cell29_2DObject
-13:15:17: deleting physical object cell30_2DObject
-13:15:17: deleting physical object cell31_2DObject
-13:15:17: deleting physical object cell38_2DObject
-13:15:17: deleting physical object cell40_2DObject
-13:15:17: deleting physical object cell41_2DObject
-13:15:17: deleting physical object cell42_2DObject
-13:15:17: deleting physical object cell43_2DObject
-13:15:17: deleting physical object cell44_2DObject
-13:15:17: deleting physical object cell45_2DObject
-13:15:17: deleting physical object cell46_2DObject
-13:15:17: deleting physical object cell47_2DObject
-13:15:17: deleting physical object cell48_2DObject
-13:15:17: deleting physical object cell49_2DObject
-13:15:17: deleting physical object cell50_2DObject
-13:15:17: deleting physical object cell51_2DObject
-13:15:17: deleting physical object cell53_2DObject
-13:15:17: deleting physical object cell58_2DObject
-13:15:17: deleting physical object cell59_2DObject
-13:15:17: deleting physical object cell60_2DObject
-13:15:17: deleting physical object cell61_2DObject
-13:15:17: deleting physical object cell62_2DObject
-13:15:17: deleting physical object cell63_2DObject
-13:15:17: deleting physical object cell64_2DObject
-13:15:17: deleting physical object cell65_2DObject
-13:15:17: deleting physical object cell66_2DObject
-13:15:17: deleting physical object cell67_2DObject
-13:15:17: deleting physical object cell68_2DObject
-13:15:17: deleting physical object cell69_2DObject
-13:15:17: deleting physical object cell70_2DObject
-13:15:17: deleting physical object cell71_2DObject
-13:15:17: deleting physical object cell72_2DObject
-13:15:17: deleting physical object cell73_2DObject
-13:15:17: deleting physical object cell74_2DObject
-13:15:17: deleting physical object cell75_2DObject
-13:15:17: deleting physical object cell76_2DObject
-13:15:17: deleting physical object cell77_2DObject
-13:15:17: deleting physical object cell79_2DObject
-13:15:17: deleting physical object cell80_2DObject
-13:15:17: deleting physical object cell81_2DObject
-13:15:17: deleting physical object cell83_2DObject
-13:15:17: deleting physical object cell84_2DObject
-13:15:17: deleting physical object cell85_2DObject
-13:15:17: deleting physical object cell86_2DObject
-13:15:17: deleting physical object cell87_2DObject
-13:15:17: deleting physical object cell88_2DObject
-13:15:17: deleting physical object cell89_2DObject
-13:15:17: deleting physical object cell90_2DObject
-13:15:17: deleting physical object cell91_2DObject
-13:15:17: deleting physical object cell92_2DObject
-13:15:17: deleting physical object cell93_2DObject
-13:15:17: deleting physical object cell94_2DObject
-13:15:17: deleting physical object cell95_2DObject
-13:15:17: deleting physical object cell97_2DObject
-13:15:17: deleting physical object cell98_2DObject
-13:15:17: deleting physical object cell99_2DObject
-13:15:17: deleting physical object cell100_2DObject
-13:15:17: deleting physical object cell101_2DObject
-13:15:17: deleting physical object cell103_2DObject
-13:15:17: deleting physical object cell115_2DObject
-13:15:17: deleting physical object cell117_2DObject
-13:15:17: deleting physical object cell118_2DObject
-13:15:17: deleting physical object cell120_2DObject
-13:15:17: deleting physical object cell121_2DObject
-13:15:17: deleting physical object cell123_2DObject
-13:15:17: deleting physical object cell124_2DObject
-13:15:17: deleting physical object cell125_2DObject
-13:15:17: deleting physical object cell126_2DObject
-13:15:17: deleting physical object cell127_2DObject
-13:15:17: deleting physical object cell129_2DObject
-13:15:17: deleting physical object cell131_2DObject
-13:15:17: deleting physical object cell132_2DObject
-13:15:17: deleting physical object cell133_2DObject
-13:15:17: deleting physical object cell134_2DObject
-13:15:17: deleting physical object cell135_2DObject
-13:15:17: deleting physical object cell137_2DObject
-13:15:17: deleting physical object cell138_2DObject
-13:15:17: deleting physical object cell141_2DObject
-13:15:17: deleting physical object cell142_2DObject
-13:15:17: deleting physical object cell143_2DObject
-13:15:17: deleting physical object cell145_2DObject
-13:15:17: deleting physical object cell149_2DObject
-13:15:17: deleting physical object cell150_2DObject
-13:15:17: deleting physical object cell151_2DObject
-13:15:17: deleting physical object cell152_2DObject
-13:15:17: deleting physical object cell153_2DObject
-13:15:17: deleting physical object cell154_2DObject
-13:15:17: deleting physical object cell155_2DObject
-13:15:17: deleting physical object cell156_2DObject
-13:15:17: deleting physical object cell158_2DObject
-13:15:17: deleting physical object cell159_2DObject
-13:15:17: deleting physical object cell161_2DObject
-13:15:17: deleting physical object cell36_2DObject
-13:15:17: deleting physical object cell37_2DObject
-13:15:17: deleting physical object cell54_2DObject
-13:15:17: deleting physical object cell55_2DObject
-13:15:17: deleting physical object cell56_2DObject
-13:15:17: deleting physical object cell96_2DObject
-13:15:17: deleting physical object cell102_2DObject
-13:15:17: deleting physical object cell110_2DObject
-13:15:17: deleting physical object cell111_2DObject
-13:15:17: deleting physical object cell113_2DObject
-13:15:17: deleting physical object cell114_2DObject
-13:15:17: deleting physical object cell119_2DObject
-13:15:17: deleting physical object cell122_2DObject
-13:15:17: deleting physical object cell128_2DObject
-13:15:17: deleting physical object cell130_2DObject
-13:15:17: deleting physical object cell140_2DObject
-13:15:17: deleting physical object cell144_2DObject
-13:15:17: deleting physical object cell146_2DObject
-13:15:17: deleting physical object cell147_2DObject
-13:15:17: deleting physical object cell148_2DObject
-13:15:17: deleting physical object cell157_2DObject
-13:15:17: deleting physical object cell162_2DObject
-13:15:17: deleting physical object cell104_2DObject
-13:15:17: deleting physical object cell109_2DObject
-13:15:17: deleting physical object cell112_2DObject
-13:15:17: deleting physical object cell116_2DObject
-13:15:17: deleting physical object cell136_2DObject
-13:15:17: deleting physical object cell160_2DObject
-13:15:29: deleting physical object cell180_2DObject
-13:15:29: deleting physical object cell172_2DObject
-13:15:29: deleting physical object cell253_2DObject
-13:15:29: deleting physical object cell179_2DObject
-13:15:29: deleting physical object cell175_2DObject
-13:15:29: deleting physical object cell171_2DObject
-13:15:29: deleting physical object cell286_2DObject
-13:15:29: deleting physical object cell182_2DObject
-13:15:29: deleting physical object cell238_2DObject
-13:15:29: deleting physical object cell168_2DObject
-13:15:29: deleting physical object cell274_2DObject
-13:15:29: deleting physical object cell284_2DObject
+14:37:42: Creating resource group General
+14:37:42: Creating resource group Internal
+14:37:42: Creating resource group Autodetect
+14:37:42: SceneManagerFactory for type 'DefaultSceneManager' registered.
+14:37:42: Registering ResourceManager for type Material
+14:37:42: Registering ResourceManager for type Mesh
+14:37:42: Registering ResourceManager for type Skeleton
+14:37:42: MovableObjectFactory for type 'ParticleSystem' registered.
+14:37:42: OverlayElementFactory for type Panel registered.
+14:37:42: OverlayElementFactory for type BorderPanel registered.
+14:37:42: OverlayElementFactory for type TextArea registered.
+14:37:42: Registering ResourceManager for type Font
+14:37:42: ArchiveFactory for archive type FileSystem registered.
+14:37:42: ArchiveFactory for archive type Zip registered.
+14:37:42: FreeImage version: 3.10.0
+14:37:42: This program uses FreeImage, a free, open source image library supporting all common bitmap formats. See http://freeimage.sourceforge.net for details
+14:37:42: Supported formats: bmp,ico,jpg,jif,jpeg,jpe,jng,koa,iff,lbm,mng,pbm,pbm,pcd,pcx,pgm,pgm,png,ppm,ppm,ras,tga,targa,tif,tiff,wap,wbmp,wbm,psd,cut,xbm,xpm,gif,hdr,g3,sgi,exr,j2k,j2c,jp2
+14:37:42: DDS codec registering
+14:37:42: Registering ResourceManager for type HighLevelGpuProgram
+14:37:42: Registering ResourceManager for type Compositor
+14:37:42: MovableObjectFactory for type 'Entity' registered.
+14:37:42: MovableObjectFactory for type 'Light' registered.
+14:37:42: MovableObjectFactory for type 'BillboardSet' registered.
+14:37:42: MovableObjectFactory for type 'ManualObject' registered.
+14:37:42: MovableObjectFactory for type 'BillboardChain' registered.
+14:37:42: MovableObjectFactory for type 'RibbonTrail' registered.
+14:37:42: Loading library .\RenderSystem_Direct3D9
+14:37:42: Installing plugin: D3D9 RenderSystem
+14:37:42: D3D9 : Direct3D9 Rendering Subsystem created.
+14:37:42: D3D9: Driver Detection Starts
+14:37:42: D3D9: Driver Detection Ends
+14:37:42: Plugin successfully installed
+14:37:42: Loading library .\RenderSystem_GL
+14:37:42: Installing plugin: GL RenderSystem
+14:37:42: OpenGL Rendering Subsystem created.
+14:37:43: Plugin successfully installed
+14:37:43: Loading library .\Plugin_ParticleFX
+14:37:43: Installing plugin: ParticleFX
+14:37:43: Particle Emitter Type 'Point' registered
+14:37:43: Particle Emitter Type 'Box' registered
+14:37:43: Particle Emitter Type 'Ellipsoid' registered
+14:37:43: Particle Emitter Type 'Cylinder' registered
+14:37:43: Particle Emitter Type 'Ring' registered
+14:37:43: Particle Emitter Type 'HollowEllipsoid' registered
+14:37:43: Particle Affector Type 'LinearForce' registered
+14:37:43: Particle Affector Type 'ColourFader' registered
+14:37:43: Particle Affector Type 'ColourFader2' registered
+14:37:43: Particle Affector Type 'ColourImage' registered
+14:37:43: Particle Affector Type 'ColourInterpolator' registered
+14:37:43: Particle Affector Type 'Scaler' registered
+14:37:43: Particle Affector Type 'Rotator' registered
+14:37:43: Particle Affector Type 'DirectionRandomiser' registered
+14:37:43: Particle Affector Type 'DeflectorPlane' registered
+14:37:43: Plugin successfully installed
+14:37:43: Loading library .\Plugin_BSPSceneManager
+14:37:43: Installing plugin: BSP Scene Manager
+14:37:43: Plugin successfully installed
+14:37:43: Loading library .\Plugin_CgProgramManager
+14:37:43: Installing plugin: Cg Program Manager
+14:37:44: Plugin successfully installed
+14:37:44: *-*-* OGRE Initialising
+14:37:44: *-*-* Version 1.6.0RC1 (Shoggoth)
+14:37:44: Creating resource group Bootstrap
+14:37:44: Added resource location '../../media/packs/OgreCore.zip' of type 'Zip' to resource group 'Bootstrap'
+14:37:44: Added resource location '../../media' of type 'FileSystem' to resource group 'General'
+14:37:44: Added resource location '../../media/fonts' of type 'FileSystem' to resource group 'General'
+14:37:44: Added resource location '../../media/materials/programs' of type 'FileSystem' to resource group 'General'
+14:37:44: Added resource location '../../media/materials/scripts' of type 'FileSystem' to resource group 'General'
+14:37:44: Added resource location '../../media/materials/textures' of type 'FileSystem' to resource group 'General'
+14:37:44: Added resource location '../../media/models' of type 'FileSystem' to resource group 'General'
+14:37:44: Added resource location '../../media/overlays' of type 'FileSystem' to resource group 'General'
+14:37:44: Added resource location '../../media/particle' of type 'FileSystem' to resource group 'General'
+14:37:44: Added resource location '../../media/gui' of type 'FileSystem' to resource group 'General'
+14:37:44: Added resource location '../../media/DeferredShadingMedia' of type 'FileSystem' to resource group 'General'
+14:37:44: Added resource location '../../media/ObjectDefinitions' of type 'FileSystem' to resource group 'General'
+14:37:44: D3D9 : RenderSystem Option: Allow NVPerfHUD = No
+14:37:44: D3D9 : RenderSystem Option: Anti aliasing = None
+14:37:44: D3D9 : RenderSystem Option: Floating-point mode = Fastest
+14:37:44: D3D9 : RenderSystem Option: Full Screen = No
+14:37:44: D3D9 : RenderSystem Option: Rendering Device = RADEON X800 XT Platinum Edition
+14:37:44: D3D9 : RenderSystem Option: VSync = No
+14:37:44: D3D9 : RenderSystem Option: Video Mode = 1024 x 768 @ 32-bit colour
+14:37:44: D3D9 : RenderSystem Option: sRGB Gamma Conversion = No
+14:37:45: CPU Identifier & Features
+14:37:45: -------------------------
+14:37:45:  *   CPU ID: AuthenticAMD: AMD Athlon(tm) XP 3000+
+14:37:45:  *      SSE: yes
+14:37:45:  *     SSE2: no
+14:37:45:  *     SSE3: no
+14:37:45:  *      MMX: yes
+14:37:45:  *   MMXEXT: yes
+14:37:45:  *    3DNOW: yes
+14:37:45:  * 3DNOWEXT: yes
+14:37:45:  *     CMOV: yes
+14:37:45:  *      TSC: yes
+14:37:45:  *      FPU: yes
+14:37:45:  *      PRO: yes
+14:37:45:  *       HT: no
+14:37:45: -------------------------
+14:37:45: D3D9 : Subsystem Initialising
+14:37:45: D3D9RenderSystem::_createRenderWindow "GOO editor", 1024x768 windowed  miscParams: FSAA=0 FSAAQuality=0 colourDepth=32 gamma=false useNVPerfHUD=false vsync=false 
+14:37:45: D3D9 : Created D3D9 Rendering Window 'GOO editor' : 1024x768, 32bpp
+14:37:45: D3D9 : WARNING - disabling VSync in windowed mode can cause timing issues at lower frame rates, turn VSync on if you observe this problem.
+14:37:45: Registering ResourceManager for type Texture
+14:37:45: Registering ResourceManager for type GpuProgram
+14:37:45: RenderSystem capabilities
+14:37:45: -------------------------
+14:37:45: RenderSystem Name: Direct3D9 Rendering Subsystem
+14:37:45: GPU Vendor: ati
+14:37:45: Device Name: RADEON X800 XT Platinum Edition
+14:37:45: Driver Version: 6.14.10.6891
+14:37:45:  * Fixed function pipeline: yes
+14:37:45:  * Hardware generation of mipmaps: yes
+14:37:45:  * Texture blending: yes
+14:37:45:  * Anisotropic texture filtering: yes
+14:37:45:  * Dot product texture operation: yes
+14:37:45:  * Cube mapping: yes
+14:37:45:  * Hardware stencil buffer: yes
+14:37:45:    - Stencil depth: 8
+14:37:45:    - Two sided stencil support: yes
+14:37:45:    - Wrap stencil values: yes
+14:37:45:  * Hardware vertex / index buffers: yes
+14:37:45:  * Vertex programs: yes
+14:37:45:  * Fragment programs: yes
+14:37:45:  * Geometry programs: no
+14:37:45:  * Supported Shader Profiles: hlsl ps_1_1 ps_1_2 ps_1_3 ps_1_4 ps_2_0 ps_2_b ps_2_x vs_1_1 vs_2_0
+14:37:45:  * Texture Compression: yes
+14:37:45:    - DXT: yes
+14:37:45:    - VTC: no
+14:37:45:  * Scissor Rectangle: yes
+14:37:45:  * Hardware Occlusion Query: yes
+14:37:45:  * User clip planes: yes
+14:37:45:  * VET_UBYTE4 vertex element type: yes
+14:37:45:  * Infinite far plane projection: yes
+14:37:45:  * Hardware render-to-texture: yes
+14:37:45:  * Floating point textures: yes
+14:37:45:  * Non-power-of-two textures: yes (limited)
+14:37:45:  * Volume textures: yes
+14:37:45:  * Multiple Render Targets: 4
+14:37:45:    - With different bit depths: no
+14:37:45:  * Point Sprites: yes
+14:37:45:  * Extended point parameters: yes
+14:37:45:  * Max Point Size: 256
+14:37:45:  * Vertex texture fetch: no
+14:37:45:  * Render to Vertex Buffer : no
+14:37:45:  * DirectX per stage constants: no
+14:37:45: ***************************************
+14:37:45: *** D3D9 : Subsystem Initialised OK ***
+14:37:45: ***************************************
+14:37:45: ResourceBackgroundQueue - threading disabled
+14:37:45: Particle Renderer Type 'billboard' registered
+14:37:45: SceneManagerFactory for type 'BspSceneManager' registered.
+14:37:45: Registering ResourceManager for type BspLevel
+14:37:45: Parsing scripts for resource group Autodetect
+14:37:45: Finished parsing scripts for resource group Autodetect
+14:37:45: Parsing scripts for resource group Bootstrap
+14:37:45: Parsing script OgreCore.material
+14:37:45: Parsing script OgreProfiler.material
+14:37:45: Parsing script Ogre.fontdef
+14:37:45: Parsing script OgreDebugPanel.overlay
+14:37:45: Texture: New_Ogre_Border_Center.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x128x1.
+14:37:45: Texture: New_Ogre_Border.png: Loading 1 faces(PF_A8R8G8B8,256x256x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x256x1.
+14:37:45: Texture: New_Ogre_Border_Break.png: Loading 1 faces(PF_A8R8G8B8,32x32x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,32x32x1.
+14:37:45: Font BlueHighwayusing texture size 512x512
+14:37:45: Info: Freetype returned null for character 127 in font BlueHighway
+14:37:45: Info: Freetype returned null for character 128 in font BlueHighway
+14:37:45: Info: Freetype returned null for character 129 in font BlueHighway
+14:37:45: Info: Freetype returned null for character 130 in font BlueHighway
+14:37:45: Info: Freetype returned null for character 131 in font BlueHighway
+14:37:45: Info: Freetype returned null for character 132 in font BlueHighway
+14:37:45: Info: Freetype returned null for character 133 in font BlueHighway
+14:37:45: Info: Freetype returned null for character 134 in font BlueHighway
+14:37:45: Info: Freetype returned null for character 135 in font BlueHighway
+14:37:45: Info: Freetype returned null for character 136 in font BlueHighway
+14:37:45: Info: Freetype returned null for character 137 in font BlueHighway
+14:37:45: Info: Freetype returned null for character 138 in font BlueHighway
+14:37:45: Info: Freetype returned null for character 139 in font BlueHighway
+14:37:45: Info: Freetype returned null for character 140 in font BlueHighway
+14:37:45: Info: Freetype returned null for character 141 in font BlueHighway
+14:37:45: Info: Freetype returned null for character 142 in font BlueHighway
+14:37:45: Info: Freetype returned null for character 143 in font BlueHighway
+14:37:45: Info: Freetype returned null for character 144 in font BlueHighway
+14:37:45: Info: Freetype returned null for character 145 in font BlueHighway
+14:37:45: Info: Freetype returned null for character 146 in font BlueHighway
+14:37:45: Info: Freetype returned null for character 147 in font BlueHighway
+14:37:45: Info: Freetype returned null for character 148 in font BlueHighway
+14:37:45: Info: Freetype returned null for character 149 in font BlueHighway
+14:37:45: Info: Freetype returned null for character 150 in font BlueHighway
+14:37:45: Info: Freetype returned null for character 151 in font BlueHighway
+14:37:45: Info: Freetype returned null for character 152 in font BlueHighway
+14:37:45: Info: Freetype returned null for character 153 in font BlueHighway
+14:37:45: Info: Freetype returned null for character 154 in font BlueHighway
+14:37:45: Info: Freetype returned null for character 155 in font BlueHighway
+14:37:45: Info: Freetype returned null for character 156 in font BlueHighway
+14:37:45: Info: Freetype returned null for character 157 in font BlueHighway
+14:37:45: Info: Freetype returned null for character 158 in font BlueHighway
+14:37:45: Info: Freetype returned null for character 159 in font BlueHighway
+14:37:45: Info: Freetype returned null for character 160 in font BlueHighway
+14:37:45: Texture: BlueHighwayTexture: Loading 1 faces(PF_BYTE_LA,512x512x1) with 0 generated mipmaps from Image. Internal format is PF_BYTE_LA,512x512x1.
+14:37:45: Texture: ogretext.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x128x1.
+14:37:45: Parsing script OgreLoadingPanel.overlay
+14:37:45: Finished parsing scripts for resource group Bootstrap
+14:37:45: Parsing scripts for resource group General
+14:37:45: Parsing script Examples.program
+14:37:45: Parsing script deferred.glsl.program
+14:37:45: Parsing script deferred.hlsl.program
+14:37:45: Parsing script deferred.program
+14:37:45: Parsing script deferred_post_ambient.program
+14:37:45: Parsing script deferred_post_debug.glsl.program
+14:37:45: Parsing script deferred_post_debug.hlsl.program
+14:37:45: Parsing script deferred_post_debug.program
+14:37:45: Parsing script deferred_post_minilight.glsl.program
+14:37:45: Parsing script deferred_post_minilight.hlsl.program
+14:37:45: OGRE EXCEPTION(2:InvalidParametersException): Parameter called lightFalloff does not exist.  in GpuProgramParameters::_findNamedConstantDefinition at ..\src\OgreGpuProgram.cpp (line 1095)
+14:37:45: Compiler error: invalid parameters in deferred_post_minilight.hlsl.program(27): setting of constant failed
+14:37:45: Parsing script deferred_post_minilight.program
+14:37:45: Parsing script deferred_post_multipass.glsl.program
+14:37:45: Parsing script deferred_post_multipass.hlsl.program
+14:37:45: Parsing script deferred_post_onepass.glsl.program
+14:37:45: Parsing script deferred_post_onepass.hlsl.program
+14:37:45: Parsing script deferred_post_vs.program
+14:37:45: Parsing script editor.material
+14:37:45: Parsing script Example-DynTex.material
+14:37:45: Parsing script Example.material
+14:37:46: Parsing script lua_app.material
+14:37:46: Parsing script deferred.material
+14:37:46: Parsing script deferreddemo.material
+14:37:46: Parsing script deferred_post_ambient.material
+14:37:46: Parsing script deferred_post_debug.material
+14:37:46: Parsing script deferred_post_minilight.material
+14:37:46: Parsing script deferred_post_multipass.material
+14:37:46: Parsing script deferred_post_onepass.material
+14:37:46: Parsing script emitted_emitter.particle
+14:37:46: Parsing script Example-Water.particle
+14:37:46: Parsing script Example.particle
+14:37:46: Parsing script smoke.particle
+14:37:46: Parsing script Examples.compositor
+14:37:46: Parsing script deferred.compositor
+14:37:46: Parsing script editorfonts.fontdef
+14:37:46: Parsing script sample.fontdef
+14:37:46: Parsing script console.overlay
+14:37:46: Texture: console_bg.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x128x1.
+14:37:46: Texture: console_input_bg.png: Loading 1 faces(PF_A8R8G8B8,128x64x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,128x64x1.
+14:37:46: Parsing script parameters.overlay
+14:37:46: Finished parsing scripts for resource group General
+14:37:46: Parsing scripts for resource group Internal
+14:37:46: Finished parsing scripts for resource group Internal
+14:37:46: *** Initializing OIS ***
+14:37:46: Mesh: Loading sphere.mesh.
+14:37:46: World object instatiated
+14:37:46: Lua: loading init.lua..
+14:37:46: Lua: ..\..\media\LUA\
+14:37:46: Lua: loading celldefinitions.lua..
+14:37:46: Lua:  system definitions - Loading System Definitions
+14:37:46: c++: loading system class: ..\..\media\LUA\systems\systems\abstractsystem.lua
+14:37:46: lua error message:cannot open ..\..\media\LUA\systems\systems\abstractsystem.LUA: No such file or directory
+14:37:46: Lua: Loading land 0.1 canvas surface...
+14:37:46: Lua: Loading water 0.1 canvas surface
+14:38:01: deleting physical object cell0_2DObject
+14:38:01: deleting physical object cell1_2DObject
+14:38:01: deleting physical object cell2_2DObject
+14:38:01: deleting physical object cell3_2DObject
+14:38:01: deleting physical object cell4_2DObject
+14:38:01: deleting physical object cell5_2DObject
+14:38:01: deleting physical object cell6_2DObject
+14:38:01: deleting physical object cell7_2DObject
+14:38:01: deleting physical object cell8_2DObject
+14:38:01: deleting physical object cell9_2DObject
+14:38:01: deleting physical object cell10_2DObject
+14:38:01: deleting physical object cell11_2DObject
+14:38:01: deleting physical object cell12_2DObject
+14:38:01: deleting physical object cell13_2DObject
+14:38:01: deleting physical object cell14_2DObject
+14:38:01: deleting physical object cell15_2DObject
+14:38:01: deleting physical object cell16_2DObject
+14:38:01: deleting physical object cell17_2DObject
+14:38:01: deleting physical object cell18_2DObject
+14:38:01: deleting physical object cell19_2DObject
+14:38:01: deleting physical object cell20_2DObject
+14:38:01: deleting physical object cell21_2DObject
+14:38:01: deleting physical object cell22_2DObject
+14:38:01: deleting physical object cell23_2DObject

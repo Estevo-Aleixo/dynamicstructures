@@ -67,6 +67,8 @@ public:
 
 	void notifyCellDeletion();
 	void destroyCell(Cell* cell); 
+
+	double mMaxGrowthVolume;
 protected:
 	//std::vector<Point_2> mSkeletonPoints;
 	

@@ -218,6 +218,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\CollisionLine.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\ContactFilter.cpp"
 				>
 			</File>
@@ -250,6 +254,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\MeshObject.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\MovableText.cpp"
 				>
 			</File>
@@ -270,6 +278,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\PolygonSurface.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\Skeleton2D.cpp"
 				>
 			</File>
@@ -279,6 +291,10 @@
 			</File>
 			<File
 				RelativePath="..\src\SystemProperties.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\VoronoiDiagramGenerator.cpp"
 				>
 			</File>
 			<Filter
@@ -312,6 +328,10 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
+				RelativePath="..\include\CollisionLine.h"
+				>
+			</File>
+			<File
 				RelativePath="..\include\DebugCircle.h"
 				>
 			</File>
@@ -320,11 +340,19 @@
 				>
 			</File>
 			<File
+				RelativePath="..\include\MeshObject.h"
+				>
+			</File>
+			<File
 				RelativePath="..\include\PolygonAlgorithms.h"
 				>
 			</File>
 			<File
-				RelativePath="..\include\ss_types.h"
+				RelativePath="..\include\PolygonSurface.h"
+				>
+			</File>
+			<File
+				RelativePath="..\include\VoronoiDiagramGenerator.h"
 				>
 			</File>
 			<Filter

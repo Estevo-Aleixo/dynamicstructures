@@ -1,6 +1,6 @@
 #include "Movable2DObject.h"
 
-Movable2DObject::Movable2DObject(std::string& name, Ogre::SceneManager* sceneMgr, Ogre::Vector2& position)
+Movable2DObject::Movable2DObject(std::string& name, Ogre::SceneManager* sceneMgr, Ogre::Vector2& position, Ogre::SceneNode* parent)
 :mSceneMgr(sceneMgr),mName(name), mPos(position) 
 {
 	mNode=0;
@@ -25,13 +25,13 @@ void Movable2DObject::setPosition(Ogre::Vector2& position)
 	mNode->setPosition(position.x, position.y,0); 
 }
 
-bool Movable2DObject::update(Ogre::FrameEvent& evt)
+/*bool Movable2DObject::update(Ogre::FrameEvent& evt)
 {
 
 
 return true;
 }
-
+*/
 void Movable2DObject::attach(Movable2DObject* object)
 {
 
@@ -56,3 +56,9 @@ void Movable2DObject::handleCollisionWith(Movable2DObject* object)
 
 
 }
+/*
+bool Movable2DObject::update(Ogre::FrameEvent& evt)
+{
+
+
+}*/

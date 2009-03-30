@@ -76,7 +76,8 @@ public:
 
 	DynamicSystem* getNearestSystem(Ogre::Vector2& pos ); 
 	Movable2DObject* getNearestObject(Ogre::Vector2& pos ); 
-
+	
+	Ogre::SceneManager* getSceneManager(){return mSceneMgr;}
 protected: 
 	bool mRunning; 
 

@@ -11,6 +11,8 @@ public:
 
 	std::string mTexture;
 	std::string mDescription; 
+	double mMaxGrowthTime;
+	
 	Ogre::ColourValue mSurfaceColour;
 
 	//surface properties that effect cellsystems
@@ -18,5 +20,5 @@ public:
 	SystemType type; 
 	
 
-
+	
 };

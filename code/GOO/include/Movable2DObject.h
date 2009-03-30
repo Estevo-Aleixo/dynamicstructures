@@ -14,18 +14,21 @@ EXPLODE=3
 class Movable2DObject
 {
 public:
-	Movable2DObject(std::string& name, Ogre::SceneManager* sceneMgr, Ogre::Vector2& position = Ogre::Vector2(0,0));
+	Movable2DObject(std::string& name, Ogre::SceneManager* sceneMgr, Ogre::Vector2& position = Ogre::Vector2(0,0), Ogre::SceneNode* parent = 0);
 	~Movable2DObject(void);
 
 	Ogre::Vector3& getVelocity(void); 
 	Ogre::Vector3& getHeading(void); 
-
+	void setRootNode(Ogre::SceneNode* node){mNode=node;} 
+	Ogre::SceneNode* getRootNode(){return mNode;} 
+	void setEntity(Ogre::Entity* entity){mEntity=entity;} 
+	Ogre::Entity* getEntity(){return mEntity;} 
 	Object2DType type; //to allow casting
 
 	virtual void attach(Movable2DObject* object); 
 	virtual void detach(); 
 	
-	virtual bool update(Ogre::FrameEvent& evt);
+	//virtual bool update(Ogre::FrameEvent& evt);
 	virtual void setPosition(Ogre::Vector2& position);
 	virtual Ogre::Vector2& getPosition(){return mPos;}
 	virtual void save(std::string& name); //lua script filename

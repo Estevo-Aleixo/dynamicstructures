@@ -15,12 +15,30 @@ Movable2DObject(name, sceneMgr, startpos), mCellSystem(cellSystem), mSceneMgr(sc
 	mNode->attachObject(mEntity);
 	mForce = 800.0;		//10 N/m?
 	mState= OBJECTSTATE::GROW;
+
+	maxJoints=200;
+	for (int i=0; i < maxJoints; i++)
+	{ 
+		Movable2DObject* newJoint= new Movable2DObject(this->mName + "_joint_" + StringConverter::toString(i),mSceneMgr,Vector2(0,0),0);
+		newJoint->setRootNode(mSceneMgr->getRootSceneNode()->createChildSceneNode());
+		newJoint->setEntity(mSceneMgr->createEntity(newJoint->getName(),CIRCLE_POLYGON)); 
+		newJoint->getRootNode()->attachObject(newJoint->getEntity());
+		newJoint->getRootNode()->setVisible(false); 
+		mJoints.push_back(newJoint);
+	}
 }
 
 
 Skeleton2D::~Skeleton2D(void)
 {
 	//delete the skeleton, notify the system.
+	std::vector<Movable2DObject*>::iterator itr; 
+
+	for (itr= mJoints.begin(); itr!=mJoints.end(); itr++)
+	{
+		delete (*itr);
+	}
+	mJoints.clear();
 
 }
 
@@ -30,8 +48,38 @@ void Skeleton2D::update(const Ogre::FrameEvent& evt)
 	recalculate(); 
 	//std::vector<Cell*> cells;
 	
+	//try voronoi
+vdg.generateVoronoi((mCellSystem->mCells));
+vdg.resetIterator();
+
+	float x1,y1,x2,y2;
+	std::stringstream ss; 
 
 
+
+
+	
+for (int i=0; i < maxJoints;i++)
+	mJoints[i]->getRootNode()->setVisible(false);
+
+int counter=0;
+while(vdg.getNext(x1,y1,x2,y2))
+	{
+		//ss <<"GOT Line (" << x1<< ","<< y1<< ")->("<<x2<<", "<< y2 <<")";
+		//Ogre::LogManager::getSingletonPtr()->logMessage(ss.str());
+		//ss.clear();
+
+		//create new movable object with position and mesh
+		if (counter < this->maxJoints){
+			mJoints[counter]->getRootNode()->setVisible(true);
+			mJoints[counter++]->setPosition(Vector2(x1,y1));
+		}
+
+		if (counter < this->maxJoints){
+			mJoints[counter]->getRootNode()->setVisible(true);
+			mJoints[counter++]->setPosition(Vector2(x2,y2));
+		}
+	}
 
 	switch((int)mState)
 	{

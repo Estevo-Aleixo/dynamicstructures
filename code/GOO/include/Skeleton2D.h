@@ -3,6 +3,13 @@
 #include "Ogre.h"
 #include "Movable2DObject.h" 
 
+
+//first method for generating a suitable skeleton
+#include "VoronoiDiagramGenerator.h"
+
+//TODO: #include "SimpleSkeletonGenerator.h"
+
+
 class CellSystem; 
 
 enum SKELETON_TYPE
@@ -46,7 +53,13 @@ public:
 	inline void setPushForce(double& force){mForce=force;}  
 
 	void setPosition(Ogre::Vector2& position);
+
+
+	std::vector<Movable2DObject*> mJoints;
+
 protected:
+	unsigned int maxJoints; 
+	VoronoiDiagramGenerator vdg; 
 
 	void expand(const Ogre::FrameEvent& evt); 
 	void rigid(const Ogre::FrameEvent& evt); 
