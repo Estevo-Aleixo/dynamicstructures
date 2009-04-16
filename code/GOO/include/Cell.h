@@ -33,7 +33,7 @@ public:
 	~Cell(void);
 
 	
-	void setCellSystem(CellSystem* cellSystem){mSystem = cellSystem;}
+	void setCellSystem(CellSystem* cellSystem);//{mSystem = cellSystem;}
 	void setProperties(CellProperties* properties){mProperties = properties;} 
 	
 	void setDivideDirection(Ogre::Radian direction){mDivideDirection = direction;} 
@@ -60,6 +60,7 @@ public:
 
 	void setParent(Cell* parent){mCellParent=parent;} 
 	CellSystem* getCellSystem(){return mSystem;} 
+	void setNeighourDistanceInterval(unsigned int distance){mNeighbourDistance=distance;} 
 protected: 
 
 	bool mShowPolyLine;
@@ -97,6 +98,7 @@ protected:
 	MovableText* mLabel;
 	Ogre::SceneNode* mLabelNode;
 
+	unsigned int mNeighbourDistance;
 
 };
 

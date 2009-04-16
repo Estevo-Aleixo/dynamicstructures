@@ -56,6 +56,9 @@ public:
 
 
 	std::vector<Movable2DObject*> mJoints;
+	std::vector<Ogre::SceneNode*> mLineNodes;
+	std::vector<Ogre::ManualObject*> mLines;
+
 
 protected:
 	unsigned int maxJoints; 

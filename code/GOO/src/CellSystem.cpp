@@ -43,6 +43,10 @@ CellSystem::~CellSystem(void)
 void CellSystem::initialize()
 {
 
+	mProperties.vertexDistance=5; 
+
+
+
 //temp create surrounding array of cells: 
 	unsigned int cells= 6; 
 	Ogre::Radian angleInterval= Radian(Math::TWO_PI / cells); 
@@ -60,6 +64,7 @@ void CellSystem::initialize()
 		newCell->setCellSystem(this); 
 		double scale=5;
 		newCell->setScale(scale); 
+		newCell->setNeighourDistanceInterval(mProperties.vertexDistance); 
 		prevCell= newCell;
 	}
 	prevCell->setCellChild(mCells[0]);

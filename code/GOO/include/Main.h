@@ -45,12 +45,7 @@ FINAL2D = 2,
 FINAL3D = 3
 };
 
-enum CURSORMODE
-{
-	PLACE_SYSTEM = 0,
-	EDIT_SYSTEM  = 1, 
-	EDIT_OBJECT  = 2
-};
+
 
 enum shapeType
 {

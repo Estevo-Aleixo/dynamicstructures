@@ -17,6 +17,8 @@ Movable2DObject(name, sceneMgr, startpos), mCellSystem(cellSystem), mSceneMgr(sc
 	mState= OBJECTSTATE::GROW;
 
 	maxJoints=200;
+	
+	Ogre::SceneNode* lineNode;  
 	for (int i=0; i < maxJoints; i++)
 	{ 
 		Movable2DObject* newJoint= new Movable2DObject(this->mName + "_joint_" + StringConverter::toString(i),mSceneMgr,Vector2(0,0),0);
@@ -25,6 +27,21 @@ Movable2DObject(name, sceneMgr, startpos), mCellSystem(cellSystem), mSceneMgr(sc
 		newJoint->getRootNode()->attachObject(newJoint->getEntity());
 		newJoint->getRootNode()->setVisible(false); 
 		mJoints.push_back(newJoint);
+
+		//create lines: 
+		Ogre::ManualObject* line= new Ogre::ManualObject("vor_line" + StringConverter::toString((Real)i)); 
+		line->begin("skeleton",RenderOperation::OT_LINE_LIST); 
+		line->position(0,0,1);
+		line->position(1,1,1);
+		line->index(0); 
+		line->index(1);
+		line->end(); 
+		mLines.push_back(line);
+		lineNode= newJoint->getRootNode()->createChildSceneNode() ; 
+		lineNode->attachObject(line); 
+		lineNode->setInheritOrientation(false); 
+		lineNode->setInheritScale(false); 
+		mLineNodes.push_back(lineNode); 
 	}
 }
 
@@ -65,20 +82,39 @@ for (int i=0; i < maxJoints;i++)
 int counter=0;
 while(vdg.getNext(x1,y1,x2,y2))
 	{
-		//ss <<"GOT Line (" << x1<< ","<< y1<< ")->("<<x2<<", "<< y2 <<")";
-		//Ogre::LogManager::getSingletonPtr()->logMessage(ss.str());
-		//ss.clear();
+
+		//checkbounds
+	if ((x1 > -900 && x1 < 900) &&
+		(x2 > -900 && x2 < 900) &&
+		(y1 > -900 && y1 < 900) &&
+		(y2 > -900 && y2 < 900)) {
+
 
 		//create new movable object with position and mesh
 		if (counter < this->maxJoints){
 			mJoints[counter]->getRootNode()->setVisible(true);
-			mJoints[counter++]->setPosition(Vector2(x1,y1));
+			mJoints[counter]->setPosition(Vector2(x1,y1));
+			counter++;
 		}
 
+		//teken line tussen deze twee: 
+		double xDist=  x2-x1; 
+		double yDist=  y2-y1;
+	
 		if (counter < this->maxJoints){
 			mJoints[counter]->getRootNode()->setVisible(true);
-			mJoints[counter++]->setPosition(Vector2(x2,y2));
+			mJoints[counter]->setPosition(Vector2(x2,y2));
+		
+			mLines[counter-1]->beginUpdate(0);
+				mLines[counter-1]->position(0,0,1); 
+				mLines[counter-1]->position(xDist,yDist,1); 
+				mLines[counter-1]->index(0); 
+				mLines[counter-1]->index(1);
+			mLines[counter-1]->end(); 
+			
+			counter++;
 		}
+	}
 	}
 
 	switch((int)mState)

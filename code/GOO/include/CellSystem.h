@@ -45,7 +45,6 @@ public:
 	CellSystemProperties& getProperties(){return mProperties;}
 	CellSystemProperties* getLocalProperties(){return mLocalProperties;}
 
-	//inline std::vector<Cell*>& getCellVector(){return mCells};
 	std::vector<Cell*> mCells;
 	std::vector<Cell*>::iterator mCellItr;
 

@@ -76,7 +76,7 @@ bool Cell::frameStarted(const FrameEvent &evt)
 		//create a brother
 		if (mCellChild!=0)
 		{
-			if ((mCellChild->getPosition()- mPos).length() > (this->mScale*2)*1.5) 
+			if ((mCellChild->getPosition()- mPos).length() > (mScale * (double)mNeighbourDistance) )
 			{
 				//create new cell at midpoint:
 				Ogre::Vector2 pos = mPos + (mCellChild->getPosition() - mPos)/2; 
@@ -170,5 +170,14 @@ void Cell::updatePolyLine()
 		
 		//mPolyLine->convertToMesh(CIRCLE_POLYGON);  
 
+
+}
+
+void Cell::setCellSystem(CellSystem* cellSystem)
+{
+	mSystem = cellSystem;
+
+	//set properties:
+	mNeighbourDistance= mSystem->getProperties().vertexDistance;
 
 }

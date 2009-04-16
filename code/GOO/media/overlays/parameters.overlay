@@ -25,6 +25,8 @@ GUI/editor
 			colour_top 1 1 0.7
 			colour_bottom 1 1 0.7
 		}
+
+
 		element TextArea(GUI/currentCellSelection)
 		{
 			metrics_mode pixels
@@ -34,12 +36,13 @@ GUI/editor
 			height 30
 			font_name BlueHighway
 			char_height 16
-			caption AVERAGE FPS:
+			caption blaat
 			colour_top 0.5 0.7 0.5
 			colour_bottom 0.3 0.5 0.3
 		}
 
-		element TextArea(GUI/extrainfo)
+
+		element TextArea(GUI/currentCursorMode)
 		{
 			metrics_mode pixels
 			left 5
@@ -47,8 +50,8 @@ GUI/editor
 			width 90
 			height 30
 			font_name BlueHighway
-			char_height 19
-			caption Press 'c' to clear the canvas.
+			char_height 16
+			caption Cursor mode: 
 			colour_top 0.5 0.7 0.5
 			colour_bottom 0.3 0.5 0.3
 		}

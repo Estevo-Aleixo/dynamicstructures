@@ -33,6 +33,7 @@ public:
 //, ltstr
 
 	const char* mCellObjectName;
+	unsigned int vertexDistance; 
 private: 
 	CellProperties mCellProperties;
 

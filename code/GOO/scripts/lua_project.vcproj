@@ -294,6 +294,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\vectorField.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\VoronoiDiagramGenerator.cpp"
 				>
 			</File>
@@ -349,6 +353,10 @@
 			</File>
 			<File
 				RelativePath="..\include\PolygonSurface.h"
+				>
+			</File>
+			<File
+				RelativePath=".\vectorField.h"
 				>
 			</File>
 			<File

@@ -112,7 +112,7 @@ bool World::frameStarted(const FrameEvent &evt)
 		break;
 
 	}
-
+updateParameterOverlay(); 
 	return mContinue;
 }
 
@@ -194,9 +194,6 @@ bool World::keyPressed(const OIS::KeyEvent &e)
 bool World::keyReleased(const OIS::KeyEvent &e)
 {
 
-	
-
-
 	switch (e.key)
 	{
 		case OIS::KC_GRAVE:
@@ -204,21 +201,17 @@ bool World::keyReleased(const OIS::KeyEvent &e)
 			mToggle=false;
 			break;	
 		case OIS::KC_1:
-			this->mCursor->setCreateType(1);
-			updateParameterOverlay();
-			break;
 		case OIS::KC_2:
-			this->mCursor->setCreateType(2);
-			updateParameterOverlay();
-			break;
 		case OIS::KC_3:
-			this->mCursor->setCreateType(3);
-			updateParameterOverlay();
-			break;
 		case OIS::KC_4:
-			this->mCursor->setCreateType(4);
-			updateParameterOverlay();
+			this->mCursor->setCreateType((int)e.key - 1);
 			break;
+		case OIS::KC_ADD: 
+			mCursor->setMode(mCursor->getMode()+1); 
+		break;
+		case OIS::KC_SUBTRACT:
+			mCursor->setMode(mCursor->getMode()-1); 
+		break;
 		case OIS::KC_C:
 			this->mCanvas->clearCanvas();
 			break;
@@ -329,7 +322,11 @@ void  World::updateParameterOverlay(void)
 		OverlayElement* guiCellTypes = OverlayManager::getSingleton().getOverlayElement("GUI/cellTypes");
 		guiCellTypes->setCaption(cellTypes); 
 		OverlayElement* guiCellSelection = OverlayManager::getSingleton().getOverlayElement("GUI/currentCellSelection");
-		guiCellSelection->setCaption("Current Selection: " + StringConverter::toString(this->mCursor->getCurrentCellModeID())); 
+		guiCellSelection->setCaption("Current Selection: " + StringConverter::toString(mCursor->getCurrentCellModeID())); 
+
+		OverlayElement* guiCursorMode = OverlayManager::getSingleton().getOverlayElement("GUI/currentCursorMode");
+		guiCursorMode->setCaption("Mode: " + StringConverter::toString(mCursor->cursorModeLabels[mCursor->getMode()])); 
+
 
 
 }

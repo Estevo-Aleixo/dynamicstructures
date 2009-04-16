@@ -7,12 +7,28 @@
 class CellSystemProperties;
 class Movable2DObject;
 
+
+
+#define NUMMODES 3
+enum CURSORMODE
+{
+	PLACE_SYSTEM = 1,
+	MOVE_SYSTEM  = 2, 
+	EDIT_SYSTEM  = 3
+};
+
+
+
 class Cursor :public Movable2DObject
 {
 
 public:
 	Cursor(std::string& name, Canvas* canvas, Ogre::SceneManager* sceneMgr);
 	~Cursor(void);
+
+
+
+static const char* const cursorModeLabels[NUMMODES];
 
 	bool update(const FrameEvent &evt); 
 
@@ -25,7 +41,16 @@ public:
 	Ogre::Vector2& getPosition(){return mPos;} 
 	void setPosition(Ogre::Vector2& pos); 
 
-	CURSORMODE getMode(){return mMode;}
+	void setMode(unsigned int mode)
+	{
+		if (mode > NUMMODES)
+			mMode = 1;
+		else if(mode < 1)
+			mMode = NUMMODES; 
+		else
+			mMode = mode;
+	}
+	unsigned int getMode(){return mMode;}
 
 	void attachObject(Movable2DObject* object); 
 
@@ -34,7 +59,7 @@ private:
 	Movable2DObject* mCurrentSelection; 
 
 
-	CURSORMODE mMode;
+	unsigned int mMode;
 	unsigned int mSystemType; 
 	unsigned int mCreateType; 
 
@@ -53,8 +78,6 @@ private:
 
 	Canvas* mCanvas;
 	Ogre::SceneManager* mSceneMgr;  
-
-
-	
+	void performAction();
 	
 };
