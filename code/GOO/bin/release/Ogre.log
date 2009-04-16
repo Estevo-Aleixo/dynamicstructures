@@ -1,474 +1,1385 @@
-12:02:55: Creating resource group General
-12:02:55: Creating resource group Internal
-12:02:55: Creating resource group Autodetect
-12:02:55: SceneManagerFactory for type 'DefaultSceneManager' registered.
-12:02:55: Registering ResourceManager for type Material
-12:02:55: Registering ResourceManager for type Mesh
-12:02:55: Registering ResourceManager for type Skeleton
-12:02:55: MovableObjectFactory for type 'ParticleSystem' registered.
-12:02:55: OverlayElementFactory for type Panel registered.
-12:02:55: OverlayElementFactory for type BorderPanel registered.
-12:02:55: OverlayElementFactory for type TextArea registered.
-12:02:55: Registering ResourceManager for type Font
-12:02:55: ArchiveFactory for archive type FileSystem registered.
-12:02:55: ArchiveFactory for archive type Zip registered.
-12:02:55: FreeImage version: 3.10.0
-12:02:55: This program uses FreeImage, a free, open source image library supporting all common bitmap formats. See http://freeimage.sourceforge.net for details
-12:02:55: Supported formats: bmp,ico,jpg,jif,jpeg,jpe,jng,koa,iff,lbm,mng,pbm,pbm,pcd,pcx,pgm,pgm,png,ppm,ppm,ras,tga,targa,tif,tiff,wap,wbmp,wbm,psd,cut,xbm,xpm,gif,hdr,g3,sgi,exr,j2k,j2c,jp2
-12:02:55: DDS codec registering
-12:02:55: Registering ResourceManager for type HighLevelGpuProgram
-12:02:55: Registering ResourceManager for type Compositor
-12:02:55: MovableObjectFactory for type 'Entity' registered.
-12:02:55: MovableObjectFactory for type 'Light' registered.
-12:02:55: MovableObjectFactory for type 'BillboardSet' registered.
-12:02:55: MovableObjectFactory for type 'ManualObject' registered.
-12:02:55: MovableObjectFactory for type 'BillboardChain' registered.
-12:02:55: MovableObjectFactory for type 'RibbonTrail' registered.
-12:02:55: Loading library .\RenderSystem_Direct3D9
-12:02:55: Installing plugin: D3D9 RenderSystem
-12:02:55: D3D9 : Direct3D9 Rendering Subsystem created.
-12:02:56: D3D9: Driver Detection Starts
-12:02:56: D3D9: Driver Detection Ends
-12:02:56: Plugin successfully installed
-12:02:56: Loading library .\RenderSystem_GL
-12:02:56: Installing plugin: GL RenderSystem
-12:02:56: OpenGL Rendering Subsystem created.
-12:02:56: Plugin successfully installed
-12:02:56: Loading library .\Plugin_ParticleFX
-12:02:56: Installing plugin: ParticleFX
-12:02:56: Particle Emitter Type 'Point' registered
-12:02:56: Particle Emitter Type 'Box' registered
-12:02:56: Particle Emitter Type 'Ellipsoid' registered
-12:02:56: Particle Emitter Type 'Cylinder' registered
-12:02:56: Particle Emitter Type 'Ring' registered
-12:02:56: Particle Emitter Type 'HollowEllipsoid' registered
-12:02:56: Particle Affector Type 'LinearForce' registered
-12:02:56: Particle Affector Type 'ColourFader' registered
-12:02:56: Particle Affector Type 'ColourFader2' registered
-12:02:56: Particle Affector Type 'ColourImage' registered
-12:02:56: Particle Affector Type 'ColourInterpolator' registered
-12:02:56: Particle Affector Type 'Scaler' registered
-12:02:56: Particle Affector Type 'Rotator' registered
-12:02:56: Particle Affector Type 'DirectionRandomiser' registered
-12:02:56: Particle Affector Type 'DeflectorPlane' registered
-12:02:56: Plugin successfully installed
-12:02:56: Loading library .\Plugin_BSPSceneManager
-12:02:56: Installing plugin: BSP Scene Manager
-12:02:56: Plugin successfully installed
-12:02:56: Loading library .\Plugin_CgProgramManager
-12:02:56: Installing plugin: Cg Program Manager
-12:02:56: Plugin successfully installed
-12:02:56: *-*-* OGRE Initialising
-12:02:56: *-*-* Version 1.6.0RC1 (Shoggoth)
-12:02:56: Creating resource group Bootstrap
-12:02:56: Added resource location '../../media/packs/OgreCore.zip' of type 'Zip' to resource group 'Bootstrap'
-12:02:56: Added resource location '../../media' of type 'FileSystem' to resource group 'General'
-12:02:56: Added resource location '../../media/fonts' of type 'FileSystem' to resource group 'General'
-12:02:56: Added resource location '../../media/materials/programs' of type 'FileSystem' to resource group 'General'
-12:02:56: Added resource location '../../media/materials/scripts' of type 'FileSystem' to resource group 'General'
-12:02:56: Added resource location '../../media/materials/textures' of type 'FileSystem' to resource group 'General'
-12:02:56: Added resource location '../../media/models' of type 'FileSystem' to resource group 'General'
-12:02:56: Added resource location '../../media/overlays' of type 'FileSystem' to resource group 'General'
-12:02:56: Added resource location '../../media/particle' of type 'FileSystem' to resource group 'General'
-12:02:56: Added resource location '../../media/gui' of type 'FileSystem' to resource group 'General'
-12:02:56: Added resource location '../../media/DeferredShadingMedia' of type 'FileSystem' to resource group 'General'
-12:02:56: Added resource location '../../media/ObjectDefinitions' of type 'FileSystem' to resource group 'General'
-12:02:56: D3D9 : RenderSystem Option: Allow NVPerfHUD = No
-12:02:56: D3D9 : RenderSystem Option: Anti aliasing = None
-12:02:56: D3D9 : RenderSystem Option: Floating-point mode = Fastest
-12:02:56: D3D9 : RenderSystem Option: Full Screen = No
-12:02:56: D3D9 : RenderSystem Option: Rendering Device = NVIDIA Quadro FX 1700
-12:02:56: D3D9 : RenderSystem Option: VSync = No
-12:02:56: D3D9 : RenderSystem Option: Video Mode = 1024 x 768 @ 32-bit colour
-12:02:56: D3D9 : RenderSystem Option: sRGB Gamma Conversion = No
-12:02:57: CPU Identifier & Features
-12:02:57: -------------------------
-12:02:57:  *   CPU ID: GenuineIntel: Intel(R) Xeon(R) CPU           E5420  @ 2.50GHz
-12:02:57:  *      SSE: yes
-12:02:57:  *     SSE2: yes
-12:02:57:  *     SSE3: yes
-12:02:57:  *      MMX: yes
-12:02:57:  *   MMXEXT: yes
-12:02:57:  *    3DNOW: no
-12:02:57:  * 3DNOWEXT: no
-12:02:57:  *     CMOV: yes
-12:02:57:  *      TSC: yes
-12:02:57:  *      FPU: yes
-12:02:57:  *      PRO: yes
-12:02:57:  *       HT: no
-12:02:57: -------------------------
-12:02:57: D3D9 : Subsystem Initialising
-12:02:57: D3D9RenderSystem::_createRenderWindow "GOO editor", 1024x768 windowed  miscParams: FSAA=0 FSAAQuality=0 colourDepth=32 gamma=false useNVPerfHUD=false vsync=false 
-12:02:57: D3D9 : Created D3D9 Rendering Window 'GOO editor' : 1024x768, 32bpp
-12:02:57: D3D9 : WARNING - disabling VSync in windowed mode can cause timing issues at lower frame rates, turn VSync on if you observe this problem.
-12:02:57: Registering ResourceManager for type Texture
-12:02:57: Registering ResourceManager for type GpuProgram
-12:02:57: D3D9: Vertex texture format supported - PF_FLOAT16_RGB
-12:02:57: D3D9: Vertex texture format supported - PF_FLOAT16_RGBA
-12:02:57: D3D9: Vertex texture format supported - PF_FLOAT32_RGB
-12:02:57: D3D9: Vertex texture format supported - PF_FLOAT32_RGBA
-12:02:57: D3D9: Vertex texture format supported - PF_FLOAT16_R
-12:02:57: D3D9: Vertex texture format supported - PF_FLOAT32_R
-12:02:57: D3D9: Vertex texture format supported - PF_FLOAT16_GR
-12:02:57: D3D9: Vertex texture format supported - PF_FLOAT32_GR
-12:02:57: RenderSystem capabilities
-12:02:57: -------------------------
-12:02:57: RenderSystem Name: Direct3D9 Rendering Subsystem
-12:02:57: GPU Vendor: nvidia
-12:02:57: Device Name: NVIDIA Quadro FX 1700
-12:02:57: Driver Version: 6.14.11.6926
-12:02:57:  * Fixed function pipeline: yes
-12:02:57:  * Hardware generation of mipmaps: yes
-12:02:57:  * Texture blending: yes
-12:02:57:  * Anisotropic texture filtering: yes
-12:02:57:  * Dot product texture operation: yes
-12:02:57:  * Cube mapping: yes
-12:02:57:  * Hardware stencil buffer: yes
-12:02:57:    - Stencil depth: 8
-12:02:57:    - Two sided stencil support: yes
-12:02:57:    - Wrap stencil values: yes
-12:02:57:  * Hardware vertex / index buffers: yes
-12:02:57:  * Vertex programs: yes
-12:02:57:  * Fragment programs: yes
-12:02:57:  * Geometry programs: no
-12:02:57:  * Supported Shader Profiles: hlsl ps_1_1 ps_1_2 ps_1_3 ps_1_4 ps_2_0 ps_2_a ps_2_b ps_2_x ps_3_0 vs_1_1 vs_2_0 vs_2_a vs_2_x vs_3_0
-12:02:57:  * Texture Compression: yes
-12:02:57:    - DXT: yes
-12:02:57:    - VTC: no
-12:02:57:  * Scissor Rectangle: yes
-12:02:57:  * Hardware Occlusion Query: yes
-12:02:57:  * User clip planes: yes
-12:02:57:  * VET_UBYTE4 vertex element type: yes
-12:02:57:  * Infinite far plane projection: yes
-12:02:57:  * Hardware render-to-texture: yes
-12:02:57:  * Floating point textures: yes
-12:02:57:  * Non-power-of-two textures: yes
-12:02:57:  * Volume textures: yes
-12:02:57:  * Multiple Render Targets: 4
-12:02:57:    - With different bit depths: yes
-12:02:57:  * Point Sprites: yes
-12:02:57:  * Extended point parameters: yes
-12:02:57:  * Max Point Size: 8192
-12:02:57:  * Vertex texture fetch: yes
-12:02:57:    - Max vertex textures: 4
-12:02:57:    - Vertex textures shared: no
-12:02:57:  * Render to Vertex Buffer : no
-12:02:57:  * DirectX per stage constants: yes
-12:02:57: ***************************************
-12:02:57: *** D3D9 : Subsystem Initialised OK ***
-12:02:57: ***************************************
-12:02:57: ResourceBackgroundQueue - threading disabled
-12:02:57: Particle Renderer Type 'billboard' registered
-12:02:57: SceneManagerFactory for type 'BspSceneManager' registered.
-12:02:57: Registering ResourceManager for type BspLevel
-12:02:57: Parsing scripts for resource group Autodetect
-12:02:57: Finished parsing scripts for resource group Autodetect
-12:02:57: Parsing scripts for resource group Bootstrap
-12:02:57: Parsing script OgreCore.material
-12:02:57: Parsing script OgreProfiler.material
-12:02:57: Parsing script Ogre.fontdef
-12:02:57: Parsing script OgreDebugPanel.overlay
-12:02:57: Texture: New_Ogre_Border_Center.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x128x1.
-12:02:57: Texture: New_Ogre_Border.png: Loading 1 faces(PF_A8R8G8B8,256x256x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x256x1.
-12:02:57: Texture: New_Ogre_Border_Break.png: Loading 1 faces(PF_A8R8G8B8,32x32x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,32x32x1.
-12:02:57: Font BlueHighwayusing texture size 512x512
-12:02:57: Info: Freetype returned null for character 127 in font BlueHighway
-12:02:57: Info: Freetype returned null for character 128 in font BlueHighway
-12:02:57: Info: Freetype returned null for character 129 in font BlueHighway
-12:02:57: Info: Freetype returned null for character 130 in font BlueHighway
-12:02:57: Info: Freetype returned null for character 131 in font BlueHighway
-12:02:57: Info: Freetype returned null for character 132 in font BlueHighway
-12:02:57: Info: Freetype returned null for character 133 in font BlueHighway
-12:02:57: Info: Freetype returned null for character 134 in font BlueHighway
-12:02:57: Info: Freetype returned null for character 135 in font BlueHighway
-12:02:57: Info: Freetype returned null for character 136 in font BlueHighway
-12:02:57: Info: Freetype returned null for character 137 in font BlueHighway
-12:02:57: Info: Freetype returned null for character 138 in font BlueHighway
-12:02:57: Info: Freetype returned null for character 139 in font BlueHighway
-12:02:57: Info: Freetype returned null for character 140 in font BlueHighway
-12:02:57: Info: Freetype returned null for character 141 in font BlueHighway
-12:02:57: Info: Freetype returned null for character 142 in font BlueHighway
-12:02:57: Info: Freetype returned null for character 143 in font BlueHighway
-12:02:57: Info: Freetype returned null for character 144 in font BlueHighway
-12:02:57: Info: Freetype returned null for character 145 in font BlueHighway
-12:02:57: Info: Freetype returned null for character 146 in font BlueHighway
-12:02:57: Info: Freetype returned null for character 147 in font BlueHighway
-12:02:57: Info: Freetype returned null for character 148 in font BlueHighway
-12:02:57: Info: Freetype returned null for character 149 in font BlueHighway
-12:02:57: Info: Freetype returned null for character 150 in font BlueHighway
-12:02:57: Info: Freetype returned null for character 151 in font BlueHighway
-12:02:57: Info: Freetype returned null for character 152 in font BlueHighway
-12:02:57: Info: Freetype returned null for character 153 in font BlueHighway
-12:02:57: Info: Freetype returned null for character 154 in font BlueHighway
-12:02:57: Info: Freetype returned null for character 155 in font BlueHighway
-12:02:57: Info: Freetype returned null for character 156 in font BlueHighway
-12:02:57: Info: Freetype returned null for character 157 in font BlueHighway
-12:02:57: Info: Freetype returned null for character 158 in font BlueHighway
-12:02:57: Info: Freetype returned null for character 159 in font BlueHighway
-12:02:57: Info: Freetype returned null for character 160 in font BlueHighway
-12:02:57: Texture: BlueHighwayTexture: Loading 1 faces(PF_BYTE_LA,512x512x1) with 0 generated mipmaps from Image. Internal format is PF_BYTE_LA,512x512x1.
-12:02:57: Texture: ogretext.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x128x1.
-12:02:57: Parsing script OgreLoadingPanel.overlay
-12:02:57: Finished parsing scripts for resource group Bootstrap
-12:02:57: Parsing scripts for resource group General
-12:02:57: Parsing script Examples.program
-12:02:57: Parsing script deferred.glsl.program
-12:02:57: Parsing script deferred.hlsl.program
-12:02:57: Parsing script deferred.program
-12:02:57: Parsing script deferred_post_ambient.program
-12:02:57: Parsing script deferred_post_debug.glsl.program
-12:02:57: Parsing script deferred_post_debug.hlsl.program
-12:02:57: Parsing script deferred_post_debug.program
-12:02:57: Parsing script deferred_post_minilight.glsl.program
-12:02:57: Parsing script deferred_post_minilight.hlsl.program
-12:02:57: OGRE EXCEPTION(2:InvalidParametersException): Parameter called lightFalloff does not exist.  in GpuProgramParameters::_findNamedConstantDefinition at ..\src\OgreGpuProgram.cpp (line 1095)
-12:02:57: Compiler error: invalid parameters in deferred_post_minilight.hlsl.program(27): setting of constant failed
-12:02:57: Parsing script deferred_post_minilight.program
-12:02:57: Parsing script deferred_post_multipass.glsl.program
-12:02:57: Parsing script deferred_post_multipass.hlsl.program
-12:02:57: Parsing script deferred_post_onepass.glsl.program
-12:02:57: Parsing script deferred_post_onepass.hlsl.program
-12:02:57: Parsing script deferred_post_vs.program
-12:02:57: Parsing script editor.material
-12:02:57: Parsing script Example-DynTex.material
-12:02:57: Parsing script Example.material
-12:02:57: Parsing script lua_app.material
-12:02:57: Parsing script deferred.material
-12:02:57: Parsing script deferreddemo.material
-12:02:57: Parsing script deferred_post_ambient.material
-12:02:57: Parsing script deferred_post_debug.material
-12:02:57: Parsing script deferred_post_minilight.material
-12:02:57: Parsing script deferred_post_multipass.material
-12:02:57: Parsing script deferred_post_onepass.material
-12:02:57: Parsing script emitted_emitter.particle
-12:02:57: Parsing script Example-Water.particle
-12:02:57: Parsing script Example.particle
-12:02:57: Parsing script smoke.particle
-12:02:57: Parsing script Examples.compositor
-12:02:57: Parsing script deferred.compositor
-12:02:57: Parsing script sample.fontdef
-12:02:57: Parsing script console.overlay
-12:02:57: Texture: console_bg.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x128x1.
-12:02:57: Texture: console_input_bg.png: Loading 1 faces(PF_A8R8G8B8,128x64x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,128x64x1.
-12:02:57: Parsing script parameters.overlay
-12:02:57: Finished parsing scripts for resource group General
-12:02:57: Parsing scripts for resource group Internal
-12:02:57: Finished parsing scripts for resource group Internal
-12:02:57: *** Initializing OIS ***
-12:02:57: Mesh: Loading sphere.mesh.
-12:02:57: World object instatiated
-12:02:57: Lua: loading init.lua..
-12:02:57: Lua: ..\..\media\LUA\
-12:02:57: Lua: loading celldefinitions.lua..
-12:02:57: Lua:  system definitions - Loading System Definitions
-12:02:57: c++: loading system class: ..\..\media\LUA\systems\systems\abstractsystem.lua
-12:02:57: lua error message:cannot open ..\..\media\LUA\systems\systems\abstractsystem.LUA: No such file or directory
-12:02:57: Lua: Loading land 0.1 canvas surface...
-12:02:57: Lua: Loading water 0.1 canvas surface
-12:03:12: deleting physical object cell0_2DObject
-12:03:12: deleting physical object cell1_2DObject
-12:03:12: deleting physical object cell2_2DObject
-12:03:12: deleting physical object cell3_2DObject
-12:03:12: deleting physical object cell4_2DObject
-12:03:12: deleting physical object cell5_2DObject
-12:03:12: deleting physical object cell6_2DObject
-12:03:12: deleting physical object cell7_2DObject
-12:03:12: deleting physical object cell8_2DObject
-12:03:12: deleting physical object cell9_2DObject
-12:03:12: deleting physical object cell10_2DObject
-12:03:12: deleting physical object cell11_2DObject
-12:03:12: deleting physical object cell12_2DObject
-12:03:12: deleting physical object cell13_2DObject
-12:03:12: deleting physical object cell14_2DObject
-12:03:12: deleting physical object cell15_2DObject
-12:03:12: deleting physical object cell16_2DObject
-12:03:12: deleting physical object cell17_2DObject
-12:03:12: deleting physical object cell18_2DObject
-12:03:12: deleting physical object cell19_2DObject
-12:03:12: deleting physical object cell20_2DObject
-12:03:12: deleting physical object cell21_2DObject
-12:03:12: deleting physical object cell22_2DObject
-12:03:12: deleting physical object cell23_2DObject
-12:03:12: deleting physical object cell24_2DObject
-12:03:12: deleting physical object cell25_2DObject
-12:03:12: deleting physical object cell26_2DObject
-12:03:12: deleting physical object cell27_2DObject
-12:03:12: deleting physical object cell28_2DObject
-12:03:12: deleting physical object cell29_2DObject
-12:03:12: deleting physical object cell30_2DObject
-12:03:12: deleting physical object cell31_2DObject
-12:03:12: deleting physical object cell32_2DObject
-12:03:12: deleting physical object cell33_2DObject
-12:03:12: deleting physical object cell34_2DObject
-12:03:12: deleting physical object cell35_2DObject
-12:03:12: deleting physical object cell36_2DObject
-12:03:12: deleting physical object cell37_2DObject
-12:03:12: deleting physical object cell38_2DObject
-12:03:12: deleting physical object cell39_2DObject
-12:03:12: deleting physical object cell40_2DObject
-12:03:12: deleting physical object cell41_2DObject
-12:03:12: deleting physical object cell42_2DObject
-12:03:12: deleting physical object cell43_2DObject
-12:03:12: deleting physical object cell44_2DObject
-12:03:12: deleting physical object cell45_2DObject
-12:03:12: deleting physical object cell46_2DObject
-12:03:12: deleting physical object cell47_2DObject
-12:03:30: deleting physical object cell48_2DObject
-12:03:30: deleting physical object cell49_2DObject
-12:03:30: deleting physical object cell50_2DObject
-12:03:30: deleting physical object cell51_2DObject
-12:03:30: deleting physical object cell52_2DObject
-12:03:30: deleting physical object cell53_2DObject
-12:03:30: deleting physical object cell72_2DObject
-12:03:30: deleting physical object cell73_2DObject
-12:03:30: deleting physical object cell74_2DObject
-12:03:30: deleting physical object cell75_2DObject
-12:03:30: deleting physical object cell76_2DObject
-12:03:30: deleting physical object cell77_2DObject
-12:03:30: deleting physical object cell96_2DObject
-12:03:30: deleting physical object cell97_2DObject
-12:03:30: deleting physical object cell98_2DObject
-12:03:30: deleting physical object cell99_2DObject
-12:03:30: deleting physical object cell100_2DObject
-12:03:30: deleting physical object cell101_2DObject
-12:03:30: deleting physical object cell102_2DObject
-12:03:30: deleting physical object cell103_2DObject
-12:03:30: deleting physical object cell106_2DObject
-12:03:30: deleting physical object cell109_2DObject
-12:03:30: deleting physical object cell137_2DObject
-12:03:30: deleting physical object cell139_2DObject
-12:03:30: deleting physical object cell143_2DObject
-12:03:30: deleting physical object cell147_2DObject
-12:03:30: deleting physical object cell148_2DObject
-12:03:30: deleting physical object cell155_2DObject
-12:03:30: deleting physical object cell158_2DObject
-12:03:30: deleting physical object cell163_2DObject
-12:03:30: deleting physical object cell164_2DObject
-12:03:30: deleting physical object cell165_2DObject
-12:03:30: deleting physical object cell166_2DObject
-12:03:30: deleting physical object cell171_2DObject
-12:03:30: deleting physical object cell177_2DObject
-12:03:30: deleting physical object cell186_2DObject
-12:03:30: deleting physical object cell189_2DObject
-12:03:30: deleting physical object cell190_2DObject
-12:03:30: deleting physical object cell191_2DObject
-12:03:30: deleting physical object cell192_2DObject
-12:03:30: deleting physical object cell197_2DObject
-12:03:30: deleting physical object cell54_2DObject
-12:03:30: deleting physical object cell55_2DObject
-12:03:30: deleting physical object cell56_2DObject
-12:03:30: deleting physical object cell57_2DObject
-12:03:30: deleting physical object cell58_2DObject
-12:03:30: deleting physical object cell59_2DObject
-12:03:30: deleting physical object cell78_2DObject
-12:03:30: deleting physical object cell79_2DObject
-12:03:30: deleting physical object cell80_2DObject
-12:03:30: deleting physical object cell81_2DObject
-12:03:30: deleting physical object cell82_2DObject
-12:03:30: deleting physical object cell83_2DObject
-12:03:30: deleting physical object cell104_2DObject
-12:03:30: deleting physical object cell105_2DObject
-12:03:30: deleting physical object cell107_2DObject
-12:03:30: deleting physical object cell108_2DObject
-12:03:30: deleting physical object cell111_2DObject
-12:03:30: deleting physical object cell112_2DObject
-12:03:30: deleting physical object cell115_2DObject
-12:03:30: deleting physical object cell116_2DObject
-12:03:30: deleting physical object cell123_2DObject
-12:03:30: deleting physical object cell124_2DObject
-12:03:30: deleting physical object cell125_2DObject
-12:03:30: deleting physical object cell126_2DObject
-12:03:30: deleting physical object cell140_2DObject
-12:03:30: deleting physical object cell144_2DObject
-12:03:30: deleting physical object cell153_2DObject
-12:03:30: deleting physical object cell159_2DObject
-12:03:30: deleting physical object cell168_2DObject
-12:03:30: deleting physical object cell169_2DObject
-12:03:30: deleting physical object cell175_2DObject
-12:03:30: deleting physical object cell178_2DObject
-12:03:30: deleting physical object cell182_2DObject
-12:03:30: deleting physical object cell184_2DObject
-12:03:30: deleting physical object cell185_2DObject
-12:03:30: deleting physical object cell187_2DObject
-12:03:30: deleting physical object cell194_2DObject
-12:03:30: deleting physical object cell199_2DObject
-12:03:30: deleting physical object cell203_2DObject
-12:03:30: deleting physical object cell204_2DObject
-12:03:30: deleting physical object cell60_2DObject
-12:03:30: deleting physical object cell61_2DObject
-12:03:30: deleting physical object cell62_2DObject
-12:03:30: deleting physical object cell63_2DObject
-12:03:30: deleting physical object cell64_2DObject
-12:03:30: deleting physical object cell65_2DObject
-12:03:30: deleting physical object cell84_2DObject
-12:03:30: deleting physical object cell85_2DObject
-12:03:30: deleting physical object cell86_2DObject
-12:03:30: deleting physical object cell87_2DObject
-12:03:30: deleting physical object cell88_2DObject
-12:03:30: deleting physical object cell89_2DObject
-12:03:30: deleting physical object cell110_2DObject
-12:03:30: deleting physical object cell113_2DObject
-12:03:30: deleting physical object cell114_2DObject
-12:03:30: deleting physical object cell117_2DObject
-12:03:30: deleting physical object cell120_2DObject
-12:03:30: deleting physical object cell127_2DObject
-12:03:30: deleting physical object cell128_2DObject
-12:03:30: deleting physical object cell131_2DObject
-12:03:30: deleting physical object cell136_2DObject
-12:03:30: deleting physical object cell138_2DObject
-12:03:30: deleting physical object cell142_2DObject
-12:03:30: deleting physical object cell145_2DObject
-12:03:30: deleting physical object cell151_2DObject
-12:03:30: deleting physical object cell154_2DObject
-12:03:30: deleting physical object cell157_2DObject
-12:03:30: deleting physical object cell160_2DObject
-12:03:30: deleting physical object cell167_2DObject
-12:03:30: deleting physical object cell170_2DObject
-12:03:30: deleting physical object cell172_2DObject
-12:03:30: deleting physical object cell176_2DObject
-12:03:30: deleting physical object cell179_2DObject
-12:03:30: deleting physical object cell180_2DObject
-12:03:30: deleting physical object cell181_2DObject
-12:03:30: deleting physical object cell183_2DObject
-12:03:30: deleting physical object cell193_2DObject
-12:03:30: deleting physical object cell196_2DObject
-12:03:30: deleting physical object cell200_2DObject
-12:03:30: deleting physical object cell66_2DObject
-12:03:30: deleting physical object cell67_2DObject
-12:03:30: deleting physical object cell68_2DObject
-12:03:30: deleting physical object cell69_2DObject
-12:03:30: deleting physical object cell70_2DObject
-12:03:30: deleting physical object cell71_2DObject
-12:03:30: deleting physical object cell90_2DObject
-12:03:30: deleting physical object cell91_2DObject
-12:03:30: deleting physical object cell92_2DObject
-12:03:30: deleting physical object cell93_2DObject
-12:03:30: deleting physical object cell94_2DObject
-12:03:30: deleting physical object cell95_2DObject
-12:03:30: deleting physical object cell118_2DObject
-12:03:30: deleting physical object cell119_2DObject
-12:03:30: deleting physical object cell121_2DObject
-12:03:30: deleting physical object cell122_2DObject
-12:03:30: deleting physical object cell129_2DObject
-12:03:30: deleting physical object cell130_2DObject
-12:03:30: deleting physical object cell132_2DObject
-12:03:30: deleting physical object cell133_2DObject
-12:03:30: deleting physical object cell134_2DObject
-12:03:30: deleting physical object cell135_2DObject
-12:03:30: deleting physical object cell141_2DObject
-12:03:30: deleting physical object cell146_2DObject
-12:03:30: deleting physical object cell149_2DObject
-12:03:30: deleting physical object cell150_2DObject
-12:03:30: deleting physical object cell152_2DObject
-12:03:30: deleting physical object cell156_2DObject
-12:03:30: deleting physical object cell161_2DObject
-12:03:30: deleting physical object cell162_2DObject
-12:03:30: deleting physical object cell173_2DObject
-12:03:30: deleting physical object cell174_2DObject
-12:03:30: deleting physical object cell188_2DObject
-12:03:30: deleting physical object cell195_2DObject
-12:03:30: deleting physical object cell198_2DObject
-12:03:30: deleting physical object cell201_2DObject
-12:03:30: deleting physical object cell202_2DObject
-12:03:31: Unregistering ResourceManager for type BspLevel
-12:03:31: *-*-* OGRE Shutdown
+16:15:18: Creating resource group General
+16:15:18: Creating resource group Internal
+16:15:18: Creating resource group Autodetect
+16:15:18: SceneManagerFactory for type 'DefaultSceneManager' registered.
+16:15:18: Registering ResourceManager for type Material
+16:15:18: Registering ResourceManager for type Mesh
+16:15:18: Registering ResourceManager for type Skeleton
+16:15:18: MovableObjectFactory for type 'ParticleSystem' registered.
+16:15:18: OverlayElementFactory for type Panel registered.
+16:15:18: OverlayElementFactory for type BorderPanel registered.
+16:15:18: OverlayElementFactory for type TextArea registered.
+16:15:18: Registering ResourceManager for type Font
+16:15:18: ArchiveFactory for archive type FileSystem registered.
+16:15:18: ArchiveFactory for archive type Zip registered.
+16:15:18: FreeImage version: 3.10.0
+16:15:18: This program uses FreeImage, a free, open source image library supporting all common bitmap formats. See http://freeimage.sourceforge.net for details
+16:15:18: Supported formats: bmp,ico,jpg,jif,jpeg,jpe,jng,koa,iff,lbm,mng,pbm,pbm,pcd,pcx,pgm,pgm,png,ppm,ppm,ras,tga,targa,tif,tiff,wap,wbmp,wbm,psd,cut,xbm,xpm,gif,hdr,g3,sgi,exr,j2k,j2c,jp2
+16:15:18: DDS codec registering
+16:15:18: Registering ResourceManager for type HighLevelGpuProgram
+16:15:18: Registering ResourceManager for type Compositor
+16:15:18: MovableObjectFactory for type 'Entity' registered.
+16:15:18: MovableObjectFactory for type 'Light' registered.
+16:15:18: MovableObjectFactory for type 'BillboardSet' registered.
+16:15:18: MovableObjectFactory for type 'ManualObject' registered.
+16:15:18: MovableObjectFactory for type 'BillboardChain' registered.
+16:15:18: MovableObjectFactory for type 'RibbonTrail' registered.
+16:15:18: Loading library .\RenderSystem_Direct3D9
+16:15:18: Installing plugin: D3D9 RenderSystem
+16:15:18: D3D9 : Direct3D9 Rendering Subsystem created.
+16:15:18: D3D9: Driver Detection Starts
+16:15:18: D3D9: Driver Detection Ends
+16:15:18: Plugin successfully installed
+16:15:18: Loading library .\RenderSystem_GL
+16:15:18: Installing plugin: GL RenderSystem
+16:15:18: OpenGL Rendering Subsystem created.
+16:15:19: Plugin successfully installed
+16:15:19: Loading library .\Plugin_ParticleFX
+16:15:19: Installing plugin: ParticleFX
+16:15:19: Particle Emitter Type 'Point' registered
+16:15:19: Particle Emitter Type 'Box' registered
+16:15:19: Particle Emitter Type 'Ellipsoid' registered
+16:15:19: Particle Emitter Type 'Cylinder' registered
+16:15:19: Particle Emitter Type 'Ring' registered
+16:15:19: Particle Emitter Type 'HollowEllipsoid' registered
+16:15:19: Particle Affector Type 'LinearForce' registered
+16:15:19: Particle Affector Type 'ColourFader' registered
+16:15:19: Particle Affector Type 'ColourFader2' registered
+16:15:19: Particle Affector Type 'ColourImage' registered
+16:15:19: Particle Affector Type 'ColourInterpolator' registered
+16:15:19: Particle Affector Type 'Scaler' registered
+16:15:19: Particle Affector Type 'Rotator' registered
+16:15:19: Particle Affector Type 'DirectionRandomiser' registered
+16:15:19: Particle Affector Type 'DeflectorPlane' registered
+16:15:19: Plugin successfully installed
+16:15:19: Loading library .\Plugin_BSPSceneManager
+16:15:19: Installing plugin: BSP Scene Manager
+16:15:19: Plugin successfully installed
+16:15:19: Loading library .\Plugin_CgProgramManager
+16:15:19: Installing plugin: Cg Program Manager
+16:15:19: Plugin successfully installed
+16:15:19: *-*-* OGRE Initialising
+16:15:19: *-*-* Version 1.6.0RC1 (Shoggoth)
+16:15:19: Creating resource group Bootstrap
+16:15:19: Added resource location '../../media/packs/OgreCore.zip' of type 'Zip' to resource group 'Bootstrap'
+16:15:19: Added resource location '../../media' of type 'FileSystem' to resource group 'General'
+16:15:19: Added resource location '../../media/fonts' of type 'FileSystem' to resource group 'General'
+16:15:19: Added resource location '../../media/materials/programs' of type 'FileSystem' to resource group 'General'
+16:15:19: Added resource location '../../media/materials/scripts' of type 'FileSystem' to resource group 'General'
+16:15:19: Added resource location '../../media/materials/textures' of type 'FileSystem' to resource group 'General'
+16:15:19: Added resource location '../../media/models' of type 'FileSystem' to resource group 'General'
+16:15:19: Added resource location '../../media/overlays' of type 'FileSystem' to resource group 'General'
+16:15:19: Added resource location '../../media/particle' of type 'FileSystem' to resource group 'General'
+16:15:19: Added resource location '../../media/gui' of type 'FileSystem' to resource group 'General'
+16:15:19: Added resource location '../../media/DeferredShadingMedia' of type 'FileSystem' to resource group 'General'
+16:15:19: Added resource location '../../media/ObjectDefinitions' of type 'FileSystem' to resource group 'General'
+16:15:19: D3D9 : RenderSystem Option: Allow NVPerfHUD = No
+16:15:19: D3D9 : RenderSystem Option: Anti aliasing = None
+16:15:19: D3D9 : RenderSystem Option: Floating-point mode = Fastest
+16:15:19: D3D9 : RenderSystem Option: Full Screen = No
+16:15:19: D3D9 : RenderSystem Option: Rendering Device = NVIDIA Quadro FX 1700
+16:15:19: D3D9 : RenderSystem Option: VSync = No
+16:15:19: D3D9 : RenderSystem Option: Video Mode = 1024 x 768 @ 32-bit colour
+16:15:19: D3D9 : RenderSystem Option: sRGB Gamma Conversion = No
+16:15:20: CPU Identifier & Features
+16:15:20: -------------------------
+16:15:20:  *   CPU ID: GenuineIntel: Intel(R) Xeon(R) CPU           E5420  @ 2.50GHz
+16:15:20:  *      SSE: yes
+16:15:20:  *     SSE2: yes
+16:15:20:  *     SSE3: yes
+16:15:20:  *      MMX: yes
+16:15:20:  *   MMXEXT: yes
+16:15:20:  *    3DNOW: no
+16:15:20:  * 3DNOWEXT: no
+16:15:20:  *     CMOV: yes
+16:15:20:  *      TSC: yes
+16:15:20:  *      FPU: yes
+16:15:20:  *      PRO: yes
+16:15:20:  *       HT: no
+16:15:20: -------------------------
+16:15:20: D3D9 : Subsystem Initialising
+16:15:20: D3D9RenderSystem::_createRenderWindow "GOO editor", 1024x768 windowed  miscParams: FSAA=0 FSAAQuality=0 colourDepth=32 gamma=false useNVPerfHUD=false vsync=false 
+16:15:20: D3D9 : Created D3D9 Rendering Window 'GOO editor' : 1024x768, 32bpp
+16:15:20: D3D9 : WARNING - disabling VSync in windowed mode can cause timing issues at lower frame rates, turn VSync on if you observe this problem.
+16:15:20: Registering ResourceManager for type Texture
+16:15:20: Registering ResourceManager for type GpuProgram
+16:15:20: D3D9: Vertex texture format supported - PF_FLOAT16_RGB
+16:15:20: D3D9: Vertex texture format supported - PF_FLOAT16_RGBA
+16:15:20: D3D9: Vertex texture format supported - PF_FLOAT32_RGB
+16:15:20: D3D9: Vertex texture format supported - PF_FLOAT32_RGBA
+16:15:20: D3D9: Vertex texture format supported - PF_FLOAT16_R
+16:15:20: D3D9: Vertex texture format supported - PF_FLOAT32_R
+16:15:20: D3D9: Vertex texture format supported - PF_FLOAT16_GR
+16:15:20: D3D9: Vertex texture format supported - PF_FLOAT32_GR
+16:15:20: RenderSystem capabilities
+16:15:20: -------------------------
+16:15:20: RenderSystem Name: Direct3D9 Rendering Subsystem
+16:15:20: GPU Vendor: nvidia
+16:15:20: Device Name: NVIDIA Quadro FX 1700
+16:15:20: Driver Version: 6.14.11.6926
+16:15:20:  * Fixed function pipeline: yes
+16:15:20:  * Hardware generation of mipmaps: yes
+16:15:20:  * Texture blending: yes
+16:15:20:  * Anisotropic texture filtering: yes
+16:15:20:  * Dot product texture operation: yes
+16:15:20:  * Cube mapping: yes
+16:15:20:  * Hardware stencil buffer: yes
+16:15:20:    - Stencil depth: 8
+16:15:20:    - Two sided stencil support: yes
+16:15:20:    - Wrap stencil values: yes
+16:15:20:  * Hardware vertex / index buffers: yes
+16:15:20:  * Vertex programs: yes
+16:15:20:  * Fragment programs: yes
+16:15:20:  * Geometry programs: no
+16:15:20:  * Supported Shader Profiles: hlsl ps_1_1 ps_1_2 ps_1_3 ps_1_4 ps_2_0 ps_2_a ps_2_b ps_2_x ps_3_0 vs_1_1 vs_2_0 vs_2_a vs_2_x vs_3_0
+16:15:20:  * Texture Compression: yes
+16:15:20:    - DXT: yes
+16:15:20:    - VTC: no
+16:15:20:  * Scissor Rectangle: yes
+16:15:20:  * Hardware Occlusion Query: yes
+16:15:20:  * User clip planes: yes
+16:15:20:  * VET_UBYTE4 vertex element type: yes
+16:15:20:  * Infinite far plane projection: yes
+16:15:20:  * Hardware render-to-texture: yes
+16:15:20:  * Floating point textures: yes
+16:15:20:  * Non-power-of-two textures: yes
+16:15:20:  * Volume textures: yes
+16:15:20:  * Multiple Render Targets: 4
+16:15:20:    - With different bit depths: yes
+16:15:20:  * Point Sprites: yes
+16:15:20:  * Extended point parameters: yes
+16:15:20:  * Max Point Size: 8192
+16:15:20:  * Vertex texture fetch: yes
+16:15:20:    - Max vertex textures: 4
+16:15:20:    - Vertex textures shared: no
+16:15:20:  * Render to Vertex Buffer : no
+16:15:20:  * DirectX per stage constants: yes
+16:15:20: ***************************************
+16:15:20: *** D3D9 : Subsystem Initialised OK ***
+16:15:20: ***************************************
+16:15:20: ResourceBackgroundQueue - threading disabled
+16:15:20: Particle Renderer Type 'billboard' registered
+16:15:20: SceneManagerFactory for type 'BspSceneManager' registered.
+16:15:20: Registering ResourceManager for type BspLevel
+16:15:20: Parsing scripts for resource group Autodetect
+16:15:20: Finished parsing scripts for resource group Autodetect
+16:15:20: Parsing scripts for resource group Bootstrap
+16:15:20: Parsing script OgreCore.material
+16:15:20: Parsing script OgreProfiler.material
+16:15:20: Parsing script Ogre.fontdef
+16:15:20: Parsing script OgreDebugPanel.overlay
+16:15:20: Texture: New_Ogre_Border_Center.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x128x1.
+16:15:20: Texture: New_Ogre_Border.png: Loading 1 faces(PF_A8R8G8B8,256x256x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x256x1.
+16:15:20: Texture: New_Ogre_Border_Break.png: Loading 1 faces(PF_A8R8G8B8,32x32x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,32x32x1.
+16:15:20: Font BlueHighwayusing texture size 512x512
+16:15:20: Info: Freetype returned null for character 127 in font BlueHighway
+16:15:20: Info: Freetype returned null for character 128 in font BlueHighway
+16:15:20: Info: Freetype returned null for character 129 in font BlueHighway
+16:15:20: Info: Freetype returned null for character 130 in font BlueHighway
+16:15:20: Info: Freetype returned null for character 131 in font BlueHighway
+16:15:20: Info: Freetype returned null for character 132 in font BlueHighway
+16:15:20: Info: Freetype returned null for character 133 in font BlueHighway
+16:15:20: Info: Freetype returned null for character 134 in font BlueHighway
+16:15:20: Info: Freetype returned null for character 135 in font BlueHighway
+16:15:20: Info: Freetype returned null for character 136 in font BlueHighway
+16:15:20: Info: Freetype returned null for character 137 in font BlueHighway
+16:15:20: Info: Freetype returned null for character 138 in font BlueHighway
+16:15:20: Info: Freetype returned null for character 139 in font BlueHighway
+16:15:20: Info: Freetype returned null for character 140 in font BlueHighway
+16:15:20: Info: Freetype returned null for character 141 in font BlueHighway
+16:15:20: Info: Freetype returned null for character 142 in font BlueHighway
+16:15:20: Info: Freetype returned null for character 143 in font BlueHighway
+16:15:20: Info: Freetype returned null for character 144 in font BlueHighway
+16:15:20: Info: Freetype returned null for character 145 in font BlueHighway
+16:15:20: Info: Freetype returned null for character 146 in font BlueHighway
+16:15:20: Info: Freetype returned null for character 147 in font BlueHighway
+16:15:20: Info: Freetype returned null for character 148 in font BlueHighway
+16:15:20: Info: Freetype returned null for character 149 in font BlueHighway
+16:15:20: Info: Freetype returned null for character 150 in font BlueHighway
+16:15:20: Info: Freetype returned null for character 151 in font BlueHighway
+16:15:20: Info: Freetype returned null for character 152 in font BlueHighway
+16:15:20: Info: Freetype returned null for character 153 in font BlueHighway
+16:15:20: Info: Freetype returned null for character 154 in font BlueHighway
+16:15:20: Info: Freetype returned null for character 155 in font BlueHighway
+16:15:20: Info: Freetype returned null for character 156 in font BlueHighway
+16:15:20: Info: Freetype returned null for character 157 in font BlueHighway
+16:15:20: Info: Freetype returned null for character 158 in font BlueHighway
+16:15:20: Info: Freetype returned null for character 159 in font BlueHighway
+16:15:20: Info: Freetype returned null for character 160 in font BlueHighway
+16:15:20: Texture: BlueHighwayTexture: Loading 1 faces(PF_BYTE_LA,512x512x1) with 0 generated mipmaps from Image. Internal format is PF_BYTE_LA,512x512x1.
+16:15:20: Texture: ogretext.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x128x1.
+16:15:20: Parsing script OgreLoadingPanel.overlay
+16:15:20: Finished parsing scripts for resource group Bootstrap
+16:15:20: Parsing scripts for resource group General
+16:15:20: Parsing script Examples.program
+16:15:20: Parsing script deferred.glsl.program
+16:15:20: Parsing script deferred.hlsl.program
+16:15:20: Parsing script deferred.program
+16:15:20: Parsing script deferred_post_ambient.program
+16:15:20: Parsing script deferred_post_debug.glsl.program
+16:15:20: Parsing script deferred_post_debug.hlsl.program
+16:15:20: Parsing script deferred_post_debug.program
+16:15:20: Parsing script deferred_post_minilight.glsl.program
+16:15:20: Parsing script deferred_post_minilight.hlsl.program
+16:15:20: OGRE EXCEPTION(2:InvalidParametersException): Parameter called lightFalloff does not exist.  in GpuProgramParameters::_findNamedConstantDefinition at ..\src\OgreGpuProgram.cpp (line 1095)
+16:15:20: Compiler error: invalid parameters in deferred_post_minilight.hlsl.program(27): setting of constant failed
+16:15:20: Parsing script deferred_post_minilight.program
+16:15:20: Parsing script deferred_post_multipass.glsl.program
+16:15:20: Parsing script deferred_post_multipass.hlsl.program
+16:15:20: Parsing script deferred_post_onepass.glsl.program
+16:15:20: Parsing script deferred_post_onepass.hlsl.program
+16:15:20: Parsing script deferred_post_vs.program
+16:15:20: Parsing script editor.material
+16:15:20: Parsing script Example-DynTex.material
+16:15:20: Parsing script Example.material
+16:15:20: Parsing script lua_app.material
+16:15:20: Parsing script deferred.material
+16:15:20: Parsing script deferreddemo.material
+16:15:20: Parsing script deferred_post_ambient.material
+16:15:20: Parsing script deferred_post_debug.material
+16:15:20: Parsing script deferred_post_minilight.material
+16:15:20: Parsing script deferred_post_multipass.material
+16:15:20: Parsing script deferred_post_onepass.material
+16:15:20: Parsing script emitted_emitter.particle
+16:15:20: Parsing script Example-Water.particle
+16:15:20: Parsing script Example.particle
+16:15:20: Parsing script smoke.particle
+16:15:20: Parsing script Examples.compositor
+16:15:20: Parsing script deferred.compositor
+16:15:20: Parsing script sample.fontdef
+16:15:20: Parsing script console.overlay
+16:15:20: Texture: console_bg.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x128x1.
+16:15:20: Texture: console_input_bg.png: Loading 1 faces(PF_A8R8G8B8,128x64x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,128x64x1.
+16:15:20: Parsing script parameters.overlay
+16:15:20: Finished parsing scripts for resource group General
+16:15:20: Parsing scripts for resource group Internal
+16:15:20: Finished parsing scripts for resource group Internal
+16:15:20: *** Initializing OIS ***
+16:15:20: Mesh: Loading sphere.mesh.
+16:15:20: World object instatiated
+16:15:20: Lua: loading init.lua..
+16:15:20: Lua: ..\..\media\LUA\
+16:15:20: Lua: loading celldefinitions.lua..
+16:15:20: Lua:  system definitions - Loading System Definitions
+16:15:20: c++: loading system class: ..\..\media\LUA\systems\systems\abstractsystem.lua
+16:15:20: lua error message:cannot open ..\..\media\LUA\systems\systems\abstractsystem.LUA: No such file or directory
+16:15:20: Lua: Loading land 0.1 canvas surface...
+16:15:20: Lua: Loading water 0.1 canvas surface
+16:16:04: deleting object with cursor!
+16:16:04: deleting object with cursor!
+16:16:05: deleting object with cursor!
+16:16:05: deleting object with cursor!
+16:16:05: deleting object with cursor!
+16:16:05: OBJECT: cellsystem0
+16:16:05: deleting physical object cell0_2DObject
+16:16:05: deleting physical object cell1_2DObject
+16:16:05: deleting physical object cell2_2DObject
+16:16:05: deleting physical object cell3_2DObject
+16:16:05: deleting physical object cell4_2DObject
+16:16:05: deleting physical object cell5_2DObject
+16:16:05: deleting physical object cell6_2DObject
+16:16:05: deleting physical object cell7_2DObject
+16:16:05: deleting physical object cell8_2DObject
+16:16:05: deleting physical object cell9_2DObject
+16:16:05: deleting physical object cell10_2DObject
+16:16:05: deleting physical object cell11_2DObject
+16:16:05: deleting physical object cell12_2DObject
+16:16:05: deleting physical object cell13_2DObject
+16:16:05: deleting physical object cell14_2DObject
+16:16:05: deleting physical object cell15_2DObject
+16:16:05: deleting physical object cell16_2DObject
+16:16:05: deleting physical object cell17_2DObject
+16:16:05: deleting physical object cell18_2DObject
+16:16:05: deleting physical object cell19_2DObject
+16:16:05: deleting physical object cell20_2DObject
+16:16:05: deleting physical object cell21_2DObject
+16:16:05: deleting physical object cell22_2DObject
+16:16:05: deleting physical object cell23_2DObject
+16:16:05: deleting physical object cell24_2DObject
+16:16:05: deleting physical object cell25_2DObject
+16:16:05: deleting physical object cell26_2DObject
+16:16:05: deleting physical object cell27_2DObject
+16:16:05: deleting physical object cell28_2DObject
+16:16:05: deleting physical object cell29_2DObject
+16:16:05: deleting physical object cell30_2DObject
+16:16:05: deleting physical object cell31_2DObject
+16:16:05: deleting physical object cell32_2DObject
+16:16:05: deleting physical object cell33_2DObject
+16:16:05: deleting physical object cell34_2DObject
+16:16:05: deleting physical object cell35_2DObject
+16:16:05: deleting physical object cell36_2DObject
+16:16:05: deleting physical object cell37_2DObject
+16:16:05: deleting physical object cell38_2DObject
+16:16:05: deleting physical object cell39_2DObject
+16:16:05: deleting physical object cell40_2DObject
+16:16:05: deleting physical object cell41_2DObject
+16:16:05: deleting physical object cell42_2DObject
+16:16:05: deleting physical object cell43_2DObject
+16:16:05: deleting physical object cell44_2DObject
+16:16:05: deleting physical object cell45_2DObject
+16:16:05: deleting physical object cell46_2DObject
+16:16:05: deleting physical object cell47_2DObject
+16:16:05: deleting physical object cell48_2DObject
+16:16:05: deleting physical object cell49_2DObject
+16:16:05: deleting physical object cell50_2DObject
+16:16:05: deleting physical object cell51_2DObject
+16:16:05: deleting physical object cell52_2DObject
+16:16:05: deleting physical object cell53_2DObject
+16:16:05: deleting physical object cell54_2DObject
+16:16:05: deleting physical object cell55_2DObject
+16:16:05: deleting physical object cell56_2DObject
+16:16:05: deleting physical object cell57_2DObject
+16:16:05: deleting physical object cell64_2DObject
+16:16:05: deleting physical object cell71_2DObject
+16:16:05: deleting physical object cell84_2DObject
+16:16:05: deleting physical object cell85_2DObject
+16:16:05: deleting physical object cell86_2DObject
+16:16:05: deleting physical object cell87_2DObject
+16:16:05: deleting physical object cell88_2DObject
+16:16:05: deleting physical object cell92_2DObject
+16:16:05: deleting physical object cell93_2DObject
+16:16:05: deleting physical object cell97_2DObject
+16:16:05: deleting physical object cell99_2DObject
+16:17:00: deleting physical object cell58_2DObject
+16:17:00: deleting physical object cell59_2DObject
+16:17:00: deleting physical object cell60_2DObject
+16:17:00: deleting physical object cell61_2DObject
+16:17:00: deleting physical object cell62_2DObject
+16:17:00: deleting physical object cell63_2DObject
+16:17:00: deleting physical object cell89_2DObject
+16:17:00: deleting physical object cell90_2DObject
+16:17:00: deleting physical object cell91_2DObject
+16:17:00: deleting physical object cell106_2DObject
+16:17:00: deleting physical object cell107_2DObject
+16:17:00: deleting physical object cell108_2DObject
+16:17:00: deleting physical object cell117_2DObject
+16:17:00: deleting physical object cell118_2DObject
+16:17:00: deleting physical object cell119_2DObject
+16:17:00: deleting physical object cell123_2DObject
+16:17:00: deleting physical object cell133_2DObject
+16:17:00: deleting physical object cell134_2DObject
+16:17:00: deleting physical object cell135_2DObject
+16:17:00: deleting physical object cell142_2DObject
+16:17:00: deleting physical object cell144_2DObject
+16:17:00: deleting physical object cell154_2DObject
+16:17:00: deleting physical object cell157_2DObject
+16:17:00: deleting physical object cell159_2DObject
+16:17:00: deleting physical object cell163_2DObject
+16:17:00: deleting physical object cell167_2DObject
+16:17:00: deleting physical object cell169_2DObject
+16:17:00: deleting physical object cell171_2DObject
+16:17:00: deleting physical object cell172_2DObject
+16:17:00: deleting physical object cell176_2DObject
+16:17:00: deleting physical object cell178_2DObject
+16:17:00: deleting physical object cell202_2DObject
+16:17:00: deleting physical object cell204_2DObject
+16:17:00: deleting physical object cell210_2DObject
+16:17:00: deleting physical object cell212_2DObject
+16:17:00: deleting physical object cell214_2DObject
+16:17:00: deleting physical object cell226_2DObject
+16:17:00: deleting physical object cell238_2DObject
+16:17:00: deleting physical object cell239_2DObject
+16:17:00: deleting physical object cell242_2DObject
+16:17:00: deleting physical object cell249_2DObject
+16:17:00: deleting physical object cell254_2DObject
+16:17:00: deleting physical object cell257_2DObject
+16:17:00: deleting physical object cell258_2DObject
+16:17:00: deleting physical object cell265_2DObject
+16:17:00: deleting physical object cell276_2DObject
+16:17:00: deleting physical object cell285_2DObject
+16:17:00: deleting physical object cell288_2DObject
+16:17:00: deleting physical object cell294_2DObject
+16:17:00: deleting physical object cell302_2DObject
+16:17:00: deleting physical object cell307_2DObject
+16:17:00: deleting physical object cell313_2DObject
+16:17:00: deleting physical object cell325_2DObject
+16:17:00: deleting physical object cell333_2DObject
+16:17:00: deleting physical object cell337_2DObject
+16:17:00: deleting physical object cell343_2DObject
+16:17:00: deleting physical object cell377_2DObject
+16:17:00: deleting physical object cell380_2DObject
+16:17:00: deleting physical object cell395_2DObject
+16:17:00: deleting physical object cell65_2DObject
+16:17:00: deleting physical object cell66_2DObject
+16:17:00: deleting physical object cell67_2DObject
+16:17:00: deleting physical object cell68_2DObject
+16:17:00: deleting physical object cell69_2DObject
+16:17:00: deleting physical object cell70_2DObject
+16:17:00: deleting physical object cell94_2DObject
+16:17:00: deleting physical object cell95_2DObject
+16:17:00: deleting physical object cell100_2DObject
+16:17:00: deleting physical object cell101_2DObject
+16:17:00: deleting physical object cell111_2DObject
+16:17:00: deleting physical object cell112_2DObject
+16:17:00: deleting physical object cell120_2DObject
+16:17:00: deleting physical object cell121_2DObject
+16:17:00: deleting physical object cell122_2DObject
+16:17:00: deleting physical object cell124_2DObject
+16:17:00: deleting physical object cell136_2DObject
+16:17:00: deleting physical object cell137_2DObject
+16:17:00: deleting physical object cell139_2DObject
+16:17:00: deleting physical object cell140_2DObject
+16:17:00: deleting physical object cell148_2DObject
+16:17:00: deleting physical object cell149_2DObject
+16:17:00: deleting physical object cell158_2DObject
+16:17:00: deleting physical object cell160_2DObject
+16:17:00: deleting physical object cell166_2DObject
+16:17:00: deleting physical object cell174_2DObject
+16:17:00: deleting physical object cell177_2DObject
+16:17:00: deleting physical object cell179_2DObject
+16:17:00: deleting physical object cell197_2DObject
+16:17:00: deleting physical object cell201_2DObject
+16:17:00: deleting physical object cell205_2DObject
+16:17:00: deleting physical object cell206_2DObject
+16:17:00: deleting physical object cell208_2DObject
+16:17:00: deleting physical object cell223_2DObject
+16:17:00: deleting physical object cell224_2DObject
+16:17:00: deleting physical object cell235_2DObject
+16:17:00: deleting physical object cell243_2DObject
+16:17:00: deleting physical object cell252_2DObject
+16:17:00: deleting physical object cell255_2DObject
+16:17:00: deleting physical object cell266_2DObject
+16:17:00: deleting physical object cell268_2DObject
+16:17:00: deleting physical object cell281_2DObject
+16:17:00: deleting physical object cell286_2DObject
+16:17:00: deleting physical object cell289_2DObject
+16:17:00: deleting physical object cell295_2DObject
+16:17:00: deleting physical object cell296_2DObject
+16:17:00: deleting physical object cell299_2DObject
+16:17:00: deleting physical object cell312_2DObject
+16:17:00: deleting physical object cell344_2DObject
+16:17:00: deleting physical object cell366_2DObject
+16:17:00: deleting physical object cell372_2DObject
+16:17:00: deleting physical object cell376_2DObject
+16:17:00: deleting physical object cell394_2DObject
+16:17:00: deleting physical object cell405_2DObject
+16:17:00: deleting physical object cell72_2DObject
+16:17:00: deleting physical object cell73_2DObject
+16:17:00: deleting physical object cell74_2DObject
+16:17:00: deleting physical object cell75_2DObject
+16:17:00: deleting physical object cell76_2DObject
+16:17:00: deleting physical object cell77_2DObject
+16:17:00: deleting physical object cell96_2DObject
+16:17:00: deleting physical object cell98_2DObject
+16:17:00: deleting physical object cell102_2DObject
+16:17:00: deleting physical object cell103_2DObject
+16:17:00: deleting physical object cell113_2DObject
+16:17:00: deleting physical object cell114_2DObject
+16:17:00: deleting physical object cell125_2DObject
+16:17:00: deleting physical object cell126_2DObject
+16:17:00: deleting physical object cell127_2DObject
+16:17:00: deleting physical object cell128_2DObject
+16:17:00: deleting physical object cell138_2DObject
+16:17:00: deleting physical object cell141_2DObject
+16:17:00: deleting physical object cell143_2DObject
+16:17:00: deleting physical object cell145_2DObject
+16:17:00: deleting physical object cell151_2DObject
+16:17:00: deleting physical object cell153_2DObject
+16:17:00: deleting physical object cell161_2DObject
+16:17:00: deleting physical object cell162_2DObject
+16:17:00: deleting physical object cell168_2DObject
+16:17:00: deleting physical object cell170_2DObject
+16:17:00: deleting physical object cell180_2DObject
+16:17:00: deleting physical object cell188_2DObject
+16:17:00: deleting physical object cell196_2DObject
+16:17:00: deleting physical object cell198_2DObject
+16:17:00: deleting physical object cell199_2DObject
+16:17:00: deleting physical object cell207_2DObject
+16:17:00: deleting physical object cell209_2DObject
+16:17:00: deleting physical object cell211_2DObject
+16:17:00: deleting physical object cell213_2DObject
+16:17:00: deleting physical object cell218_2DObject
+16:17:00: deleting physical object cell233_2DObject
+16:17:00: deleting physical object cell236_2DObject
+16:17:00: deleting physical object cell237_2DObject
+16:17:00: deleting physical object cell245_2DObject
+16:17:00: deleting physical object cell246_2DObject
+16:17:00: deleting physical object cell260_2DObject
+16:17:00: deleting physical object cell262_2DObject
+16:17:00: deleting physical object cell263_2DObject
+16:17:00: deleting physical object cell273_2DObject
+16:17:00: deleting physical object cell274_2DObject
+16:17:00: deleting physical object cell283_2DObject
+16:17:00: deleting physical object cell284_2DObject
+16:17:00: deleting physical object cell290_2DObject
+16:17:00: deleting physical object cell291_2DObject
+16:17:00: deleting physical object cell311_2DObject
+16:17:00: deleting physical object cell323_2DObject
+16:17:00: deleting physical object cell326_2DObject
+16:17:00: deleting physical object cell334_2DObject
+16:17:00: deleting physical object cell338_2DObject
+16:17:00: deleting physical object cell342_2DObject
+16:17:00: deleting physical object cell347_2DObject
+16:17:00: deleting physical object cell365_2DObject
+16:17:00: deleting physical object cell367_2DObject
+16:17:00: deleting physical object cell373_2DObject
+16:17:00: deleting physical object cell396_2DObject
+16:17:00: deleting physical object cell401_2DObject
+16:17:00: deleting physical object cell404_2DObject
+16:17:00: deleting physical object cell78_2DObject
+16:17:00: deleting physical object cell79_2DObject
+16:17:00: deleting physical object cell80_2DObject
+16:17:00: deleting physical object cell81_2DObject
+16:17:00: deleting physical object cell82_2DObject
+16:17:00: deleting physical object cell83_2DObject
+16:17:00: deleting physical object cell104_2DObject
+16:17:00: deleting physical object cell105_2DObject
+16:17:00: deleting physical object cell109_2DObject
+16:17:00: deleting physical object cell110_2DObject
+16:17:00: deleting physical object cell115_2DObject
+16:17:00: deleting physical object cell116_2DObject
+16:17:00: deleting physical object cell129_2DObject
+16:17:00: deleting physical object cell130_2DObject
+16:17:00: deleting physical object cell131_2DObject
+16:17:00: deleting physical object cell132_2DObject
+16:17:00: deleting physical object cell146_2DObject
+16:17:00: deleting physical object cell147_2DObject
+16:17:00: deleting physical object cell150_2DObject
+16:17:00: deleting physical object cell152_2DObject
+16:17:00: deleting physical object cell155_2DObject
+16:17:00: deleting physical object cell156_2DObject
+16:17:00: deleting physical object cell164_2DObject
+16:17:00: deleting physical object cell165_2DObject
+16:17:00: deleting physical object cell173_2DObject
+16:17:00: deleting physical object cell175_2DObject
+16:17:00: deleting physical object cell181_2DObject
+16:17:00: deleting physical object cell195_2DObject
+16:17:00: deleting physical object cell200_2DObject
+16:17:00: deleting physical object cell203_2DObject
+16:17:00: deleting physical object cell219_2DObject
+16:17:00: deleting physical object cell225_2DObject
+16:17:00: deleting physical object cell234_2DObject
+16:17:00: deleting physical object cell240_2DObject
+16:17:00: deleting physical object cell247_2DObject
+16:17:00: deleting physical object cell256_2DObject
+16:17:00: deleting physical object cell261_2DObject
+16:17:00: deleting physical object cell264_2DObject
+16:17:00: deleting physical object cell271_2DObject
+16:17:00: deleting physical object cell279_2DObject
+16:17:00: deleting physical object cell287_2DObject
+16:17:00: deleting physical object cell293_2DObject
+16:17:00: deleting physical object cell297_2DObject
+16:17:00: deleting physical object cell298_2DObject
+16:17:00: deleting physical object cell301_2DObject
+16:17:00: deleting physical object cell315_2DObject
+16:17:00: deleting physical object cell324_2DObject
+16:17:00: deleting physical object cell335_2DObject
+16:17:00: deleting physical object cell345_2DObject
+16:17:00: deleting physical object cell361_2DObject
+16:17:00: deleting physical object cell374_2DObject
+16:17:00: deleting physical object cell379_2DObject
+16:17:00: deleting physical object cell383_2DObject
+16:17:00: deleting physical object cell391_2DObject
+16:17:00: deleting physical object cell182_2DObject
+16:17:00: deleting physical object cell183_2DObject
+16:17:00: deleting physical object cell184_2DObject
+16:17:00: deleting physical object cell185_2DObject
+16:17:00: deleting physical object cell186_2DObject
+16:17:00: deleting physical object cell187_2DObject
+16:17:00: deleting physical object cell215_2DObject
+16:17:00: deleting physical object cell216_2DObject
+16:17:00: deleting physical object cell217_2DObject
+16:17:00: deleting physical object cell227_2DObject
+16:17:00: deleting physical object cell228_2DObject
+16:17:00: deleting physical object cell229_2DObject
+16:17:00: deleting physical object cell241_2DObject
+16:17:00: deleting physical object cell248_2DObject
+16:17:00: deleting physical object cell250_2DObject
+16:17:00: deleting physical object cell251_2DObject
+16:17:00: deleting physical object cell267_2DObject
+16:17:00: deleting physical object cell269_2DObject
+16:17:00: deleting physical object cell272_2DObject
+16:17:00: deleting physical object cell278_2DObject
+16:17:00: deleting physical object cell292_2DObject
+16:17:00: deleting physical object cell300_2DObject
+16:17:00: deleting physical object cell303_2DObject
+16:17:00: deleting physical object cell305_2DObject
+16:17:00: deleting physical object cell308_2DObject
+16:17:00: deleting physical object cell336_2DObject
+16:17:00: deleting physical object cell339_2DObject
+16:17:00: deleting physical object cell346_2DObject
+16:17:00: deleting physical object cell348_2DObject
+16:17:00: deleting physical object cell355_2DObject
+16:17:00: deleting physical object cell359_2DObject
+16:17:00: deleting physical object cell370_2DObject
+16:17:00: deleting physical object cell375_2DObject
+16:17:00: deleting physical object cell378_2DObject
+16:17:00: deleting physical object cell385_2DObject
+16:17:00: deleting physical object cell392_2DObject
+16:17:00: deleting physical object cell397_2DObject
+16:17:00: deleting physical object cell403_2DObject
+16:17:00: deleting physical object cell189_2DObject
+16:17:00: deleting physical object cell190_2DObject
+16:17:00: deleting physical object cell191_2DObject
+16:17:00: deleting physical object cell192_2DObject
+16:17:00: deleting physical object cell193_2DObject
+16:17:00: deleting physical object cell194_2DObject
+16:17:00: deleting physical object cell220_2DObject
+16:17:00: deleting physical object cell221_2DObject
+16:17:00: deleting physical object cell222_2DObject
+16:17:00: deleting physical object cell230_2DObject
+16:17:00: deleting physical object cell231_2DObject
+16:17:00: deleting physical object cell232_2DObject
+16:17:00: deleting physical object cell244_2DObject
+16:17:00: deleting physical object cell253_2DObject
+16:17:00: deleting physical object cell259_2DObject
+16:17:00: deleting physical object cell270_2DObject
+16:17:00: deleting physical object cell275_2DObject
+16:17:00: deleting physical object cell277_2DObject
+16:17:00: deleting physical object cell280_2DObject
+16:17:00: deleting physical object cell282_2DObject
+16:17:00: deleting physical object cell304_2DObject
+16:17:00: deleting physical object cell306_2DObject
+16:17:00: deleting physical object cell309_2DObject
+16:17:00: deleting physical object cell310_2DObject
+16:17:00: deleting physical object cell314_2DObject
+16:17:00: deleting physical object cell316_2DObject
+16:17:00: deleting physical object cell340_2DObject
+16:17:00: deleting physical object cell341_2DObject
+16:17:00: deleting physical object cell356_2DObject
+16:17:00: deleting physical object cell357_2DObject
+16:17:00: deleting physical object cell386_2DObject
+16:17:00: deleting physical object cell402_2DObject
+16:17:00: deleting physical object cell317_2DObject
+16:17:00: deleting physical object cell318_2DObject
+16:17:00: deleting physical object cell319_2DObject
+16:17:00: deleting physical object cell320_2DObject
+16:17:00: deleting physical object cell321_2DObject
+16:17:00: deleting physical object cell322_2DObject
+16:17:00: deleting physical object cell358_2DObject
+16:17:00: deleting physical object cell360_2DObject
+16:17:00: deleting physical object cell362_2DObject
+16:17:00: deleting physical object cell363_2DObject
+16:17:00: deleting physical object cell364_2DObject
+16:17:00: deleting physical object cell369_2DObject
+16:17:00: deleting physical object cell387_2DObject
+16:17:00: deleting physical object cell388_2DObject
+16:17:00: deleting physical object cell399_2DObject
+16:17:00: deleting physical object cell400_2DObject
+16:17:00: deleting physical object cell406_2DObject
+16:17:00: deleting physical object cell327_2DObject
+16:17:00: deleting physical object cell328_2DObject
+16:17:00: deleting physical object cell329_2DObject
+16:17:00: deleting physical object cell330_2DObject
+16:17:00: deleting physical object cell331_2DObject
+16:17:00: deleting physical object cell332_2DObject
+16:17:00: deleting physical object cell368_2DObject
+16:17:00: deleting physical object cell371_2DObject
+16:17:00: deleting physical object cell398_2DObject
+16:17:00: deleting physical object cell349_2DObject
+16:17:00: deleting physical object cell350_2DObject
+16:17:00: deleting physical object cell351_2DObject
+16:17:00: deleting physical object cell352_2DObject
+16:17:00: deleting physical object cell353_2DObject
+16:17:00: deleting physical object cell354_2DObject
+16:17:00: deleting physical object cell381_2DObject
+16:17:00: deleting physical object cell382_2DObject
+16:17:00: deleting physical object cell384_2DObject
+16:17:00: deleting physical object cell389_2DObject
+16:17:00: deleting physical object cell390_2DObject
+16:17:00: deleting physical object cell393_2DObject
+16:17:46: deleting physical object cell407_2DObject
+16:17:46: deleting physical object cell408_2DObject
+16:17:46: deleting physical object cell409_2DObject
+16:17:46: deleting physical object cell410_2DObject
+16:17:46: deleting physical object cell411_2DObject
+16:17:46: deleting physical object cell412_2DObject
+16:17:46: deleting physical object cell425_2DObject
+16:17:46: deleting physical object cell426_2DObject
+16:17:46: deleting physical object cell427_2DObject
+16:17:46: deleting physical object cell428_2DObject
+16:17:46: deleting physical object cell429_2DObject
+16:17:46: deleting physical object cell430_2DObject
+16:17:46: deleting physical object cell443_2DObject
+16:17:46: deleting physical object cell444_2DObject
+16:17:46: deleting physical object cell445_2DObject
+16:17:46: deleting physical object cell446_2DObject
+16:17:46: deleting physical object cell447_2DObject
+16:17:46: deleting physical object cell449_2DObject
+16:17:46: deleting physical object cell450_2DObject
+16:17:46: deleting physical object cell452_2DObject
+16:17:46: deleting physical object cell454_2DObject
+16:17:46: deleting physical object cell455_2DObject
+16:17:46: deleting physical object cell457_2DObject
+16:17:46: deleting physical object cell459_2DObject
+16:17:46: deleting physical object cell479_2DObject
+16:17:46: deleting physical object cell481_2DObject
+16:17:46: deleting physical object cell805_2DObject
+16:17:46: deleting physical object cell841_2DObject
+16:17:46: deleting physical object cell866_2DObject
+16:17:46: deleting physical object cell875_2DObject
+16:17:46: deleting physical object cell910_2DObject
+16:17:46: deleting physical object cell940_2DObject
+16:17:46: deleting physical object cell945_2DObject
+16:17:46: deleting physical object cell950_2DObject
+16:17:46: deleting physical object cell969_2DObject
+16:17:46: deleting physical object cell1008_2DObject
+16:17:46: deleting physical object cell1013_2DObject
+16:17:46: deleting physical object cell1025_2DObject
+16:17:46: deleting physical object cell1053_2DObject
+16:17:46: deleting physical object cell1058_2DObject
+16:17:46: deleting physical object cell413_2DObject
+16:17:46: deleting physical object cell414_2DObject
+16:17:46: deleting physical object cell415_2DObject
+16:17:46: deleting physical object cell416_2DObject
+16:17:46: deleting physical object cell417_2DObject
+16:17:46: deleting physical object cell418_2DObject
+16:17:46: deleting physical object cell431_2DObject
+16:17:46: deleting physical object cell432_2DObject
+16:17:46: deleting physical object cell433_2DObject
+16:17:46: deleting physical object cell434_2DObject
+16:17:46: deleting physical object cell436_2DObject
+16:17:46: deleting physical object cell437_2DObject
+16:17:46: deleting physical object cell448_2DObject
+16:17:46: deleting physical object cell451_2DObject
+16:17:46: deleting physical object cell453_2DObject
+16:17:46: deleting physical object cell456_2DObject
+16:17:46: deleting physical object cell460_2DObject
+16:17:46: deleting physical object cell462_2DObject
+16:17:46: deleting physical object cell466_2DObject
+16:17:46: deleting physical object cell467_2DObject
+16:17:46: deleting physical object cell470_2DObject
+16:17:46: deleting physical object cell472_2DObject
+16:17:46: deleting physical object cell473_2DObject
+16:17:46: deleting physical object cell474_2DObject
+16:17:46: deleting physical object cell480_2DObject
+16:17:46: deleting physical object cell684_2DObject
+16:17:46: deleting physical object cell696_2DObject
+16:17:46: deleting physical object cell699_2DObject
+16:17:46: deleting physical object cell703_2DObject
+16:17:46: deleting physical object cell706_2DObject
+16:17:46: deleting physical object cell711_2DObject
+16:17:46: deleting physical object cell715_2DObject
+16:17:46: deleting physical object cell718_2DObject
+16:17:46: deleting physical object cell721_2DObject
+16:17:46: deleting physical object cell724_2DObject
+16:17:46: deleting physical object cell728_2DObject
+16:17:46: deleting physical object cell731_2DObject
+16:17:46: deleting physical object cell734_2DObject
+16:17:46: deleting physical object cell737_2DObject
+16:17:46: deleting physical object cell741_2DObject
+16:17:46: deleting physical object cell746_2DObject
+16:17:46: deleting physical object cell750_2DObject
+16:17:46: deleting physical object cell753_2DObject
+16:17:46: deleting physical object cell757_2DObject
+16:17:46: deleting physical object cell760_2DObject
+16:17:46: deleting physical object cell763_2DObject
+16:17:46: deleting physical object cell767_2DObject
+16:17:46: deleting physical object cell770_2DObject
+16:17:46: deleting physical object cell773_2DObject
+16:17:46: deleting physical object cell776_2DObject
+16:17:46: deleting physical object cell779_2DObject
+16:17:46: deleting physical object cell783_2DObject
+16:17:46: deleting physical object cell788_2DObject
+16:17:46: deleting physical object cell792_2DObject
+16:17:46: deleting physical object cell795_2DObject
+16:17:46: deleting physical object cell798_2DObject
+16:17:46: deleting physical object cell801_2DObject
+16:17:46: deleting physical object cell806_2DObject
+16:17:46: deleting physical object cell810_2DObject
+16:17:46: deleting physical object cell813_2DObject
+16:17:46: deleting physical object cell816_2DObject
+16:17:46: deleting physical object cell819_2DObject
+16:17:46: deleting physical object cell822_2DObject
+16:17:46: deleting physical object cell826_2DObject
+16:17:46: deleting physical object cell829_2DObject
+16:17:46: deleting physical object cell832_2DObject
+16:17:46: deleting physical object cell835_2DObject
+16:17:46: deleting physical object cell838_2DObject
+16:17:46: deleting physical object cell842_2DObject
+16:17:46: deleting physical object cell845_2DObject
+16:17:46: deleting physical object cell848_2DObject
+16:17:46: deleting physical object cell851_2DObject
+16:17:46: deleting physical object cell854_2DObject
+16:17:46: deleting physical object cell858_2DObject
+16:17:46: deleting physical object cell863_2DObject
+16:17:46: deleting physical object cell867_2DObject
+16:17:46: deleting physical object cell871_2DObject
+16:17:46: deleting physical object cell876_2DObject
+16:17:46: deleting physical object cell880_2DObject
+16:17:46: deleting physical object cell883_2DObject
+16:17:46: deleting physical object cell886_2DObject
+16:17:46: deleting physical object cell889_2DObject
+16:17:46: deleting physical object cell892_2DObject
+16:17:46: deleting physical object cell896_2DObject
+16:17:46: deleting physical object cell899_2DObject
+16:17:46: deleting physical object cell903_2DObject
+16:17:46: deleting physical object cell907_2DObject
+16:17:46: deleting physical object cell911_2DObject
+16:17:46: deleting physical object cell915_2DObject
+16:17:46: deleting physical object cell918_2DObject
+16:17:46: deleting physical object cell921_2DObject
+16:17:46: deleting physical object cell924_2DObject
+16:17:46: deleting physical object cell927_2DObject
+16:17:46: deleting physical object cell930_2DObject
+16:17:46: deleting physical object cell933_2DObject
+16:17:46: deleting physical object cell936_2DObject
+16:17:46: deleting physical object cell941_2DObject
+16:17:46: deleting physical object cell946_2DObject
+16:17:46: deleting physical object cell951_2DObject
+16:17:46: deleting physical object cell955_2DObject
+16:17:46: deleting physical object cell959_2DObject
+16:17:46: deleting physical object cell962_2DObject
+16:17:46: deleting physical object cell966_2DObject
+16:17:46: deleting physical object cell970_2DObject
+16:17:46: deleting physical object cell974_2DObject
+16:17:46: deleting physical object cell977_2DObject
+16:17:46: deleting physical object cell980_2DObject
+16:17:46: deleting physical object cell983_2DObject
+16:17:46: deleting physical object cell987_2DObject
+16:17:46: deleting physical object cell991_2DObject
+16:17:46: deleting physical object cell995_2DObject
+16:17:46: deleting physical object cell999_2DObject
+16:17:46: deleting physical object cell1003_2DObject
+16:17:46: deleting physical object cell1009_2DObject
+16:17:46: deleting physical object cell1014_2DObject
+16:17:46: deleting physical object cell1018_2DObject
+16:17:46: deleting physical object cell1021_2DObject
+16:17:46: deleting physical object cell1026_2DObject
+16:17:46: deleting physical object cell1029_2DObject
+16:17:46: deleting physical object cell1032_2DObject
+16:17:46: deleting physical object cell1035_2DObject
+16:17:46: deleting physical object cell1040_2DObject
+16:17:46: deleting physical object cell1043_2DObject
+16:17:46: deleting physical object cell1046_2DObject
+16:17:46: deleting physical object cell1050_2DObject
+16:17:46: deleting physical object cell1054_2DObject
+16:17:46: deleting physical object cell1059_2DObject
+16:17:46: deleting physical object cell419_2DObject
+16:17:46: deleting physical object cell420_2DObject
+16:17:46: deleting physical object cell421_2DObject
+16:17:46: deleting physical object cell422_2DObject
+16:17:46: deleting physical object cell423_2DObject
+16:17:46: deleting physical object cell424_2DObject
+16:17:46: deleting physical object cell435_2DObject
+16:17:46: deleting physical object cell438_2DObject
+16:17:46: deleting physical object cell439_2DObject
+16:17:46: deleting physical object cell440_2DObject
+16:17:46: deleting physical object cell441_2DObject
+16:17:46: deleting physical object cell442_2DObject
+16:17:46: deleting physical object cell458_2DObject
+16:17:46: deleting physical object cell461_2DObject
+16:17:46: deleting physical object cell463_2DObject
+16:17:46: deleting physical object cell464_2DObject
+16:17:46: deleting physical object cell465_2DObject
+16:17:46: deleting physical object cell468_2DObject
+16:17:46: deleting physical object cell469_2DObject
+16:17:46: deleting physical object cell471_2DObject
+16:17:46: deleting physical object cell475_2DObject
+16:17:46: deleting physical object cell476_2DObject
+16:17:46: deleting physical object cell477_2DObject
+16:17:46: deleting physical object cell478_2DObject
+16:17:46: deleting physical object cell482_2DObject
+16:17:46: deleting physical object cell653_2DObject
+16:17:46: deleting physical object cell678_2DObject
+16:17:46: deleting physical object cell681_2DObject
+16:17:46: deleting physical object cell693_2DObject
+16:17:46: deleting physical object cell700_2DObject
+16:17:46: deleting physical object cell712_2DObject
+16:17:46: deleting physical object cell725_2DObject
+16:17:46: deleting physical object cell738_2DObject
+16:17:46: deleting physical object cell742_2DObject
+16:17:46: deleting physical object cell747_2DObject
+16:17:46: deleting physical object cell754_2DObject
+16:17:46: deleting physical object cell764_2DObject
+16:17:46: deleting physical object cell780_2DObject
+16:17:46: deleting physical object cell784_2DObject
+16:17:46: deleting physical object cell789_2DObject
+16:17:46: deleting physical object cell802_2DObject
+16:17:46: deleting physical object cell807_2DObject
+16:17:46: deleting physical object cell823_2DObject
+16:17:46: deleting physical object cell855_2DObject
+16:17:46: deleting physical object cell859_2DObject
+16:17:46: deleting physical object cell868_2DObject
+16:17:46: deleting physical object cell872_2DObject
+16:17:46: deleting physical object cell877_2DObject
+16:17:46: deleting physical object cell893_2DObject
+16:17:46: deleting physical object cell904_2DObject
+16:17:46: deleting physical object cell912_2DObject
+16:17:46: deleting physical object cell937_2DObject
+16:17:46: deleting physical object cell942_2DObject
+16:17:46: deleting physical object cell947_2DObject
+16:17:46: deleting physical object cell952_2DObject
+16:17:46: deleting physical object cell956_2DObject
+16:17:46: deleting physical object cell963_2DObject
+16:17:46: deleting physical object cell971_2DObject
+16:17:46: deleting physical object cell984_2DObject
+16:17:46: deleting physical object cell988_2DObject
+16:17:46: deleting physical object cell992_2DObject
+16:17:46: deleting physical object cell996_2DObject
+16:17:46: deleting physical object cell1000_2DObject
+16:17:46: deleting physical object cell1004_2DObject
+16:17:46: deleting physical object cell1010_2DObject
+16:17:46: deleting physical object cell1015_2DObject
+16:17:46: deleting physical object cell1022_2DObject
+16:17:46: deleting physical object cell1036_2DObject
+16:17:46: deleting physical object cell1047_2DObject
+16:17:46: deleting physical object cell1055_2DObject
+16:17:46: deleting physical object cell483_2DObject
+16:17:46: deleting physical object cell484_2DObject
+16:17:46: deleting physical object cell485_2DObject
+16:17:46: deleting physical object cell486_2DObject
+16:17:46: deleting physical object cell487_2DObject
+16:17:46: deleting physical object cell488_2DObject
+16:17:46: deleting physical object cell501_2DObject
+16:17:46: deleting physical object cell502_2DObject
+16:17:46: deleting physical object cell503_2DObject
+16:17:46: deleting physical object cell504_2DObject
+16:17:46: deleting physical object cell505_2DObject
+16:17:46: deleting physical object cell506_2DObject
+16:17:46: deleting physical object cell519_2DObject
+16:17:46: deleting physical object cell520_2DObject
+16:17:46: deleting physical object cell521_2DObject
+16:17:46: deleting physical object cell522_2DObject
+16:17:46: deleting physical object cell524_2DObject
+16:17:46: deleting physical object cell526_2DObject
+16:17:46: deleting physical object cell528_2DObject
+16:17:46: deleting physical object cell530_2DObject
+16:17:46: deleting physical object cell533_2DObject
+16:17:46: deleting physical object cell535_2DObject
+16:17:46: deleting physical object cell538_2DObject
+16:17:46: deleting physical object cell540_2DObject
+16:17:46: deleting physical object cell555_2DObject
+16:17:46: deleting physical object cell556_2DObject
+16:17:46: deleting physical object cell558_2DObject
+16:17:46: deleting physical object cell559_2DObject
+16:17:46: deleting physical object cell561_2DObject
+16:17:46: deleting physical object cell563_2DObject
+16:17:46: deleting physical object cell564_2DObject
+16:17:46: deleting physical object cell566_2DObject
+16:17:46: deleting physical object cell568_2DObject
+16:17:46: deleting physical object cell570_2DObject
+16:17:46: deleting physical object cell572_2DObject
+16:17:46: deleting physical object cell574_2DObject
+16:17:46: deleting physical object cell576_2DObject
+16:17:46: deleting physical object cell578_2DObject
+16:17:46: deleting physical object cell580_2DObject
+16:17:46: deleting physical object cell582_2DObject
+16:17:46: deleting physical object cell584_2DObject
+16:17:46: deleting physical object cell586_2DObject
+16:17:46: deleting physical object cell588_2DObject
+16:17:46: deleting physical object cell590_2DObject
+16:17:46: deleting physical object cell592_2DObject
+16:17:46: deleting physical object cell594_2DObject
+16:17:46: deleting physical object cell596_2DObject
+16:17:46: deleting physical object cell598_2DObject
+16:17:46: deleting physical object cell600_2DObject
+16:17:46: deleting physical object cell602_2DObject
+16:17:46: deleting physical object cell604_2DObject
+16:17:46: deleting physical object cell606_2DObject
+16:17:46: deleting physical object cell608_2DObject
+16:17:46: deleting physical object cell610_2DObject
+16:17:46: deleting physical object cell612_2DObject
+16:17:46: deleting physical object cell614_2DObject
+16:17:46: deleting physical object cell616_2DObject
+16:17:46: deleting physical object cell618_2DObject
+16:17:46: deleting physical object cell620_2DObject
+16:17:46: deleting physical object cell622_2DObject
+16:17:46: deleting physical object cell624_2DObject
+16:17:46: deleting physical object cell626_2DObject
+16:17:46: deleting physical object cell628_2DObject
+16:17:46: deleting physical object cell630_2DObject
+16:17:46: deleting physical object cell632_2DObject
+16:17:46: deleting physical object cell634_2DObject
+16:17:46: deleting physical object cell636_2DObject
+16:17:46: deleting physical object cell638_2DObject
+16:17:46: deleting physical object cell640_2DObject
+16:17:46: deleting physical object cell642_2DObject
+16:17:46: deleting physical object cell644_2DObject
+16:17:46: deleting physical object cell646_2DObject
+16:17:46: deleting physical object cell649_2DObject
+16:17:46: deleting physical object cell651_2DObject
+16:17:46: deleting physical object cell654_2DObject
+16:17:46: deleting physical object cell656_2DObject
+16:17:46: deleting physical object cell658_2DObject
+16:17:46: deleting physical object cell660_2DObject
+16:17:46: deleting physical object cell662_2DObject
+16:17:46: deleting physical object cell664_2DObject
+16:17:46: deleting physical object cell666_2DObject
+16:17:46: deleting physical object cell668_2DObject
+16:17:46: deleting physical object cell670_2DObject
+16:17:46: deleting physical object cell672_2DObject
+16:17:46: deleting physical object cell674_2DObject
+16:17:46: deleting physical object cell676_2DObject
+16:17:46: deleting physical object cell679_2DObject
+16:17:46: deleting physical object cell682_2DObject
+16:17:46: deleting physical object cell685_2DObject
+16:17:46: deleting physical object cell687_2DObject
+16:17:46: deleting physical object cell689_2DObject
+16:17:46: deleting physical object cell691_2DObject
+16:17:46: deleting physical object cell694_2DObject
+16:17:46: deleting physical object cell697_2DObject
+16:17:46: deleting physical object cell701_2DObject
+16:17:46: deleting physical object cell704_2DObject
+16:17:46: deleting physical object cell707_2DObject
+16:17:46: deleting physical object cell709_2DObject
+16:17:46: deleting physical object cell713_2DObject
+16:17:46: deleting physical object cell716_2DObject
+16:17:46: deleting physical object cell719_2DObject
+16:17:46: deleting physical object cell722_2DObject
+16:17:46: deleting physical object cell726_2DObject
+16:17:46: deleting physical object cell729_2DObject
+16:17:46: deleting physical object cell732_2DObject
+16:17:46: deleting physical object cell735_2DObject
+16:17:46: deleting physical object cell739_2DObject
+16:17:46: deleting physical object cell743_2DObject
+16:17:46: deleting physical object cell748_2DObject
+16:17:46: deleting physical object cell751_2DObject
+16:17:46: deleting physical object cell755_2DObject
+16:17:46: deleting physical object cell758_2DObject
+16:17:46: deleting physical object cell761_2DObject
+16:17:46: deleting physical object cell765_2DObject
+16:17:46: deleting physical object cell768_2DObject
+16:17:46: deleting physical object cell771_2DObject
+16:17:46: deleting physical object cell774_2DObject
+16:17:46: deleting physical object cell777_2DObject
+16:17:46: deleting physical object cell781_2DObject
+16:17:46: deleting physical object cell785_2DObject
+16:17:46: deleting physical object cell790_2DObject
+16:17:46: deleting physical object cell793_2DObject
+16:17:46: deleting physical object cell796_2DObject
+16:17:46: deleting physical object cell799_2DObject
+16:17:46: deleting physical object cell803_2DObject
+16:17:46: deleting physical object cell808_2DObject
+16:17:46: deleting physical object cell811_2DObject
+16:17:46: deleting physical object cell814_2DObject
+16:17:46: deleting physical object cell817_2DObject
+16:17:46: deleting physical object cell820_2DObject
+16:17:46: deleting physical object cell824_2DObject
+16:17:46: deleting physical object cell827_2DObject
+16:17:46: deleting physical object cell830_2DObject
+16:17:46: deleting physical object cell833_2DObject
+16:17:46: deleting physical object cell836_2DObject
+16:17:46: deleting physical object cell839_2DObject
+16:17:46: deleting physical object cell843_2DObject
+16:17:46: deleting physical object cell846_2DObject
+16:17:46: deleting physical object cell849_2DObject
+16:17:46: deleting physical object cell852_2DObject
+16:17:46: deleting physical object cell856_2DObject
+16:17:46: deleting physical object cell860_2DObject
+16:17:46: deleting physical object cell864_2DObject
+16:17:46: deleting physical object cell869_2DObject
+16:17:46: deleting physical object cell873_2DObject
+16:17:46: deleting physical object cell878_2DObject
+16:17:46: deleting physical object cell881_2DObject
+16:17:46: deleting physical object cell884_2DObject
+16:17:46: deleting physical object cell887_2DObject
+16:17:46: deleting physical object cell890_2DObject
+16:17:46: deleting physical object cell894_2DObject
+16:17:46: deleting physical object cell897_2DObject
+16:17:46: deleting physical object cell900_2DObject
+16:17:46: deleting physical object cell905_2DObject
+16:17:46: deleting physical object cell908_2DObject
+16:17:46: deleting physical object cell913_2DObject
+16:17:46: deleting physical object cell916_2DObject
+16:17:46: deleting physical object cell919_2DObject
+16:17:46: deleting physical object cell922_2DObject
+16:17:46: deleting physical object cell925_2DObject
+16:17:46: deleting physical object cell928_2DObject
+16:17:46: deleting physical object cell931_2DObject
+16:17:46: deleting physical object cell934_2DObject
+16:17:46: deleting physical object cell938_2DObject
+16:17:46: deleting physical object cell943_2DObject
+16:17:46: deleting physical object cell948_2DObject
+16:17:46: deleting physical object cell953_2DObject
+16:17:46: deleting physical object cell957_2DObject
+16:17:46: deleting physical object cell960_2DObject
+16:17:46: deleting physical object cell964_2DObject
+16:17:46: deleting physical object cell967_2DObject
+16:17:46: deleting physical object cell972_2DObject
+16:17:46: deleting physical object cell975_2DObject
+16:17:46: deleting physical object cell978_2DObject
+16:17:46: deleting physical object cell981_2DObject
+16:17:46: deleting physical object cell985_2DObject
+16:17:46: deleting physical object cell989_2DObject
+16:17:46: deleting physical object cell993_2DObject
+16:17:46: deleting physical object cell997_2DObject
+16:17:46: deleting physical object cell1001_2DObject
+16:17:46: deleting physical object cell1005_2DObject
+16:17:46: deleting physical object cell1011_2DObject
+16:17:46: deleting physical object cell1016_2DObject
+16:17:46: deleting physical object cell1019_2DObject
+16:17:46: deleting physical object cell1023_2DObject
+16:17:46: deleting physical object cell1027_2DObject
+16:17:46: deleting physical object cell1030_2DObject
+16:17:46: deleting physical object cell1033_2DObject
+16:17:46: deleting physical object cell1037_2DObject
+16:17:46: deleting physical object cell1041_2DObject
+16:17:46: deleting physical object cell1044_2DObject
+16:17:46: deleting physical object cell1048_2DObject
+16:17:46: deleting physical object cell1051_2DObject
+16:17:46: deleting physical object cell1056_2DObject
+16:17:46: deleting physical object cell1060_2DObject
+16:17:46: deleting physical object cell489_2DObject
+16:17:46: deleting physical object cell490_2DObject
+16:17:46: deleting physical object cell491_2DObject
+16:17:46: deleting physical object cell492_2DObject
+16:17:46: deleting physical object cell493_2DObject
+16:17:46: deleting physical object cell494_2DObject
+16:17:46: deleting physical object cell507_2DObject
+16:17:46: deleting physical object cell508_2DObject
+16:17:46: deleting physical object cell509_2DObject
+16:17:46: deleting physical object cell510_2DObject
+16:17:46: deleting physical object cell512_2DObject
+16:17:46: deleting physical object cell513_2DObject
+16:17:46: deleting physical object cell523_2DObject
+16:17:46: deleting physical object cell525_2DObject
+16:17:46: deleting physical object cell527_2DObject
+16:17:46: deleting physical object cell529_2DObject
+16:17:46: deleting physical object cell534_2DObject
+16:17:46: deleting physical object cell537_2DObject
+16:17:46: deleting physical object cell541_2DObject
+16:17:46: deleting physical object cell542_2DObject
+16:17:46: deleting physical object cell544_2DObject
+16:17:46: deleting physical object cell546_2DObject
+16:17:46: deleting physical object cell548_2DObject
+16:17:46: deleting physical object cell549_2DObject
+16:17:46: deleting physical object cell557_2DObject
+16:17:46: deleting physical object cell562_2DObject
+16:17:46: deleting physical object cell565_2DObject
+16:17:46: deleting physical object cell567_2DObject
+16:17:46: deleting physical object cell569_2DObject
+16:17:46: deleting physical object cell571_2DObject
+16:17:46: deleting physical object cell573_2DObject
+16:17:46: deleting physical object cell575_2DObject
+16:17:46: deleting physical object cell577_2DObject
+16:17:46: deleting physical object cell579_2DObject
+16:17:46: deleting physical object cell581_2DObject
+16:17:46: deleting physical object cell583_2DObject
+16:17:46: deleting physical object cell585_2DObject
+16:17:46: deleting physical object cell587_2DObject
+16:17:46: deleting physical object cell589_2DObject
+16:17:46: deleting physical object cell591_2DObject
+16:17:46: deleting physical object cell593_2DObject
+16:17:46: deleting physical object cell595_2DObject
+16:17:46: deleting physical object cell597_2DObject
+16:17:46: deleting physical object cell599_2DObject
+16:17:46: deleting physical object cell601_2DObject
+16:17:46: deleting physical object cell603_2DObject
+16:17:46: deleting physical object cell605_2DObject
+16:17:46: deleting physical object cell607_2DObject
+16:17:46: deleting physical object cell609_2DObject
+16:17:46: deleting physical object cell611_2DObject
+16:17:46: deleting physical object cell613_2DObject
+16:17:46: deleting physical object cell615_2DObject
+16:17:46: deleting physical object cell617_2DObject
+16:17:46: deleting physical object cell619_2DObject
+16:17:46: deleting physical object cell621_2DObject
+16:17:46: deleting physical object cell623_2DObject
+16:17:46: deleting physical object cell625_2DObject
+16:17:46: deleting physical object cell627_2DObject
+16:17:46: deleting physical object cell629_2DObject
+16:17:46: deleting physical object cell631_2DObject
+16:17:46: deleting physical object cell633_2DObject
+16:17:46: deleting physical object cell635_2DObject
+16:17:46: deleting physical object cell637_2DObject
+16:17:46: deleting physical object cell639_2DObject
+16:17:46: deleting physical object cell641_2DObject
+16:17:46: deleting physical object cell643_2DObject
+16:17:46: deleting physical object cell645_2DObject
+16:17:46: deleting physical object cell647_2DObject
+16:17:46: deleting physical object cell650_2DObject
+16:17:46: deleting physical object cell652_2DObject
+16:17:46: deleting physical object cell655_2DObject
+16:17:46: deleting physical object cell657_2DObject
+16:17:46: deleting physical object cell659_2DObject
+16:17:46: deleting physical object cell661_2DObject
+16:17:46: deleting physical object cell663_2DObject
+16:17:46: deleting physical object cell665_2DObject
+16:17:46: deleting physical object cell667_2DObject
+16:17:46: deleting physical object cell669_2DObject
+16:17:46: deleting physical object cell671_2DObject
+16:17:46: deleting physical object cell673_2DObject
+16:17:46: deleting physical object cell675_2DObject
+16:17:46: deleting physical object cell677_2DObject
+16:17:46: deleting physical object cell680_2DObject
+16:17:46: deleting physical object cell683_2DObject
+16:17:46: deleting physical object cell686_2DObject
+16:17:46: deleting physical object cell688_2DObject
+16:17:46: deleting physical object cell690_2DObject
+16:17:46: deleting physical object cell692_2DObject
+16:17:46: deleting physical object cell695_2DObject
+16:17:46: deleting physical object cell698_2DObject
+16:17:46: deleting physical object cell702_2DObject
+16:17:46: deleting physical object cell705_2DObject
+16:17:46: deleting physical object cell708_2DObject
+16:17:46: deleting physical object cell710_2DObject
+16:17:46: deleting physical object cell714_2DObject
+16:17:46: deleting physical object cell717_2DObject
+16:17:46: deleting physical object cell720_2DObject
+16:17:46: deleting physical object cell723_2DObject
+16:17:46: deleting physical object cell727_2DObject
+16:17:46: deleting physical object cell730_2DObject
+16:17:46: deleting physical object cell733_2DObject
+16:17:46: deleting physical object cell736_2DObject
+16:17:46: deleting physical object cell740_2DObject
+16:17:46: deleting physical object cell744_2DObject
+16:17:46: deleting physical object cell749_2DObject
+16:17:46: deleting physical object cell752_2DObject
+16:17:46: deleting physical object cell756_2DObject
+16:17:46: deleting physical object cell759_2DObject
+16:17:46: deleting physical object cell762_2DObject
+16:17:46: deleting physical object cell766_2DObject
+16:17:46: deleting physical object cell769_2DObject
+16:17:46: deleting physical object cell772_2DObject
+16:17:46: deleting physical object cell775_2DObject
+16:17:46: deleting physical object cell778_2DObject
+16:17:46: deleting physical object cell782_2DObject
+16:17:46: deleting physical object cell786_2DObject
+16:17:46: deleting physical object cell791_2DObject
+16:17:46: deleting physical object cell794_2DObject
+16:17:46: deleting physical object cell797_2DObject
+16:17:46: deleting physical object cell800_2DObject
+16:17:46: deleting physical object cell804_2DObject
+16:17:46: deleting physical object cell809_2DObject
+16:17:46: deleting physical object cell812_2DObject
+16:17:46: deleting physical object cell815_2DObject
+16:17:46: deleting physical object cell818_2DObject
+16:17:46: deleting physical object cell821_2DObject
+16:17:46: deleting physical object cell825_2DObject
+16:17:46: deleting physical object cell828_2DObject
+16:17:46: deleting physical object cell831_2DObject
+16:17:46: deleting physical object cell834_2DObject
+16:17:46: deleting physical object cell837_2DObject
+16:17:46: deleting physical object cell840_2DObject
+16:17:46: deleting physical object cell844_2DObject
+16:17:46: deleting physical object cell847_2DObject
+16:17:46: deleting physical object cell850_2DObject
+16:17:46: deleting physical object cell853_2DObject
+16:17:46: deleting physical object cell857_2DObject
+16:17:46: deleting physical object cell861_2DObject
+16:17:46: deleting physical object cell865_2DObject
+16:17:46: deleting physical object cell870_2DObject
+16:17:46: deleting physical object cell874_2DObject
+16:17:46: deleting physical object cell879_2DObject
+16:17:46: deleting physical object cell882_2DObject
+16:17:46: deleting physical object cell885_2DObject
+16:17:46: deleting physical object cell888_2DObject
+16:17:46: deleting physical object cell891_2DObject
+16:17:46: deleting physical object cell895_2DObject
+16:17:46: deleting physical object cell898_2DObject
+16:17:46: deleting physical object cell901_2DObject
+16:17:46: deleting physical object cell906_2DObject
+16:17:46: deleting physical object cell909_2DObject
+16:17:46: deleting physical object cell914_2DObject
+16:17:46: deleting physical object cell917_2DObject
+16:17:46: deleting physical object cell920_2DObject
+16:17:46: deleting physical object cell923_2DObject
+16:17:46: deleting physical object cell926_2DObject
+16:17:46: deleting physical object cell929_2DObject
+16:17:46: deleting physical object cell932_2DObject
+16:17:46: deleting physical object cell935_2DObject
+16:17:46: deleting physical object cell939_2DObject
+16:17:46: deleting physical object cell944_2DObject
+16:17:46: deleting physical object cell949_2DObject
+16:17:46: deleting physical object cell954_2DObject
+16:17:46: deleting physical object cell958_2DObject
+16:17:46: deleting physical object cell961_2DObject
+16:17:46: deleting physical object cell965_2DObject
+16:17:46: deleting physical object cell968_2DObject
+16:17:46: deleting physical object cell973_2DObject
+16:17:46: deleting physical object cell976_2DObject
+16:17:46: deleting physical object cell979_2DObject
+16:17:46: deleting physical object cell982_2DObject
+16:17:46: deleting physical object cell986_2DObject
+16:17:46: deleting physical object cell990_2DObject
+16:17:46: deleting physical object cell994_2DObject
+16:17:46: deleting physical object cell998_2DObject
+16:17:46: deleting physical object cell1002_2DObject
+16:17:46: deleting physical object cell1006_2DObject
+16:17:46: deleting physical object cell1012_2DObject
+16:17:46: deleting physical object cell1017_2DObject
+16:17:46: deleting physical object cell1020_2DObject
+16:17:46: deleting physical object cell1024_2DObject
+16:17:46: deleting physical object cell1028_2DObject
+16:17:46: deleting physical object cell1031_2DObject
+16:17:46: deleting physical object cell1034_2DObject
+16:17:46: deleting physical object cell1038_2DObject
+16:17:46: deleting physical object cell1042_2DObject
+16:17:46: deleting physical object cell1045_2DObject
+16:17:46: deleting physical object cell1049_2DObject
+16:17:46: deleting physical object cell1052_2DObject
+16:17:46: deleting physical object cell1057_2DObject
+16:17:46: deleting physical object cell1061_2DObject
+16:17:46: deleting physical object cell495_2DObject
+16:17:46: deleting physical object cell496_2DObject
+16:17:46: deleting physical object cell497_2DObject
+16:17:46: deleting physical object cell498_2DObject
+16:17:46: deleting physical object cell499_2DObject
+16:17:46: deleting physical object cell500_2DObject
+16:17:46: deleting physical object cell511_2DObject
+16:17:46: deleting physical object cell514_2DObject
+16:17:46: deleting physical object cell515_2DObject
+16:17:46: deleting physical object cell516_2DObject
+16:17:46: deleting physical object cell517_2DObject
+16:17:46: deleting physical object cell518_2DObject
+16:17:46: deleting physical object cell531_2DObject
+16:17:46: deleting physical object cell532_2DObject
+16:17:46: deleting physical object cell536_2DObject
+16:17:46: deleting physical object cell539_2DObject
+16:17:46: deleting physical object cell543_2DObject
+16:17:46: deleting physical object cell545_2DObject
+16:17:46: deleting physical object cell547_2DObject
+16:17:46: deleting physical object cell550_2DObject
+16:17:46: deleting physical object cell551_2DObject
+16:17:46: deleting physical object cell552_2DObject
+16:17:46: deleting physical object cell553_2DObject
+16:17:46: deleting physical object cell554_2DObject
+16:17:46: deleting physical object cell560_2DObject
+16:17:46: deleting physical object cell648_2DObject
+16:17:46: deleting physical object cell745_2DObject
+16:17:46: deleting physical object cell787_2DObject
+16:17:46: deleting physical object cell862_2DObject
+16:17:46: deleting physical object cell902_2DObject
+16:17:46: deleting physical object cell1007_2DObject
+16:17:46: deleting physical object cell1039_2DObject
+16:18:46: deleting physical object cell1062_2DObject
+16:18:46: deleting physical object cell1063_2DObject
+16:18:46: deleting physical object cell1064_2DObject
+16:18:46: deleting physical object cell1065_2DObject
+16:18:46: deleting physical object cell1066_2DObject
+16:18:46: deleting physical object cell1067_2DObject
+16:18:46: deleting physical object cell1068_2DObject
+16:18:46: deleting physical object cell1069_2DObject
+16:18:46: deleting physical object cell1070_2DObject
+16:18:46: deleting physical object cell1071_2DObject
+16:18:46: deleting physical object cell1072_2DObject
+16:18:46: deleting physical object cell1073_2DObject
+16:18:46: deleting physical object cell1074_2DObject
+16:18:46: deleting physical object cell1075_2DObject
+16:18:46: deleting physical object cell1076_2DObject
+16:18:46: deleting physical object cell1077_2DObject
+16:18:46: deleting physical object cell1078_2DObject
+16:18:46: deleting physical object cell1079_2DObject
+16:18:46: deleting physical object cell1080_2DObject
+16:18:46: deleting physical object cell1081_2DObject
+16:18:46: deleting physical object cell1082_2DObject
+16:18:46: deleting physical object cell1083_2DObject
+16:18:46: deleting physical object cell1084_2DObject
+16:18:46: deleting physical object cell1085_2DObject
+16:18:46: deleting physical object cell1086_2DObject
+16:18:46: deleting physical object cell1087_2DObject
+16:18:46: deleting physical object cell1088_2DObject
+16:18:46: deleting physical object cell1089_2DObject
+16:18:46: deleting physical object cell1090_2DObject
+16:18:46: deleting physical object cell1091_2DObject
+16:18:46: deleting physical object cell1092_2DObject
+16:18:46: deleting physical object cell1093_2DObject
+16:18:46: deleting physical object cell1094_2DObject
+16:18:46: deleting physical object cell1095_2DObject
+16:18:46: deleting physical object cell1096_2DObject
+16:18:46: deleting physical object cell1097_2DObject
+16:18:46: deleting physical object cell1098_2DObject
+16:18:46: deleting physical object cell1099_2DObject
+16:18:46: deleting physical object cell1100_2DObject
+16:18:46: deleting physical object cell1101_2DObject
+16:18:46: deleting physical object cell1102_2DObject
+16:18:46: deleting physical object cell1103_2DObject
+16:18:46: deleting physical object cell1104_2DObject
+16:18:46: deleting physical object cell1105_2DObject
+16:18:46: deleting physical object cell1106_2DObject
+16:18:46: deleting physical object cell1107_2DObject
+16:18:46: deleting physical object cell1108_2DObject
+16:18:46: deleting physical object cell1109_2DObject
+16:18:47: Unregistering ResourceManager for type BspLevel
+16:18:47: *-*-* OGRE Shutdown

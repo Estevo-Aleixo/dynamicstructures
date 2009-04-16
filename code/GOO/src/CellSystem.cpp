@@ -43,7 +43,7 @@ CellSystem::~CellSystem(void)
 void CellSystem::initialize()
 {
 
-	mProperties.vertexDistance=5; 
+	mProperties.vertexDistance=3.5; 
 
 
 

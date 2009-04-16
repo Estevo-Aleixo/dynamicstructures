@@ -10,10 +10,7 @@ public:
 	~DynamicSystem(void);
 
 
-
-
 	double mTimeAlive;
-
-
+	unsigned int layer;
 
 };

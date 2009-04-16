@@ -254,6 +254,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\God.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\MeshObject.cpp"
 				>
 			</File>
@@ -291,6 +295,10 @@
 			</File>
 			<File
 				RelativePath="..\src\SystemProperties.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\vectorField.cpp"
 				>
 			</File>
 			<File
@@ -344,6 +352,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\include\God.h"
+				>
+			</File>
+			<File
 				RelativePath="..\include\MeshObject.h"
 				>
 			</File>
@@ -357,6 +369,10 @@
 			</File>
 			<File
 				RelativePath=".\vectorField.h"
+				>
+			</File>
+			<File
+				RelativePath="..\include\vectorField.h"
 				>
 			</File>
 			<File
