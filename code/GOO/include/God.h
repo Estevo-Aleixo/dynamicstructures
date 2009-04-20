@@ -11,6 +11,9 @@ public:
 
 	void setActive(bool active);	
 	bool isActive(){return mActive;}
+
+	bool frameStarted(const Ogre::FrameEvent &evt);
+	bool frameEnded(const Ogre::FrameEvent &evt);
 protected:
 	
 	bool mActive; 

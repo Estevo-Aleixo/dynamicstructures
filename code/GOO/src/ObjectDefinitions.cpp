@@ -177,7 +177,6 @@ void ObjectDefinitions::loadDefaultObjects()
 	circleDef->friction= 2.0;
 	circleDef->radius = 1.0f;
 
-
 	int vertices = 12;
 		
 		angle= Ogre::Radian(Math::TWO_PI /vertices ); 

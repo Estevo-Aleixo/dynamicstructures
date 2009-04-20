@@ -17,6 +17,14 @@ enum CURSORMODE
 	EDIT_SYSTEM  = 3
 };
 
+static const char* toolModeNames[] = 
+{"place new system", 
+"edit current system",
+"edit current vertex",
+"delete current system",
+"select object"
+};
+
 
 
 class Cursor :public Movable2DObject
@@ -57,11 +65,18 @@ static const char* const cursorModeLabels[NUMMODES];
 private:
 	Movable2DObject* mAttachedObject;
 	Movable2DObject* mCurrentSelection; 
+	int mFilter;
 
 
 	unsigned int mMode;
 	unsigned int mSystemType; 
 	unsigned int mCreateType; 
+
+
+	void addNewSystem(); 
+	void editCurrentSystem(); 
+	void moveCurrentSystem(); 
+	void deleteCurrentSystem(); 
 
 	std::vector<CellSystemProperties*> mCellSystemModes; 
 

@@ -17,7 +17,7 @@ Movable2DObject(name,sceneMgr,Ogre::Vector2(0,0)),mCanvas(canvas), mSceneMgr(sce
 	mNode= mCanvas->getSceneNode()->createChildSceneNode(); 
 	mEntity= mSceneMgr->createEntity(name,HEXAGON_LINE_MESH); 
 	mNode->attachObject(mEntity); 
-	mNode->scale(10,10,10);
+	mNode->scale(5,5,5);
 	acceleration= Vector2(0,0); 
 	mPressed=false;
 	mSystemType=1; 
@@ -25,7 +25,7 @@ Movable2DObject(name,sceneMgr,Ogre::Vector2(0,0)),mCanvas(canvas), mSceneMgr(sce
 	mPos= Vector2(0,0); 
 	mCurrentSelection=0;
 
-	mMode=1; 
+	mMode= CURSORMODE::PLACE_SYSTEM;
 }
 
 Cursor::~Cursor(void)
@@ -35,11 +35,10 @@ Cursor::~Cursor(void)
 
 bool Cursor::update(const FrameEvent &evt)
 {
-	mNode->roll(Ogre::Radian(2)*evt.timeSinceLastFrame); 	
+	mNode->roll(Ogre::Radian(4)*evt.timeSinceLastFrame); 	
 
 	//refresh current selection (SIMPLE), ALTER THIS
-
-	mCurrentSelection= (Movable2DObject*)mCanvas->getNearestSystem(mPos); 
+	//mCurrentSelection= (Movable2DObject*)mCanvas->getNearestSystem(mPos); 
 
 
 	return true;
@@ -152,4 +151,40 @@ void Cursor::performAction()
 		//do something
 		break; 
 	}
+}
+
+void Cursor::addNewSystem()
+{
+				switch(mSystemType){
+				
+					case 1:
+					mCanvas->addCellSystem(mPos,"Square",true,1.0); 
+					break;
+				case 2:
+					mCanvas->addCellSystem(mPos,"Hexagon",true,1.0); 
+					break;
+				case 3:
+					mCanvas->addCellSystem(mPos,"Triangle",true,1.0); 
+					break;
+				case 4:
+					mCanvas->addCellSystem(mPos,"Circle",true,1.0); 
+					break;
+				}
+
+}
+
+
+void Cursor::editCurrentSystem()
+{
+
+}
+void Cursor::moveCurrentSystem()
+{
+
+}
+
+void Cursor::deleteCurrentSystem()
+{
+
+
 }

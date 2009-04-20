@@ -9,7 +9,8 @@ Movable2DObject::Movable2DObject(std::string& name, Ogre::SceneManager* sceneMgr
 
 Movable2DObject::~Movable2DObject(void)
 {
-	//delete the skeleton, notify the system.
+	Ogre::LogManager::getSingletonPtr()->logMessage("deleting Movable2dobject" + this->mName);
+
 	if (mNode!=0){
 		mNode->removeAndDestroyAllChildren(); 
 		mSceneMgr->destroySceneNode(mNode); 

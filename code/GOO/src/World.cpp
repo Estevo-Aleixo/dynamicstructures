@@ -113,6 +113,7 @@ bool World::frameStarted(const FrameEvent &evt)
 
 	}
 updateParameterOverlay(); 
+    updateParameterOverlay();
 	return mContinue;
 }
 
@@ -146,7 +147,6 @@ bool World::mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id)
 	mCursor->mousePressed(e,id); 
 
 	
-
 	return mContinue;
 }
 	
@@ -323,9 +323,11 @@ void  World::updateParameterOverlay(void)
 		guiCellTypes->setCaption(cellTypes); 
 		OverlayElement* guiCellSelection = OverlayManager::getSingleton().getOverlayElement("GUI/currentCellSelection");
 		guiCellSelection->setCaption("Current Selection: " + StringConverter::toString(mCursor->getCurrentCellModeID())); 
+		//OverlayElement* currentMode = OverlayManager::getSingleton().getOverlayElement("GUI/currentMode");
+		//currentMode->setCaption("Cursor Mode: " + std::string(toolModeNames[mCursor->getMode()])); 
 
 		OverlayElement* guiCursorMode = OverlayManager::getSingleton().getOverlayElement("GUI/currentCursorMode");
-		guiCursorMode->setCaption("Mode: " + StringConverter::toString(mCursor->cursorModeLabels[mCursor->getMode()])); 
+		guiCursorMode->setCaption("Mode: " + StringConverter::toString(toolModeNames[mCursor->getMode()])); 
 
 
 

@@ -282,7 +282,7 @@ void Canvas::load(std::string& name) //load all from lua file
 
 }
 
-DynamicSystem*  Canvas::getNearestSystem(Ogre::Vector2& pos )
+DynamicSystem*  Canvas::getNearestSystem(Ogre::Vector2& pos, int filter)
 {
 double closestDistance=10000;
 double distance;
@@ -303,7 +303,7 @@ for (systemItr=mCellSystems.begin(); systemItr!=mCellSystems.end();systemItr++)
 return system;
 }
 
-Movable2DObject* Canvas::getNearestObject(Ogre::Vector2& pos )
+Movable2DObject* Canvas::getNearestObject(Ogre::Vector2& pos, int filter)
 {
 
 return 0;

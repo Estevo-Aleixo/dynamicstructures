@@ -243,13 +243,13 @@ void  CellSystem::load(std::string& name)
 
 void CellSystem::destroyCell(Cell* cell)
 {
-	Cell* temp;
+	/*Cell* temp;
 	std::vector<Cell*>::iterator result;
 	result = find(mCells.begin(), mCells.end(), cell);
 	temp = (*result);
 	delete (*result);
 	(*result)=0;
-	
+	*/
 	//mCells.erase(result); 
 	//delete temp;
 }

@@ -2,7 +2,7 @@
 
 
 //I AM GOD!
-God::God(void)
+God::God(Ogre::String& name, Canvas* canvas)
 {
 
 }

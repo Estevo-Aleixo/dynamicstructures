@@ -9,6 +9,7 @@ mID(id),
 mSceneMgr(sceneMgr), 
 mSystem(system)
 {
+	mCellParent=0;
 	cellCount=0;
 	mDirectionInterval= Math::TWO_PI /6;
 	mDivideDirection= Radian(0);
@@ -20,6 +21,8 @@ mSystem(system)
 	mBody->GetShapeList()->SetUserData(this); 
 	
 	mShowPolyLine = false; 
+
+	/*
 	mPolyLine= new Ogre::ManualObject(name + "_polyline"); 
 
 	mPolyLine->begin("polyline",RenderOperation::OT_LINE_LIST); 		
@@ -34,6 +37,7 @@ mSystem(system)
 	mLineNode->attachObject(mPolyLine);
 	mLineNode->setInheritOrientation(false);
 	mLineNode->setInheritScale(false);
+*/
 
 	//mCenterNode
 		mCenterNode= mNode->createChildSceneNode();  
@@ -43,15 +47,22 @@ mSystem(system)
 		mCenterNode->translate(0,0,0.001); 
 		mCenterNode->scale(0.2,0.2,0.2); 
 		
+		
 }
 
 
 
 Cell::~Cell(void)
 {
-
+Ogre::LogManager::getSingletonPtr()->logMessage("deleting Cell " + this->mName);
 //notify parent
-	mCellParent->setCellChild(0);
+	if (mCellParent!=0)
+		mCellParent->setCellChild(0);
+//mSceneMgr->destroyManualObject(mPolyLine); 
+//mLineNode->removeAllChildren(); 
+mCenterNode->removeAllChildren(); 
+//mSceneMgr->destroySceneNode(mLineNode); 
+mSceneMgr->destroySceneNode(mCenterNode); 
 
 //connect parent to orphaned child of this
 	//if (mCellChild!=0)
@@ -161,13 +172,14 @@ void Cell::updatePolyLine()
 	//pos = pos.normalisedCopy()* (pos.length()/3);
 //refresh polyline
 		//mPolyLine->clear(); 
+	/*
 		mPolyLine->beginUpdate(0); 		
 			mPolyLine->position(0,0,0.001); 
 			mPolyLine->position(pos.x,pos.y,0.001); 
 			mPolyLine->index(1);
 			mPolyLine->index(0);
 		mPolyLine->end(); 
-		
+		*/
 		//mPolyLine->convertToMesh(CIRCLE_POLYGON);  
 
 

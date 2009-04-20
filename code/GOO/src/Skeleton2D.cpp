@@ -48,7 +48,11 @@ Movable2DObject(name, sceneMgr, startpos), mCellSystem(cellSystem), mSceneMgr(sc
 
 Skeleton2D::~Skeleton2D(void)
 {
+
+	Ogre::LogManager::getSingletonPtr()->logMessage("deleting Cell " + this->mName);
+
 	//delete the skeleton, notify the system.
+	/*
 	std::vector<Movable2DObject*>::iterator itr; 
 
 	for (itr= mJoints.begin(); itr!=mJoints.end(); itr++)
@@ -56,6 +60,7 @@ Skeleton2D::~Skeleton2D(void)
 		delete (*itr);
 	}
 	mJoints.clear();
+*/
 
 }
 
@@ -66,15 +71,12 @@ void Skeleton2D::update(const Ogre::FrameEvent& evt)
 	//std::vector<Cell*> cells;
 	
 	//try voronoi
+	
 vdg.generateVoronoi((mCellSystem->mCells));
 vdg.resetIterator();
 
 	float x1,y1,x2,y2;
 	std::stringstream ss; 
-
-
-
-
 	
 for (int i=0; i < maxJoints;i++)
 	mJoints[i]->getRootNode()->setVisible(false);
