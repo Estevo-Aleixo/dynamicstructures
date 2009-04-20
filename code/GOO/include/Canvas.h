@@ -74,8 +74,8 @@ public:
 
 	ContactListener* getContactListener(){return mContactListener;}
 
-	DynamicSystem* getNearestSystem(Ogre::Vector2& pos ); 
-	Movable2DObject* getNearestObject(Ogre::Vector2& pos ); 
+	DynamicSystem* getNearestSystem(Ogre::Vector2& pos, int filter); 
+	Movable2DObject* getNearestObject(Ogre::Vector2& pos, int filter); 
 	
 	Ogre::SceneManager* getSceneManager(){return mSceneMgr;}
 protected: 
