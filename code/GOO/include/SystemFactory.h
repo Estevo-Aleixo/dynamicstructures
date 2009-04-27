@@ -1,5 +1,5 @@
 #pragma once
-#include "CellSystem.h"
+#include "GrowingSurface.h"
 class Canvas;
 
 class SystemFactory
@@ -13,10 +13,10 @@ public:
 	
 	std::string& getSystemList(); 
 
-	void registerSystemPropertySet(CellSystemProperties* propertySet);
+	void registerSystemPropertySet(GrowingSurfaceProperties* propertySet);
 private:
 
-	std::vector<CellSystemProperties*> propertySetList;
+	std::vector<GrowingSurfaceProperties*> propertySetList;
 	std::vector<DynamicSystem*> systemList;
 
 	std::string mName;

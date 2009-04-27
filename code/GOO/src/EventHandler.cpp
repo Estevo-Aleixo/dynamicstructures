@@ -1,5 +1,5 @@
 #include "EventHandler.h"
-#include "CellSystem.h"
+#include "GrowingSurface.h"
 #include <deque>
 #include <list>
 #include <queue>
@@ -92,8 +92,8 @@ void EventHandler::handleCollisionEvent(Movable2DObject* actor1,Movable2DObject*
 			Cell* _actor1= static_cast<Cell*>(actor1);
 			Cell* _actor2= static_cast<Cell*>(actor2);
 
-			CellSystem* system1 = _actor1->getCellSystem();
-			CellSystem* system2 = _actor2->getCellSystem();
+			GrowingSurface* system1 = _actor1->getGrowingSurface();
+			GrowingSurface* system2 = _actor2->getGrowingSurface();
 
 			if (system1 != system2)
 				{

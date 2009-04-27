@@ -1,5 +1,5 @@
 #include "Cursor.h"
-#include "CellSystemProperties.h"
+#include "GrowingSurfaceProperties.h"
 #include "Movable2DObject.h"
 
 
@@ -131,16 +131,16 @@ void Cursor::performAction()
 			switch(mSystemType)
 				{
 					case 1:
-						mCanvas->addCellSystem(mPos,"Square",true,1.0); 
+						mCanvas->addGrowingSurface(mPos,"Square",true,1.0); 
 						break;
 					case 2:
-						mCanvas->addCellSystem(mPos,"Hexagon",true,1.0); 
+						mCanvas->addGrowingSurface(mPos,"Hexagon",true,1.0); 
 						break;
 					case 3:
-						mCanvas->addCellSystem(mPos,"Triangle",true,1.0); 
+						mCanvas->addGrowingSurface(mPos,"Triangle",true,1.0); 
 						break;
 					case 4:
-						mCanvas->addCellSystem(mPos,"Circle",true,1.0); 
+						mCanvas->addGrowingSurface(mPos,"Circle",true,1.0); 
 						break;
 				}
 			break; 
@@ -158,16 +158,16 @@ void Cursor::addNewSystem()
 				switch(mSystemType){
 				
 					case 1:
-					mCanvas->addCellSystem(mPos,"Square",true,1.0); 
+					mCanvas->addGrowingSurface(mPos,"Square",true,1.0); 
 					break;
 				case 2:
-					mCanvas->addCellSystem(mPos,"Hexagon",true,1.0); 
+					mCanvas->addGrowingSurface(mPos,"Hexagon",true,1.0); 
 					break;
 				case 3:
-					mCanvas->addCellSystem(mPos,"Triangle",true,1.0); 
+					mCanvas->addGrowingSurface(mPos,"Triangle",true,1.0); 
 					break;
 				case 4:
-					mCanvas->addCellSystem(mPos,"Circle",true,1.0); 
+					mCanvas->addGrowingSurface(mPos,"Circle",true,1.0); 
 					break;
 				}
 

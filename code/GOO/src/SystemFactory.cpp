@@ -17,16 +17,16 @@ DynamicSystem* SystemFactory::spawnSystem(SystemProperties& properties, Vector2&
 	DynamicSystem* system;
 
 	switch(properties.type){
-		case SystemType::CELLSYSTEM:
-			system= new CellSystem("cellsystem"  + StringConverter::toString((int)systemList.size()),mCanvas,mSceneMgr, position, (CellSystemProperties&)properties,true); 
+		case SystemType::GROWINGSURFACE:
+			system= new GrowingSurface("GrowingSurface"  + StringConverter::toString((int)systemList.size()),mCanvas,mSceneMgr, position, (GrowingSurfaceProperties&)properties,true); 
 			break;
 		
 		case SystemType::CUSTOMSYSTEM:
-			//system= new CellSystem(mName + StringConverter::toString((int)systemList.size()),mCanvas,mSceneMgr, position, "bullshit",true); 
+			//system= new GrowingSurface(mName + StringConverter::toString((int)systemList.size()),mCanvas,mSceneMgr, position, "bullshit",true); 
 			break;
 		
 		case SystemType::PATHSYSTEM:
-			//system= new CellSystem(mName + StringConverter::toString((int)systemList.size()),mCanvas,mSceneMgr, position, "bullshit",true); 
+			//system= new GrowingSurface(mName + StringConverter::toString((int)systemList.size()),mCanvas,mSceneMgr, position, "bullshit",true); 
 			break;
 		default:
 			//throw exception 
@@ -49,7 +49,7 @@ DynamicSystem* SystemFactory::loadSystem(std::string& name, Vector2& position)
 
 std::string& SystemFactory::getSystemList()
 {
-	std::vector<CellSystemProperties*>::iterator itr; 
+	std::vector<GrowingSurfaceProperties*>::iterator itr; 
 	std::map<const char*, int>::iterator mapitr; 
 	for (itr = propertySetList.begin(); itr != propertySetList.end(); itr++)
 	{
@@ -67,7 +67,7 @@ std::string& SystemFactory::getSystemList()
 	return std::string();
 }
 
-void SystemFactory::registerSystemPropertySet(CellSystemProperties* propertySet)
+void SystemFactory::registerSystemPropertySet(GrowingSurfaceProperties* propertySet)
 {	
 	propertySetList.push_back(propertySet);
 }

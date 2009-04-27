@@ -17,7 +17,7 @@ enum CANVASTYPE
 
 class Cursor;
 class DynamicSystem;
-class CellSystem;
+class GrowingSurface;
 class CellFactory;
 class SystemFactory;
 class SystemProperties; 
@@ -35,7 +35,7 @@ public:
 	b2AABB& getAABB(){return mAABB;}  
 	Ogre::SceneNode* getSceneNode(){return mRootCanvasNode;}
 	
-	bool addCellSystem(Ogre::Vector2& startPosition, const char* systemType, bool enabled=true, Ogre::Real speed = 1.0); 
+	bool addGrowingSurface(Ogre::Vector2& startPosition, const char* systemType, bool enabled=true, Ogre::Real speed = 1.0); 
 
 	Cursor* getCursor(){return mCursor;}
 
@@ -61,8 +61,8 @@ public:
 
 	bool isRunning(){return mRunning;} 
 	
-	std::vector<CellSystem*>::iterator systemItr;
-	std::vector<CellSystem*> mCellSystems; 
+	std::vector<GrowingSurface*>::iterator systemItr;
+	std::vector<GrowingSurface*> mGrowingSurfaces; 
 
 	void setSurface(SystemProperties* properties); 
 	SystemProperties* mSystemProperties;  
@@ -116,7 +116,7 @@ protected:
 	float mTimePassed;
 	float mTimeInterval;
 
-	CellSystem* mCurrentSelection;
+	GrowingSurface* mCurrentSelection;
 
 
 };

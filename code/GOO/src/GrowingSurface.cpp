@@ -1,4 +1,4 @@
-#include "CellSystem.h"
+#include "GrowingSurface.h"
 #include "CellFactory.h"
 #include "Canvas.h"
 #include "ObjectDefinitions.h"
@@ -8,10 +8,10 @@
 
 typedef PolygonAlgorithms PA;
 
-CellSystem::CellSystem(std::string& name, Canvas* canvas, Ogre::SceneManager* sceneMgr, Ogre::Vector2& position, CellSystemProperties& properties, bool enabled, Ogre::Real speed)
+GrowingSurface::GrowingSurface(std::string& name, Canvas* canvas, Ogre::SceneManager* sceneMgr, Ogre::Vector2& position, GrowingSurfaceProperties& properties, bool enabled, Ogre::Real speed)
 :DynamicSystem(name, sceneMgr, position) , mProperties(properties), mEnabled(enabled), mSpeed(speed), mCanvas(canvas)
 {
-type= Object2DType::CellSystemType; 
+type= Object2DType::GrowingSurfaceType; 
 
 	mObjectProps = new Object2DProperties(ObjectDefinitions::getSingletonPtr()->getObjectByName(properties.mCellObjectName)); 
 
@@ -24,7 +24,7 @@ type= Object2DType::CellSystemType;
 	TimePassed=0;
 }
 
-CellSystem::~CellSystem(void)
+GrowingSurface::~GrowingSurface(void)
 {
 
 //delete cells:
@@ -40,7 +40,7 @@ CellSystem::~CellSystem(void)
 
 }
 
-void CellSystem::initialize()
+void GrowingSurface::initialize()
 {
 
 	mProperties.vertexDistance=3.5; 
@@ -61,7 +61,7 @@ void CellSystem::initialize()
 			prevCell->setCellChild(newCell);
 		mCells.push_back(newCell);
 		newCell->enable(true);
-		newCell->setCellSystem(this); 
+		newCell->setGrowingSurface(this); 
 		double scale=5;
 		newCell->setScale(scale); 
 		newCell->setNeighourDistanceInterval(mProperties.vertexDistance); 
@@ -71,17 +71,13 @@ void CellSystem::initialize()
 }
 
 
-bool CellSystem::frameStarted(const FrameEvent &evt)
+bool GrowingSurface::frameStarted(const FrameEvent &evt)
 {
 	std::vector<Cell*>::iterator itr;
 
-    //std::vector<Point_2> result;
-	//std::vector<Point_2> mVertices;
-	
 	if (mEnabled == true)
 	{
 		int i=0; 
-		//mVertices.clear(); 
 		for(int i=0; i < mCells.size(); i++)
 		{
 			if (mCells[i]!=0)
@@ -112,13 +108,13 @@ bool CellSystem::frameStarted(const FrameEvent &evt)
 	return true;
 }
 
-void CellSystem::processNewCells(const FrameEvent &evt)
+void GrowingSurface::processNewCells(const FrameEvent &evt)
 {
 
 }
 
 
-bool CellSystem::frameEnded(const FrameEvent &evt)
+bool GrowingSurface::frameEnded(const FrameEvent &evt)
 {
 
 	return true;
@@ -127,33 +123,33 @@ bool CellSystem::frameEnded(const FrameEvent &evt)
 
 
 //reorients entire cell system
-void CellSystem::setOrientation(Ogre::Radian& orientation)
+void GrowingSurface::setOrientation(Ogre::Radian& orientation)
 {
 
 
 
 }
 
-Cell*  CellSystem::requestCell()
+Cell*  GrowingSurface::requestCell()
 {
 	Cell* newCell;
 	
 	return newCell;
 }	
 
-void CellSystem::updateSkeleton()
+void GrowingSurface::updateSkeleton()
 {
 
 
 }  
 
-void CellSystem::recalculateSkeleton()
+void GrowingSurface::recalculateSkeleton()
 {
 
 
 }
 
-void CellSystem::start()
+void GrowingSurface::start()
 {
 	mEnabled=true;
 	//loop trough cells 
@@ -165,7 +161,7 @@ void CellSystem::start()
 
 }
 
-void CellSystem::halt()
+void GrowingSurface::halt()
 {	
 	mEnabled=false;
 		//loop trough cells 	
@@ -176,13 +172,13 @@ void CellSystem::halt()
 
 
 }
-void CellSystem::stop()
+void GrowingSurface::stop()
 {
 	mEnabled=false; 
 	mDone=true;
 } 
 
-bool CellSystem::containsPoint(Ogre::Vector2& point)
+bool GrowingSurface::containsPoint(Ogre::Vector2& point)
 {
 	//loop through skeleton and check wether the point lies closer 
 	//the skeleton point than the furthest cell of the cell set.
@@ -193,38 +189,38 @@ bool CellSystem::containsPoint(Ogre::Vector2& point)
 	return true;
 }
 
-void CellSystem::reduce(int percent)
+void GrowingSurface::reduce(int percent)
 {
 
 
 }
 
 //the position that is given to setposition is taken as the main skeleton position
-void CellSystem::setPosition(Ogre::Vector2& position)
+void GrowingSurface::setPosition(Ogre::Vector2& position)
 {
 	//translate skeleton: translation of the skeleton automatically translates the cells.  
 	mSkeleton->setPosition(position); 
 }
 
 
-void CellSystem::showPolyLines(bool on)
+void GrowingSurface::showPolyLines(bool on)
 {
 
 }
 
-void CellSystem::updatePolyLines(const Ogre::FrameEvent& evt)
+void GrowingSurface::updatePolyLines(const Ogre::FrameEvent& evt)
 {
 	
 	
 }
 
-void  CellSystem::save(std::string& name)
+void  GrowingSurface::save(std::string& name)
 {
 //hierarchy: 
 
 	//open lua file for writing: 
 
-		//write loadCellSystem with properties of system
+		//write loadGrowingSurface with properties of system
 
 			//add cell to system
 			//add cell to system
@@ -236,12 +232,12 @@ void  CellSystem::save(std::string& name)
 
 
 }
-void  CellSystem::load(std::string& name)
+void  GrowingSurface::load(std::string& name)
 {
 	
 }
 
-void CellSystem::destroyCell(Cell* cell)
+void GrowingSurface::destroyCell(Cell* cell)
 {
 	/*Cell* temp;
 	std::vector<Cell*>::iterator result;

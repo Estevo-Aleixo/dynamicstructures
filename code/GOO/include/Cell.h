@@ -2,7 +2,7 @@
 
 #include "Main.h"
 #include "CellProperties.h"
-#include "CellSystemProperties.h"
+#include "GrowingSurfaceProperties.h"
 #include "Physical2DObject.h"
 
 //cell types
@@ -15,7 +15,7 @@ enum CELLTYPE{
 };
 */
 
-class CellSystem;
+class GrowingSurface;
 
 class Cell: public Physical2DObject
 {
@@ -29,11 +29,11 @@ public:
 	void setType();
 
 
-	Cell(std::string name, unsigned int id,CellSystem* system, Ogre::SceneManager* sceneMgr, Object2DProperties* properties, Canvas* canvas, Ogre::Vector2 position= Vector2(0,0), bool enabled=false);
+	Cell(std::string name, unsigned int id,GrowingSurface* system, Ogre::SceneManager* sceneMgr, Object2DProperties* properties, Canvas* canvas, Ogre::Vector2 position= Vector2(0,0), bool enabled=false);
 	~Cell(void);
 
 	
-	void setCellSystem(CellSystem* cellSystem);//{mSystem = cellSystem;}
+	void setGrowingSurface(GrowingSurface* GrowingSurface);//{mSystem = GrowingSurface;}
 	void setProperties(CellProperties* properties){mProperties = properties;} 
 	
 	void setDivideDirection(Ogre::Radian direction){mDivideDirection = direction;} 
@@ -59,7 +59,7 @@ public:
 	void updatePolyLine();
 
 	void setParent(Cell* parent){mCellParent=parent;} 
-	CellSystem* getCellSystem(){return mSystem;} 
+	GrowingSurface* getGrowingSurface(){return mSystem;} 
 	void setNeighourDistanceInterval(unsigned int distance){mNeighbourDistance=distance;} 
 protected: 
 
@@ -85,11 +85,11 @@ protected:
 	//Ogre::SceneNode* node; 
 	//Ogre::Entity* outlineEntity; 
 
-	CellSystem* mSystem;
+	GrowingSurface* mSystem;
 	Ogre::Radian mDivideDirection; 
 	Ogre::Radian mDirectionInterval;
 
-	CellProperties retrieveProperties(CellSystem* system); 
+	CellProperties retrieveProperties(GrowingSurface* system); 
 
 	//TEMP: 
 	Ogre::Real mTimePassed;

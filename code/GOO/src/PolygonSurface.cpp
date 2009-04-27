@@ -2,7 +2,7 @@
 
 
 
-PolygonSurface::PolygonSurface(std::string& name, Canvas* canvas, CellSystem* system)
+PolygonSurface::PolygonSurface(std::string& name, Canvas* canvas, GrowingSurface* system)
 :Movable2DObject(name, canvas->getSceneManager(),system->getPosition()), mCanvas(canvas)
 {
 

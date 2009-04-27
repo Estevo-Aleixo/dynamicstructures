@@ -1,8 +1,8 @@
 #include "Cell.h"
-#include "CellSystem.h"
+#include "GrowingSurface.h"
 #include "CellFactory.h"
 
-Cell::Cell(std::string name, unsigned int id,CellSystem* system, Ogre::SceneManager* sceneMgr, Object2DProperties* properties, Canvas* canvas, Ogre::Vector2 position, bool enabled):
+Cell::Cell(std::string name, unsigned int id,GrowingSurface* system, Ogre::SceneManager* sceneMgr, Object2DProperties* properties, Canvas* canvas, Ogre::Vector2 position, bool enabled):
 Physical2DObject(name + std::string("_2DObject"), canvas, sceneMgr, properties, position, enabled),
 mName(name), 
 mID(id), 
@@ -22,7 +22,7 @@ mSystem(system)
 	
 	mShowPolyLine = false; 
 
-	/*
+	
 	mPolyLine= new Ogre::ManualObject(name + "_polyline"); 
 
 	mPolyLine->begin("polyline",RenderOperation::OT_LINE_LIST); 		
@@ -37,7 +37,7 @@ mSystem(system)
 	mLineNode->attachObject(mPolyLine);
 	mLineNode->setInheritOrientation(false);
 	mLineNode->setInheritScale(false);
-*/
+
 
 	//mCenterNode
 		mCenterNode= mNode->createChildSceneNode();  
@@ -94,7 +94,7 @@ bool Cell::frameStarted(const FrameEvent &evt)
 				Cell* newCell= mCanvas->getCellFactory()->createCell(mProperties,this->mSystem, pos); 
 				mSystem->addCell(newCell);
 				newCell->enable(true);
-				newCell->setCellSystem(this->mSystem);
+				newCell->setGrowingSurface(this->mSystem);
 				
 				double speed= mBody->GetLinearVelocity().Length();
 				Radian angle= Math::ATan2(pos.y-mOrigin.y,pos.x- mOrigin.x); 
@@ -154,7 +154,7 @@ void Cell::divide()
 }
 
 
-CellProperties  Cell::retrieveProperties(CellSystem* system)
+CellProperties  Cell::retrieveProperties(GrowingSurface* system)
 {
 	CellProperties properties;
 	
@@ -172,22 +172,22 @@ void Cell::updatePolyLine()
 	//pos = pos.normalisedCopy()* (pos.length()/3);
 //refresh polyline
 		//mPolyLine->clear(); 
-	/*
+	
 		mPolyLine->beginUpdate(0); 		
 			mPolyLine->position(0,0,0.001); 
 			mPolyLine->position(pos.x,pos.y,0.001); 
 			mPolyLine->index(1);
 			mPolyLine->index(0);
 		mPolyLine->end(); 
-		*/
+		
 		//mPolyLine->convertToMesh(CIRCLE_POLYGON);  
 
 
 }
 
-void Cell::setCellSystem(CellSystem* cellSystem)
+void Cell::setGrowingSurface(GrowingSurface* GrowingSurface)
 {
-	mSystem = cellSystem;
+	mSystem = GrowingSurface;
 
 	//set properties:
 	mNeighbourDistance= mSystem->getProperties().vertexDistance;

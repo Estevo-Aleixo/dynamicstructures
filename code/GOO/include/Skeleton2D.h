@@ -10,7 +10,7 @@
 //TODO: #include "SimpleSkeletonGenerator.h"
 
 
-class CellSystem; 
+class GrowingSurface; 
 
 enum SKELETON_TYPE
 {
@@ -35,7 +35,7 @@ EXPAND_MEDIAL_AXIS
 class Skeleton2D: public Movable2DObject
 {
 public:
-	Skeleton2D(std::string& name, Ogre::Vector2& startpos, CellSystem* cellSystem, Ogre::SceneManager* sceneMgr);
+	Skeleton2D(std::string& name, Ogre::Vector2& startpos, GrowingSurface* GrowingSurface, Ogre::SceneManager* sceneMgr);
 	~Skeleton2D(void);
 
 	void update(const Ogre::FrameEvent& evt);		
@@ -74,7 +74,7 @@ protected:
 	double mForce;
 
 	Ogre::SceneManager* mSceneMgr;
-	CellSystem* mCellSystem;
+	GrowingSurface* mGrowingSurface;
 
 	void addPoint(Ogre::Vector2 point);
 	void findNearestPoint(Ogre::Vector2 position); 

@@ -56,13 +56,13 @@ circle=1
 enum Object2DType
 {
 	CellType=1,
-	CellSystemType=2,
+	GrowingSurfaceType=2,
 	SkeletonPointType=3
 };
 
 enum SystemType
 {
-	CELLSYSTEM = 0,
+	GROWINGSURFACE = 0,
 	PATHSYSTEM = 1,
 	CUSTOMSYSTEM = 2
 };

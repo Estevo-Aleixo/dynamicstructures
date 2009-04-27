@@ -15,7 +15,7 @@ public:
 	
 	Ogre::ColourValue mSurfaceColour;
 
-	//surface properties that effect cellsystems
+	//surface properties that effect GrowingSurfaces
 	
 	SystemType type; 
 	

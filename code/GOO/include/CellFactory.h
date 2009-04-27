@@ -5,7 +5,7 @@
 #include "Cell.h"
 #include "Canvas.h"
 
-class CellSystem;
+class GrowingSurface;
 
 class CellFactory
 {
@@ -13,8 +13,8 @@ public:
 	static void createCellMeshes();
 
 	 Cell* requestCellFromPool();
-	 Cell* requestCell(CellSystem* cellSystem, CELLTYPE type);
-	 Cell* createCell(Object2DProperties* props,CellSystem* system, Vector2& position); 
+	 Cell* requestCell(GrowingSurface* GrowingSurface, CELLTYPE type);
+	 Cell* createCell(Object2DProperties* props,GrowingSurface* system, Vector2& position); 
 	 Cell* requestCustomCell(std::vector<Ogre::Vector2> vertices, std::vector<unsigned int> indices);
 	 
 	 Cell* getCellByID(unsigned int id); 

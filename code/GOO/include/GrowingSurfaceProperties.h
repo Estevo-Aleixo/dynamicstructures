@@ -11,11 +11,11 @@ enum CELLTYPE{
 	CUSTOM=4
 };
 
-class CellSystemProperties: public SystemProperties
+class GrowingSurfaceProperties: public SystemProperties
 {
 public:
-	CellSystemProperties(void);
-	~CellSystemProperties(void);
+	GrowingSurfaceProperties(void);
+	~GrowingSurfaceProperties(void);
 
 	Ogre::Real getCellSize(){return mCellSize;}
 	CELLTYPE getCellType(){return mType;}

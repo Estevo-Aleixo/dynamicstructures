@@ -4,10 +4,8 @@
 #include "Canvas.h"
 #include "Movable2DObject.h"
 
-class CellSystemProperties;
+class GrowingSurfaceProperties;
 class Movable2DObject;
-
-
 
 #define NUMMODES 3
 enum CURSORMODE
@@ -62,6 +60,8 @@ static const char* const cursorModeLabels[NUMMODES];
 
 	void attachObject(Movable2DObject* object); 
 
+
+
 private:
 	Movable2DObject* mAttachedObject;
 	Movable2DObject* mCurrentSelection; 
@@ -78,7 +78,7 @@ private:
 	void moveCurrentSystem(); 
 	void deleteCurrentSystem(); 
 
-	std::vector<CellSystemProperties*> mCellSystemModes; 
+	std::vector<GrowingSurfaceProperties*> mGrowingSurfaceModes; 
 
 	bool mPressed;
 	std::vector<Ogre::Vector2> samples;

@@ -26,7 +26,7 @@ LuaGlue StartSystem(lua_State* l);
 LuaGlue LinkPathToSystems(lua_State* l); 
 
 LuaGlue DeleteSystem(lua_State* l); 
-LuaGlue SetCellSystemProperties(lua_State* l); 
+LuaGlue SetGrowingSurfaceProperties(lua_State* l); 
 
 LuaGlue SpawnCell(lua_State* l);
 LuaGlue DeleteCell(lua_State* l); 
@@ -79,7 +79,7 @@ pLua->AddFunction("HaltSystem",HaltSystem);
 pLua->AddFunction("StartSystem",StartSystem);
 pLua->AddFunction("LinkPathToSystems",LinkPathToSystems);
 pLua->AddFunction("DeleteSystem",DeleteSystem);
-pLua->AddFunction("SetCellSystemProperties",SetCellSystemProperties);
+pLua->AddFunction("SetGrowingSurfaceProperties",SetGrowingSurfaceProperties);
 pLua->AddFunction("SpawnCell",SpawnCell);
 pLua->AddFunction("DeleteCell",DeleteCell);
 pLua->AddFunction("SetCellProperties",SetCellProperties);
@@ -174,7 +174,7 @@ LuaGlue LoadSystemClass(lua_State* l)
 	if (pLua->RunScript(scriptName))
 	{
 		//create property set:
-		CellSystemProperties* newSet= new CellSystemProperties(); 
+		GrowingSurfaceProperties* newSet= new GrowingSurfaceProperties(); 
 		newSet->mName =getStringGlobal(pLua->GetScriptContext(),"name");
 		newSet->description =getStringGlobal(pLua->GetScriptContext(),"description");
 		newSet->cellType =getStringGlobal(pLua->GetScriptContext(),"cellType"); 
@@ -235,7 +235,7 @@ LuaGlue DeleteSystem(lua_State* l)
 return 0;
 }
 
-LuaGlue SetCellSystemProperties(lua_State* l)
+LuaGlue SetGrowingSurfaceProperties(lua_State* l)
 {
 return 0;
 }

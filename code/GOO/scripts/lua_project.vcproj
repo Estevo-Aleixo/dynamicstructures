@@ -206,14 +206,6 @@
 				>
 			</File>
 			<File
-				RelativePath="..\src\CellSystem.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\src\CellSystemProperties.cpp"
-				>
-			</File>
-			<File
 				RelativePath="..\src\cLua.cpp"
 				>
 			</File>
@@ -255,6 +247,14 @@
 			</File>
 			<File
 				RelativePath="..\src\God.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\GrowingSurface.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\GrowingSurfaceProperties.cpp"
 				>
 			</File>
 			<File
@@ -302,10 +302,6 @@
 				>
 			</File>
 			<File
-				RelativePath=".\vectorField.cpp"
-				>
-			</File>
-			<File
 				RelativePath="..\src\VoronoiDiagramGenerator.cpp"
 				>
 			</File>
@@ -330,6 +326,46 @@
 				</File>
 				<File
 					RelativePath="..\src\World.cpp"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="ProceduralObjects"
+				>
+				<File
+					RelativePath="..\src\ObjectPatch.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\src\ProcBridge.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\src\ProcCaveEntrance.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\src\ProceduralObject.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\src\ProcElevatedArea.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\src\ProcForestPatch.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\src\ProcStairs.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\src\ProcTree.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\src\ProcTreeHome.cpp"
 					>
 				</File>
 			</Filter>
@@ -365,10 +401,6 @@
 			</File>
 			<File
 				RelativePath="..\include\PolygonSurface.h"
-				>
-			</File>
-			<File
-				RelativePath=".\vectorField.h"
 				>
 			</File>
 			<File
@@ -458,11 +490,11 @@
 						>
 					</File>
 					<File
-						RelativePath="..\include\CellSystem.h"
+						RelativePath="..\include\GrowingSurface.h"
 						>
 					</File>
 					<File
-						RelativePath="..\include\CellSystemProperties.h"
+						RelativePath="..\include\GrowingSurfaceProperties.h"
 						>
 					</File>
 					<File
@@ -500,6 +532,46 @@
 				</File>
 				<File
 					RelativePath="..\include\MovableText.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="generatedobjects"
+				>
+				<File
+					RelativePath="..\include\ObjectPatch.h"
+					>
+				</File>
+				<File
+					RelativePath="..\include\ProcBridge.h"
+					>
+				</File>
+				<File
+					RelativePath="..\include\ProcCaveEntrance.h"
+					>
+				</File>
+				<File
+					RelativePath="..\include\ProceduralObject.h"
+					>
+				</File>
+				<File
+					RelativePath="..\include\ProcElevatedArea.h"
+					>
+				</File>
+				<File
+					RelativePath="..\include\ProcForestPatch.h"
+					>
+				</File>
+				<File
+					RelativePath="..\include\ProcStairs.h"
+					>
+				</File>
+				<File
+					RelativePath="..\include\ProcTree.h"
+					>
+				</File>
+				<File
+					RelativePath="..\include\ProcTreeHome.h"
 					>
 				</File>
 			</Filter>

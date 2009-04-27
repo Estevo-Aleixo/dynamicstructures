@@ -1,6 +1,6 @@
 #include "Canvas.h"
 #include "Cursor.h"
-#include "CellSystem.h"
+#include "GrowingSurface.h"
 #include "SystemFactory.h"
 #include "World.h"
 
@@ -62,9 +62,9 @@ Canvas::~Canvas(void)
 void Canvas::pauseAllEntities()
 {
 	mRunning= true;
-	std::vector<CellSystem*>::iterator itr; 
+	std::vector<GrowingSurface*>::iterator itr; 
 	//loop through cell systems
-	for (itr= mCellSystems.begin();itr != mCellSystems.end(); itr++)
+	for (itr= mGrowingSurfaces.begin();itr != mGrowingSurfaces.end(); itr++)
 	{
 		(*itr)->halt(); 
 	}
@@ -73,9 +73,9 @@ void Canvas::pauseAllEntities()
 void Canvas::startAllEntities()
 {
 	mRunning = false;
-	std::vector<CellSystem*>::iterator itr; 
+	std::vector<GrowingSurface*>::iterator itr; 
 	//loop through cell systems
-	for (itr= mCellSystems.begin(); itr != mCellSystems.end(); itr++)
+	for (itr= mGrowingSurfaces.begin(); itr != mGrowingSurfaces.end(); itr++)
 	{
 		(*itr)->start(); 
 	}
@@ -149,7 +149,7 @@ void Canvas::createRaster(CANVASTYPE type)
 bool  Canvas::frameStarted(const FrameEvent &evt)
 {
 	//iterate through cell_systems
-	std::vector<CellSystem*>::iterator itr;
+	std::vector<GrowingSurface*>::iterator itr;
 
 	mCursor->update(evt); 
 	
@@ -162,7 +162,7 @@ bool  Canvas::frameStarted(const FrameEvent &evt)
 	{
 		mTimePassed =0;
 		mCurrentSelection=0;
-		for (itr= mCellSystems.begin(); itr!=mCellSystems.end(); itr++)
+		for (itr= mGrowingSurfaces.begin(); itr!=mGrowingSurfaces.end(); itr++)
 		{	
 			if ((*itr)->containsPoint(mCursor->getPosition())==true)
 			{
@@ -173,7 +173,7 @@ bool  Canvas::frameStarted(const FrameEvent &evt)
 	
 	}
 
-	for (itr= mCellSystems.begin(); itr!=mCellSystems.end(); itr++)
+	for (itr= mGrowingSurfaces.begin(); itr!=mGrowingSurfaces.end(); itr++)
 	{	
 		if ((*itr)->isEnabled())
 			(*itr)->frameStarted(evt); 	
@@ -189,20 +189,20 @@ bool  Canvas::frameEnded(const FrameEvent &evt)
 	return true;
 }
 
-bool  Canvas::addCellSystem(Ogre::Vector2& startPosition, const char* systemType, bool enabled, Ogre::Real speed)
+bool  Canvas::addGrowingSurface(Ogre::Vector2& startPosition, const char* systemType, bool enabled, Ogre::Real speed)
 {
-	CellSystem* newCellSystem; 
+	GrowingSurface* newGrowingSurface; 
 
-	CellSystemProperties props;
-	props.type= SystemType::CELLSYSTEM;
+	GrowingSurfaceProperties props;
+	props.type= SystemType::GROWINGSURFACE;
 	props.mCellObjectName= systemType;
 
 // properties
 
 
-	newCellSystem= (CellSystem*)mSystemFactory->spawnSystem(props,startPosition); 
-	mCellSystems.push_back(newCellSystem);
-	//newCellSystem = new CellSystem("Cell_system_" +StringConverter::toString((Ogre::Real)mCellSystems.size()) +"_" +std::string(systemType),this,mSceneMgr, startPosition, systemType, enabled, speed); 
+	newGrowingSurface= (GrowingSurface*)mSystemFactory->spawnSystem(props,startPosition); 
+	mGrowingSurfaces.push_back(newGrowingSurface);
+	//newGrowingSurface = new GrowingSurface("Cell_system_" +StringConverter::toString((Ogre::Real)mGrowingSurfaces.size()) +"_" +std::string(systemType),this,mSceneMgr, startPosition, systemType, enabled, speed); 
 
 
 
@@ -213,21 +213,21 @@ bool  Canvas::addCellSystem(Ogre::Vector2& startPosition, const char* systemType
 
 void Canvas::clearCanvas()
 {
-	std::vector<CellSystem*>::iterator itr; 
+	std::vector<GrowingSurface*>::iterator itr; 
 
-	for (itr = mCellSystems.begin(); itr!= mCellSystems.end();itr++)
+	for (itr = mGrowingSurfaces.begin(); itr!= mGrowingSurfaces.end();itr++)
 	{
 		delete (*itr);
 		(*itr)=0;
 	}
 
-	mCellSystems.clear(); 
+	mGrowingSurfaces.clear(); 
 }
 
 void Canvas::removeObject(Movable2DObject* object)
 {
-	std::vector<CellSystem*>::iterator itr;
-	CellSystem* cs;
+	std::vector<GrowingSurface*>::iterator itr;
+	GrowingSurface* cs;
 
 	Ogre::LogManager::getSingletonPtr()->logMessage("deleting object with cursor!"); 
 
@@ -236,13 +236,13 @@ void Canvas::removeObject(Movable2DObject* object)
 		Ogre::LogManager::getSingletonPtr()->logMessage("OBJECT: " + object->getName()); 
 		switch(object->type)
 		{
-			case Object2DType::CellSystemType:
-				cs= static_cast<CellSystem*>(object);  
+			case Object2DType::GrowingSurfaceType:
+				cs= static_cast<GrowingSurface*>(object);  
 			
-				itr = std::find(mCellSystems.begin() , mCellSystems.end() , cs);
+				itr = std::find(mGrowingSurfaces.begin() , mGrowingSurfaces.end() , cs);
 				delete (*itr);
 				(*itr)=0;
-				mCellSystems.erase(itr); 
+				mGrowingSurfaces.erase(itr); 
 				break;
 				/*
 				case Object2DType::
@@ -289,7 +289,7 @@ double distance;
 DynamicSystem* system=0;
 
 //loop through systems
-for (systemItr=mCellSystems.begin(); systemItr!=mCellSystems.end();systemItr++)
+for (systemItr=mGrowingSurfaces.begin(); systemItr!=mGrowingSurfaces.end();systemItr++)
 {
 	 distance= ( (*systemItr)->getPosition()-pos).squaredLength();
 	 if (distance < closestDistance)

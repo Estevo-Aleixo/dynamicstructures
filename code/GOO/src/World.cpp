@@ -1,7 +1,7 @@
 #include "World.h"
 #include "Console.h"
 #include "Cursor.h"
-#include "CellSystem.h"
+#include "GrowingSurface.h"
 #include "CellFactory.h"
 #include "SystemFactory.h"
 #include "ObjectDefinitions.h"
@@ -215,6 +215,7 @@ bool World::keyReleased(const OIS::KeyEvent &e)
 		case OIS::KC_C:
 			this->mCanvas->clearCanvas();
 			break;
+		//make this a toggle: 
 		case OIS::KC_Z:
 			mCanvas->pauseAllEntities();
 			break;
@@ -224,7 +225,11 @@ bool World::keyReleased(const OIS::KeyEvent &e)
 		case OIS::KC_T:
 			this->mSystemFactory->getSystemList(); 
 			break;
+		case OIS::KC_F:
+			//mCursor->getCurrentSeletion()
+			break;
 	}
+
 
 	if (mKeyboard->isKeyDown(OIS::KC_W)== false && 
 			mKeyboard->isKeyDown(OIS::KC_A)== false && 
@@ -328,7 +333,6 @@ void  World::updateParameterOverlay(void)
 
 		OverlayElement* guiCursorMode = OverlayManager::getSingleton().getOverlayElement("GUI/currentCursorMode");
 		guiCursorMode->setCaption("Mode: " + StringConverter::toString(toolModeNames[mCursor->getMode()])); 
-
 
 
 }

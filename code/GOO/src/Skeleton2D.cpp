@@ -1,11 +1,11 @@
 #include "Skeleton2D.h"
-#include "CellSystem.h"
+#include "GrowingSurface.h"
 
 
 #pragma warning( disable : 4482)
 
-Skeleton2D::Skeleton2D(std::string& name, Ogre::Vector2& startpos, CellSystem* cellSystem, Ogre::SceneManager* sceneMgr):
-Movable2DObject(name, sceneMgr, startpos), mCellSystem(cellSystem), mSceneMgr(sceneMgr)
+Skeleton2D::Skeleton2D(std::string& name, Ogre::Vector2& startpos, GrowingSurface* GrowingSurface, Ogre::SceneManager* sceneMgr):
+Movable2DObject(name, sceneMgr, startpos), mGrowingSurface(GrowingSurface), mSceneMgr(sceneMgr)
 {
 	//create node
 	mNode= mSceneMgr->getRootSceneNode()->createChildSceneNode(); 
@@ -72,7 +72,7 @@ void Skeleton2D::update(const Ogre::FrameEvent& evt)
 	
 	//try voronoi
 	
-vdg.generateVoronoi((mCellSystem->mCells));
+vdg.generateVoronoi((mGrowingSurface->mCells));
 vdg.resetIterator();
 
 	float x1,y1,x2,y2;
@@ -203,7 +203,7 @@ void Skeleton2D::expand(const Ogre::FrameEvent& evt)
 
 std::vector<Cell*>::iterator itr;
 
-	for (itr = mCellSystem->mCells.begin(); itr!= mCellSystem->mCells.end(); itr++)
+	for (itr = mGrowingSurface->mCells.begin(); itr!= mGrowingSurface->mCells.end(); itr++)
 	{
 		if ((*itr)!=0){
 			//calculate force
@@ -224,7 +224,7 @@ std::vector<Cell*>::iterator itr;
 		}
 	} 
 
-	midPoint /= (double)mCellSystem->mCells.size(); 
+	midPoint /= (double)mGrowingSurface->mCells.size(); 
 	setPosition(midPoint);
 
 }
