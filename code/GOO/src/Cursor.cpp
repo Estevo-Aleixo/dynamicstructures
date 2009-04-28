@@ -38,7 +38,7 @@ bool Cursor::update(const FrameEvent &evt)
 	mNode->roll(Ogre::Radian(4)*evt.timeSinceLastFrame); 	
 
 	//refresh current selection (SIMPLE), ALTER THIS
-	//mCurrentSelection= (Movable2DObject*)mCanvas->getNearestSystem(mPos); 
+	mCurrentSelection= (Movable2DObject*)mCanvas->getNearestSystem(mPos,0); 
 
 
 	return true;
