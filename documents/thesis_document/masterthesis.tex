@@ -3,6 +3,7 @@
 \usepackage[usenames]{color} 
 \usepackage{graphicx} 
 
+
 \definecolor{lightblue}{rgb}{0.0, 0.8,1.0} 
 \definecolor{myOrange}{rgb}{1.0, 0.6,0.0} 
 \definecolor{myGrey}{rgb}{0.1, 0.1,0.1} 
@@ -16,6 +17,13 @@
 \newcommand{\desc}[1]{\textcolor{lightblue}{\textbf{\newline description: }\it{#1} \newline}}
 
 \newcommand{\voegtoe}[1]{\textcolor{MyDarkGreen}{\textbf{-Insert: }\it{#1}}}
+
+
+% Dutch style of paragraph formatting, i.e. no indents. 
+\setlength{\parskip}{1.3ex plus 0.2ex minus 0.2ex}
+\setlength{\parindent}{0pt}
+
+
 
 \title{Interactive Procedural Modeling: Architecture in Organic Scenes  \small{interactivity in procedural modeling tools}}
 \author{Ruud op den Kelder}
@@ -36,40 +44,55 @@ Interactive Procedural Modeling: Architecture in Organic Scenes
 
 \desc{This is a general introduction to what the thesis is all about -- it is not just a description of the contents of each section. Briefly summarize the question (you will be stating the question in detail later), some of the reasons why it is a worthwhile question, and perhaps give an overview of your main results. This is a birds-eye view of the answers to the main questions answered in the thesis.}
 
-This thesis is about procedural architecture in the special case of restrictions and possibilities enforced by the geometric properties of
-pre-existing objects, trees, in the scene. A side quest for this thesis was to develop methods for intuitive interactive control over the 
-objects wich were to be generated. Regarding user control and procedural techniques it is important to strike a balance which allows for a 
-fast and intuitive building process, and meanwhile the user should have just the right amount of control to make the scene to its liking. 
+This thesis adresses the problem of procedural architecture in the special case of restrictions and possibilities enforced by the geometric properties of pre-existing objects, trees, in the scene. A side goal for this research was to develop methods for intuitive interactive control over the objects wich were to be generated. Regarding user control and procedural techniques it is important to strike a balance which allows for a fast and intuitive building process, and meanwhile the user should have just the right amount of control to make the scene to its liking.
 
+This thesis combines research from the fields of procedural architecture and procedural plant generation.
 
+Visual modeling of plant development is a field which started in 1962, when Ulam applied cellular automata to 
+simulate the development of branching patterns \cite{PrzemyslawPlants}. A formalism for modeling plants was proposed by Lindenmayer in 1968, this formalism was called L-systems since. The following definition of an L-system is given by Przemyslaw \cite{PrzemyslawPlants}: 
 
-     
+\begin{quote}
+An L-system is a parallel rewriting system operating on branching structures represented as bracketed strings of symbols with associated parameters, called modules. Matching pairs of square brackets enclose branches. Simulation begins with an  initial string called the axiom, and proceeds in a sequence of discrete deriviation steps. In each step, rewriting rules or productions replace all modules on the predeccesor string by succesor modules.   
+\end{quote}   
 
+Przemyslaw \cite{PrzemyslawPlants} has employed and extended the l-system formalism for realistic visualisation of
+entire plant ecosystems. Within a ecosystem organisms interact with each other and this interaction determines many 
+properties for individual organisms; such as growth rate. Since the original L-system formalism does not account for communication between two processes, Przemyslaw proposed \emph{open l-systems} which incorporates \emph{communication modules}.    
+  
+Since 2001 L-systems also proved to be useful in the field of urban procedural generation \cite{Wonka03}. It was then that Muller proposed the use of L-systems for the generation of road networks and building generation. 
 
+hier wat over building, generation, city generatoin, texture generation.
+shape grammars
 
+Techniques for tree generation in this thesis are based on L-systems, however these techniques are simplified to a certain degree since the modeling of plants is not the maintopic of this thesis. We have used the l-system formalism to generate simple branching tree structures. We did not strive to generate visually realistic models of trees since this has already been achieved by many people before me with impressive results. Instead our simplified method generates the main structure of a tree which is then used as input in our method for the generation of treehouse architecture. 
 
+<hier resultaat van treehouse generatie module>
 
+It is often the case that traditional general purpose modeling software is hard to master as a result of the freedom which is given to the user. Special purpose modeling tools such as cityEngine \cite{Muller06} (in the case of urban modeling) and speedTree (in the case of modeling plants and trees) provide procedural methods to generate objects within a certain class with very high time effiency. However the human touch still remains a very important part of the modeling procedure. Eastatics are very hard to turn into a set of formal rules on which an algorithm can operate.
 
-User control over the growing polygons is provided with several handles: 
-\revise{maak dit beter...}
+The special purpose modeling tool for the generation of treehouse architecture that was developed for this thesis provide the user with intuitive interaction tools such that its easy to make alterations to the scene.       
 
-\begin{enumerate}
-\item a dynamic innerskeleton which is formed by the contour of the polygon.   
-\item the vertices of the polygon contour can be dragged.
-\item scripting properties of the growing surface.
-\item global properties
-\end{enumerate}
+In the next section I will give an overview of this thesis followed by a discussion of related work. 
 
-\todo{arguments in favour of this method: ease of use. experimental curiousity}
+\old{   
+The research which preceded this document strived to construct an intuitive organic modelling method for the creation of 2D maps. The central focus of this research has been on methods for construction of dynamic structures using real-time growth models. To enable a large degree of control over these dynamic structures the is a need for skeletons. A large part of this thesis is about constructing skeleton representations for dynamic structures. There obviously is a realtime demand in order to enable realtime interactivity, which means building such skeletons should above all be an efficient process.    
+}
 
-The research which preceded this document strived to construct an intuitive organic modelling method for the creation of 2D maps. The central focus of this research has been on methods for construction of dynamic structures using real-time growth models. To enable a large degree of control over these dynamic structures the is a need for skeletons. 
-A large part of this thesis is about constructing skeleton representations for dynamic structures. There obviously is a realtime demand in order to enable realtime interactivity, which means building such skeletons should above all be an efficient process.    
-
-\desc{\textbf{2. Background Information (optional)}
+\desc{\textbf{2. A brief review of treehouse architecture}
 A brief section giving background information may be necessary, especially if your work spans two or more traditional fields. That means that your readers may not have any experience with some of the material needed to follow your thesis, so you need to give it to them. A different title than that given above is usually better; e.g., "A Brief Review of Frammis Algebra." 
 }
 
-\section{Review of State of the Art in Procedural Modeling of urban geometry and organic geometry}
+
+\section{Related Work: Review of State of the Art in Procedural Modeling}
+
+\cite{ Lipp08}
+\cite{Chen08}
+\cite{Deussen98}
+\cite{Muller06}
+\cite{Wonka03}
+\cite{citysurvey}
+
+
 
 \desc{
 3. Review of the State of the Art
@@ -109,9 +132,18 @@ Procedural modeling
 
 \subsection{The growth model map generator tool}
 \todo{discusseren dat gebruiker gelimiteerde controle heeft over het proces: nadelen en voordelen}
-
    
-\section{The problem: User control in procedural generation}
+\section{Overview}
+
+\section{Procedural Forest Generation}
+\subsection{Scattering Techniques for Tree Tositions}
+\subsection{Procedural Generation of Tree Geometry}
+
+\section{Tree House Architecture}
+
+
+
+
 
 \desc{
 Engineering theses tend to refer to a "problem" to be solved where other disciplines talk in terms of a "question" to be answered. In either case, this section has three main parts:
@@ -122,23 +154,11 @@ Item 2 above is where you analyze the information which you presented in Section
 Since this is one of the sections that the readers are definitely looking for, highlight it by using the word "problem" or "question" in the title: e.g. "Research Question" or "Problem Statement", or maybe something more specific such as "The Large-Scale Zylon Algorithm Problem." 
 }
 
-\subsection{} 
-\revise{bedenk een betere titel}
+\subsection{Architectural Elements} 
 
-\subsection{User control} 
+\subsection{Semantic Rules} 
 
-\todo{elke van de volgende controls behandelen met behulp van bestaande tools die hier gebruik van maken}
-
-
-\subsubsection{local control}
-
-
-\subsubsection{global control}
-
-
-\subsection{Growing surfaces: An alternative method for area generation}
-
-\section{Using realtime dynamically growing surfaces}
+\section{Method}
 
 \subsection{dynamic structures: polygonal surfaces}
 \inhoud{2D polygonale expansie van een ondergrond model als land of water die wordt gestuurd door eigenschappen van het type maar ook door ruimtelijke manipulatie methodes zoals vectorfields. representatie(onder voorbehoud): 
@@ -210,7 +230,9 @@ Cell division is interesting with respect to the concept of growing land because
 
 \subsubsection{Caves}
 
-\section{Organic map generation tool}
+\section{User interaction tools}
+
+\subsection{Growing Surfaces}
 
 \subsection{Modifiers}
 
