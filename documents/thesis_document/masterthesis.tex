@@ -79,11 +79,16 @@ It is often the case that traditional general purpose modeling software is hard 
 
 The special purpose modeling tool for the generation of organic geometry and treehouse architecture that was developed for this thesis provides the user with intuitive interaction tools to allow easy manipulation.        
 
-In the next section I will give an overview of this thesis followed by a discussion of related work. 
 
 %\old{   
 %The research which preceded this document strived to construct an intuitive organic modelling method for the creation of 2D maps. The central focus of this research has been on methods %for construction of dynamic structures using real-time growth models. To enable a large degree of control over these dynamic structures the is a need for skeletons. A large part of this %thesis is about constructing skeleton representations for dynamic structures. There obviously is a realtime demand in order to enable realtime interactivity, which means building such %skeletons should above all be an efficient process.    
 %}
+
+
+\subsection{Overview}
+
+This thesis is structured as follows. In the next section I will discuss related work. In the related work section I will bring my thesis into context with regard to procedural modeling 
+of trees and architecture. In section <> I will present the conceptual system model. After this I will be discussing the method for the generation of forest geometry. With the forest geometry in place we are ready to review the planning method which is responsible for positioning the architectural shapes. I will conclude the method description with a look at the  final stage of the pipeline, which is the procedural generation of the actual geometric objects representing the man-made architectural objects. Section <> discusses user interactivity and usability of the proposed system. The last two sections present results and conclusions respectively.     
 
 
 \section{Related Work in the fields of Procedural Modeling of Trees and Architecture}
@@ -98,6 +103,9 @@ The foundation for procedural city and building modeling was provided by Parish 
 An attempt was made to use L-systems for the creation of buildings \cite{Parish01}, however this did not prove to be effective. L-systems are designed to handle growth-like processes, it has been acknowledged that the construction process of a building is not a growth like process. Instead, building construction is better expressed by series of partitioning steps. These partitioning steps can be described by another kind of rewriting grammar called \emph{set grammar}. In \cite{Wonka03} Wonka presents a method for the automatic creation of building using such grammar systems. In this work Wonka introduces the idea of a specialized type of set grammar called \emph{split grammar} which operates on shapes. In \cite{Muller06} the split rules from the split grammar concept are defined in a grammar system called \emph{CGA Shape}, which was the first procedural system for the creation of detailed buildings with consistent mass 
 models. The process of creating a ruleset in CGA shape for a specific type of building is not straightforward and requires a trained expert. Lipp et al. \cite{Lipp08} introduce a visual method for the editing of the CGA Shape grammar for procedural architecture to simplify the rule building process. 
 
+%\cite{ Liu2006}
+
+
 
 
 %3. Review of the State of the Art
@@ -108,25 +116,29 @@ models. The process of creating a ruleset in CGA shape for a specific type of bu
 %3.3 Graph-Theoretic Approaches to Zylon Manipulation 
 
 
-\section{Overview}
-
-%
-%
-%
-%
-%
 
 
-
-
-
-
-
-\section{Conceptual Model}
+\section{Concept}
 %dit is in feite het idee,bladiebladiebla
 
-\subsection{System Overview}
-%mooi diagram hier
+This section discusses the system design of the proposed procedural modeling method with special attention to the planning algorithm for architectural objects. Figure \ref{fig:conceptualmodel} shows a diagram of the proposed system.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{images/aboriginal_art.jpg}
+	\caption{diagram of the conceptual model}
+	\label{fig:conceptualmodel}
+\end{figure}
+
+The pipeline is presented in figure \ref{fig:pipeline}.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{images/aboriginal_art.jpg}
+	\caption{pipeline of procedural generation method}
+	\label{fig:pipeline}
+\end{figure}
+
 
 
 %\desc{
