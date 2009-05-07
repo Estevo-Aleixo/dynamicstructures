@@ -1,6 +1,5 @@
 #include "ContactListener.h"
 #include "Cell.h"
-#include "EventHandler.h"
 #include "World.h"
 
 ContactListener::ContactListener(World* world)
@@ -43,12 +42,20 @@ void ContactListener::Result(const b2ContactResult* point)
 	object1 = static_cast<Movable2DObject*>(point->shape1->GetBody()->GetUserData());
 	object2 = static_cast<Movable2DObject*>(point->shape2->GetBody()->GetUserData());
 
+	//mTest.size();
+	//mTest.push_back(1); 
+
 	if (object1!=0 && object2!=0)
 	{
 		//create event 
-		this->addEventToBuffer(new Event(EVENTTYPE::COLLISION,object1,object2)); 
+		Event* newEvent=new Event(EVENTTYPE::COLLISION,object1,object2);
+		//mEvents.push_back(newEvent);
+
+		this->addEventToBuffer(newEvent);
+		//mEventHandler->addEventToBuffer(new Event(EVENTTYPE::COLLISION,object1,object2)); 
 
 	}
+
 
 }
 

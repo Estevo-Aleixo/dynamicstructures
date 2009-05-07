@@ -1,12 +1,12 @@
 #pragma once
 
-#include "Main.h"
+
 
 //CGAL HERE
-/*
-#include<boost/shared_ptr.hpp>
 
+/*
 #include<CGAL/basic.h>
+#include<boost/shared_ptr.hpp>
 #include<CGAL/Cartesian.h>
 #include<CGAL/Polygon_2.h>
 #include<CGAL/Exact_predicates_inexact_constructions_kernel.h>
@@ -40,8 +40,10 @@ typedef CGAL::Straight_skeleton_builder_2<SsBuilderTraits,Ss> SsBuilder;
 typedef CGAL::Polygon_offset_builder_traits_2<Kernel>                  OffsetBuilderTraits;
 typedef CGAL::Polygon_offset_builder_2<Ss,OffsetBuilderTraits,Contour> OffsetBuilder;
 
-
 */
+
+#include "Main.h"
+
 
 class PolygonAlgorithms
 {
@@ -66,8 +68,9 @@ static bool check_inside(Point_2 pt, Point_2 *pgn_begin, Point_2 *pgn_end, K tra
 return false; 
 }
 */
+
 /*
-	static bool constructSkeleton(std::vector<Point_2>& boundary, std::vector<Point_2>& result)
+static bool constructSkeleton(std::vector<Point_2>& boundary, std::vector<Point_2>& result)
 {
 	SsBuilder ssb;
 

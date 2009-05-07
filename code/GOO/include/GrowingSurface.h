@@ -3,10 +3,11 @@
 #include "Main.h"
 #include "Cell.h"
 #include "DynamicSystem.h"
+#include "ProcForestPatch.h" 
+
 #include "Skeleton2D.h"
 
 class Canvas; 
-class ProcForestPatch; 
 
 class GrowingSurface: public DynamicSystem
 {
@@ -20,6 +21,11 @@ public:
 	void start();
 	void halt();
 	void stop();
+
+	ProcForestPatch* createForestPatch(unsigned int density, TreeParameters& min,TreeParameters& max);
+	void removeForestPatch(){delete mForestPatch;}
+	ProcForestPatch* getForestPatch(){return mForestPatch;}
+
 
 	Ogre::Real getSpeed(){return mSpeed;} 
 

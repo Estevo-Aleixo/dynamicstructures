@@ -5,10 +5,13 @@
 
 #include "Main.h"
 #include "cLua.h"
-
 #include "Movable2DObject.h"
 
-class World;
+#include <deque>
+#include <list>
+#include <queue>
+
+#define MAXEVENTS 50; 
 
 enum EVENTTYPE
 {
@@ -29,6 +32,7 @@ static const char* eventName[] =
 "Maximal Cell Count"
 };
  
+class World;
 
 class Event
 {
@@ -65,7 +69,8 @@ class EventHandler
 public:
 	EventHandler(World* world);
 	~EventHandler(void);
-
+	
+	
 	void handleBufferedEvents();
 	void addEventToBuffer(Event* newEvent); 
 	void notifyActorDestruction(Movable2DObject* actor); 

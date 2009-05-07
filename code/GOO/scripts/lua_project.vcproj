@@ -121,6 +121,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
+				AdditionalOptions="/DCGAL_NO_AUTOLINK"
 				Optimization="2"
 				InlineFunctionExpansion="2"
 				EnableIntrinsicFunctions="true"
@@ -145,11 +146,12 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="OgreMain.lib OIS.lib CEGUIBase.lib OgreGUIRenderer.lib box2d.lib lua5.1.lib"
+				AdditionalDependencies="OgreMain.lib OIS.lib CEGUIBase.lib OgreGUIRenderer.lib box2d.lib lua5.1.lib gmp-vc80-mt.lib CGALcore++-vc80-mt.lib cgal-vc80-mt.lib"
+				ShowProgress="0"
 				LinkIncremental="0"
 				AdditionalLibraryDirectories="..\..\Box2D\Library;&quot;$(OGRE_HOME)\lib&quot;;&quot;$(OGRE_HOME)\Dependencies\lib\$(ConfigurationName)&quot;;..\lib\release;..\..\lua5.1\lib\static;$(CGALROOT)\lib;$(CGALROOT)\auxiliary\gmp\lib;;$(CGALROOT)\auxiliary\TAUCS\lib"
 				IgnoreAllDefaultLibraries="false"
-				IgnoreDefaultLibraryNames=""
+				IgnoreDefaultLibraryNames="MSVCRTD"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				OptimizeReferences="2"
@@ -536,7 +538,7 @@
 				</File>
 			</Filter>
 			<Filter
-				Name="generatedobjects"
+				Name="ProceduralObjects"
 				>
 				<File
 					RelativePath="..\include\ObjectPatch.h"

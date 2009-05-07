@@ -1,16 +1,14 @@
 #include "EventHandler.h"
-#include "GrowingSurface.h"
-#include <deque>
-#include <list>
-#include <queue>
-
 #include "World.h"
+
+#include "GrowingSurface.h"
+
+//#include "World.h"
 
 
 EventHandler::EventHandler(World* mWorld)
 :mLuaMgr(mWorld->getLuaMgr())
 {
-
 
 }
 
@@ -22,7 +20,6 @@ EventHandler::~EventHandler(void)
 
 void EventHandler::handleBufferedEvents()
 {
-
 	
 
 
@@ -59,16 +56,17 @@ void EventHandler::handleBufferedEvents()
 	//mLuaMgr->RunScript(currentEvent->mActor1->getEventHandlerName()); 
 	//mLuaMgr->RunScript(currentEvent->mActor2->getEventHandlerName()); 
 mDeletedActors.clear();
+	
+
+
 }
 
 void EventHandler::addEventToBuffer(Event* newEvent)
 {
-	
-	if (!mEventBuffer.empty()){
+	if (mEventBuffer.empty()==false)
+	{
 		if (mEventBuffer.back()->compare(newEvent))
-		{
 			return;
-		}
 	}
 
 		//Ogre::LogManager::getSingletonPtr()->logMessage(newEvent->toString()); 

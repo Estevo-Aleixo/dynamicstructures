@@ -59,8 +59,8 @@ static const char* const cursorModeLabels[NUMMODES];
 	unsigned int getMode(){return mMode;}
 
 	void attachObject(Movable2DObject* object); 
-
-
+	
+	Movable2DObject* getCurrentSelection(){return mCurrentSelection;}
 
 private:
 	Movable2DObject* mAttachedObject;

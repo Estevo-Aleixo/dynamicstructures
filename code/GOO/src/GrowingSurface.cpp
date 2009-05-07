@@ -18,10 +18,12 @@ type= Object2DType::GrowingSurfaceType;
 	this->mEnabled=true;
 	this->initialize(); 
 	mSkeleton= new Skeleton2D(name, position,this,sceneMgr); 
+	mForestPatch=0; 
 
 	spawnTimeInterval=1;
 	mShowPolyLines= true; 
 	TimePassed=0;
+	mSceneMgr= sceneMgr;
 }
 
 GrowingSurface::~GrowingSurface(void)
@@ -248,4 +250,9 @@ void GrowingSurface::destroyCell(Cell* cell)
 	*/
 	//mCells.erase(result); 
 	//delete temp;
+}
+
+ProcForestPatch* GrowingSurface::createForestPatch(unsigned int density, TreeParameters& min,TreeParameters& max)
+{
+	return mForestPatch = new ProcForestPatch(mName+"_forest",mSceneMgr,this,min,max,density); 
 }

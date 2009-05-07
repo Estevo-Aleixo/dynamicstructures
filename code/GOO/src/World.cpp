@@ -227,7 +227,11 @@ bool World::keyReleased(const OIS::KeyEvent &e)
 			break;
 		case OIS::KC_F:
 			//mCursor->getCurrentSeletion()
+			//create a forest on the current selection
+			mCanvas->deployForest(); 
+	
 			break;
+			
 	}
 
 
@@ -336,3 +340,4 @@ void  World::updateParameterOverlay(void)
 
 
 }
+

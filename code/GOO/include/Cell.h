@@ -62,6 +62,7 @@ public:
 	GrowingSurface* getGrowingSurface(){return mSystem;} 
 	void setNeighourDistanceInterval(unsigned int distance){mNeighbourDistance=distance;} 
 protected: 
+	GrowingSurface* mGrowingSurface; 
 
 	bool mShowPolyLine;
 

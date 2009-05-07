@@ -1,6 +1,6 @@
 #pragma once
 #include "Main.h"
-
+#include "EventHandler.h"
 #include "EventHandler.h" 
 class World;
 
@@ -17,4 +17,8 @@ public:
     void Result(const b2ContactResult* point);
 
 protected: 
+	//EventHandler* mEventHandler; 
+
+	//std::vector<Event*> mEvents;
+
 };

@@ -1,8 +1,10 @@
 #include "Canvas.h"
 #include "Cursor.h"
 #include "GrowingSurface.h"
+
 #include "SystemFactory.h"
 #include "World.h"
+#include "ProcTree.h"
 
 Canvas::Canvas(void)
 {
@@ -153,10 +155,16 @@ bool  Canvas::frameStarted(const FrameEvent &evt)
 
 	mCursor->update(evt); 
 	
+	
+	
+	
+	mContactListener->handleBufferedEvents();
+
 	//check cursor position:
 	mTimePassed+=evt.timeSinceLastFrame;
 	
 	
+
 	//check position relative to systems on the canvas (do this 2 times per second)
 	if (mTimePassed > mTimeInterval)
 	{
@@ -307,4 +315,23 @@ Movable2DObject* Canvas::getNearestObject(Ogre::Vector2& pos, int filter)
 {
 
 return 0;
+}
+
+
+
+void Canvas::deployForest()
+{
+	GrowingSurface* surface = (GrowingSurface*)mCursor->getCurrentSelection(); 
+
+	//parameters for now:
+	
+	TreeParameters _min,_max; 
+
+
+
+	if (surface!=0)
+	{
+		Ogre::LogManager::getSingletonPtr()->logMessage("creating forest patch on " + surface->getName());
+		surface->createForestPatch(1,_min,_max); 
+	}
 }

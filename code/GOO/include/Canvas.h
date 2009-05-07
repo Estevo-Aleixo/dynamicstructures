@@ -78,6 +78,10 @@ public:
 	Movable2DObject* getNearestObject(Ogre::Vector2& pos, int filter); 
 	
 	Ogre::SceneManager* getSceneManager(){return mSceneMgr;}
+
+
+	//procedural objects function
+	void deployForest(); 
 protected: 
 	bool mRunning; 
 
@@ -86,7 +90,8 @@ protected:
 	std::vector<CellFactory*> cellFactories;
 	b2AABB mAABB;
 	b2ContactFilter* mContactFilter;
-	ContactListener* mContactListener;
+
+	ContactListener* mContactListener; //this is also the collision event handler: ContactListener inherits from EventHandler
 	
 	b2World* mb2World;
 	float32 mTimeStep;
