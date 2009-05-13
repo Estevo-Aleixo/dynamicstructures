@@ -3,18 +3,64 @@
 \label{sec:treehousearch}
  
 \section{Background}
+%Architectural structures   
 
-
-\section{Architectural Elements for Treehouses} 
+\section{Elements for Tree-Based Architecture} 
 \label{sec:archelements}
  
-\subsection{The Shape Vocabulary}
+ 
+%nog iets moois hiervoor 
+In this section we present the set of elements we use for the construction of our treebased architecture. We will first introduce the elements in a broad sense, followed by detailed descriptions of methods to construct each of the elements procedurally. 
+ 
+ 
+\subsection{The Element Vocabulary}
+We established a set of architectural elements we believe are vital for the generation of tree-based architectural structures. The elements are the following: 
+\begin{enumerate}
+\item platform
+\item housing
+\item bridge 
+\item stairs
+\end{enumerate} 
+
+
+
+\begin{figure}[ht]
+\centering
+\subfigure[Platform]{
+\includegraphics[width=50px]{images/platform.jpg}
+\label{fig:subfig1}
+}
+\subfigure[House]{
+\includegraphics[width=50px]{images/house.jpg}
+\label{fig:subfig2}
+}
+\subfigure[Bridge]{
+\includegraphics[width=50px]{images/bridge.jpg}
+\label{fig:subfig3}
+}
+\subfigure[Stairs]{
+\includegraphics[width=50px]{images/stairs.jpg}
+\label{fig:subfig3}
+}
+\label{fig:archElements}
+\caption[Architectural Elements Vocabulary]{Caption of subfigures \subref{fig:subfig1}, \subref{fig:subfig2} and \subref{fig:subfig3}}
+\end{figure}
+
+
+
+\subsection{Combining Elements} 
+
+We construct an architectural structure by combining the elements we have in our element vocabulary.
+In order to construct logical combinations we need to define for each elements how it can be joined with other elements
+in our vocabulary.
  
 \subsection{Platforms}
 \label{sec:platform}
  
 
-\subsection{Buildings}
+ 
+
+\subsection{Housing}
 \label{sec:building}
  
 
@@ -25,7 +71,6 @@
 \subsection{Stairs}
 \label{sec:stairs}
   
-\subsection{Our Shape Grammar}
  
 %introductie van alle elementen
 
@@ -33,10 +78,22 @@
 \label{sec:PlanningAlgorithm} 
  
  
-  
+ 
+ 
+ 
+ I want to implement this as a graph traversing algorithm
+ (using the Boost graph library)
+ 
+ 
 \section{Scenarios}
 
+
+Here we define one or more scenarios for meaningful architectural planning with a forest scene. 
+
+
 \subsection{Parameters and Goals}
+
+From the scenarios I discussed in the previous section we can extract a set of parameters and goals for our algorithm.
 
 \subsection{Scenario Grammar System}
   
