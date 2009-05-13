@@ -3,9 +3,34 @@
 \label{sec:intro}
 
 %This is a general introduction to what the thesis is all about -- it is not just a description of the contents of each section. Briefly summarize the question (you will be stating the %question in detail later), some of the reasons why it is a worthwhile question, and perhaps give an overview of your main results. This is a birds-eye view of the answers to the main %questions answered in the thesis.
-Procedural content generation (pcg) lately received a lot of attention from various players in the field. It is believed that PCG will eventually play a major role in virtual worlds of simulations and games, replacing a significant amount of conventional man-made content, and thereby reducing costs and improving time efficiency.  
 
-This thesis adresses the problem of procedural architecture in the special case of restrictions and possibilities enforced by the geometric properties of pre-existing objects, trees, in the scene. A side goal for this research was to develop methods for intuitive interactive control over the objects wich were to be generated. 
+Procedural modeling is an exciting research area with trumendous potential for virtual worlds. Virtual worlds range from games, to simulations and virtual communities. These worlds are often very large and with advances in technology and user demand they rapidily grow larger for each new application. The problem is that space in these vast virtual worlds needs to be filled with interesting content. Creating such high amounts of content by hand does provide nice job opportunities, but if we could generate the same content with a set of parameters and the push of a button the choice is rather obvious. However, time and money effici\"ency are not the only arguments for the development of procedural methods. By studying real world objects or sets of real world objects in order to dynamically synthesise them in virtual worlds we gain a deeper knowledge of the characteristics of these objects and relationships between different objects. 
+
+A couple of succesfull existing procedural modeling implementations are interesting to discuss. In games, procedural methods have been employed for the generation of worlds with restricted sets of environmental elements, such as dungeons and mazes. A good example is the game \"Diablo 2\". The game \"Spore\" was one of the first games that heavily utilized procedural modeling techniques for a considerable part of the content in the game. A very interesting project that is in development at the time of writing, is the game \"Love\" by Eskil. Procedural generation is used extensively for every part of the game. The following quote and pictures(figure \ref{fig:love}) from Eskil's website make Love all the more impressive.  
+
+\begin{quote}
+\emph{
+Love is being developed by Eskil alone, without funding or support. He is responsible for all code, design, networking, engine, art, pipeline and tools. More than just being an experiment in game design, Love is also an experiment in how games can be developed drastically more efficient using technologies like Verse, procedural generation, new tools and a host of other clever solutions.      
+}
+\end{quote}
+      
+\begin{figure}[ht]
+\centering
+\subfigure[World]{
+\includegraphics[width=100px]{images/love/world.png}
+\label{fig:subfig1}
+}
+
+\subfigure[Ingame Environment]{
+\includegraphics[width=100px]{images/love/love_city5.jpg}
+\label{fig:subfig2}
+}
+\label{fig:love}
+\caption[]{Screenshots of the game Love}
+\end{figure}
+
+
+This thesis adresses the problem of creating procedural architecture in the special case of restrictions and possibilities enforced by geometric properties of tree-like support-structures. A side goal for this research was to develop methods for intuitive interactive control for this specific procedural modeling method. 
 
 %Regarding user control and procedural techniques it is important to strike a balance which allows for a fast %and intuitive building process, and meanwhile the user should have just the right amount of control to make the %scene to its liking.
 
@@ -28,11 +53,11 @@ Since 2001 L-systems also proved to be useful in the field of urban procedural g
 %hier wat over building, generation, city generatoin, texture generation.
 %shape grammars
 
-Techniques for tree generation in this thesis are based on L-systems, however these techniques are simplified to a certain degree since the modeling of plants is not the maintopic of this thesis. We have used the l-system formalism to generate simple branching tree structures. We did not strive to generate visually realistic models of trees since this has already been achieved by many people before me with impressive results. Instead our simplified method generates the main structure of a tree which is then used as input in our method for the generation of treehouse architecture. 
+Techniques for tree generation in this thesis are based on L-systems, however these techniques are simplified to a certain degree since the modeling of plants is not the maintopic of this thesis. We have used the l-system formalism to generate simple branching tree structures. We did not strive to generate visually realistic models of trees since this has already been achieved by many people before me with impressive results. Instead our simplified method generates the main structure of a tree which is then used as input in our method to 
 
 %<hier resultaat van treehouse generatie module>
 
-It is often the case that traditional general purpose modeling software is hard to master as a result of the freedom which is given to the user. Special purpose modeling tools such as cityEngine \citep{Muller06} (in the case of urban modeling) and speedTree (in the case of modeling plants and trees) provide procedural methods to generate objects within a certain class with very high time effiency. However the human touch still remains a very important part of the modeling procedure. Eastatics are very hard to turn into a set of formal rules on which an algorithm can operate.
+It is the case that traditional general purpose modeling software is very time consuming for the creation of complex scenes as a result of the lowlevel tools they feature. Special purpose modeling tools such as cityEngine \citep{Muller06} (in the case of urban modeling) and speedTree (in the case of modeling plants and trees) provide procedural methods to generate objects within a certain class with very high time effiency. However the human touch still remains a very important part of the modeling procedure. Eastatics are very hard to turn into a set of formal rules on which an algorithm can operate.
 
 The special purpose modeling tool for the generation of organic geometry and treehouse architecture that was developed for this thesis provides the user with intuitive interaction tools to allow easy manipulation.        
 
