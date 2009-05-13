@@ -1,20 +1,22 @@
-\documentclass{article}
+\documentclass[11pt,a4paper,fleqn]{book}
 
 \usepackage[usenames]{color} 
 \usepackage{graphicx} 
 
-%\usepackage{subfig}
-%\usepackage{algorithm}
-%\usepackage{algorithmic}
-%\usepackage{fancyhdr}
-%\pagestyle{fancy}
-%\usepackage{natbib}
+\usepackage{subfig}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{fancyhdr}
+
+\usepackage{amsfonts,psfrag,layout,appendix}
+\usepackage{natbib}
+\usepackage{chapterbib}
+
 
 \definecolor{lightblue}{rgb}{0.0, 0.8,1.0} 
 \definecolor{myOrange}{rgb}{1.0, 0.6,0.0} 
 \definecolor{myGrey}{rgb}{0.1, 0.1,0.1} 
 \definecolor{MyDarkGreen}{rgb}{0.13, 0.54,0.13} 
-
 \newcommand{\todo}[1]{\textcolor{red}{\textbf{\newline TODO: }\it{#1} \newline}}
 \newcommand{\inhoud}[1]{\textcolor{blue}{\textbf{\newline Summary: }\it{#1}}}
 \newcommand{\revise}[1]{\textcolor{myOrange}{\textbf{\newline Revise: }\it{#1}}}
@@ -26,7 +28,25 @@
 % Dutch style of paragraph formatting, i.e. no indents. 
 \setlength{\parskip}{1.3ex plus 0.2ex minus 0.2ex}
 \setlength{\parindent}{0pt}
+% Set equal margins on book style
+\setlength{\oddsidemargin}{53pt}
+\setlength{\evensidemargin}{53pt}
+\setlength{\marginparwidth}{57pt}
+\setlength{\footskip}{30pt}
 
+
+% Redefine plain page style
+\fancypagestyle{plain}{
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[LE,RO]{\thepage}
+}
+
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{ \emph{#1}}{}}
+\fancyhead[LO]{}
+\fancyhead[RE]{\leftmark}
+\fancyfoot[LE,RO]{\thepage}
 
 
 \title{Planning Procedural Architecture in Tree-like Geometry}
@@ -34,304 +54,34 @@
 
 \begin{document}
 
-\maketitle
+	
+\include{titlepage}
+	
 
-\begin{abstract}
-Planning Procedural Architecture in Tree-like Geometry
-\end{abstract}
-\newpage 
+\include{abstract}
 
 \tableofcontents
-\newpage 
 
-\section{Introduction}
-\label{sec:intro}
-
-%This is a general introduction to what the thesis is all about -- it is not just a description of the contents of each section. Briefly summarize the question (you will be stating the %question in detail later), some of the reasons why it is a worthwhile question, and perhaps give an overview of your main results. This is a birds-eye view of the answers to the main %questions answered in the thesis.
-Procedural content generation (pcg) lately received a lot of attention from various players in the field. It is believed that PCG will eventually play a major role in virtual worlds of simulations and games, replacing a significant amount of conventional man-made content, and thereby reducing costs and improving time efficiency.  
-
-This thesis adresses the problem of procedural architecture in the special case of restrictions and possibilities enforced by the geometric properties of pre-existing objects, trees, in the scene. A side goal for this research was to develop methods for intuitive interactive control over the objects wich were to be generated. 
-
-%Regarding user control and procedural techniques it is important to strike a balance which allows for a fast %and intuitive building process, and meanwhile the user should have just the right amount of control to make the %scene to its liking.
-
-%Rewriting systems, l-systems waarna shape grammars volgen
-%The Shape grammar concept was originally coined by Stiny in his much cited \emph{"Shape and Shape Grammar"} \cite{Stiny80}.
-%<hier de description van een shape>
-
-Visual modeling of plant development is a field which started in 1962, when Ulam applied cellular automata to 
-simulate the development of branching patterns \cite{PrzemyslawPlants}. A formalism for modeling plants was proposed by Lindenmayer 
-in 1968, this formalism was called L-systems since. The following definition of an L-system is given by Przemyslaw \cite{PrzemyslawPlants}: 
-
-\begin{quote}
-An L-system is a parallel rewriting system operating on branching structures represented as bracketed strings of symbols with associated parameters, called modules. Matching pairs of square brackets enclose branches. Simulation begins with an  initial string called the axiom, and proceeds in a sequence of discrete deriviation steps. In each step, rewriting rules or productions replace all modules on the predeccesor string by succesor modules.   
-\end{quote}   
-
-Przemyslaw \cite{PrzemyslawPlants} has employed and extended the l-system formalism for realistic visualisation of entire plant ecosystems. Within a ecosystem organisms interact with each other and this interaction determines many properties for individual organisms; such as growth rate. Since the original L-system formalism does not account for communication between two processes, Przemyslaw proposed \emph{open l-systems} which incorporates \emph{communication modules}.    
-  
-Since 2001 L-systems also proved to be useful in the field of urban procedural generation \cite{Wonka03}. It was then that Muller proposed the use of L-systems for the generation of road networks and building generation. 
-
-%hier wat over building, generation, city generatoin, texture generation.
-%shape grammars
-
-Techniques for tree generation in this thesis are based on L-systems, however these techniques are simplified to a certain degree since the modeling of plants is not the maintopic of this thesis. We have used the l-system formalism to generate simple branching tree structures. We did not strive to generate visually realistic models of trees since this has already been achieved by many people before me with impressive results. Instead our simplified method generates the main structure of a tree which is then used as input in our method for the generation of treehouse architecture. 
-
-%<hier resultaat van treehouse generatie module>
-
-It is often the case that traditional general purpose modeling software is hard to master as a result of the freedom which is given to the user. Special purpose modeling tools such as cityEngine \cite{Muller06} (in the case of urban modeling) and speedTree (in the case of modeling plants and trees) provide procedural methods to generate objects within a certain class with very high time effiency. However the human touch still remains a very important part of the modeling procedure. Eastatics are very hard to turn into a set of formal rules on which an algorithm can operate.
-
-The special purpose modeling tool for the generation of organic geometry and treehouse architecture that was developed for this thesis provides the user with intuitive interaction tools to allow easy manipulation.        
-
-
-%\old{   
-%The research which preceded this document strived to construct an intuitive organic modelling method for the creation of 2D maps. The central focus of this research has been on methods %for construction of dynamic structures using real-time growth models. To enable a large degree of control over these dynamic structures the is a need for skeletons. A large part of this %thesis is about constructing skeleton representations for dynamic structures. There obviously is a realtime demand in order to enable realtime interactivity, which means building such %skeletons should above all be an efficient process.    
-%}
-
-\subsection{Overview}
-\label{subsec:overview}
-
-This thesis is structured as follows. In the next section I will discuss related work. In the related work section I will bring my thesis into context with regard to procedural modeling of trees and architecture. A precise statement of the problem and why it's an interesting problem to solve will follow in section \ref{sec:problem}. 
-
-In section \ref{sec:concept} I will present the conceptual system model. The method for the generation of the forest layout and the generation of the tree geometry is presented in section \ref{sec:pfg}.  
- 
-With the forest geometry in place we are ready to review the planning method which is responsible for the construction of a connected graph representing a tree community. I will conclude the method description with a look at the final stage of the pipeline, translating the symbols from the nodes and edges of the graph to the geometrical architectural elements. Section \ref{sec:UIT} discusses user interactivity and usability of the proposed system. The last two sections present results and conclusions respectively.     
-
-\section{Related Work in the fields of Procedural Modeling of Trees and Architecture}
-\label{sec:relatedwork}
-
-%plants 
-\subsection{plants and trees}
-Algorithmic Beauty of Plants by Lindenmayer and Przemyslaw \cite{PrzemyslawAlgoBeauty} is the first complete work discussing the generation of plant geometry using procedural methods such as L-systems and fractals. To model and visualise realistic ecosystems, Przemyslaw extended the l-systems concept to a system which allowed communication between systems (open l-systems \cite{PrzemyslawPlants} \cite{Deussen98}). Visual editing of procedural plants models is discussed in \cite{interactivebonsai}. 
-
-%road networks
-\subsection{road networks}
-The foundation for procedural city and building modeling was provided by Parish and Muller \cite{Parish01} in their paper \emph{"Procedural Modeling of Cities"}. The main contribution of this paper is the use of extended L-systems for the generation of city roadmaps. They also propose a method for the texturing of facades. An intuitive editing approach for road networks with the use of tensor fields and bush techniques is presented by Chen et al. \cite{Chen08}. 
-
-%building architecture
-\subsection{architecture}
-An attempt was made to use L-systems for the creation of buildings \cite{Parish01}, however this did not prove to be effective. L-systems are designed to handle growth-like processes, it has been acknowledged that the construction process of a building is not a growth like process. Instead, building construction is better expressed by series of partitioning steps. These partitioning steps can be described by another kind of rewriting grammar called \emph{set grammar}. In \cite{Wonka03} Wonka presents a method for the automatic creation of building using such grammar systems. In this work Wonka introduces the idea of a specialized type of set grammar called \emph{split grammar} which operates on shapes. In \cite{Muller06} the split rules from the split grammar concept are defined in a grammar system called \emph{CGA Shape}, which was the first procedural system for the creation of detailed buildings with consistent mass 
-models. The process of creating a ruleset in CGA shape for a specific type of building is not straightforward and requires a trained expert. Lipp et al. \cite{Lipp08} introduce a visual method for the editing of the CGA Shape grammar for procedural architecture to simplify the rule building process. 
-
-%\cite{ Liu2006}
-
-%3. Review of the State of the Art
-%Here you review the state of the art relevant to your thesis. Again, a different title is probably appropriate; e.g., "State of the Art in Zylon Algorithms." The idea is to present %(critical analysis comes a little bit later) the major ideas in the state of the art right up to, but not including, your own personal brilliant ideas.
-%You organize this section by idea, and not by author or by publication. For example if there have been three important main approaches to Zylon Algorithms to date, you might organize %subsections around these three approaches, if necessary:
-%3.1 Iterative Approximation of Zylons
-%3.2 Statistical Weighting of Zylons
-%3.3 Graph-Theoretic Approaches to Zylon Manipulation 
-
-
-
-\section{Problem Statement}
-\label{sec:problem}
-%\desc{
-%Engineering theses tend to refer to a "problem" to be solved where other disciplines talk in terms of a "question" to be answered. In either case, this section has three main parts:
-%1. a concise statement of the question that your thesis tackles
-%2. justification, by direct reference to section 3, that your question is previously unanswered
-%3. discussion of why it is worthwhile to answer this question.
-%Item 2 above is where you analyze the information which you presented in Section 3. For example, maybe your problem is to "develop a Zylon algorithm capable of handling very large scale %problems in reasonable time" (you would further describe what you mean by "large scale" and "reasonable time" in the problem statement). Now in your analysis of the state of the art you %would show how each class of current approaches fails (i.e. can handle only small problems, or takes too much time). In the last part of this section you would explain why having a %large-scale fast Zylon algorithm is useful; e.g., by describing applications where it can be used.
-%Since this is one of the sections that the readers are definitely looking for, highlight it by using the word "problem" or "question" in the title: e.g. "Research Question" or "Problem %Statement", or maybe something more specific such as "The Large-Scale Zylon Algorithm Problem." 
-%}
-
-
-%1. a concise statement of the question that your thesis tackles
-The purpose of this thesis is to tackle a specific instance of the problem of planning connected architectural geometric elements into an environment with existing geometry which has to be used as the supporting structure for the architectural elements. We handle the specific case in which the pre-existing geometry is a virtual forest, using the trunks and branches of the trees as supporting structures for architectural elements such as platforms, bridges, stairs and buildings. We propose several heuristics for the generation of a connected 'tree house community' and using these heuristics we construct a procedural algorithm. The architectural elements need a large degree of adjustibility to be able to incorporate them into the irregular environment, therefore we present procedural methods for the generation of these elements.       
-
-%We looked at real-world examples of tree-based architecture but we did not limit the properties of  
-
-%2. justification, by direct reference to section 3, that your question is previously unanswered
-
-
-
-
-%3. discussion of why it is worthwhile to answer this question.
-This problem is interesting for a couple of reasons.
-
-
-\section{Concept}
-\label{sec:concept}
-
-%dit is in feite het idee,bladiebladiebla
-
-This section discusses the system design of the proposed procedural modeling method with special attention to the planning algorithm for architectural objects. Figure \ref{fig:conceptualmodel} shows a diagram of the proposed system.
-
-\begin{figure}[htbp]
-	\centering
-		\includegraphics{images/aboriginal_art.jpg}
-	\caption{diagram of the conceptual model}
-	\label{fig:conceptualmodel}
-\end{figure}
-
-The pipeline is presented in figure \ref{fig:pipeline}.
-
-\begin{figure}[htbp]
-	\centering
-		\includegraphics{images/aboriginal_art.jpg}
-	\caption{pipeline of procedural generation method}
-	\label{fig:pipeline}
-\end{figure}
-
-
-
-
-\section{Procedural Forest Generation}
-\label{sec:pfg}
-
-
-
-\subsection{Scattering Techniques for Tree Positions}
-\label{subsec:scattering}
-
-
-%\begin{algorithm}
-%
-%\caption{this is the pseudocode for the spatial layout of the trees}
-%\begin{algorithmic}
-%\IF {$i\geq maxval$} 
-%        \STATE $i\gets 0$
-%\ELSE
-%        \IF {$i+k\leq maxval$}
-%                \STATE $i\gets i+k$
-%        \ENDIF
-%\ENDIF 
-%\end{algorithmic}
-
-%\end{algorithm}
-
-\subsection{Ecosystem Modeling -> selfthinning}
-
-
-\subsection{Procedural Generation of Simple Tree Structures}
-
-Procedurally generating trees by means of l-systems has had a great amount of succes since the original proposal by Lindenmayer. The L-system formalism is widely applied in  academic work and is also succesfully used within commercial applications. This thesis does not focus on the l-system formalism in particular, since it is already a well established theory \cite{PrzemyslawAlgoBeauty}. However, the following section will describe the basics of l-systems to establish some basic understanding wich will be needed in following sections. 
-
-%l-system uitleg hier 
-
-I am interested in the structure of trees and the possibilities and restrictions it poses for placement of 
-architectural shapes. For the purpose of this thesis the generated trees do not have to be visually convincing, 
-however the basic shape should still be identified as a tree. The geometric properties of a tree model that are to interest of us are those that have effect on the possibilities with respect to the incorporation of architectural man-made structures. The tree geometry functions as the support structure for the building blocks I define in detail in section \ref{sec:treehousearch}. 
-
-%identify geometrically suitable foundations
-In this section we will identify geometric configurations within tree geometry that allow for the construction of the proposed set of architectural elements.    
-
-%algorithm for tree generation: 
-%		-niet te veel sub-branches
-%   
-%
-%
-
-
-
-
-\section{Tree House Architecture}
-\label{sec:treehousearch}
- 
-
-
-
-
-
-\subsection{Architectural Elements} 
-\label{sec:archelements}
- 
-
-%introductie van alle elementen
-
-
-\subsubsection{Platforms}
-\label{sec:platform}
- 
-
-\subsubsection{Buildings}
-\label{sec:building}
- 
-
-\subsubsection{Bridges}
-\label{sec:bridges}
- 
-
-\subsubsection{Stairs}
-\label{sec:stairs}
- 
-\subsection{The Planning Algorithm}
-\label{sec:PlanningAlgorithm} 
- 
-%\begin{algorithm}
-%\caption{The planning algorithm}
-%\begin{algorithmic}
-%\IF {$i\geq maxval$} 
-%        \STATE $i\gets 0$
-%\ELSE
-%        \IF {$i+k\leq maxval$}
-%                \STATE $i\gets i+k$
-%        \ENDIF
-%\ENDIF 
-%\end{algorithmic}
-%\end{algorithm}
-
-
-\section{User Interaction Tools}
-\label{sec:UIT}
-
-\subsection{Growing Surfaces}
-\label{sec:GrowingSurfaces}
-
-%Per type spatial growth model bespreken wat de context is binnen outdoor areas en dus met 
-%welke andere spatial growth modellen het communiceert en welke effecten het spatial growth model heeft 
-%op de andere en vica versa. Ook bespreken op wat voor manier een vector field (en andere tools 
-%die invloed hebben op de ruimtelijke indeling)  effect heeft op de uitdijing van dit type model.   
-
-
-%A definition of land: "The part of Earth which is not covered by oceans or other bodies of water".(bron: %http://en.wiktionary.org/wiki/land ...jaja ik vind nog wel een betere bron)
-%In reality land obviously does not grow, so first we must ask ourselves whether growing land in our virtual %world can be made useful and intuitive to use. There are no real rules for the bounding shape of a piece of %land, the bounds can be configured in any way. However due to this fact almost any random configuration of the %shape of land looks realistic. The question is, as with other growth models with a minimum amount of rules, %whether generating land by means of a growth model, thereby having less control over the result compared to %conventional methods, is something which we want. 
-
-%When you want maximum control over the resulting geometry of a piece of land, using a growth model is not a %very attractive method.However there are some situations in which this method is quite helpful.
-
-%\inhoud
-%{wanneer is het groeien van land handig: 
-%\begin{itemize}
-%\item Obviously: In situaties waarin de gebruiker niet veel waarde hecht aan de precieze vorm van de resulterence geometrie.  
-%\end{itemize}
-%}
-
-%Land provides the underlying surface of many of the growth models discussed in this paper. 
-
-%\inhoud
-%{dus het bestaan van land op de seedpositie van een afhankelijk groeiproces is een eis. Wellicht moet het genereren van een map bestaan uit verschillende fases:
-%\begin{itemize}
-%\item fase 1: generatie van land en water. 
-%\item fase 2: plaatsen en activeren van groei processen die afhankelijk zijn van land.  
-%\end{itemize}
-%}
-
-%The field of biological modeling provides some interesting modeling techniques for the process of cell division. 
-%Cell division is interesting with respect to the concept of growing land because it is an expanding process with some nice properties. \voegtoe{benoem properties of revise deze zin.} 
-
-
-\subsection{Vector and tensor fields}
-\label{subsec:vectorfields}
-
-%\inhoud{
-%\begin{itemize}
-%\item vector fields: dit moet je wellicht helemaal aan het begin doen omdat alle spatial growth models
-%gemanipuleerd worden door deze vector fields.
-%\item obstruction with solid objects
-%\item smudge-like tool
-%\end{itemize}
-%}
-
-
-\section{AI control} 
-\label{sec:AI}
-
-\section{Results}
-\label{sec:results}
-
-\section{Conclusion}
-\label{sec:conclusion}
-
+%chapter 1
+\include{introduction}
+%chapter 2
+\include{state_of_the_art}
+%chapter 3
+\include{problem_statement}
+%chapter 4 
+\include{concept}
+%chapter 5
+\include{procedural_forest_generation}
+%chapter 6
+\include{architecture}
+%chapter 7 (optional)
+\include{interaction_tools} 
+%chapter 8 Results 
+\include{results}
+%chapter 9 conclusion
+\include{conclusion}
 \newpage
-\section*{Appendix A: Implementation}
+\chapter*{Appendix A: Implementation}
 \label{sec:implementation}
 %\inhoud{ 
 %\begin{itemize}
@@ -342,9 +92,11 @@ In this section we will identify geometric configurations within tree geometry t
 %\end{itemize}
 %}
 
-%\section*{Appendix B: Application Class Structure}
+%\chapter*{Appendix B: Application Class Structure}
 
 \newpage 
+\pagestyle{plain}
+\addcontentsline{toc}{chapter}{Bibliography}
 \bibliographystyle{abbrv}	% (uses file "plain.bst")
 \bibliography{thesisrefs}	% expects file "myrefs.bib"
 
