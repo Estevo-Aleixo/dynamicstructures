@@ -4,15 +4,9 @@
 
 %This is a general introduction to what the thesis is all about -- it is not just a description of the contents of each section. Briefly summarize the question (you will be stating the %question in detail later), some of the reasons why it is a worthwhile question, and perhaps give an overview of your main results. This is a birds-eye view of the answers to the main %questions answered in the thesis.
 
-Procedural modeling is an exciting research area with trumendous potential for virtual worlds. Virtual worlds range from games, to simulations and virtual communities. These worlds are often very large and with advances in technology and user demand they rapidily grow larger for each new application. The problem is that space in these vast virtual worlds needs to be filled with interesting content. Creating such high amounts of content by hand does provide nice job opportunities, but if we could generate the same content with a set of parameters and the push of a button the choice is rather obvious. However, time and money effici\"ency are not the only arguments for the development of procedural methods. By studying real world objects or sets of real world objects in order to dynamically synthesise them in virtual worlds we gain a deeper knowledge of the characteristics of these objects and relationships between different objects. 
+Procedural modeling is an exciting research area with trumendous potential for virtual worlds. Virtual worlds range from games, to simulations and virtual communities. These worlds are often very large and with advances in technology and user demand they rapidily grow larger for each new application. The problem is that space in these vast virtual worlds needs to be filled with interesting content. Creating such high amounts of content by hand does provide nice job opportunities, but if we could generate the same content with a set of parameters and the push of a button the choice is rather obvious. However, time and money efficiency are not the only arguments for the development of procedural methods. By studying real world objects or sets of real world objects in order to dynamically synthesise them in virtual worlds we gain a deeper knowledge of the characteristics of these objects and relationships between different objects. 
 
-A couple of succesfull existing procedural modeling implementations are interesting to discuss. In games, procedural methods have been employed for the generation of worlds with restricted sets of environmental elements, such as dungeons and mazes. A good example is the game \"Diablo 2\". The game \"Spore\" was one of the first games that heavily utilized procedural modeling techniques for a considerable part of the content in the game. A very interesting project that is in development at the time of writing, is the game \"Love\" by Eskil. Procedural generation is used extensively for every part of the game. The following quote and pictures(figure \ref{fig:love}) from Eskil's website make Love all the more impressive.  
-
-\begin{quote}
-\emph{
-Love is being developed by Eskil alone, without funding or support. He is responsible for all code, design, networking, engine, art, pipeline and tools. More than just being an experiment in game design, Love is also an experiment in how games can be developed drastically more efficient using technologies like Verse, procedural generation, new tools and a host of other clever solutions.      
-}
-\end{quote}
+A couple of succesfull existing procedural modeling implementations are interesting to discuss. In games, procedural methods have been employed for the generation of worlds with restricted sets of environmental elements, such as dungeons and mazes. A good example is the game "Diablo 2". The game "Spore" was one of the first games that heavily utilized procedural modeling techniques for a considerable part of the content in the game. A very interesting project that is in development at the time of writing, is the game "Love" (figure \ref{fig:love}) developed by a single man. Procedural generation is used extensively for every part of this game.
       
 \begin{figure}[ht]
 \centering
@@ -48,12 +42,12 @@ An L-system is a parallel rewriting system operating on branching structures rep
 
 Przemyslaw \citep{PrzemyslawPlants} has employed and extended the l-system formalism for realistic visualisation of entire plant ecosystems. Within a ecosystem organisms interact with each other and this interaction determines many properties for individual organisms; such as growth rate. Since the original L-system formalism does not account for communication between two processes, Przemyslaw proposed \emph{open l-systems} which incorporates \emph{communication modules}.    
   
-Since 2001 L-systems also proved to be useful in the field of urban procedural generation \citep{Wonka03}. It was then that Muller proposed the use of L-systems for the generation of road networks and building generation. 
+In 2001 Muller proved that L-systems also proved to be useful in the field of urban procedural generation \citep{Wonka03}. It was shown that the L-system formalism could be succesfully used for the generation of road networks and in lesser extent building generation. 
 
 %hier wat over building, generation, city generatoin, texture generation.
 %shape grammars
 
-Techniques for tree generation in this thesis are based on L-systems, however these techniques are simplified to a certain degree since the modeling of plants is not the maintopic of this thesis. We have used the l-system formalism to generate simple branching tree structures. We did not strive to generate visually realistic models of trees since this has already been achieved by many people before me with impressive results. Instead our simplified method generates the main structure of a tree which is then used as input in our method to 
+Techniques for tree generation in this thesis are based on L-systems, however these techniques are simplified to a certain degree since the modeling of plants is not the maintopic of this thesis. We have used the l-system formalism to generate simple branching tree structures. We did not strive to generate visually realistic models of trees since this has already been achieved by many people before me with impressive results. Instead our simplified method generates the main structure of a tree which is then used as input in our method to generate configurations of architectural elements. 
 
 %<hier resultaat van treehouse generatie module>
 
@@ -69,7 +63,7 @@ The special purpose modeling tool for the generation of organic geometry and tre
 \section{Overview}
 \label{subsec:overview}
 
-This thesis is structured as follows. In the next section I will discuss related work. In the related work section I will bring my thesis into context with regard to procedural modeling of trees and architecture. A precise statement of the problem and why it's an interesting problem to solve will follow in section \ref{sec:problem}. 
+This thesis is structured as follows. In the next section I will discuss related work. In the related work section I will bring my thesis into context with regard to procedural modeling of trees, architecture and generation of levelmaps. A precise statement of the problem and why it's an interesting problem to solve will follow in section \ref{sec:problem}. 
 
 In section \ref{sec:concept} I will present the conceptual system model. The method for the generation of the forest layout and the generation of the tree geometry is presented in section \ref{sec:pfg}.  
  

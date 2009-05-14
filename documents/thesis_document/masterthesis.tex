@@ -42,6 +42,17 @@
 \fancyfoot[LE,RO]{\thepage}
 }
 
+% Code for creating empty pages
+% No headers on empty pages before new chapter
+\makeatletter
+\def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
+    \hbox{}
+    \thispagestyle{plain}
+    \newpage
+    \if@twocolumn\hbox{}\newpage\fi\fi\fi}
+\makeatother \clearpage{\pagestyle{plain}\cleardoublepage}
+
+
 \pagestyle{fancy}
 \renewcommand{\chaptermark}[1]{\markboth{ \emph{#1}}{}}
 \fancyhead[LO]{}
@@ -54,13 +65,17 @@
 
 \begin{document}
 
-	
-\include{titlepage}
-	
+\frontmatter
 
+\include{titlepage}
 \include{abstract}
 
 \tableofcontents
+
+\mainmatter
+% Adjustments headers
+\fancyhead[LO]{\leftmark}
+\fancyhead[RE]{\emph{Chapter \thechapter}}
 
 %chapter 1
 \include{introduction}
@@ -80,17 +95,20 @@
 \include{results}
 %chapter 9 conclusion
 \include{conclusion}
-\newpage
+
+
+\appendix
+\noappendicestocpagenum
+\addappheadtotoc
+
+% Adjustments headers
+\pagestyle{fancy}
+\fancyhead[LO]{\leftmark}
+\fancyhead[RE]{\emph{Appendix \thechapter}}
+\renewcommand{\headrulewidth}{0.5pt}
+
 \chapter*{Appendix A: Implementation}
 \label{sec:implementation}
-%\inhoud{ 
-%\begin{itemize}
-%\item programming language: c++ (for now)
-%\item visualization library: openGL or Ogre3D (if it features easy vertex manipulation) 
-%\item physics engine: ODE (onder voorbehoud)  
-%\item collision detection: D-Collide (onder voorbehoud)
-%\end{itemize}
-%}
 
 %\chapter*{Appendix B: Application Class Structure}
 
