@@ -1,5 +1,5 @@
 
-\chapter{Architecture}
+\chapter{Architecture planning}
 \label{sec:treehousearch}
  
 \section{Background}
@@ -8,21 +8,19 @@
 \section{Elements for Tree-Based Architecture} 
 \label{sec:archelements}
  
- 
 %nog iets moois hiervoor 
-In this section we present the set of elements we use for the construction of our treebased architecture. We will first introduce the elements in a broad sense, followed by detailed descriptions of methods to construct each of the elements procedurally. 
- 
+In this section we present the set of elements we use for the construction of our treebased architecture. We will first introduce the elements in a broad sense, followed by descriptions of methods to construct the geometry of some of these elements procedurally. 
  
 \subsection{The Element Vocabulary}
-We established a set of architectural elements we believe are vital for the generation of tree-based architectural structures. The elements are the following: 
+We established a set of architectural elements we believe are the most basic tree-based architectural structures: 
+
 \begin{enumerate}
-\item platform
-\item housing
-\item bridge 
-\item stairs
+\item Platforms
+\item Buildings
+\item Bridges 
+\item Stairs
+\item Miscellaneous Elements 
 \end{enumerate} 
-
-
 
 \begin{figure}[ht]
 \centering
@@ -47,54 +45,82 @@ We established a set of architectural elements we believe are vital for the gene
 \end{figure}
 
 
-
-\subsection{Combining Elements} 
-
-We construct an architectural structure by combining the elements we have in our element vocabulary.
-In order to construct logical combinations we need to define for each elements how it can be joined with other elements
-in our vocabulary.
  
 \subsection{Platforms}
 \label{sec:platform}
  
 
- 
+\subsubsection{user interaction}
+
 
 \subsection{Housing}
 \label{sec:building}
- 
+
+
+\subsubsection{user interaction}
+
 
 \subsection{Bridges}
 \label{sec:bridges}
- 
+
+
+\subsubsection{user interaction}
+
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=200px]{images/suspension-bridge.jpg}
+\label{fig:bridgeExample}
+\caption{A typical suspension bridge}
+\end{figure}
+The curved surface of a suspension bridge can easily be described with a spline.   
 
 \subsection{Stairs}
 \label{sec:stairs}
   
- 
-%introductie van alle elementen
+We define two types of stairs. The first is the simple vertical linear stairs-type. The second is the revolving staircase, which revolves around a tree trunk like a corkskrew. 
 
+\subsubsection{user interaction}
 
- I want to implement this as a graph traversing algorithm
- (using the Boost graph library)
- 
+\subsection{Connecting Elements} 
+
+We construct an architectural structure by combining the elements we have in our element vocabulary.
+In order to construct logical combinations we need to define for each elements how it can be joined with other elements
+in our vocabulary.
+
  
 \section{Scenarios}
 \label{sec:scenarios}
 
-Here we define one or more scenarios for meaningful architectural planning with a forest scene.
-The scenarios that are proposed here will be transformed to rules, heuristics and parameters in 
-the next section 
-	
-	
-\subsection{Single Family Retreat}
-\subsection{Tree Village}
-\subsection{Fantasy Tree City}
+Here we define one or more scenarios for meaningful architectural planning within a forest scene. Each of the scenarios we propose here is based on a popular videogame genre: 
+
+\begin{enumerate}
+\item Puzzle / Adventure Dungeon
+\item 3rd Person Strategy 
+\item 1st Person Shooter
+\end{enumerate} 
+
+\subsection{Scenario 1: Puzzle / Adventure Dungeon}
+Leveldesign Patterns in Puzzle and Adventure Dungeons:
+
+\begin{itemize}
+\item circular paths, loops. Example: The player arrives at a door and it is locked, you must take a different route and along the way you find a key. Now the player heads back to the door through which he can now proceed.  
+\item start at bottom, move to top. It is almost always the case that dungeons have multiple floors. The player starts at the bottom floor and progressing through the dungeon means moving up to a higher floor.      
+\item re-using different paths by opening new door and locking old ones.    
+\item no path deviation. Rules for movement are very strict in these type of games.
+
+\end{itemize}
+
+\subsection{Scenario 2: 3rd Person Strategy}
 
 
+
+\subsection{Scenario 3: 1st Person Shooter}
+
+	
 \section{Formalizing the Scenarios}
 
-From the scenarios I discussed in the previous section we can extract a set of parameters and goals for our algorithm.
+From the scenarios I discussed in the previous section we can extract a set of parameters and goals for our algorithms.
  
 \section{Structure Planning}
 \label{sec:PlanningAlgorithm} 
@@ -120,4 +146,7 @@ From the scenarios I discussed in the previous section we can extract a set of p
 
 
  \subsection{Alternative approaches}
+ 
+ 
+ \section{Transforming Structure to Geometry}
  

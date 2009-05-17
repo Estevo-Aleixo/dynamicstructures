@@ -3,7 +3,18 @@
 \chapter{Procedural Forest Generation}
 \label{sec:pfg}
 
+\section{Simple Tree Structures}
 
+Procedurally generating trees by means of l-systems has had a great amount of succes since the original proposal by Lindenmayer. The L-system formalism is widely applied in  academic work and is also succesfully used within commercial applications. This thesis does not focus on the l-system formalism in particular, since it is already a well established theory \citet{PrzemyslawAlgoBeauty}. However, the following section will describe the basics of l-systems to establish some basic understanding wich will be needed in following sections. 
+
+%l-system uitleg hier 
+
+I am interested in the structure of trees and the possibilities and restrictions it poses for placement of 
+architectural shapes. For the purpose of this thesis the generated trees do not have to be visually convincing, 
+however the basic shape should still be identified as a tree. The geometric properties of a tree model that are to interest of us are those that have effect on the possibilities with respect to the incorporation of architectural man-made structures. The tree geometry functions as the support structure for the building blocks I define in detail in section \ref{sec:treehousearch}. 
+
+%identify geometrically suitable foundations
+In this section we will identify geometric configurations within tree geometry that allow for the construction of the proposed set of architectural elements.  
 
 \section{Scattering Techniques for Tree Positions}
 \label{subsec:scattering}
@@ -28,22 +39,58 @@
 \section{Ecosystem Modeling}
 
 
-\section{Simple Tree Structures}
+forest: a spatial configuration of a set of trees.  
 
-Procedurally generating trees by means of l-systems has had a great amount of succes since the original proposal by Lindenmayer. The L-system formalism is widely applied in  academic work and is also succesfully used within commercial applications. This thesis does not focus on the l-system formalism in particular, since it is already a well established theory \citet{PrzemyslawAlgoBeauty}. However, the following section will describe the basics of l-systems to establish some basic understanding wich will be needed in following sections. 
 
-%l-system uitleg hier 
+\section{Multilayer TreeNode Generation}
 
-I am interested in the structure of trees and the possibilities and restrictions it poses for placement of 
-architectural shapes. For the purpose of this thesis the generated trees do not have to be visually convincing, 
-however the basic shape should still be identified as a tree. The geometric properties of a tree model that are to interest of us are those that have effect on the possibilities with respect to the incorporation of architectural man-made structures. The tree geometry functions as the support structure for the building blocks I define in detail in section \ref{sec:treehousearch}. 
+%Previous plant ecosystem generation techniques were mainly focused at generating visually realistic con 
 
-%identify geometrically suitable foundations
-In this section we will identify geometric configurations within tree geometry that allow for the construction of the proposed set of architectural elements.    
+%todo: alter
+For our method we have to be able to strategically place geometric architectural elements within the generated tree structures. Finding the positions at which these architectural elements can be placed could be performed as a postprocess type process by analyzing the generated geometry, however we have the oppertunity to incorporate positional semantic information to the trees during the generation phase which simplifies the problem. 
 
-%algorithm for tree generation: 
-%		-niet te veel sub-branches
-%   
-%
-%
+L-system tree generation methods are mainly focused at producing convincing visual representations of trees \citep{Prezmyslaw}. However, we do believe that these methods can be extended quite easily to enable the addition of structural semantics. This thesis does not pursue the introduction of such an extension. For our problem we mainly have to deal with structure of a forest which we will abstract to a set of nodes, representing trees, for the moment. Finding useful connections between nodes and incorporation of structual elements within these nodes is what we are ultimately interested in.    
 
+We propose a multilayer graphbased approach for the generation of forest structure. We will describe the structure of tree in this forest with a graph. The height ($z$ coordinate) of a node is determined by the height property of the containing layer, while the position of a node in the plane defined by the layer represents the $x,y$ coordinate of the branch.  
+
+Our forest generation method uses the following parameters: 
+
+\begin{enumerate}
+\item Area  $A$  
+\item Density $D (0.0 < D < 1.0)$  
+\item Layers $L (L > 0)$ 
+\item Tree parameters defining min bounds $T_min$
+\item Tree parameters defining max bounds $T_max$
+\end{enumerate}
+
+%quick overview
+The positions of the root nodes of the trees, which are contained by the base layer, are determined by a random scattering algorithm \citep{mickwestgamasutra}. For each root node the method calculates a semi-random parameterset $P_t$ ($T_{min} < P_t < T_{max}$). The second phase of the algorithm creates the upper $L-1$ layers. For each layer $l_{i}$ we determine $l_{i}.height$ by adding an interval height to $l_{i-1}.height$. This interval is determined by function \ref{func:interval_height}.   
+
+\begin{math}
+\ref{func:interval_height}
+ interval_i = l_{i}.height + 10    
+\end{math}
+
+Once all layers are in place we iterate through the root node list. For every node $n_i$ contained by the base layer the method performs the folowing steps:  
+
+\begin{enumerate}
+\item Step1: 
+\item Step2:
+\item Step3:
+\item Step4:
+\end{enumerate}
+
+After construction of the multilayer graph representation of the forest, we feed it to the architecture planning algorithm that is discussed in section \ref{sec:architecture}. 
+
+
+
+
+
+
+%calculation of interval here     
+
+%The first step of the method involves creation of $n$ ($0 <n < MAX_LAYERS$) layers.          
+%The trunk node of every tree is placed inside the base layer.
+%We will eventually translate the node based configuration of a forest to a visual representation   
+%Therefore we propose an alternative method for the generation of forests as previous forest generation %methods do not incorporate semantic information  
+%We propose an alternative method for the generation of forest geometry which supports    
