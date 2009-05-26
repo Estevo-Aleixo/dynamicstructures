@@ -1,0 +1,566 @@
+16:28:30: Creating resource group General
+16:28:30: Creating resource group Internal
+16:28:30: Creating resource group Autodetect
+16:28:30: SceneManagerFactory for type 'DefaultSceneManager' registered.
+16:28:30: Registering ResourceManager for type Material
+16:28:30: Registering ResourceManager for type Mesh
+16:28:30: Registering ResourceManager for type Skeleton
+16:28:30: MovableObjectFactory for type 'ParticleSystem' registered.
+16:28:30: OverlayElementFactory for type Panel registered.
+16:28:30: OverlayElementFactory for type BorderPanel registered.
+16:28:30: OverlayElementFactory for type TextArea registered.
+16:28:30: Registering ResourceManager for type Font
+16:28:30: ArchiveFactory for archive type FileSystem registered.
+16:28:30: ArchiveFactory for archive type Zip registered.
+16:28:30: FreeImage version: 3.10.0
+16:28:30: This program uses FreeImage, a free, open source image library supporting all common bitmap formats. See http://freeimage.sourceforge.net for details
+16:28:30: Supported formats: bmp,ico,jpg,jif,jpeg,jpe,jng,koa,iff,lbm,mng,pbm,pbm,pcd,pcx,pgm,pgm,png,ppm,ppm,ras,tga,targa,tif,tiff,wap,wbmp,wbm,psd,cut,xbm,xpm,gif,hdr,g3,sgi,exr,j2k,j2c,jp2
+16:28:30: DDS codec registering
+16:28:30: Registering ResourceManager for type HighLevelGpuProgram
+16:28:30: Registering ResourceManager for type Compositor
+16:28:30: MovableObjectFactory for type 'Entity' registered.
+16:28:30: MovableObjectFactory for type 'Light' registered.
+16:28:30: MovableObjectFactory for type 'BillboardSet' registered.
+16:28:30: MovableObjectFactory for type 'ManualObject' registered.
+16:28:30: MovableObjectFactory for type 'BillboardChain' registered.
+16:28:30: MovableObjectFactory for type 'RibbonTrail' registered.
+16:28:30: Loading library .\RenderSystem_Direct3D9
+16:28:30: Installing plugin: D3D9 RenderSystem
+16:28:30: D3D9 : Direct3D9 Rendering Subsystem created.
+16:28:30: D3D9: Driver Detection Starts
+16:28:30: D3D9: Driver Detection Ends
+16:28:30: Plugin successfully installed
+16:28:30: Loading library .\RenderSystem_GL
+16:28:30: Installing plugin: GL RenderSystem
+16:28:30: OpenGL Rendering Subsystem created.
+16:28:30: Plugin successfully installed
+16:28:30: Loading library .\Plugin_ParticleFX
+16:28:30: Installing plugin: ParticleFX
+16:28:30: Particle Emitter Type 'Point' registered
+16:28:30: Particle Emitter Type 'Box' registered
+16:28:30: Particle Emitter Type 'Ellipsoid' registered
+16:28:30: Particle Emitter Type 'Cylinder' registered
+16:28:30: Particle Emitter Type 'Ring' registered
+16:28:30: Particle Emitter Type 'HollowEllipsoid' registered
+16:28:30: Particle Affector Type 'LinearForce' registered
+16:28:30: Particle Affector Type 'ColourFader' registered
+16:28:30: Particle Affector Type 'ColourFader2' registered
+16:28:30: Particle Affector Type 'ColourImage' registered
+16:28:30: Particle Affector Type 'ColourInterpolator' registered
+16:28:30: Particle Affector Type 'Scaler' registered
+16:28:30: Particle Affector Type 'Rotator' registered
+16:28:30: Particle Affector Type 'DirectionRandomiser' registered
+16:28:30: Particle Affector Type 'DeflectorPlane' registered
+16:28:30: Plugin successfully installed
+16:28:30: Loading library .\Plugin_BSPSceneManager
+16:28:30: Installing plugin: BSP Scene Manager
+16:28:30: Plugin successfully installed
+16:28:30: Loading library .\Plugin_CgProgramManager
+16:28:30: Installing plugin: Cg Program Manager
+16:28:30: Plugin successfully installed
+16:28:30: *-*-* OGRE Initialising
+16:28:30: *-*-* Version 1.6.0RC1 (Shoggoth)
+16:28:30: Creating resource group Bootstrap
+16:28:30: Added resource location '../../media/packs/OgreCore.zip' of type 'Zip' to resource group 'Bootstrap'
+16:28:30: Added resource location '../../media' of type 'FileSystem' to resource group 'General'
+16:28:30: Added resource location '../../media/fonts' of type 'FileSystem' to resource group 'General'
+16:28:30: Added resource location '../../media/materials/programs' of type 'FileSystem' to resource group 'General'
+16:28:30: Added resource location '../../media/materials/scripts' of type 'FileSystem' to resource group 'General'
+16:28:30: Added resource location '../../media/materials/textures' of type 'FileSystem' to resource group 'General'
+16:28:30: Added resource location '../../media/models' of type 'FileSystem' to resource group 'General'
+16:28:30: Added resource location '../../media/overlays' of type 'FileSystem' to resource group 'General'
+16:28:30: Added resource location '../../media/particle' of type 'FileSystem' to resource group 'General'
+16:28:30: Added resource location '../../media/gui' of type 'FileSystem' to resource group 'General'
+16:28:30: Added resource location '../../media/DeferredShadingMedia' of type 'FileSystem' to resource group 'General'
+16:28:30: Added resource location '../../media/ObjectDefinitions' of type 'FileSystem' to resource group 'General'
+16:28:30: D3D9 : RenderSystem Option: Allow NVPerfHUD = No
+16:28:30: D3D9 : RenderSystem Option: Anti aliasing = None
+16:28:30: D3D9 : RenderSystem Option: Floating-point mode = Fastest
+16:28:30: D3D9 : RenderSystem Option: Full Screen = No
+16:28:30: D3D9 : RenderSystem Option: Rendering Device = RADEON X800 XT Platinum Edition
+16:28:30: D3D9 : RenderSystem Option: VSync = No
+16:28:30: D3D9 : RenderSystem Option: Video Mode = 1024 x 768 @ 32-bit colour
+16:28:30: D3D9 : RenderSystem Option: sRGB Gamma Conversion = No
+16:28:32: CPU Identifier & Features
+16:28:32: -------------------------
+16:28:32:  *   CPU ID: AuthenticAMD: AMD Athlon(tm) XP 3000+
+16:28:32:  *      SSE: yes
+16:28:32:  *     SSE2: no
+16:28:32:  *     SSE3: no
+16:28:32:  *      MMX: yes
+16:28:32:  *   MMXEXT: yes
+16:28:32:  *    3DNOW: yes
+16:28:32:  * 3DNOWEXT: yes
+16:28:32:  *     CMOV: yes
+16:28:32:  *      TSC: yes
+16:28:32:  *      FPU: yes
+16:28:32:  *      PRO: yes
+16:28:32:  *       HT: no
+16:28:32: -------------------------
+16:28:32: D3D9 : Subsystem Initialising
+16:28:32: D3D9RenderSystem::_createRenderWindow "GOO editor", 1024x768 windowed  miscParams: FSAA=0 FSAAQuality=0 colourDepth=32 gamma=false useNVPerfHUD=false vsync=false 
+16:28:32: D3D9 : Created D3D9 Rendering Window 'GOO editor' : 1024x768, 32bpp
+16:28:32: D3D9 : WARNING - disabling VSync in windowed mode can cause timing issues at lower frame rates, turn VSync on if you observe this problem.
+16:28:32: Registering ResourceManager for type Texture
+16:28:32: Registering ResourceManager for type GpuProgram
+16:28:32: RenderSystem capabilities
+16:28:32: -------------------------
+16:28:32: RenderSystem Name: Direct3D9 Rendering Subsystem
+16:28:32: GPU Vendor: ati
+16:28:32: Device Name: RADEON X800 XT Platinum Edition
+16:28:32: Driver Version: 6.14.10.6891
+16:28:32:  * Fixed function pipeline: yes
+16:28:32:  * Hardware generation of mipmaps: yes
+16:28:32:  * Texture blending: yes
+16:28:32:  * Anisotropic texture filtering: yes
+16:28:32:  * Dot product texture operation: yes
+16:28:32:  * Cube mapping: yes
+16:28:32:  * Hardware stencil buffer: yes
+16:28:32:    - Stencil depth: 8
+16:28:32:    - Two sided stencil support: yes
+16:28:32:    - Wrap stencil values: yes
+16:28:32:  * Hardware vertex / index buffers: yes
+16:28:32:  * Vertex programs: yes
+16:28:32:  * Fragment programs: yes
+16:28:32:  * Geometry programs: no
+16:28:32:  * Supported Shader Profiles: hlsl ps_1_1 ps_1_2 ps_1_3 ps_1_4 ps_2_0 ps_2_b ps_2_x vs_1_1 vs_2_0
+16:28:32:  * Texture Compression: yes
+16:28:32:    - DXT: yes
+16:28:32:    - VTC: no
+16:28:32:  * Scissor Rectangle: yes
+16:28:32:  * Hardware Occlusion Query: yes
+16:28:32:  * User clip planes: yes
+16:28:32:  * VET_UBYTE4 vertex element type: yes
+16:28:32:  * Infinite far plane projection: yes
+16:28:32:  * Hardware render-to-texture: yes
+16:28:32:  * Floating point textures: yes
+16:28:32:  * Non-power-of-two textures: yes (limited)
+16:28:32:  * Volume textures: yes
+16:28:32:  * Multiple Render Targets: 4
+16:28:32:    - With different bit depths: no
+16:28:32:  * Point Sprites: yes
+16:28:32:  * Extended point parameters: yes
+16:28:32:  * Max Point Size: 256
+16:28:32:  * Vertex texture fetch: no
+16:28:32:  * Render to Vertex Buffer : no
+16:28:32:  * DirectX per stage constants: no
+16:28:32: ***************************************
+16:28:32: *** D3D9 : Subsystem Initialised OK ***
+16:28:32: ***************************************
+16:28:32: ResourceBackgroundQueue - threading disabled
+16:28:32: Particle Renderer Type 'billboard' registered
+16:28:32: SceneManagerFactory for type 'BspSceneManager' registered.
+16:28:32: Registering ResourceManager for type BspLevel
+16:28:32: Parsing scripts for resource group Autodetect
+16:28:32: Finished parsing scripts for resource group Autodetect
+16:28:32: Parsing scripts for resource group Bootstrap
+16:28:32: Parsing script OgreCore.material
+16:28:32: Parsing script OgreProfiler.material
+16:28:32: Parsing script Ogre.fontdef
+16:28:32: Parsing script OgreDebugPanel.overlay
+16:28:32: Texture: New_Ogre_Border_Center.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x128x1.
+16:28:32: Texture: New_Ogre_Border.png: Loading 1 faces(PF_A8R8G8B8,256x256x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x256x1.
+16:28:32: Texture: New_Ogre_Border_Break.png: Loading 1 faces(PF_A8R8G8B8,32x32x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,32x32x1.
+16:28:32: Font BlueHighwayusing texture size 512x512
+16:28:32: Info: Freetype returned null for character 127 in font BlueHighway
+16:28:32: Info: Freetype returned null for character 128 in font BlueHighway
+16:28:32: Info: Freetype returned null for character 129 in font BlueHighway
+16:28:32: Info: Freetype returned null for character 130 in font BlueHighway
+16:28:32: Info: Freetype returned null for character 131 in font BlueHighway
+16:28:32: Info: Freetype returned null for character 132 in font BlueHighway
+16:28:32: Info: Freetype returned null for character 133 in font BlueHighway
+16:28:32: Info: Freetype returned null for character 134 in font BlueHighway
+16:28:32: Info: Freetype returned null for character 135 in font BlueHighway
+16:28:32: Info: Freetype returned null for character 136 in font BlueHighway
+16:28:32: Info: Freetype returned null for character 137 in font BlueHighway
+16:28:32: Info: Freetype returned null for character 138 in font BlueHighway
+16:28:32: Info: Freetype returned null for character 139 in font BlueHighway
+16:28:32: Info: Freetype returned null for character 140 in font BlueHighway
+16:28:32: Info: Freetype returned null for character 141 in font BlueHighway
+16:28:32: Info: Freetype returned null for character 142 in font BlueHighway
+16:28:32: Info: Freetype returned null for character 143 in font BlueHighway
+16:28:32: Info: Freetype returned null for character 144 in font BlueHighway
+16:28:32: Info: Freetype returned null for character 145 in font BlueHighway
+16:28:32: Info: Freetype returned null for character 146 in font BlueHighway
+16:28:32: Info: Freetype returned null for character 147 in font BlueHighway
+16:28:32: Info: Freetype returned null for character 148 in font BlueHighway
+16:28:32: Info: Freetype returned null for character 149 in font BlueHighway
+16:28:32: Info: Freetype returned null for character 150 in font BlueHighway
+16:28:32: Info: Freetype returned null for character 151 in font BlueHighway
+16:28:32: Info: Freetype returned null for character 152 in font BlueHighway
+16:28:32: Info: Freetype returned null for character 153 in font BlueHighway
+16:28:32: Info: Freetype returned null for character 154 in font BlueHighway
+16:28:32: Info: Freetype returned null for character 155 in font BlueHighway
+16:28:32: Info: Freetype returned null for character 156 in font BlueHighway
+16:28:32: Info: Freetype returned null for character 157 in font BlueHighway
+16:28:32: Info: Freetype returned null for character 158 in font BlueHighway
+16:28:32: Info: Freetype returned null for character 159 in font BlueHighway
+16:28:32: Info: Freetype returned null for character 160 in font BlueHighway
+16:28:32: Texture: BlueHighwayTexture: Loading 1 faces(PF_BYTE_LA,512x512x1) with 0 generated mipmaps from Image. Internal format is PF_BYTE_LA,512x512x1.
+16:28:32: Texture: ogretext.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x128x1.
+16:28:32: Parsing script OgreLoadingPanel.overlay
+16:28:32: Finished parsing scripts for resource group Bootstrap
+16:28:32: Parsing scripts for resource group General
+16:28:32: Parsing script Examples.program
+16:28:32: Parsing script deferred.glsl.program
+16:28:32: Parsing script deferred.hlsl.program
+16:28:32: Parsing script deferred.program
+16:28:32: Parsing script deferred_post_ambient.program
+16:28:32: Parsing script deferred_post_debug.glsl.program
+16:28:32: Parsing script deferred_post_debug.hlsl.program
+16:28:32: Parsing script deferred_post_debug.program
+16:28:32: Parsing script deferred_post_minilight.glsl.program
+16:28:32: Parsing script deferred_post_minilight.hlsl.program
+16:28:32: OGRE EXCEPTION(2:InvalidParametersException): Parameter called lightFalloff does not exist.  in GpuProgramParameters::_findNamedConstantDefinition at ..\src\OgreGpuProgram.cpp (line 1095)
+16:28:33: Compiler error: invalid parameters in deferred_post_minilight.hlsl.program(27): setting of constant failed
+16:28:33: Parsing script deferred_post_minilight.program
+16:28:33: Parsing script deferred_post_multipass.glsl.program
+16:28:33: Parsing script deferred_post_multipass.hlsl.program
+16:28:33: Parsing script deferred_post_onepass.glsl.program
+16:28:33: Parsing script deferred_post_onepass.hlsl.program
+16:28:33: Parsing script deferred_post_vs.program
+16:28:33: Parsing script editor.material
+16:28:33: Parsing script Example-DynTex.material
+16:28:33: Parsing script Example.material
+16:28:33: Parsing script lua_app.material
+16:28:33: Parsing script deferred.material
+16:28:33: Parsing script deferreddemo.material
+16:28:33: Parsing script deferred_post_ambient.material
+16:28:33: Parsing script deferred_post_debug.material
+16:28:33: Parsing script deferred_post_minilight.material
+16:28:33: Parsing script deferred_post_multipass.material
+16:28:33: Parsing script deferred_post_onepass.material
+16:28:33: Parsing script emitted_emitter.particle
+16:28:33: Parsing script Example-Water.particle
+16:28:33: Parsing script Example.particle
+16:28:33: Parsing script smoke.particle
+16:28:33: Parsing script Examples.compositor
+16:28:33: Parsing script deferred.compositor
+16:28:33: Parsing script editorfonts.fontdef
+16:28:33: Parsing script sample.fontdef
+16:28:33: Parsing script console.overlay
+16:28:33: Texture: console_bg.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x128x1.
+16:28:33: Texture: console_input_bg.png: Loading 1 faces(PF_A8R8G8B8,128x64x1) with  hardware generated mipmaps from Image. Internal format is PF_A8R8G8B8,128x64x1.
+16:28:33: Parsing script parameters.overlay
+16:28:33: Finished parsing scripts for resource group General
+16:28:33: Parsing scripts for resource group Internal
+16:28:33: Finished parsing scripts for resource group Internal
+16:28:33: *** Initializing OIS ***
+16:28:33: Mesh: Loading sphere.mesh.
+16:28:33: World object instatiated
+16:28:33: Lua: loading init.lua..
+16:28:33: Lua: ..\..\media\LUA\
+16:28:33: Lua: loading celldefinitions.lua..
+16:28:33: Lua:  system definitions - Loading System Definitions
+16:28:33: c++: loading system class: ..\..\media\LUA\systems\systems\abstractsystem.lua
+16:28:33: lua error message:cannot open ..\..\media\LUA\systems\systems\abstractsystem.LUA: No such file or directory
+16:28:33: Lua: Loading land 0.1 canvas surface...
+16:28:33: Lua: Loading water 0.1 canvas surface
+16:28:35: deleting object with cursor!
+16:28:35: OBJECT: GrowingSurface0
+16:28:35: deleting Cell cell0
+16:28:35: deleting physical object cell0_2DObject
+16:28:35: deleting Movable2dobjectcell0_2DObject
+16:28:35: deleting Cell cell1
+16:28:35: deleting physical object cell1_2DObject
+16:28:35: deleting Movable2dobjectcell1_2DObject
+16:28:35: deleting Cell cell2
+16:28:35: deleting physical object cell2_2DObject
+16:28:35: deleting Movable2dobjectcell2_2DObject
+16:28:35: deleting Cell cell3
+16:28:35: deleting physical object cell3_2DObject
+16:28:35: deleting Movable2dobjectcell3_2DObject
+16:28:35: deleting Cell cell4
+16:28:35: deleting physical object cell4_2DObject
+16:28:35: deleting Movable2dobjectcell4_2DObject
+16:28:35: deleting Cell cell5
+16:28:35: deleting physical object cell5_2DObject
+16:28:35: deleting Movable2dobjectcell5_2DObject
+16:28:35: deleting Cell GrowingSurface0
+16:28:35: deleting Movable2dobjectGrowingSurface0
+16:28:35: deleting Movable2dobjectGrowingSurface0
+16:28:37: deleting object with cursor!
+16:28:37: OBJECT: GrowingSurface1
+16:28:37: deleting Cell cell6
+16:28:37: deleting physical object cell6_2DObject
+16:28:37: deleting Movable2dobjectcell6_2DObject
+16:28:37: deleting Cell cell7
+16:28:37: deleting physical object cell7_2DObject
+16:28:37: deleting Movable2dobjectcell7_2DObject
+16:28:37: deleting Cell cell8
+16:28:37: deleting physical object cell8_2DObject
+16:28:37: deleting Movable2dobjectcell8_2DObject
+16:28:37: deleting Cell cell9
+16:28:37: deleting physical object cell9_2DObject
+16:28:37: deleting Movable2dobjectcell9_2DObject
+16:28:37: deleting Cell cell10
+16:28:37: deleting physical object cell10_2DObject
+16:28:37: deleting Movable2dobjectcell10_2DObject
+16:28:37: deleting Cell cell11
+16:28:37: deleting physical object cell11_2DObject
+16:28:37: deleting Movable2dobjectcell11_2DObject
+16:28:37: deleting Cell GrowingSurface1
+16:28:37: deleting Movable2dobjectGrowingSurface1
+16:28:37: deleting Movable2dobjectGrowingSurface1
+16:28:43: deleting object with cursor!
+16:28:43: OBJECT: GrowingSurface5
+16:28:43: deleting Cell cell30
+16:28:43: deleting physical object cell30_2DObject
+16:28:43: deleting Movable2dobjectcell30_2DObject
+16:28:43: deleting Cell cell31
+16:28:43: deleting physical object cell31_2DObject
+16:28:43: deleting Movable2dobjectcell31_2DObject
+16:28:43: deleting Cell cell32
+16:28:43: deleting physical object cell32_2DObject
+16:28:43: deleting Movable2dobjectcell32_2DObject
+16:28:43: deleting Cell cell33
+16:28:43: deleting physical object cell33_2DObject
+16:28:43: deleting Movable2dobjectcell33_2DObject
+16:28:43: deleting Cell cell34
+16:28:43: deleting physical object cell34_2DObject
+16:28:43: deleting Movable2dobjectcell34_2DObject
+16:28:43: deleting Cell cell35
+16:28:43: deleting physical object cell35_2DObject
+16:28:43: deleting Movable2dobjectcell35_2DObject
+16:28:43: deleting Cell GrowingSurface5
+16:28:43: deleting Movable2dobjectGrowingSurface5
+16:28:43: deleting Movable2dobjectGrowingSurface5
+16:28:44: deleting object with cursor!
+16:28:44: OBJECT: GrowingSurface3
+16:28:44: deleting Cell cell18
+16:28:44: deleting physical object cell18_2DObject
+16:28:44: deleting Movable2dobjectcell18_2DObject
+16:28:44: deleting Cell cell19
+16:28:44: deleting physical object cell19_2DObject
+16:28:44: deleting Movable2dobjectcell19_2DObject
+16:28:44: deleting Cell cell20
+16:28:44: deleting physical object cell20_2DObject
+16:28:44: deleting Movable2dobjectcell20_2DObject
+16:28:44: deleting Cell cell21
+16:28:44: deleting physical object cell21_2DObject
+16:28:44: deleting Movable2dobjectcell21_2DObject
+16:28:44: deleting Cell cell22
+16:28:44: deleting physical object cell22_2DObject
+16:28:44: deleting Movable2dobjectcell22_2DObject
+16:28:44: deleting Cell cell23
+16:28:44: deleting physical object cell23_2DObject
+16:28:44: deleting Movable2dobjectcell23_2DObject
+16:28:44: deleting Cell cell42
+16:28:44: deleting physical object cell42_2DObject
+16:28:44: deleting Movable2dobjectcell42_2DObject
+16:28:44: deleting Cell cell43
+16:28:44: deleting physical object cell43_2DObject
+16:28:44: deleting Movable2dobjectcell43_2DObject
+16:28:44: deleting Cell cell44
+16:28:44: deleting physical object cell44_2DObject
+16:28:44: deleting Movable2dobjectcell44_2DObject
+16:28:44: deleting Cell cell45
+16:28:44: deleting physical object cell45_2DObject
+16:28:44: deleting Movable2dobjectcell45_2DObject
+16:28:44: deleting Cell GrowingSurface3
+16:28:44: deleting Movable2dobjectGrowingSurface3
+16:28:44: deleting Movable2dobjectGrowingSurface3
+16:28:44: deleting object with cursor!
+16:28:44: OBJECT: GrowingSurface4
+16:28:44: deleting Cell cell24
+16:28:44: deleting physical object cell24_2DObject
+16:28:44: deleting Movable2dobjectcell24_2DObject
+16:28:44: deleting Cell cell25
+16:28:44: deleting physical object cell25_2DObject
+16:28:44: deleting Movable2dobjectcell25_2DObject
+16:28:44: deleting Cell cell26
+16:28:44: deleting physical object cell26_2DObject
+16:28:44: deleting Movable2dobjectcell26_2DObject
+16:28:44: deleting Cell cell27
+16:28:44: deleting physical object cell27_2DObject
+16:28:44: deleting Movable2dobjectcell27_2DObject
+16:28:44: deleting Cell cell28
+16:28:44: deleting physical object cell28_2DObject
+16:28:44: deleting Movable2dobjectcell28_2DObject
+16:28:44: deleting Cell cell29
+16:28:44: deleting physical object cell29_2DObject
+16:28:44: deleting Movable2dobjectcell29_2DObject
+16:28:44: deleting Cell cell46
+16:28:44: deleting physical object cell46_2DObject
+16:28:44: deleting Movable2dobjectcell46_2DObject
+16:28:44: deleting Cell cell47
+16:28:44: deleting physical object cell47_2DObject
+16:28:44: deleting Movable2dobjectcell47_2DObject
+16:28:44: deleting Cell GrowingSurface4
+16:28:44: deleting Movable2dobjectGrowingSurface4
+16:28:44: deleting Movable2dobjectGrowingSurface4
+16:28:45: deleting object with cursor!
+16:28:45: OBJECT: GrowingSurface2
+16:28:45: deleting Cell cell12
+16:28:45: deleting physical object cell12_2DObject
+16:28:45: deleting Movable2dobjectcell12_2DObject
+16:28:45: deleting Cell cell13
+16:28:45: deleting physical object cell13_2DObject
+16:28:45: deleting Movable2dobjectcell13_2DObject
+16:28:45: deleting Cell cell14
+16:28:45: deleting physical object cell14_2DObject
+16:28:45: deleting Movable2dobjectcell14_2DObject
+16:28:45: deleting Cell cell15
+16:28:45: deleting physical object cell15_2DObject
+16:28:45: deleting Movable2dobjectcell15_2DObject
+16:28:45: deleting Cell cell16
+16:28:45: deleting physical object cell16_2DObject
+16:28:45: deleting Movable2dobjectcell16_2DObject
+16:28:45: deleting Cell cell17
+16:28:45: deleting physical object cell17_2DObject
+16:28:45: deleting Movable2dobjectcell17_2DObject
+16:28:45: deleting Cell cell36
+16:28:45: deleting physical object cell36_2DObject
+16:28:45: deleting Movable2dobjectcell36_2DObject
+16:28:45: deleting Cell cell37
+16:28:45: deleting physical object cell37_2DObject
+16:28:45: deleting Movable2dobjectcell37_2DObject
+16:28:45: deleting Cell cell38
+16:28:45: deleting physical object cell38_2DObject
+16:28:45: deleting Movable2dobjectcell38_2DObject
+16:28:45: deleting Cell cell39
+16:28:45: deleting physical object cell39_2DObject
+16:28:45: deleting Movable2dobjectcell39_2DObject
+16:28:45: deleting Cell cell40
+16:28:45: deleting physical object cell40_2DObject
+16:28:45: deleting Movable2dobjectcell40_2DObject
+16:28:45: deleting Cell cell41
+16:28:45: deleting physical object cell41_2DObject
+16:28:45: deleting Movable2dobjectcell41_2DObject
+16:28:45: deleting Cell GrowingSurface2
+16:28:45: deleting Movable2dobjectGrowingSurface2
+16:28:45: deleting Movable2dobjectGrowingSurface2
+16:29:11: deleting Cell cell48
+16:29:11: deleting physical object cell48_2DObject
+16:29:11: deleting Movable2dobjectcell48_2DObject
+16:29:11: deleting Cell cell49
+16:29:11: deleting physical object cell49_2DObject
+16:29:11: deleting Movable2dobjectcell49_2DObject
+16:29:11: deleting Cell cell50
+16:29:11: deleting physical object cell50_2DObject
+16:29:11: deleting Movable2dobjectcell50_2DObject
+16:29:11: deleting Cell cell51
+16:29:11: deleting physical object cell51_2DObject
+16:29:11: deleting Movable2dobjectcell51_2DObject
+16:29:11: deleting Cell cell52
+16:29:11: deleting physical object cell52_2DObject
+16:29:11: deleting Movable2dobjectcell52_2DObject
+16:29:11: deleting Cell cell53
+16:29:11: deleting physical object cell53_2DObject
+16:29:11: deleting Movable2dobjectcell53_2DObject
+16:29:11: deleting Cell cell66
+16:29:11: deleting physical object cell66_2DObject
+16:29:11: deleting Movable2dobjectcell66_2DObject
+16:29:11: deleting Cell cell67
+16:29:11: deleting physical object cell67_2DObject
+16:29:11: deleting Movable2dobjectcell67_2DObject
+16:29:11: deleting Cell cell68
+16:29:11: deleting physical object cell68_2DObject
+16:29:11: deleting Movable2dobjectcell68_2DObject
+16:29:11: deleting Cell cell69
+16:29:11: deleting physical object cell69_2DObject
+16:29:11: deleting Movable2dobjectcell69_2DObject
+16:29:11: deleting Cell cell71
+16:29:11: deleting physical object cell71_2DObject
+16:29:11: deleting Movable2dobjectcell71_2DObject
+16:29:11: deleting Cell cell73
+16:29:11: deleting physical object cell73_2DObject
+16:29:11: deleting Movable2dobjectcell73_2DObject
+16:29:11: deleting Cell cell85
+16:29:11: deleting physical object cell85_2DObject
+16:29:11: deleting Movable2dobjectcell85_2DObject
+16:29:11: deleting Cell cell86
+16:29:11: deleting physical object cell86_2DObject
+16:29:11: deleting Movable2dobjectcell86_2DObject
+16:29:11: deleting Cell cell87
+16:29:11: deleting physical object cell87_2DObject
+16:29:11: deleting Movable2dobjectcell87_2DObject
+16:29:11: deleting Cell cell88
+16:29:11: deleting physical object cell88_2DObject
+16:29:11: deleting Movable2dobjectcell88_2DObject
+16:29:11: deleting Cell GrowingSurface6
+16:29:11: deleting Movable2dobjectGrowingSurface6
+16:29:11: deleting Movable2dobjectGrowingSurface6
+16:29:11: deleting Cell cell54
+16:29:11: deleting physical object cell54_2DObject
+16:29:11: deleting Movable2dobjectcell54_2DObject
+16:29:11: deleting Cell cell55
+16:29:11: deleting physical object cell55_2DObject
+16:29:11: deleting Movable2dobjectcell55_2DObject
+16:29:11: deleting Cell cell56
+16:29:11: deleting physical object cell56_2DObject
+16:29:11: deleting Movable2dobjectcell56_2DObject
+16:29:11: deleting Cell cell57
+16:29:11: deleting physical object cell57_2DObject
+16:29:11: deleting Movable2dobjectcell57_2DObject
+16:29:11: deleting Cell cell58
+16:29:11: deleting physical object cell58_2DObject
+16:29:11: deleting Movable2dobjectcell58_2DObject
+16:29:11: deleting Cell cell59
+16:29:11: deleting physical object cell59_2DObject
+16:29:11: deleting Movable2dobjectcell59_2DObject
+16:29:11: deleting Cell cell70
+16:29:11: deleting physical object cell70_2DObject
+16:29:11: deleting Movable2dobjectcell70_2DObject
+16:29:11: deleting Cell cell72
+16:29:11: deleting physical object cell72_2DObject
+16:29:11: deleting Movable2dobjectcell72_2DObject
+16:29:11: deleting Cell cell75
+16:29:11: deleting physical object cell75_2DObject
+16:29:11: deleting Movable2dobjectcell75_2DObject
+16:29:11: deleting Cell cell76
+16:29:11: deleting physical object cell76_2DObject
+16:29:11: deleting Movable2dobjectcell76_2DObject
+16:29:11: deleting Cell cell78
+16:29:11: deleting physical object cell78_2DObject
+16:29:11: deleting Movable2dobjectcell78_2DObject
+16:29:11: deleting Cell cell79
+16:29:11: deleting physical object cell79_2DObject
+16:29:11: deleting Movable2dobjectcell79_2DObject
+16:29:11: deleting Cell cell84
+16:29:11: deleting physical object cell84_2DObject
+16:29:11: deleting Movable2dobjectcell84_2DObject
+16:29:11: deleting Cell GrowingSurface7
+16:29:11: deleting Movable2dobjectGrowingSurface7
+16:29:11: deleting Movable2dobjectGrowingSurface7
+16:29:11: deleting Cell cell60
+16:29:11: deleting physical object cell60_2DObject
+16:29:11: deleting Movable2dobjectcell60_2DObject
+16:29:11: deleting Cell cell61
+16:29:11: deleting physical object cell61_2DObject
+16:29:11: deleting Movable2dobjectcell61_2DObject
+16:29:11: deleting Cell cell62
+16:29:11: deleting physical object cell62_2DObject
+16:29:11: deleting Movable2dobjectcell62_2DObject
+16:29:11: deleting Cell cell63
+16:29:11: deleting physical object cell63_2DObject
+16:29:11: deleting Movable2dobjectcell63_2DObject
+16:29:11: deleting Cell cell64
+16:29:11: deleting physical object cell64_2DObject
+16:29:11: deleting Movable2dobjectcell64_2DObject
+16:29:11: deleting Cell cell65
+16:29:11: deleting physical object cell65_2DObject
+16:29:11: deleting Movable2dobjectcell65_2DObject
+16:29:11: deleting Cell cell74
+16:29:11: deleting physical object cell74_2DObject
+16:29:11: deleting Movable2dobjectcell74_2DObject
+16:29:11: deleting Cell cell77
+16:29:11: deleting physical object cell77_2DObject
+16:29:11: deleting Movable2dobjectcell77_2DObject
+16:29:11: deleting Cell cell80
+16:29:11: deleting physical object cell80_2DObject
+16:29:11: deleting Movable2dobjectcell80_2DObject
+16:29:11: deleting Cell cell81
+16:29:11: deleting physical object cell81_2DObject
+16:29:11: deleting Movable2dobjectcell81_2DObject
+16:29:11: deleting Cell cell82
+16:29:11: deleting physical object cell82_2DObject
+16:29:11: deleting Movable2dobjectcell82_2DObject
+16:29:11: deleting Cell cell83
+16:29:11: deleting physical object cell83_2DObject
+16:29:11: deleting Movable2dobjectcell83_2DObject
+16:29:11: deleting Cell GrowingSurface8
+16:29:11: deleting Movable2dobjectGrowingSurface8
+16:29:11: deleting Movable2dobjectGrowingSurface8
+16:29:12: Unregistering ResourceManager for type BspLevel
+16:29:12: *-*-* OGRE Shutdown

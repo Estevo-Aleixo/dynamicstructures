@@ -1,0 +1,35 @@
+UI/console
+{
+    zorder 1
+    
+    container Panel(UI/console/mainPanel)
+    {
+        metrics_mode pixel
+		left 0
+        top 0         
+		width 1
+		height 0.1
+		
+         element Panel(UI/console/historyWindow)
+         {
+             metrics_mode pixel
+			 left 0
+             top 0
+             width 1000 
+             height 100
+			 caption "History window"
+			 material gui/console_history
+		 }         
+         
+         element Panel(UI/console/inputWindow)
+         {
+             metrics_mode pixel
+			 left 0
+             top 100
+             width 1000
+             height 30
+			 caption "Input window"
+             material gui/console_input
+         }
+     }
+}

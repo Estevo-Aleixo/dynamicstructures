@@ -1,0 +1,35 @@
+material gui/console_input
+{
+	technique
+	{
+		pass
+		{
+			lighting off
+			scene_blend alpha_blend
+			depth_check off
+
+			texture_unit
+			{
+				texture console_input_bg.png
+			}
+		}
+	}
+}
+
+material gui/console_history
+{
+	technique
+	{
+		pass
+		{
+			lighting off
+			scene_blend alpha_blend
+			depth_check off
+
+			texture_unit
+			{
+				texture console_bg.png
+			}
+		}
+	}
+}

@@ -1,0 +1,108 @@
+material editorlines
+{
+	technique
+	{
+		pass
+		{
+			ambient 0.9 0.2 0.2
+		}
+	}
+}
+
+material square_cell
+{
+	technique
+	{
+		pass
+		{
+			ambient 1.0 1.0 0.0
+		}
+	}
+}
+
+material hexagon_cell
+{
+	technique
+	{
+		pass
+		{
+			ambient 0.2 1.0 0.2
+		}
+	}
+}
+
+material triangle_cell
+{
+	technique
+	{
+		pass
+		{
+			ambient 0.0 0.0 1.0
+		}
+	}
+}
+
+material circle_polygon
+{
+	technique
+	{
+		pass
+		{
+			ambient 1.0 0.0 0.0 1.0
+		}
+	}
+}
+
+
+material ambient_red
+{
+	technique
+	{
+		pass
+		{
+			ambient 1.0 0.0 0.0
+		}
+	}
+}
+
+material ambient_white
+{
+	technique
+	{
+		pass
+		{
+			ambient 1.0 1.0 1.0 1.0
+		}
+	}
+}
+
+
+material basesurface
+{
+	technique
+	{
+		pass
+		{
+			ambient 0.03 0.2 0.03 1.0
+
+			//texture_unit
+			//{
+			//	texture groundtexturetemp.jpg
+			//}
+
+		}
+	}
+}
+
+material skeleton
+{
+	technique
+	{
+		pass
+		{
+			ambient 0.8 1.0 0.8
+		}
+	}
+}
+
+

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="grow" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug Win32">
+				<Option output="lua_project" prefix_auto="1" extension_auto="1" />
+				<Option object_output="..\obj\debug" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-DWIN32" />
+					<Add option="-D_DEBUG" />
+					<Add option="-D_WINDOWS" />
+					<Add option="-W" />
+					<Add option="-g" />
+					<Add option="-O0" />
+					<Add directory="..\include" />
+					<Add directory="$(OGRE_HOME)\include" />
+					<Add directory="$(OGRE_HOME)\samples\include" />
+					<Add directory="..\..\Box2D\Include" />
+					<Add directory="..\..\lua5.1\include" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="..\include" />
+					<Add directory="$(OGRE_HOME)\include" />
+					<Add directory="$(OGRE_HOME)\samples\include" />
+					<Add directory="..\..\Box2D\Include" />
+					<Add directory="..\..\lua5.1\include" />
+				</ResourceCompiler>
+				<Linker>
+					<Add library="OgreMain_d" />
+					<Add library="OIS_d" />
+					<Add library="CEGUIBase_d" />
+					<Add library="OgreGUIRenderer_d" />
+					<Add library="box2d_d" />
+					<Add library="lua5.1" />
+					<Add directory="..\..\Box2D\Library" />
+					<Add directory="$(OGRE_HOME)\lib" />
+					<Add directory="$(OGRE_HOME)\Dependencies\lib\Debug Win32" />
+					<Add directory="E:\thesis\code\lua5.1\lib\static" />
+				</Linker>
+			</Target>
+			<Target title="Release Win32">
+				<Option output="lua_project" prefix_auto="1" extension_auto="1" />
+				<Option object_output="..\obj\release" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-DWIN32" />
+					<Add option="-DNDEBUG" />
+					<Add option="-D_WINDOWS" />
+					<Add option="-W" />
+					<Add option="-O0" />
+					<Add directory="..\include" />
+					<Add directory="$(OGRE_HOME)\include" />
+					<Add directory="$(OGRE_HOME)\samples\include" />
+					<Add directory="..\..\Box2D\Include" />
+					<Add directory="..\..\lua5.1\include" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="..\include" />
+					<Add directory="$(OGRE_HOME)\include" />
+					<Add directory="$(OGRE_HOME)\samples\include" />
+					<Add directory="..\..\Box2D\Include" />
+					<Add directory="..\..\lua5.1\include" />
+				</ResourceCompiler>
+				<Linker>
+					<Add library="OgreMain" />
+					<Add library="OIS" />
+					<Add library="CEGUIBase" />
+					<Add library="OgreGUIRenderer" />
+					<Add library="box2d" />
+					<Add library="lua5.1" />
+					<Add directory="..\..\Box2D\Library" />
+					<Add directory="$(OGRE_HOME)\lib" />
+					<Add directory="$(OGRE_HOME)\Dependencies\lib\Release Win32" />
+					<Add directory="..\lib\release" />
+					<Add directory="..\..\lua5.1\lib\static" />
+				</Linker>
+			</Target>
+		</Build>
+		<Unit filename="..\src\Canvas.cpp" />
+		<Unit filename="..\src\Cell.cpp" />
+		<Unit filename="..\src\CellFactory.cpp" />
+		<Unit filename="..\src\CellProperties.cpp" />
+		<Unit filename="..\src\CellSystem.cpp" />
+		<Unit filename="..\src\CellSystemProperties.cpp" />
+		<Unit filename="..\src\cLua.cpp" />
+		<Unit filename="..\src\Functions.cpp" />
+		<Unit filename="..\src\MovableText.cpp" />
+		<Unit filename="..\src\Object2DProperties.cpp" />
+		<Unit filename="..\src\ObjectDefinitions.cpp" />
+		<Unit filename="..\src\Physical2DObject.cpp" />
+		<Unit filename="..\src\Pointer.cpp" />
+		<Unit filename="..\src\Seed.cpp" />
+		<Unit filename="..\src\Skeleton2D.cpp" />
+		<Unit filename="..\src\SystemFactory.cpp" />
+		<Unit filename="..\src\BaseEntity.cpp" />
+		<Unit filename="..\src\MovingEntity.cpp" />
+		<Unit filename="..\src\Console.cpp" />
+		<Unit filename="..\src\Main.cpp" />
+		<Unit filename="..\src\World.cpp" />
+		<Unit filename="..\include\Canvas.h" />
+		<Unit filename="..\include\Cell.h" />
+		<Unit filename="..\include\CellFactory.h" />
+		<Unit filename="..\include\CellProperties.h" />
+		<Unit filename="..\include\CellSystem.h" />
+		<Unit filename="..\include\CellSystemProperties.h" />
+		<Unit filename="..\include\cLua.h" />
+		<Unit filename="..\include\Functions.h" />
+		<Unit filename="..\include\MovableText.h" />
+		<Unit filename="..\include\Object2DProperties.h" />
+		<Unit filename="..\include\ObjectDefinitions.h" />
+		<Unit filename="..\include\Physical2DObject.h" />
+		<Unit filename="..\include\Pointer.h" />
+		<Unit filename="..\include\Seed.h" />
+		<Unit filename="..\include\Skeleton2D.h" />
+		<Unit filename="..\include\SystemFactory.h" />
+		<Unit filename="..\include\BaseEntity.h" />
+		<Unit filename="..\include\MovingEntity.h" />
+		<Unit filename="..\include\Console.h" />
+		<Unit filename="..\include\Main.h" />
+		<Unit filename="..\include\World.h" />
+		<Unit filename="GuiEvents.h" />
+		<Unit filename="..\include\LuaGlueFunctions.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
