@@ -44,48 +44,7 @@ frame=shadowbox, rulesepcolor=\color{black}}
 
 \newpage
 
-\begin{lstlisting}
-
-Element_node_14
-{
-	single_node_platform
-	{
-		available = true; 
-		max_diameter = 30.0;
-	}
-	
-	bridge
-	{
-		available = false; 
-		type = suspension;
-	}
-	
-	multi_node_platform
-	{
-		available = true; 
-		other_nodes = array{34, 23, 78};
-		type = undefined;
-	
-	 if (used)
-	 		bridge.available = true;
-	 else
-	 		bridge.available = false; 		
-	
-	} 
-	
-	building
-	{
-		available = false;
-	}
-	
-	stairs
-	{	//staircase connection to parent node
-		available = true; 
-		type= revolving; 
-	}
-}
-
-\end{lstlisting}
+%\include{element_node.tex};
 
 I will cover node element properties and quering of the element database in the next chapter in more detail.   
 
