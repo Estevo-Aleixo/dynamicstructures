@@ -1,15 +1,153 @@
 
-\chapter{Architecture planning}
+\chapter{Planning Game World Structure}
 \label{sec:treehousearch}
  
+  
 \section{Background}
-%Architectural structures   
+%About patterns in city architecture and buildings
+%patterns in biology 
 
-\section{Elements for Tree-Based Architecture} 
+%
+%patterns in game worlds: dungeons
+%
+
+
+In the next section I discuss literature on characteristics of succesfull leveldesign in games.  
+
+\section{Considerations on Leveldesign in Games}
+
+% 
+%
+%
+%
+%
+
+\chapter{Formalization of Game World Structure Patterns}
+\label{sec:scenarios}
+
+
+\section{Scenarios} 
+In the next three sections we define game world scenarios that could occupate the generated forest structure. Each of the scenarios we propose here is based on a popular videogame genre: 
+
+\begin{enumerate}
+\item Puzzle / Adventure Dungeon
+\item 3rd Person Strategy 
+\item 1st Person Shooter
+\end{enumerate} 
+
+
+\section{Scenario 1: Puzzle / Adventure Dungeon}
+Leveldesign Patterns in Puzzle and Adventure Dungeons:
+
+\begin{itemize}
+\item circular paths, loops. Example: The player arrives at a door and it is locked, you must take a different route and along the way you find a key. Now the player heads back to the door through which he can now proceed.  
+\item start at bottom, move to top. It is almost always the case that dungeons have multiple floors. The player starts at the bottom floor and progressing through the dungeon means moving up to a higher floor.      
+\item re-using different paths by opening new door and locking old ones.    
+\item no path deviation. Rules for movement are very strict in these type of games.
+
+\end{itemize}
+
+%\section{Planning Algorithm for Scenario 1}
+
+
+\section{Scenario 2: 3rd Person Strategy}
+
+
+% hoe begint het algoritme?
+% wat zijn de parameters? 
+% 
+%
+%
+%
+
+
+%\section{Planning Algorithm for Scenario 2}
+
+% hoe begint het algoritme?
+% 
+%
+%
+%
+%
+
+
+%\section{Scenario 3: 1st Person Shooter Multiplayer Arenas}
+
+\begin{figure}[ht]
+\centering
+\subfigure[]{
+\includegraphics[width=300px]{images/game_maps/de_dust_overhead_2.jpg}
+\label{fig:subfig1}
+}
+\subfigure[]{
+\includegraphics[width=300px]{images/game_maps/de_nuke.jpg}
+\label{fig:subfig2}
+}
+\label{fig:fpsmaps}
+\caption[Overview of classic FPS maps(from the game Counterstrike:Source). The "Multiple paths" pattern is clearly visible.]{}
+\end{figure}
+
+\subsection{symmetry}
+
+\subsection{Multiple paths}
+
+\subsection{Local fights}
+
+\subsection{Collision points}
+
+\subsection{Reference points}
+	
+\subsection{Defense areas}
+
+\subsection{Risk Incentive}
+
+%\section{Planning Algorithm for Scenario 3}
+
+% hoe begint het algoritme?
+% 
+%
+%
+%
+%
+
+%From the scenarios I discussed in the previous section we can extract a set of parameters and goals for our algorithms.
+\chapter{Planning Algorithms}
+
+\section{Considerations}
+
+\section{Planning Methods}
+
+%
+%
+%
+%
+\label{sec:PlanningAlgorithm} 
+  
+ Using the scenarios and architectural elements we have defined in the previous section we will formulate our planning algorithm now.
+ I will first introduce the planning algorithm informally followed by a more formal approach.
+      
+  
+%\begin{algorithm}
+%\caption{The planning algorithm}
+%\begin{algorithmic}
+%\IF {$i\geq maxval$} 
+%        \STATE $i\gets 0$
+%\ELSE
+%        \IF {$i+k\leq maxval$}
+%                \STATE $i\gets i+k$
+%        \ENDIF
+%\ENDIF 
+%\end{algorithmic}
+%\end{algorithm}
+
+
+\chapter{Geometry Generation}
+
+\section{Procedural Generation of Architecture Geometry} 
 \label{sec:archelements}
  
 %nog iets moois hiervoor 
-In this section we present the set of elements we use for the construction of our treebased architecture. We will first introduce the elements in a broad sense, followed by descriptions of methods to construct the geometry of some of these elements procedurally. 
+In this section we present the geometrical elements we use for the construction of our treebased architecture. We will first introduce the elements in a broad sense, followed by descriptions of methods to construct the geometry of some of these elements procedurally. 
  
 \subsection{The Element Vocabulary}
 We established a set of architectural elements we believe are the most basic tree-based architectural structures: 
@@ -78,103 +216,10 @@ The curved surface of a suspension bridge can easily be described with a spline.
 We define two types of stairs. The first is the simple vertical linear stairs-type. The second is the revolving staircase, which revolves around a tree trunk like a corkskrew. 
 
 
-\subsection{Element Database}
+%\subsection{Connecting Elements} 
+%
+%We construct an architectural structure by combining the elements we have in our element vocabulary.
+%In order to construct logical combinations we need to define for each elements how it can be joined with other elements
+%in our vocabulary.
 
-
-\subsection{Connecting Elements} 
-
-We construct an architectural structure by combining the elements we have in our element vocabulary.
-In order to construct logical combinations we need to define for each elements how it can be joined with other elements
-in our vocabulary.
-
- 
-\section{Scenarios}
-\label{sec:scenarios}
-
-Here we define one or more scenarios for meaningful architectural planning within a forest scene. Each of the scenarios we propose here is based on a popular videogame genre: 
-
-\begin{enumerate}
-\item Puzzle / Adventure Dungeon
-\item 3rd Person Strategy 
-\item 1st Person Shooter
-\end{enumerate} 
-
-\subsection{Scenario 1: Puzzle / Adventure Dungeon}
-Leveldesign Patterns in Puzzle and Adventure Dungeons:
-
-\begin{itemize}
-\item circular paths, loops. Example: The player arrives at a door and it is locked, you must take a different route and along the way you find a key. Now the player heads back to the door through which he can now proceed.  
-\item start at bottom, move to top. It is almost always the case that dungeons have multiple floors. The player starts at the bottom floor and progressing through the dungeon means moving up to a higher floor.      
-\item re-using different paths by opening new door and locking old ones.    
-\item no path deviation. Rules for movement are very strict in these type of games.
-
-\end{itemize}
-
-\subsection{Scenario 2: 3rd Person Strategy}
-
-
-
-\subsection{Scenario 3: 1st Person Shooter Multiplayer Arenas}
-
-\begin{figure}[ht]
-\centering
-\subfigure[]{
-\includegraphics[width=300px]{images/game_maps/de_dust_overhead_2.jpg}
-\label{fig:subfig1}
-}
-\subfigure[]{
-\includegraphics[width=300px]{images/game_maps/de_nuke.jpg}
-\label{fig:subfig2}
-}
-\label{fig:fpsmaps}
-\caption[Overview of classic FPS maps(from the game Counterstrike:Source). The "Multiple paths" pattern is clearly visible.]{}
-\end{figure}
-
-
-
-
-global property: symmetry
-
-Multiple paths
-
-Local fights
-
-Collision points
-
-Reference points
-	
-Defense areas
-
-Risk Incentive
-\section{Formalizing the Scenarios}
-
-From the scenarios I discussed in the previous section we can extract a set of parameters and goals for our algorithms.
- 
-\section{Structure Planning}
-\label{sec:PlanningAlgorithm} 
   
- Using the scenarios and architectural elements we have defined in the previous section we will formulate our planning algorithm now.
- I will first introduce the planning algorithm informally followed by a more formal approach.
-      
- 
- 	 
- 
-%\begin{algorithm}
-%\caption{The planning algorithm}
-%\begin{algorithmic}
-%\IF {$i\geq maxval$} 
-%        \STATE $i\gets 0$
-%\ELSE
-%        \IF {$i+k\leq maxval$}
-%                \STATE $i\gets i+k$
-%        \ENDIF
-%\ENDIF 
-%\end{algorithmic}
-%\end{algorithm}
-
-
- \subsection{Alternative approaches}
- 
- 
- \section{Transforming Structure to Geometry}
- 
