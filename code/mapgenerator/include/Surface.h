@@ -25,7 +25,6 @@ public:
 	void removeForestPatch(){delete mForestPatch;}
 	ProcForestPatch* getForestPatch(){return mForestPatch;}
 
-
 	Ogre::Real getSpeed(){return mSpeed;} 
 
 	void setSpeed(Ogre::Real speed){mSpeed=speed;} 
@@ -65,7 +64,14 @@ public:
 	void destroyCell(Cell* cell); 
 
 	double mMaxGrowthVolume;
+
+	//double getSurfaceArea(); 
+	double getHeight(){return mHeight;}
+	double getWidth(){return mWidth;} 
+
 protected:
+	Ogre::Real mHeight;
+	Ogre::Real mWidth;
 
 	//procedural objects:
 	ProcForestPatch* mForestPatch; 

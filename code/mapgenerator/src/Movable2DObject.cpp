@@ -5,6 +5,7 @@ Movable2DObject::Movable2DObject(std::string& name, Ogre::SceneManager* sceneMgr
 {
 	mNode=0;
 	mEntity=0;
+	mScale=1.0;
 }
 
 Movable2DObject::~Movable2DObject(void)
@@ -63,3 +64,14 @@ bool Movable2DObject::update(Ogre::FrameEvent& evt)
 
 
 }*/
+
+
+void Movable2DObject::setScale(double scale)
+{
+
+double newScale= scale / mScale;
+//set node size:
+mNode->scale(Vector3(newScale,newScale,newScale)); 
+mScale = scale;
+
+}

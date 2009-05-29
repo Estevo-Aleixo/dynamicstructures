@@ -4,13 +4,10 @@
 
 typedef struct 
 {
-	float treeHeight;
+	unsigned int TreeLevels;
 	float treeTrunkWidth; 
-	float treeWidth;
-	unsigned int numBranches;
-	double treeBranchHeight;
+	float treeSpan;
 } TreeParameters; 
-
 
 
 class ProcTree :

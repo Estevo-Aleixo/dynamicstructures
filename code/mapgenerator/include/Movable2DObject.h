@@ -44,6 +44,18 @@ public:
 
 	inline const char* getEventHandlerName(){return mEventHandlerName;} 
 
+	void setMaterial()
+	{
+		//;
+	}
+	void setColor()
+	{
+		//;
+	}
+
+
+virtual void setScale(double scale);
+
 protected:
 	bool mActive;
 	OBJECTSTATE mState;

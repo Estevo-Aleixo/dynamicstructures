@@ -60,6 +60,9 @@ LuaGlue PauseAll(lua_State* l);
 LuaGlue LoadCanvasSurface(lua_State* l); 
 
 
+LuaGlue LoadInitialForestParameters(lua_State* l); 
+
+
 //http://lua-users.org/lists/lua-l/2004-04/msg00201.html
 
 void RegisterFunctions()
@@ -100,6 +103,7 @@ pLua->AddFunction("Save",Save);
 pLua->AddFunction("Quit",Quit);
 
 pLua->AddFunction("PauseAll",PauseAll);
+pLua->AddFunction("LoadCanvasSurface",LoadCanvasSurface);
 pLua->AddFunction("LoadCanvasSurface",LoadCanvasSurface);
 
 }

@@ -10,6 +10,13 @@ enum SCATTERMETHOD
 	THINNING = 1
 };
 
+struct
+{
+	double density; 
+}typedef forestParams;
+
+
+
 class ProcForestPatch :
 	public ObjectPatch
 {
@@ -20,7 +27,9 @@ public:
 	void setTreeCount(unsigned int count){mTreeCount= count;}
 	void setSurface(Surface* surface){mSurface = surface;} 
 	void scatter(SCATTERMETHOD method);	
-	
+	void createRandomScatter();
+
+	static forestParams loadParameters();
 protected:
 	std::vector<ProcTree*> mTrees;
 	unsigned int mTreeCount;

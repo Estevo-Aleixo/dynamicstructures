@@ -220,6 +220,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\FPSScenario.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\Functions.cpp"
 				>
 			</File>
@@ -339,12 +343,24 @@
 					>
 				</File>
 			</Filter>
+			<Filter
+				Name="Scenarios"
+				>
+				<File
+					RelativePath=".\Scenario.cpp"
+					>
+				</File>
+			</Filter>
 		</Filter>
 		<Filter
 			Name="Header Files"
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
+			<File
+				RelativePath=".\FPSScenario.h"
+				>
+			</File>
 			<File
 				RelativePath="..\include\God.h"
 				>
@@ -512,6 +528,14 @@
 						>
 					</File>
 				</Filter>
+			</Filter>
+			<Filter
+				Name="Scenarios"
+				>
+				<File
+					RelativePath=".\Scenario.h"
+					>
+				</File>
 			</Filter>
 		</Filter>
 		<Filter

@@ -24,6 +24,9 @@ type= Object2DType::SurfaceType;
 	mShowPolyLines= true; 
 	TimePassed=0;
 	mSceneMgr= sceneMgr;
+
+	mWidth= 100.0;
+	mHeight= 100.0; 
 }
 
 Surface::~Surface(void)
@@ -256,3 +259,8 @@ ProcForestPatch* Surface::createForestPatch(unsigned int density, TreeParameters
 {
 	return mForestPatch = new ProcForestPatch(mName+"_forest",mSceneMgr,this,min,max,density); 
 }
+
+//double Surface::getSurfaceArea()
+//{
+//	return 100.0;
+//} 

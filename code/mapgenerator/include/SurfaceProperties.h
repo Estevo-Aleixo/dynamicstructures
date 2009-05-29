@@ -30,7 +30,6 @@ public:
 	std::string cellType; 
 	
 	std::map<const char*, int> mExtraParameters;
-//, ltstr
 
 	const char* mCellObjectName;
 	unsigned int vertexDistance; 

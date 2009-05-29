@@ -14,20 +14,52 @@ ProcForestPatch::~ProcForestPatch(void)
 void ProcForestPatch::scatter(SCATTERMETHOD method)
 {
 
-	ProcTree* newTree;
+
 	switch(method)
 	{
 		case SCATTERMETHOD::GRID:
-		
-			for (int i=0; i < 10;i++){
-				for (int j=0; j < 10;j++)
+			
+					createRandomScatter(); 
+							break;   
+		case SCATTERMETHOD::THINNING:
+		//premyslaw ecosystem thinning
+
+			break;
+	}
+}
+void ProcForestPatch::createRandomScatter()
+{	
+	ProcTree* newTree;
+double averageTreeSpan= 10.0;
+//averageTreeSpan = (mMin_Params.treeSpan + mMax_Params.treeSpan) / 2
+
+//cols
+int cols = (int) (mSurface->getWidth()  / (averageTreeSpan / mDensity));
+//rows
+int rows = (int) (mSurface->getHeight() / (averageTreeSpan / mDensity));
+
+
+Ogre::Real xd= averageTreeSpan / mDensity; 
+Ogre::Real yd= averageTreeSpan / mDensity; 
+
+Vector2 pos;
+Ogre::Real p= 0.4;
+
+
+	for (int ix=0; ix < cols;ix++){
+				for (int iy=0; iy < rows; iy++)
 				{
-					Ogre::LogManager::getSingletonPtr()->logMessage("method will create tree "+ mName+"_tree"+Ogre::StringConverter::toString((Real)(i+1)*j));
-					newTree= new ProcTree(mName+"_tree"+Ogre::StringConverter::toString((Real)(i*10)+j),mSceneMgr,mMinParams,Vector2(i*20.0,j*20.0),0); 
+					Ogre::LogManager::getSingletonPtr()->logMessage("method will create tree "+ mName+"_tree"+Ogre::StringConverter::toString((Real)(ix+1)*iy));
+					
+					pos.x= mSurface->getPosition().x + xd*ix+Ogre::Math::RangeRandom(-p,p)*ix;
+					pos.y= mSurface->getPosition().y + yd*iy+Ogre::Math::RangeRandom(-p,p)*iy;
+					newTree= new ProcTree(mName+"_tree"+Ogre::StringConverter::toString((Real)(ix*10)+iy),mSceneMgr,mMinParams,pos,0); 
+					newTree->setScale(5.0); 
 					mTrees.push_back(newTree); 
 				}
 			}
-			//gamasutra method:
+
+	//gamasutra method:
 		/*
 			void CreateScatter(float x, float y, float w, float h, int rows, int cols)
 			{
@@ -39,10 +71,10 @@ void ProcForestPatch::scatter(SCATTERMETHOD method)
 				CreatePoint( Vector2(x+xd*ix+rndf(-p,p)*xd,y+yd*iy+rndf(-p,p)*yd));
 			}
 		*/
-		break;   
-		case SCATTERMETHOD::THINNING:
-		//premyslaw ecosystem thinning
 
-			break;
-	}
+
+
+
+
+
 }

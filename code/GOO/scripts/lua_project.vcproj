@@ -67,7 +67,7 @@
 				Name="VCLinkerTool"
 				AdditionalDependencies="OgreMain_d.lib OIS_d.lib CEGUIBase_d.lib OgreGUIRenderer_d.lib box2d_d.lib lua5.1.lib"
 				LinkIncremental="2"
-				AdditionalLibraryDirectories="..\..\Box2D\Library;&quot;$(OGRE_HOME)\lib&quot;;&quot;$(OGRE_HOME)\Dependencies\lib\$(ConfigurationName)&quot;;..\..\lua5.1\lib\static;$(CGALROOT)\lib;$(CGALROOT)\auxiliary\gmp\lib;$(CGALROOT)\auxiliary\TAUCS\lib"
+				AdditionalLibraryDirectories="..\..\Box2D\Library;&quot;$(OGRE_HOME)\lib&quot;;&quot;$(OGRE_HOME)\Dependencies\lib\$(ConfigurationName)&quot;;..\..\lua5.1\lib\static;&quot;$(CGALROOT)\lib&quot;;&quot;$(CGALROOT)\auxiliary\gmp\lib&quot;;&quot;$(CGALROOT)\auxiliary\TAUCS\lib&quot;"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				RandomizedBaseAddress="1"
