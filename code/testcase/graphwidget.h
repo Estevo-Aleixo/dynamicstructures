@@ -56,7 +56,11 @@ public:
 
     void itemMoved();
   Node* createNode(QPointF& pos);
-    Edge* createEdge(Node* source, Node* dest);
+  Node* getClosestNodeTo(Node* node);
+
+  Edge* createEdge(Node* source, Node* dest);
+
+
 protected:
     void keyPressEvent(QKeyEvent *event);
     void timerEvent(QTimerEvent *event);

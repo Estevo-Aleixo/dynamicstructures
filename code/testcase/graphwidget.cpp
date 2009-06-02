@@ -66,6 +66,7 @@ GraphWidget::GraphWidget(QWidget* parent)
 
     //create nodes:
     centerNode = new Node(this);
+    /*
     nodes.push_back(centerNode);
     nodes.push_back(new Node(this));
     nodes.push_back(new Node(this));
@@ -76,8 +77,9 @@ GraphWidget::GraphWidget(QWidget* parent)
     nodes.push_back(new Node(this));
     nodes.push_back(new Node(this));
     nodes.push_back(new Node(this));
-
+*/
     //create edges:
+ /*
     edges.push_back(new Edge(nodes[1], nodes[2]));
     edges.push_back(new Edge(nodes[2], nodes[3]));
     edges.push_back(new Edge(nodes[2], nodes[0]));
@@ -89,8 +91,8 @@ GraphWidget::GraphWidget(QWidget* parent)
     edges.push_back(new Edge(nodes[7], nodes[4]));
     edges.push_back(new Edge(nodes[8], nodes[7]));
     edges.push_back(new Edge(nodes[9], nodes[8]));
-
-
+*/
+/*
     foreach(Node* node, nodes)
     {
          scene->addItem(node);
@@ -110,7 +112,7 @@ GraphWidget::GraphWidget(QWidget* parent)
     nodes[7]->setPos(-50, 50);
     nodes[8]->setPos(0, 50);
     nodes[9]->setPos(50, 50);
-
+*/
      this->scale(qreal(0.8), qreal(0.8));
      this->setMinimumSize(400, 400);
      this->show();
@@ -250,6 +252,32 @@ Edge* GraphWidget::createEdge(Node* source, Node* dest)
 {
     Edge* newEdge= new Edge(source,dest);
     edges.push_back(newEdge);
+    scene->addItem(newEdge);
+
 
     return newEdge;
 }
+
+Node* GraphWidget::getClosestNodeTo(Node* node)
+{
+    double distance = 10000000;
+    double newDist;
+    Node* closestNode=0;
+
+    foreach(Node* n, nodes)
+    {
+            if (n!=node)
+            {
+                newDist = (node->x()- n->x())*(node->x()- n->x()) + (node->y()- n->y())*(node->y()- n->y());
+                 if (newDist < distance)
+                 {
+                    distance = newDist;
+                    closestNode= n;
+                 }
+
+            }
+     }
+
+    return closestNode;
+}
+
