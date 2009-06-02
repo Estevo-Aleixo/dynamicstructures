@@ -1,0 +1,12 @@
+INPUT(
+./release\main.o
+./release\mainwindow.o
+./release\forestgraph.o
+./release\layer.o
+./release\node.o
+./release\edge.o
+./release\node.o
+./release\graphwidget.o
+./release\moc_mainwindow.o
+./release\moc_graphwidget.o
+);

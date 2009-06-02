@@ -1,0 +1,12 @@
+INPUT(
+./debug\main.o
+./debug\mainwindow.o
+./debug\forestgraph.o
+./debug\layer.o
+./debug\node.o
+./debug\edge.o
+./debug\node.o
+./debug\graphwidget.o
+./debug\moc_mainwindow.o
+./debug\moc_graphwidget.o
+);
