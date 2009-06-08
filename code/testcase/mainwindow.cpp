@@ -1,10 +1,14 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+//visual widgets
+GraphWidget* graphForestView;
+GraphWidget* graphMapView;
 
-//QGraphicsScene *scene;
-//ForestGraph* forest;
- GraphWidget* graphView;
+ForestLogic* forestGenerator;
+
+Graph* forest, map;
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow)
@@ -12,28 +16,37 @@ MainWindow::MainWindow(QWidget *parent)
 
    ui->setupUi(this);
 
-   this->setWindowTitle("Forest Graph Generator");
+   this->setWindowTitle("Map Structure Search");
 
-   // graph widget:
-   graphView= new GraphWidget(this);
-   graphView->resize(650,650);
-   resize(900,900);
-   graphView->show();
+    //forest graph widget:
+   graphForestView= new GraphWidget(ui->parent_forest_widget);
+   graphForestView->resize(200,200);
+   graphForestView->show();
 
+   //map graph widget
+   graphMapView= new GraphWidget(ui->parent_map_widget);
+   graphMapView->resize(200,200);
+   graphMapView->show();
 
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+	//test
 }
 
-void MainWindow::on_btnGenerate_clicked()
+void MainWindow::on_btnGenerateForest_clicked()
 {
-    //QGraphicsRectItem *rect = scene.addRect(QRectF(0, 0, 100, 100))
-    ForestLogic* forest = new ForestLogic();
-   forest->createRandomScatter(graphView);
-    graphView->show();
+
+    forestGenerator = new ForestLogic();
+
+    delete graphForestView;
+    graphForestView= new GraphWidget(ui->parent_forest_widget);
+    graphForestView->resize(200,200);
+
+    forestGenerator->createRandomScatter(graphForestView);
+    graphForestView->show();
 
 }
 

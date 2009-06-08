@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>904</width>
-    <height>521</height>
+    <width>881</width>
+    <height>591</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,89 +17,399 @@
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>730</x>
-      <y>210</y>
-      <width>161</width>
-      <height>271</height>
+      <x>40</x>
+      <y>390</y>
+      <width>381</width>
+      <height>161</height>
      </rect>
     </property>
     <property name="title">
-     <string>Parameters</string>
+     <string>Parameters Forest Structure</string>
     </property>
-    <widget class="QPushButton" name="btnGenerate">
+    <widget class="QPushButton" name="btnGenerateForest">
      <property name="geometry">
       <rect>
-       <x>40</x>
-       <y>230</y>
-       <width>75</width>
+       <x>260</x>
+       <y>130</y>
+       <width>101</width>
        <height>23</height>
       </rect>
      </property>
      <property name="text">
-      <string>Generate</string>
+      <string>Generate Forest</string>
      </property>
     </widget>
-    <widget class="QWidget" name="formLayoutWidget">
+    <widget class="QComboBox" name="cmbScatteringType">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>10</x>
        <y>50</y>
-       <width>121</width>
-       <height>171</height>
+       <width>151</width>
+       <height>20</height>
       </rect>
      </property>
-     <layout class="QFormLayout" name="formLayout">
-      <item row="0" column="1">
-       <widget class="QLineEdit" name="lineEdit"/>
-      </item>
-      <item row="0" column="0">
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>width</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="label_2">
-        <property name="text">
-         <string>height</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="QLineEdit" name="lineEdit_2"/>
-      </item>
-      <item row="2" column="1">
-       <widget class="QLineEdit" name="lineEdit_3"/>
-      </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="label_3">
-        <property name="text">
-         <string>density</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="1">
-       <widget class="QLineEdit" name="lineEdit_4"/>
-      </item>
-      <item row="3" column="0">
-       <widget class="QLabel" name="label_4">
-        <property name="text">
-         <string>layers</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="1">
-       <widget class="QLineEdit" name="lineEdit_5"/>
-      </item>
-      <item row="4" column="0">
-       <widget class="QLabel" name="label_5">
-        <property name="text">
-         <string>connectivity</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
+     <property name="font">
+      <font>
+       <family>Minion Pro Cond</family>
+       <pointsize>8</pointsize>
+       <weight>9</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string>font: 75 8pt &quot;Minion Pro Cond&quot;;</string>
+     </property>
+     <item>
+      <property name="text">
+       <string>Grid Random Scattering</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Clustered Random Scattering</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QLabel" name="label_8">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>131</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Node Scattering Method:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_9">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>80</y>
+       <width>131</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Layers:</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="cmbLayers">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>100</y>
+       <width>151</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string>font: 75 8pt &quot;Minion Pro Cond&quot;;</string>
+     </property>
+     <item>
+      <property name="text">
+       <string>1 layer</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>2 layers</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>3 layers</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>4 layers</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>5 layers</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>6 layers</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QLabel" name="label_10">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>30</y>
+       <width>131</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Edge Connectivity</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="cmbConnectivity">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>50</y>
+       <width>151</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string>font: 75 8pt &quot;Minion Pro Cond&quot;;</string>
+     </property>
+     <item>
+      <property name="text">
+       <string>dense</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>medium</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>sparse </string>
+      </property>
+     </item>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="parent_forest_widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>60</y>
+      <width>381</width>
+      <height>321</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QWidget" name="parent_map_widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>470</x>
+      <y>60</y>
+      <width>401</width>
+      <height>321</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>30</y>
+      <width>161</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Palatino Linotype</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Forest Graph</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>470</x>
+      <y>30</y>
+      <width>161</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Palatino Linotype</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Map Graph</string>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_2">
+    <property name="geometry">
+     <rect>
+      <x>470</x>
+      <y>390</y>
+      <width>401</width>
+      <height>161</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Map generation</string>
+    </property>
+    <widget class="QCheckBox" name="chkDebug">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>110</y>
+       <width>91</width>
+       <height>18</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Debug Mode</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnGenerateMap">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>130</y>
+       <width>101</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Generate Map</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="cmbNumFightPoints">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>50</y>
+       <width>151</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <item>
+      <property name="text">
+       <string>3 </string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>4</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>5</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>6</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>7</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>8</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>9</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>10</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>111</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Local Fight Points:</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="cmbLFPMethod">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>110</y>
+       <width>151</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <item>
+      <property name="text">
+       <string>Random</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Find Clusters</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Find Symmetry</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>90</y>
+       <width>111</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>LFP search method:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>30</y>
+       <width>121</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Collision Point Treshold:</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="cmbCPTreshold">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>50</y>
+       <width>151</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <item>
+      <property name="text">
+       <string>&gt; num(nodes)</string>
+      </property>
+     </item>
     </widget>
    </widget>
   </widget>

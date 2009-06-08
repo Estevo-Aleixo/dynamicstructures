@@ -43,6 +43,8 @@
 #define GRAPHWIDGET_H
 
 #include <QtGui/QGraphicsView>
+#include "graphconcept.h"
+
 
 class Node;
 class Edge;
@@ -55,11 +57,14 @@ public:
     GraphWidget(QWidget* parent);
 
     void itemMoved();
-  Node* createNode(QPointF& pos);
+
   Node* getClosestNodeTo(Node* node);
 
-  Edge* createEdge(Node* source, Node* dest);
+  Node* addNode(QPointF& pos);
+  Edge* addEdge(int i, int j, int directed);
 
+
+  Graph mGraph; //boost adjacency list<vecS, vecS, undirectedS, gVertex, gEdge>
 
 protected:
     void keyPressEvent(QKeyEvent *event);
@@ -69,8 +74,6 @@ protected:
 
     void scaleView(qreal scaleFactor);
     QGraphicsScene* scene;
-
-
 
 private:
     int timerId;

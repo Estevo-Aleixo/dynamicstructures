@@ -16,7 +16,7 @@ public:
 std::vector<Layer*> layers;
 std::vector<Node*> nodes;
 
-void createRandomScatter(GraphWidget* graphView);
+Graph* createRandomScatter(GraphWidget* graphView);
 
 };
 

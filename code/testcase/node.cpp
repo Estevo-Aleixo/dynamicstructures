@@ -119,7 +119,7 @@ bool Node::advance()
     if (newPos == pos())
         return false;
 
-    setPos(newPos);
+   // setPos(newPos);
     return true;
 }
 

@@ -5,7 +5,13 @@
 #include "forestlogic.h"
 #include "graphwidget.h"
 
-//#include "BaseHeaders.h"
+
+//include boost:
+
+#include "BaseHeaders.h"
+#include "graphconcept.h"
+
+
 
 namespace Ui
 {
@@ -24,7 +30,7 @@ private:
     Ui::MainWindow *ui;
 
 private slots:
-    void on_btnGenerate_clicked();
+    void on_btnGenerateForest_clicked();
 };
 
 #endif // MAINWINDOW_H

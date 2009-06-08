@@ -16,6 +16,7 @@ HEADERS += BaseHeaders.h \
     edge.h \
     graphwidget.h \
     mainwindow.h \
-    forestlogic.h
+    forestlogic.h \
+    graphconcept.h
 FORMS += mainwindow.ui
 OTHER_FILES += 
