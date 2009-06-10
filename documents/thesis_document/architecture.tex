@@ -31,21 +31,21 @@ In the next three sections we define game world scenarios that could occupate th
 \end{enumerate} 
 
 
-\section{Scenario 1: Puzzle / Adventure Dungeon}
-Leveldesign Patterns in Puzzle and Adventure Dungeons:
+%\section{Scenario 1: Puzzle / Adventure Dungeon}
+%Leveldesign Patterns in Puzzle and Adventure Dungeons:
 
-\begin{itemize}
-\item circular paths, loops. Example: The player arrives at a door and it is locked, you must take a different route and along the way you find a key. Now the player heads back to the door through which he can now proceed.  
-\item start at bottom, move to top. It is almost always the case that dungeons have multiple floors. The player starts at the bottom floor and progressing through the dungeon means moving up to a higher floor.      
-\item re-using different paths by opening new door and locking old ones.    
-\item no path deviation. Rules for movement are very strict in these type of games.
+%\begin{itemize}
+%\item circular paths, loops. Example: The player arrives at a door and it is locked, you must take a different route and along the way you find a key. Now the player heads back to the door through which he can now proceed.  
+%\item start at bottom, move to top. It is almost always the case that dungeons have multiple floors. The player starts at the bottom floor and progressing through %the dungeon means moving up to a higher floor.      
+%\item re-using different paths by opening new door and locking old ones.    
+%\item no path deviation. Rules for movement are very strict in these type of games.
 
-\end{itemize}
+%\end{itemize}
 
 %\section{Planning Algorithm for Scenario 1}
 
 
-\section{Scenario 2: 3rd Person Strategy}
+%\section{Scenario 2: 3rd Person Strategy}
 
 
 % hoe begint het algoritme?
@@ -66,7 +66,12 @@ Leveldesign Patterns in Puzzle and Adventure Dungeons:
 %
 
 
-\section{Scenario 3: 1st Person Shooter Multiplayer Arenas}
+\section{The Scenario: 1st Person Shooter Multiplayer Arenas}
+
+A first-person shooter is a game genre which centers the gameplay around gun- or projectile weapon-based combat through the first person perspective; i.e., the action is seen through the eyes of a protagonist, and thus the player. 
+
+
+From this point on I will refer to this scenario as the 'Arena Scenario'.  
 
 
 %\begin{figure}[ht]
@@ -83,19 +88,49 @@ Leveldesign Patterns in Puzzle and Adventure Dungeons:
 %\caption[Overview of classic FPS maps(from the game Counterstrike:Source). The "Multiple paths" pattern %is clearly visible.]{}
 %\end{figure}
 
-\subsection{symmetry}
+%\subsection{symmetry}
 
-\subsection{Multiple paths}
+%\subsection{Multiple paths}
 
-\subsection{Local fights}
+%\subsection{Local fights}
 
-\subsection{Collision points}
+%\subsection{Collision points}
 
-\subsection{Reference points}
+%\subsection{Reference points}
 	
-\subsection{Defense areas}
+%\subsection{Defense areas}
 
-\subsection{Risk Incentive}
+%\subsection{Risk Incentive}
+
+
+
+\subsection{Method for Finding Local Fight Points}
+
+%randomization;
+
+%patterns: symmetry patterns: 
+%			polygonals: square, circle,
+%
+
+\subsection{Method for Finding Multiple Paths}
+
+In this section I describe the $generateMultiplePaths()$ method for the generation of multiple paths to LFP's. This method should satisfy the 'Multiple Paths' pattern
+of the \emph{Arena scenario}. Again note that there are two important graph structures: the $ForestGraph$ and the $MapGraph$. The initial state of the $ForestGraph$ holds all trees (vertices) and possible connections between trees (edges). The $MapGraph$ holds copies of all LFP vertices in the $ForestGraph$ which were found using the $findLFPs()$ method from the previous section. 
+
+In the initial state all (LFP) vertices of the $MapGraph$ do not have any outgoing edges. For each LFP vertex in the $ForestGraph$ this method searches for the shortest path to all other reachable LFP's. Now we have found the shortest paths from every LFP vertex to any other LFP vertex, however we need alternative paths from a LFP to another LFP. So what follows is an iterative process to find alternative paths. In the first step the method found all shortest paths between LFPs. 
+In the next step each shortest path is traversed and for every edge encountered, the edge's $traverse_rate$ property is increased by one. In this way we kan keep track of edges that are used by two or more shortest paths. The method stores the edges with highest $traverse_rate$ (edges that are used by the most shortest paths) in a list. When all shortest paths between LPF's have been traversed, the edges(with corresponding vertices) in the resulting list are copied to the $MapGraph$. After this step, the edges in the list are removed from the $ForestGraph$. In the next iteration the shortest paths will be alternatives since 1 or more edges of the shortest paths from the previous iteration have been removed from the graph. If all LFP's are unconnected with respect to other LFP's in the $ForestGraph$ we proceed to the next step; which is connecting all unconnected subgraphs to form a single connected graph.       
+
+%todo: waarom?%
+         
+
+%algorithm outline
+
+
+
+
+
+
+
 
 %\section{Planning Algorithm for Scenario 3}
 
