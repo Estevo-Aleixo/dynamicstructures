@@ -39,50 +39,47 @@
 **
 ****************************************************************************/
 
-#ifndef GRAPHWIDGET_H
-#define GRAPHWIDGET_H
+#ifndef QtVertexItem_H
+#define QtVertexItem_H
 
-#include <QtGui/QGraphicsView>
-#include "graphconcept.h"
+#include <QGraphicsItem>
+#include <QList>
 
-//class QtVertexItem;
-//class QtEdgeItem;
+class QtEdgeItem;
+class GraphWidget;
 
-#include "QtVertexItem.h"
-#include "QtEdgeItem.h"
+QT_BEGIN_NAMESPACE
+class QGraphicsSceneMouseEvent;
+QT_END_NAMESPACE
 
-class GraphWidget : public QGraphicsView
+class QtVertexItem : public QGraphicsItem
 {
-    Q_OBJECT
-
 public:
-    GraphWidget(QWidget* parent);
+    QtVertexItem(GraphWidget *graphWidget);
 
-    void itemMoved();
+    void addEdge(QtEdgeItem *edge);
+    QList<QtEdgeItem *> edges() const;
 
-  QtVertexItem* getClosestNodeTo(QtVertexItem* node);
+    enum { Type = UserType + 1 };
+    int type() const { return Type; }
 
-  QtVertexItem* addNode(QPointF& pos);
-  QtEdgeItem* addEdge(int i, int j, int directed);
+    void calculateForces();
+    bool advance();
 
-
-  Graph_qt mGraph; //boost adjacency list<vecS, vecS, undirectedS, gVertex, gEdge>
+    QRectF boundingRect() const;
+    QPainterPath shape() const;
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
 
 protected:
-    void keyPressEvent(QKeyEvent *event);
-    void timerEvent(QTimerEvent *event);
-    void wheelEvent(QWheelEvent *event);
-    void drawBackground(QPainter *painter, const QRectF &rect);
+    QVariant itemChange(GraphicsItemChange change, const QVariant &value);
 
-    void scaleView(qreal scaleFactor);
-    QGraphicsScene* scene;
-
+    void mousePressEvent(QGraphicsSceneMouseEvent *event);
+    void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
+    
 private:
-    int timerId;
-    QList<QtVertexItem*> nodes;
-    QList<QtEdgeItem*> edges;
-
-    QtVertexItem *centerNode;
+    QList<QtEdgeItem *> edgeList;
+    QPointF newPos;
+    GraphWidget *graph;
 };
 
 #endif

@@ -40,8 +40,8 @@
 ****************************************************************************/
 
 #include "graphwidget.h"
-#include "edge.h"
-#include "node.h"
+//#include "QtVertexItem.h"
+//#include "QtEdgeItem.h"
 
 #include <QDebug>
 #include <QGraphicsScene>
@@ -63,56 +63,9 @@ GraphWidget::GraphWidget(QWidget* parent)
     this->setTransformationAnchor(this->AnchorUnderMouse);
     this->setResizeAnchor(this->AnchorViewCenter);
 
-
     //create nodes:
-    centerNode = new Node(this);
-
-
-
-
-
-
-
-
-
-
-
-
+    centerNode = new QtVertexItem(this);
     // this->scale(qreal(0.8), qreal(0.8));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
      this->setMinimumSize(400, 400);
      this->show();
@@ -151,7 +104,7 @@ void GraphWidget::keyPressEvent(QKeyEvent *event)
     case Qt::Key_Enter:
 
         foreach (QGraphicsItem *item, scene->items()) {
-            if (qgraphicsitem_cast<Node *>(item))
+            if (qgraphicsitem_cast<QtVertexItem *>(item))
                 item->setPos(-150 + qrand() % 300, -150 + qrand() % 300);
         }
         break;
@@ -164,17 +117,17 @@ void GraphWidget::timerEvent(QTimerEvent *event)
 {
     Q_UNUSED(event);
 
-    QList<Node *> nodes;
+    QList<QtVertexItem *> nodes;
     foreach (QGraphicsItem *item, scene->items()) {
-        if (Node *node = qgraphicsitem_cast<Node *>(item))
+        if (QtVertexItem *node = qgraphicsitem_cast<QtVertexItem *>(item))
             nodes << node;
     }
 
-    foreach (Node *node, nodes)
+    foreach (QtVertexItem *node, nodes)
         node->calculateForces();
 
     bool itemsMoved = false;
-    foreach (Node *node, nodes) {
+    foreach (QtVertexItem *node, nodes) {
         if (node->advance())
             itemsMoved = true;
     }
@@ -237,9 +190,9 @@ void GraphWidget::scaleView(qreal scaleFactor)
      this->scale(scaleFactor, scaleFactor);
 }
 
-Node* GraphWidget::addNode(QPointF& pos)
+QtVertexItem* GraphWidget::addNode(QPointF& pos)
 {
-    Node*  newNode=new Node(this);
+   QtVertexItem*  newNode=new QtVertexItem(this);
     newNode->setPos(pos);
     nodes.push_back(newNode);
     scene->addItem(newNode);
@@ -247,39 +200,39 @@ Node* GraphWidget::addNode(QPointF& pos)
     Graph::vertex_descriptor v;
     v = boost::add_vertex(mGraph);
 
-    mGraph[v].node= newNode;
+    mGraph[v].vertexItem= newNode;
 
 
     return newNode;
 }
 
-Edge* GraphWidget::addEdge(int i, int j, int directed)
+QtEdgeItem* GraphWidget::addEdge(int i, int j, int directed)
 {
 
      edge_r retValue;
 
         //get Nodes:
-        Node* src = mGraph[i].node;
-        Node* dest = mGraph[j].node;
-         Edge* newEdge= new Edge(src, dest);
+        QtVertexItem* src = mGraph[i].vertexItem;
+         QtVertexItem* dest = mGraph[j].vertexItem;
+         QtEdgeItem* newEdge= new QtEdgeItem(src, dest);
 
         edges.push_back(newEdge);
         scene->addItem(newEdge);
 
 
         retValue = boost::add_edge(i,j ,mGraph);
-        mGraph[retValue.first].edge= newEdge;
+        mGraph[retValue.first].edgeItem= newEdge;
 
     return newEdge;
 }
 
-Node* GraphWidget::getClosestNodeTo(Node* node)
+QtVertexItem* GraphWidget::getClosestNodeTo(QtVertexItem* node)
 {
     double distance = 10000000;
     double newDist;
-    Node* closestNode=0;
+    QtVertexItem* closestNode=0;
 
-    foreach(Node* n, nodes)
+    foreach(QtVertexItem* n, nodes)
     {
             if (n!=node)
             {

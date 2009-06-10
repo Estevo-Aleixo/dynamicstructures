@@ -4,9 +4,13 @@
 
 #include "mainwindow.h"
 #include "BaseHeaders.h"
-#include "graphwidget.h"
-#include "Node.h"
+
 #include "Layer.h"
+
+#include "graphwidget.h"
+
+#include "QtEdgeItem.h"
+#include "QtVertexItem.h"
 
 class ForestLogic
 {
@@ -14,9 +18,13 @@ public:
     ForestLogic();
 
 std::vector<Layer*> layers;
-std::vector<Node*> nodes;
+std::vector<QtVertexItem*> nodes;
 
-Graph* createRandomScatter(GraphWidget* graphView);
+//Graph_qt* createRandomScatter(GraphWidget* graphView);
+
+Graph* createForestGraph(int layers, double connectionDensity);
+Graph* createRandomScatter();
+void createConnections(Graph*, double density);
 
 };
 

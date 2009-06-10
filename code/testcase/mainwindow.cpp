@@ -45,7 +45,7 @@ void MainWindow::on_btnGenerateForest_clicked()
     graphForestView= new GraphWidget(ui->parent_forest_widget);
     graphForestView->resize(200,200);
 
-    forestGenerator->createRandomScatter(graphForestView);
+   // forestGenerator->createRandomScatter(graphForestView);
     graphForestView->show();
 
 }

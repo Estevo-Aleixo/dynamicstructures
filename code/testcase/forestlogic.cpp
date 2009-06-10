@@ -10,10 +10,10 @@ ForestLogic::ForestLogic()
 }
 
 
-Graph*  ForestLogic::createRandomScatter(GraphWidget* graphView)
+Graph_qt*  ForestLogic::createRandomScatter(GraphWidget* graphView)
  {
 
-    Graph* lGraph= new Graph();
+    Graph_qt* lGraph= new Graph_qt();
 
     double averageTreeSpan= 40.0;
     double mDensity=1;
@@ -35,8 +35,8 @@ double offsetY;
 
 int i=0;
 
-Node* node;
-Node* node_dest;
+QtVertexItem* node;
+QtVertexItem* node_dest;
      for (int ix=0; ix < cols; ix++){
                for (int iy=0; iy < rows; iy++)
                   {
@@ -58,3 +58,15 @@ Node* node_dest;
                             }
     return lGraph;
 }
+
+
+Graph* createForestGraph(int layers, double connectionDensity)
+{
+
+    Graph* newGraph;
+
+    newGraph= createRandomScatter();//more settings
+    createConnections(newGraph, 1.0);
+
+}
+

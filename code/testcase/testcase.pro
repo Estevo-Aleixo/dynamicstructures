@@ -6,17 +6,19 @@ QT += opengl \
 TARGET = testcase
 TEMPLATE = app
 SOURCES += main.cpp \
-    node.cpp \
-    edge.cpp \
     graphwidget.cpp \
     mainwindow.cpp \
-    forestlogic.cpp
+    forestlogic.cpp \
+    QtVertexItem.cpp \
+    QtEdgeItem.cpp \
+    scenariohandler.cpp
 HEADERS += BaseHeaders.h \
-    node.h \
-    edge.h \
     graphwidget.h \
     mainwindow.h \
     forestlogic.h \
-    graphconcept.h
+    graphconcept.h \
+    QtEdgeItem.h \
+    QtVertexItem.h \
+    scenariohandler.h
 FORMS += mainwindow.ui
 OTHER_FILES += 

@@ -3,6 +3,7 @@
 
 #include <QtGui/QMainWindow>
 #include "forestlogic.h"
+#include "scenariohandler.h"
 #include "graphwidget.h"
 
 

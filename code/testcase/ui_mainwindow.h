@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'mainwindow.ui'
 **
-** Created: Mon Jun 8 15:39:56 2009
+** Created: Wed Jun 10 17:20:07 2009
 **      by: Qt User Interface Compiler version 4.5.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -22,6 +22,8 @@
 #include <QtGui/QMainWindow>
 #include <QtGui/QPushButton>
 #include <QtGui/QStatusBar>
+#include <QtGui/QTabWidget>
+#include <QtGui/QTextEdit>
 #include <QtGui/QToolBar>
 #include <QtGui/QWidget>
 
@@ -57,6 +59,11 @@ public:
     QLabel *label_2;
     QLabel *label_3;
     QComboBox *cmbCPTreshold;
+    QTabWidget *tabWidget;
+    QWidget *tab;
+    QTextEdit *textEdit;
+    QWidget *tab_2;
+    QTextEdit *textEdit_2;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
 
@@ -64,7 +71,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(881, 591);
+        MainWindow->resize(881, 830);
         actionNew = new QAction(MainWindow);
         actionNew->setObjectName(QString::fromUtf8("actionNew"));
         actionSave = new QAction(MainWindow);
@@ -154,6 +161,21 @@ public:
         cmbCPTreshold = new QComboBox(groupBox_2);
         cmbCPTreshold->setObjectName(QString::fromUtf8("cmbCPTreshold"));
         cmbCPTreshold->setGeometry(QRect(220, 50, 151, 22));
+        tabWidget = new QTabWidget(centralWidget);
+        tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
+        tabWidget->setGeometry(QRect(40, 560, 721, 211));
+        tab = new QWidget();
+        tab->setObjectName(QString::fromUtf8("tab"));
+        textEdit = new QTextEdit(tab);
+        textEdit->setObjectName(QString::fromUtf8("textEdit"));
+        textEdit->setGeometry(QRect(0, 0, 721, 191));
+        tabWidget->addTab(tab, QString());
+        tab_2 = new QWidget();
+        tab_2->setObjectName(QString::fromUtf8("tab_2"));
+        textEdit_2 = new QTextEdit(tab_2);
+        textEdit_2->setObjectName(QString::fromUtf8("textEdit_2"));
+        textEdit_2->setGeometry(QRect(0, 0, 721, 191));
+        tabWidget->addTab(tab_2, QString());
         MainWindow->setCentralWidget(centralWidget);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
@@ -163,6 +185,9 @@ public:
         MainWindow->setStatusBar(statusBar);
 
         retranslateUi(MainWindow);
+
+        tabWidget->setCurrentIndex(1);
+
 
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi
@@ -232,6 +257,8 @@ public:
         cmbCPTreshold->insertItems(0, QStringList()
          << QApplication::translate("MainWindow", "> num(nodes)", 0, QApplication::UnicodeUTF8)
         );
+        tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Debug info", 0, QApplication::UnicodeUTF8));
+        tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MainWindow", "Errors", 0, QApplication::UnicodeUTF8));
         Q_UNUSED(MainWindow);
     } // retranslateUi
 
