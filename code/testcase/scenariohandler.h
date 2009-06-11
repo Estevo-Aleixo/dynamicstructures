@@ -4,10 +4,9 @@
 
 #include "MainWindow.h"
 #include <qtextedit.h>
+
 //#include "GraphConcept.h"
 //#include "GraphWidget.h"
-
-
 
 class ScenarioHandler
 {
@@ -19,12 +18,10 @@ public:
     void runScenario();
 
     void setDebugTextBox(int text);
-
     //{mDebugText= text;}
 
-
   private:
-    VertexList findLFPs(Graph& forestGraph, Graph& mapGraph);
+    std::list<Vertex> findLFPs(Graph& forestGraph, Graph& mapGraph);
 
     void generateMultiplePaths(Graph& forestGraph, VertexList& lfpVertices, Graph& mapGraph);
 
@@ -32,7 +29,7 @@ public:
     Graph  mForestGraph,mMapGraph;
     GraphWidget mForestWidget, mMapWidget;
 
-    VertexList lfpVertices;
+    std::list<Vertex> lfpVertices;
 
     QTextEdit* mDebugText;
 

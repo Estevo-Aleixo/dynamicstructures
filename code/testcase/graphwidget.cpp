@@ -65,7 +65,6 @@ GraphWidget::GraphWidget(QWidget* parent)
 
     //create nodes:
     centerNode = new QtVertexItem(this);
-    // this->scale(qreal(0.8), qreal(0.8));
 
      this->setMinimumSize(400, 400);
      this->show();
