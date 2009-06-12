@@ -2,16 +2,20 @@
 #define SCENARIOHANDLER_H
 
 
-#include "MainWindow.h"
-#include <qtextedit.h>
+//#include "MainWindow.h"
 
-//#include "GraphConcept.h"
-//#include "GraphWidget.h"
+#include <qtextedit.h>
+#include "GraphConcept.h"
+#include "GraphWidget.h"
+
+
+//creates graph structure for the mapgraph
+
 
 class ScenarioHandler
 {
 public:
-    ScenarioHandler(Graph& forestGraph, Graph& mapGraph, GraphWidget& forestWidget, GraphWidget& mapWidget);
+    ScenarioHandler(Graph* forestGraph, Graph* mapGraph, GraphWidget* forestWidget, GraphWidget* mapWidget);
 
     //LFP
 
@@ -21,15 +25,17 @@ public:
     //{mDebugText= text;}
 
   private:
-    std::list<Vertex> findLFPs(Graph& forestGraph, Graph& mapGraph);
+    std::vector<vertex_descriptor>* findLFPs(Graph* forestGraph, Graph* mapGraph);
 
-    void generateMultiplePaths(Graph& forestGraph, VertexList& lfpVertices, Graph& mapGraph);
+    void generateMultiplePaths(Graph* forestGraph, std::vector<vertex_descriptor>* lfpVertices, Graph* mapGraph);
 
 
-    Graph  mForestGraph,mMapGraph;
-    GraphWidget mForestWidget, mMapWidget;
+    Graph*  mForestGraph;
+    Graph*  mMapGraph;
+    GraphWidget* mForestWidget;
+    GraphWidget* mMapWidget;
 
-    std::list<Vertex> lfpVertices;
+    std::vector<vertex_descriptor>* lfpVertices;
 
     QTextEdit* mDebugText;
 

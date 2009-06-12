@@ -1,6 +1,7 @@
 #include "Main.h"
 #include "World.h"
 
+
 //standard constructor
 Main::Main()
     {
@@ -43,6 +44,14 @@ Main::~Main()
 #ifndef OGRE_STATIC_LIB
 		pluginsPath = mResourcePath + "plugins.cfg";
 #endif
+
+
+
+
+		graph_traits<>::vertex_iterator vi, vi_end;
+
+
+
 
         mRoot = new Root(pluginsPath, mResourcePath + "ogre.cfg", mResourcePath + "Ogre.log");
 

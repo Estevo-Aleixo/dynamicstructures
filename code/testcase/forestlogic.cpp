@@ -9,11 +9,9 @@ ForestLogic::ForestLogic()
 
 }
 
-
-Graph_qt*  ForestLogic::createRandomScatter(GraphWidget* graphView)
+void  ForestLogic::createRandomScatter(Graph* g,forestParams& params)
  {
 
-    Graph_qt* lGraph= new Graph_qt();
 
     double averageTreeSpan= 40.0;
     double mDensity=1;
@@ -45,8 +43,8 @@ QtVertexItem* node_dest;
                                         offsetY = 0;//(-p + ((double)(qrand()%100)/100.0) * (2*p))*(yd * 0.5);
                                         pos.setX(0 + xd * ix + offsetX * ix);
                                         pos.setY(0 + yd * iy + offsetY * iy);
-                                        node= graphView->addNode(pos);
-                                        node_dest= graphView->getClosestNodeTo(node);
+                                        //node= graphView->addNode(pos);
+                                        //node_dest= graphView->getClosestNodeTo(node);
 
                                         int n= (int)((qrand()%100)/100.0)*(i-1);
                                         int m= (int)((qrand()%100)/100.0)*(i-1);
@@ -56,17 +54,33 @@ QtVertexItem* node_dest;
                                         }
                                 }
                             }
-    return lGraph;
 }
 
 
-Graph* createForestGraph(int layers, double connectionDensity)
+Graph*  ForestLogic::createForestGraph(GraphWidget* graphView, forestParams& params)
 {
 
     Graph* newGraph;
 
-    newGraph= createRandomScatter();//more settings
-    createConnections(newGraph, 1.0);
+    initForestGraph(newGraph, graphView,params);
+    createRandomScatter(newGraph,params);
+    createConnections(newGraph, params.layers, params.con_density);
+
+    return newGraph;
+}
+
+void ForestLogic::initForestGraph(Graph* g, GraphWidget* graphView, forestParams& params)
+{
+
+
 
 }
+
+
+void ForestLogic::createConnections(Graph* g, int layers, double connectionDensity)
+{
+
+}
+
+
 

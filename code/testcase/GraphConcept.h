@@ -13,7 +13,7 @@
 #include <boost/graph/breadth_first_search.hpp>
 #include <boost/tokenizer.hpp>
 #include <boost/tuple/tuple.hpp>
-
+#include <boost/graph/dijkstra_shortest_paths.hpp>
 
 class QtVertexItem;
 class QtEdgeItem;
@@ -62,12 +62,13 @@ enum EdgeFPSType{HORIZONTAL_CONNECTION,VERTICAL_CONNECTION};
       std::string name;
       EdgeFPSType type;
   };
+  typedef std::pair<int, int> Edge;
 
   typedef adjacency_list<vecS, vecS, undirectedS, TreeNode_visual, Connection_visual> Graph_qt;
-  typedef adjacency_list<vecS, vecS, undirectedS, TreeNode, Connection> Graph;
+  typedef adjacency_list<vecS, vecS, undirectedS, TreeNode, property < edge_weight_t, int > > Graph;
 
-  typedef graph_traits<Graph>::vertex_descriptor Vertex;
-  typedef graph_traits<Graph>::edge_descriptor Edge;
+  typedef graph_traits<Graph>::vertex_descriptor vertex_descriptor;
+  typedef graph_traits<Graph>::edge_descriptor edge_descriptor;
 
  // typedef std::list<Vertex> VertexList;
 

@@ -12,6 +12,19 @@
 #include "QtEdgeItem.h"
 #include "QtVertexItem.h"
 
+struct forestParams
+{
+int width;
+int height;
+int density;
+int layers;
+int con_density;
+};
+
+
+//creates graph structure for the forestgraph
+
+
 class ForestLogic
 {
 public:
@@ -20,11 +33,12 @@ public:
 std::vector<Layer*> layers;
 std::vector<QtVertexItem*> nodes;
 
-//Graph_qt* createRandomScatter(GraphWidget* graphView);
+Graph* createForestGraph(GraphWidget* graphView, forestParams& params);
+void initForestGraph(Graph* g, GraphWidget* graphView, forestParams& params);
 
-Graph* createForestGraph(int layers, double connectionDensity);
-Graph* createRandomScatter();
-void createConnections(Graph*, double density);
+void createRandomScatter(Graph* g, forestParams& params);
+void createConnections(Graph* g, int layers, double connectionDensity);
+
 
 };
 
