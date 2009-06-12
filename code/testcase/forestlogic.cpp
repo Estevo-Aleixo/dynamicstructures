@@ -72,13 +72,36 @@ Graph*  ForestLogic::createForestGraph(GraphWidget* graphView, forestParams& par
 void ForestLogic::initForestGraph(Graph* g, GraphWidget* graphView, forestParams& params)
 {
 
+   /*
+  const int num_nodes = 5;
+  enum nodes { A, B, C, D, E };
+  char name[] = "ABCDE";
+typedef std::pair<int, int> Edge;
 
+  Edge edge_array[] = { Edge(A, C), Edge(B, B), Edge(B, D), Edge(B, E),
+    Edge(C, B), Edge(C, D), Edge(D, E), Edge(E, A), Edge(E, B)
+  };
+  int weights[] = { 1, 2, 1, 2, 7, 3, 1, 1, 1 };
+  int num_arcs = sizeof(edge_array) / sizeof(Edge);
+
+  Graph mygraph(edge_array, edge_array + num_arcs, weights, num_nodes);
+  property_map<Graph, edge_weight_t>::type weightmap = get(edge_weight, *g);
+*/
+ // g= new Graph(edge_array, edge_array + num_arcs, weights, num_nodes);
 
 }
 
 
 void ForestLogic::createConnections(Graph* g, int layers, double connectionDensity)
 {
+
+
+
+
+
+
+
+
 
 }
 
