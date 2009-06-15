@@ -42,6 +42,8 @@
 #ifndef QtVertexItem_H
 #define QtVertexItem_H
 
+#include "graphconcept.h"
+
 #include <QGraphicsItem>
 #include <QList>
 
@@ -52,10 +54,12 @@ QT_BEGIN_NAMESPACE
 class QGraphicsSceneMouseEvent;
 QT_END_NAMESPACE
 
+enum VertexState{normal, important, active,unimportant, lfp, startnode, vertexOfInterest};
+
 class QtVertexItem : public QGraphicsItem
 {
 public:
-    QtVertexItem(GraphWidget *graphWidget);
+    QtVertexItem(GraphWidget *graphWidget, Graph* g, QPointF& pos, QString& name="");
 
     void addEdge(QtEdgeItem *edge);
     QList<QtEdgeItem *> edges() const;
@@ -69,6 +73,14 @@ public:
     QRectF boundingRect() const;
     QPainterPath shape() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
+    QString strLabel;
+    QGraphicsTextItem* itemLabel;
+
+    vertex_descriptor getVertexDescriptor(){return mV;}
+
+    void setState(VertexState state);
+
+    VertexState mState;
 
 protected:
     QVariant itemChange(GraphicsItemChange change, const QVariant &value);
@@ -76,6 +88,7 @@ protected:
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
     void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
     
+    vertex_descriptor mV;
 private:
     QList<QtEdgeItem *> edgeList;
     QPointF newPos;

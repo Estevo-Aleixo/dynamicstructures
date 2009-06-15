@@ -49,16 +49,26 @@
 static const double Pi = 3.14159265358979323846264338327950288419717;
 static double TwoPi = 2.0 * Pi;
 
-QtEdgeItem::QtEdgeItem(QtVertexItem *sourceQtVertexItem, QtVertexItem *destQtVertexItem)
-    : arrowSize(10)
+
+
+QtEdgeItem::QtEdgeItem(vertex_descriptor& start, vertex_descriptor& end, Graph* g)
+         : arrowSize(10)
 {
+    mState=normal_edge;
+    edge_r retValue;
+    retValue =  boost::add_edge(start,end,*g);
+
     setAcceptedMouseButtons(0);
-    source = sourceQtVertexItem;
-    dest = destQtVertexItem;
+    source = (*g)[start].vertexItem;
+    dest = (*g)[end].vertexItem;;
     source->addEdge(this);
     dest->addEdge(this);
     adjust();
+
+
 }
+
+
 
 QtEdgeItem::~QtEdgeItem()
 {
@@ -121,9 +131,6 @@ void QtEdgeItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWid
 
     // Draw the line itself
     QLineF line(sourcePoint, destPoint);
-    painter->setPen(QPen(Qt::black, 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
-    painter->drawLine(line);
-
     // Draw the arrows if there's enough room
     double angle = ::acos(line.dx() / line.length());
     if (line.dy() >= 0)
@@ -132,13 +139,31 @@ void QtEdgeItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWid
     QPointF sourceArrowP1 = sourcePoint + QPointF(sin(angle + Pi / 3) * arrowSize,
                                                   cos(angle + Pi / 3) * arrowSize);
     QPointF sourceArrowP2 = sourcePoint + QPointF(sin(angle + Pi - Pi / 3) * arrowSize,
-                                                  cos(angle + Pi - Pi / 3) * arrowSize);   
+                                                  cos(angle + Pi - Pi / 3) * arrowSize);
     QPointF destArrowP1 = destPoint + QPointF(sin(angle - Pi / 3) * arrowSize,
                                               cos(angle - Pi / 3) * arrowSize);
     QPointF destArrowP2 = destPoint + QPointF(sin(angle - Pi + Pi / 3) * arrowSize,
                                               cos(angle - Pi + Pi / 3) * arrowSize);
 
-    painter->setBrush(Qt::black);
+
+
+    switch(mState)
+    {
+        case normal_edge:
+        painter->setPen(QPen(Qt::black, 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
+        break;
+        case important_edge:
+        painter->setPen(QPen(Qt::red, 2, Qt::DotLine, Qt::RoundCap, Qt::RoundJoin));
+        break;
+        case interest_edge:
+        painter->setPen(QPen(Qt::green, 1, Qt::DotLine, Qt::RoundCap, Qt::RoundJoin));
+        break;
+
+    }
+
+    painter->drawLine(line);
+
+       painter->setBrush(Qt::black);
     painter->drawPolygon(QPolygonF() << line.p1() << sourceArrowP1 << sourceArrowP2);
     painter->drawPolygon(QPolygonF() << line.p2() << destArrowP1 << destArrowP2);        
 }

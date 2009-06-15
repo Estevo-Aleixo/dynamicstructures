@@ -14,11 +14,10 @@
 
 struct forestParams
 {
-int width;
-int height;
 int density;
 int layers;
 int con_density;
+QRect area;
 };
 
 
@@ -36,8 +35,14 @@ std::vector<QtVertexItem*> nodes;
 Graph* createForestGraph(GraphWidget* graphView, forestParams& params);
 void initForestGraph(Graph* g, GraphWidget* graphView, forestParams& params);
 
-void createRandomScatter(Graph* g, forestParams& params);
-void createConnections(Graph* g, int layers, double connectionDensity);
+void createRandomScatter(GraphWidget* gWidget, forestParams& params);
+void createConnections(GraphWidget* gWidget, forestParams& params);
+
+Graph* getForestGraph(){return forestGraph;}
+vertex_iterator returnRandomNeighbour(vertex_descriptor v, Graph* g, int range);
+private:
+
+Graph* forestGraph;
 
 
 };

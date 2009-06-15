@@ -26,7 +26,8 @@ enum EdgeFPSType{HORIZONTAL_CONNECTION,VERTICAL_CONNECTION};
 
   //GraphWidget Graphs
 
-  struct TreeNode_visual
+/*
+struct TreeNode_visual
   {
     std::string name;
     VertexFPSType type;
@@ -34,12 +35,14 @@ enum EdgeFPSType{HORIZONTAL_CONNECTION,VERTICAL_CONNECTION};
     double x,y,z;
     QtVertexItem* vertexItem;
   };
+  */
+
  struct TreeNode
   {
-    std::string name;
     unsigned int layer;
     double x,y,z;
     VertexFPSType type;
+    QtVertexItem* vertexItem;
   };
 
   /* * connection types
@@ -50,30 +53,38 @@ enum EdgeFPSType{HORIZONTAL_CONNECTION,VERTICAL_CONNECTION};
   **both of these connectiontypes can be constructed using horizontal and vertical 'jumps' respectively
   ** a 'jump' is an element that shoots the player through space.
   */
-  struct Connection_visual
+ /*
+ struct Connection_visual
   {
       std::string name;
       EdgeFPSType type;
       QtEdgeItem* edgeItem;
   };
-
+*/
   struct Connection
   {
       std::string name;
       EdgeFPSType type;
+      QtEdgeItem* edgeItem;
   };
   typedef std::pair<int, int> Edge;
 
-  typedef adjacency_list<vecS, vecS, undirectedS, TreeNode_visual, Connection_visual> Graph_qt;
+//  typedef adjacency_list<vecS, vecS, undirectedS, TreeNode_visual, Connection_visual> Graph_qt;
   typedef adjacency_list<vecS, vecS, undirectedS, TreeNode, property < edge_weight_t, int > > Graph;
 
   typedef graph_traits<Graph>::vertex_descriptor vertex_descriptor;
+  typedef graph_traits<Graph>::vertex_iterator vertex_iterator;
   typedef graph_traits<Graph>::edge_descriptor edge_descriptor;
-
- // typedef std::list<Vertex> VertexList;
-
-
   typedef std::pair<Graph::edge_descriptor, bool> edge_r;
+
+
+ //lijsten
+    typedef  std::list<vertex_descriptor> vd_list;
+    typedef  std::list<edge_descriptor> ed_list;
+    typedef  std::vector<vertex_descriptor> vd_vector;
+    typedef  std::vector<edge_descriptor> ed_vector;
+
+
 
 
 

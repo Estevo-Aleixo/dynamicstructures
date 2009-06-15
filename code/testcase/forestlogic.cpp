@@ -9,18 +9,16 @@ ForestLogic::ForestLogic()
 
 }
 
-void  ForestLogic::createRandomScatter(Graph* g,forestParams& params)
+void  ForestLogic::createRandomScatter(GraphWidget* gWidget,forestParams& params)
  {
 
-
-    double averageTreeSpan= 40.0;
-    double mDensity=1;
-
+    double averageTreeSpan= 100.0;
+    double mDensity=params.density;
 
 //cols
-int cols = (int) (400 / (averageTreeSpan / mDensity));
+int cols = (int) (params.area.width()/ (averageTreeSpan / mDensity));
 //rows
-int rows = (int) (400 / (averageTreeSpan / mDensity));
+int rows = (int) (params.area.height() / (averageTreeSpan / mDensity));
 
 double xd= averageTreeSpan / mDensity;
 double yd= averageTreeSpan / mDensity;
@@ -33,8 +31,12 @@ double offsetY;
 
 int i=0;
 
+
 QtVertexItem* node;
 QtVertexItem* node_dest;
+
+QString name="Node";
+
      for (int ix=0; ix < cols; ix++){
                for (int iy=0; iy < rows; iy++)
                   {
@@ -43,67 +45,140 @@ QtVertexItem* node_dest;
                                         offsetY = 0;//(-p + ((double)(qrand()%100)/100.0) * (2*p))*(yd * 0.5);
                                         pos.setX(0 + xd * ix + offsetX * ix);
                                         pos.setY(0 + yd * iy + offsetY * iy);
-                                        //node= graphView->addNode(pos);
-                                        //node_dest= graphView->getClosestNodeTo(node);
 
-                                        int n= (int)((qrand()%100)/100.0)*(i-1);
-                                        int m= (int)((qrand()%100)/100.0)*(i-1);
-                                        if (i > 1)
-                                    {
-                                        //    graphView->addEdge(n,m,0);
-                                        }
+                                        gWidget->addNode(pos,name);
+
+
+                                        // int n= (int)((qrand()%100)/100.0)*(i-1);
+                                       // int m= (int)((qrand()%100)/100.0)*(i-1);
+                                       // if (i > 1)
+                                       // {
+                                       //
+                                       // }
                                 }
                             }
+
+      gWidget->show();
 }
 
 
 Graph*  ForestLogic::createForestGraph(GraphWidget* graphView, forestParams& params)
 {
 
-    Graph* newGraph;
+    Graph* g;
+    g= new Graph();
+    forestGraph= g;
 
-    initForestGraph(newGraph, graphView,params);
-    createRandomScatter(newGraph,params);
-    createConnections(newGraph, params.layers, params.con_density);
 
-    return newGraph;
+    initForestGraph(g, graphView,params);
+    createRandomScatter(graphView,params);
+    createConnections(graphView, params);
+
+    return g;
 }
 
 void ForestLogic::initForestGraph(Graph* g, GraphWidget* graphView, forestParams& params)
 {
+     graphView->setGraphStructure(g);
+     graphView->setArea(params.area);
 
-   /*
-  const int num_nodes = 5;
-  enum nodes { A, B, C, D, E };
-  char name[] = "ABCDE";
-typedef std::pair<int, int> Edge;
 
-  Edge edge_array[] = { Edge(A, C), Edge(B, B), Edge(B, D), Edge(B, E),
-    Edge(C, B), Edge(C, D), Edge(D, E), Edge(E, A), Edge(E, B)
-  };
-  int weights[] = { 1, 2, 1, 2, 7, 3, 1, 1, 1 };
-  int num_arcs = sizeof(edge_array) / sizeof(Edge);
+//add vertices to graph
+     /*
+QPointF point1 = QPointF(10,10);
+QPointF point2 = QPointF(20,20);
+QPointF point3 = QPointF(30,30);
 
-  Graph mygraph(edge_array, edge_array + num_arcs, weights, num_nodes);
-  property_map<Graph, edge_weight_t>::type weightmap = get(edge_weight, *g);
+QString name1= "Ruud";
+QString name2= "Kees";
+QString name3= "Mien";
+
+vertex_descriptor v1;
+vertex_descriptor v2;
+vertex_descriptor v3;
+
+QtVertexItem* item1;
+QtVertexItem* item2;
+QtVertexItem* item3;
+
+item1=  graphView->addNode(point1,name1);
+item2=  graphView->addNode(point2,name2);
+item3=  graphView->addNode(point3,name3);
+
+item1->setState(important);
+
+v1= item1->getVertexDescriptor();
+v2= item2->getVertexDescriptor();
+
+graphView->addEdge(v1,v2,0);
 */
- // g= new Graph(edge_array, edge_array + num_arcs, weights, num_nodes);
-
+    graphView->show();
 }
 
 
-void ForestLogic::createConnections(Graph* g, int layers, double connectionDensity)
+void ForestLogic::createConnections(GraphWidget* gWidget, forestParams& params)
+{
+    Graph* g= gWidget->getGraph();
+    std::pair<vertex_iterator, vertex_iterator> iterator_range= vertices((*gWidget->getGraph()));
+    vertex_iterator start=iterator_range.first;
+    vertex_iterator end=iterator_range.second;
+    vertex_iterator i;
+    vertex_iterator dest;
+
+    //int vertexCount = boost::num_vertices(g);
+   // std::list<vertex_descriptor> vertexList = boost::get(vertices, g);
+
+    //iterate over vertexlist
+
+    for (i=start;i!=end;++i)
+    {
+      dest = returnRandomNeighbour(*i,g,120);
+
+     // if (dest!=end)
+      vertex_descriptor v= *i;
+      vertex_descriptor u= *dest;
+
+            gWidget->addEdge(v,u,0);
+    }
+
+
+}
+
+vertex_iterator ForestLogic::returnRandomNeighbour(vertex_descriptor v, Graph* g, int range)
+{
+    vertex_descriptor u;
+
+    std::pair<vertex_iterator, vertex_iterator> iterator_range= vertices(*g);
+    vertex_iterator start=iterator_range.first;
+    vertex_iterator end=iterator_range.second;
+    vertex_iterator i;
+
+    vd_list neighbours;
+QtVertexItem* item=(*g)[v].vertexItem;
+QtVertexItem* item2;
+
+    QPointF pos= QPointF(item->x(),item->y());
+
+    for (i=start;i!=end;++i)
+    {
+        item2=(*g)[*i].vertexItem;
+        QPointF pos2= QPointF(item2->x(),item2->y());
+
+        if (((pos.x() - pos2.x())*(pos.x() - pos2.x())+(pos.y() - pos2.y())*(pos.y() - pos2.y()))< range * range )
+        {
+            return i;
+        }
+
+    }
+
+    return end;
+}
+
+/*
+vertex_descriptor ForestLogic::returnRandomNeighbour(vertex_descriptor v, GraphWidget* gWidget, int range)
 {
 
 
-
-
-
-
-
-
-
 }
 
-
-
+*/

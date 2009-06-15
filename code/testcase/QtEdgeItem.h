@@ -43,13 +43,17 @@
 #define QtEdgeItem_H
 
 #include <QGraphicsItem>
+#include "graphconcept.h"
+
+enum EdgeState{normal_edge, important_edge, active_edge,unimportant_edge, collision_edge, toBeDeleted_edge, interest_edge};
 
 class QtVertexItem;
 
 class QtEdgeItem : public QGraphicsItem
 {
 public:
-    QtEdgeItem(QtVertexItem *sourceQtVertexItem, QtVertexItem *destQtVertexItem);
+    QtEdgeItem(vertex_descriptor& start, vertex_descriptor& end, Graph* g);
+
     ~QtEdgeItem();
 
     QtVertexItem *sourceVertex() const;
@@ -63,6 +67,9 @@ public:
     enum { Type = UserType + 2 };
     int type() const { return Type; }
     
+    void setState(EdgeState state){mState=state;}
+    EdgeState mState;
+
 protected:
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);

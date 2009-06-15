@@ -64,7 +64,7 @@ GraphWidget::GraphWidget(QWidget* parent)
     this->setResizeAnchor(this->AnchorViewCenter);
 
     //create nodes:
-    centerNode = new QtVertexItem(this);
+    //centerNode = new QtVertexItem(this);
 
      this->setMinimumSize(400, 400);
      this->show();
@@ -189,38 +189,18 @@ void GraphWidget::scaleView(qreal scaleFactor)
      this->scale(scaleFactor, scaleFactor);
 }
 
-QtVertexItem* GraphWidget::addNode(QPointF& pos)
+QtVertexItem* GraphWidget::addNode(QPointF& pos, QString& name)
 {
-   QtVertexItem*  newNode=new QtVertexItem(this);
-    newNode->setPos(pos);
-    nodes.push_back(newNode);
+    QtVertexItem*  newNode=new QtVertexItem(this,mGraph,pos,name);
     scene->addItem(newNode);
-
-    Graph::vertex_descriptor v;
-    v = boost::add_vertex(mGraph);
-
-    mGraph[v].vertexItem= newNode;
-
 
     return newNode;
 }
 
-QtEdgeItem* GraphWidget::addEdge(int i, int j, int directed)
+QtEdgeItem* GraphWidget::addEdge(vertex_descriptor& u, vertex_descriptor& v, int directed)
 {
-
-     edge_r retValue;
-
-        //get Nodes:
-        QtVertexItem* src = mGraph[i].vertexItem;
-         QtVertexItem* dest = mGraph[j].vertexItem;
-         QtEdgeItem* newEdge= new QtEdgeItem(src, dest);
-
-        edges.push_back(newEdge);
+        QtEdgeItem* newEdge= new QtEdgeItem(u,v,mGraph);
         scene->addItem(newEdge);
-
-
-        retValue = boost::add_edge(i,j ,mGraph);
-        mGraph[retValue.first].edgeItem= newEdge;
 
     return newEdge;
 }

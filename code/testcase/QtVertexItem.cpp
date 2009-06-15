@@ -48,12 +48,19 @@
 #include "QtVertexItem.h"
 #include "graphwidget.h"
 
-QtVertexItem::QtVertexItem(GraphWidget *graphWidget)
+QtVertexItem::QtVertexItem(GraphWidget *graphWidget, Graph* g, QPointF& pos, QString& name)
     : graph(graphWidget)
 {
+    mV = boost::add_vertex(*g);
+    (*g)[mV].vertexItem= this;
+
+    itemLabel = new QGraphicsTextItem(name,this,graphWidget->scene);
+    this->setPos(pos);
+
     setFlag(ItemIsMovable);
     setCacheMode(DeviceCoordinateCache);
     setZValue(1);
+    mState=normal;
 }
 
 void QtVertexItem::addEdge(QtEdgeItem *edge)
@@ -139,23 +146,49 @@ QPainterPath QtVertexItem::shape() const
 
 void QtVertexItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *)
 {
-    painter->setPen(Qt::NoPen);
-    painter->setBrush(Qt::darkGray);
-    painter->drawEllipse(-7, -7, 20, 20);
 
-    QRadialGradient gradient(-3, -3, 10);
-    if (option->state & QStyle::State_Sunken) {
-        gradient.setCenter(3, 3);
-        gradient.setFocalPoint(3, 3);
-        gradient.setColorAt(1, QColor(Qt::yellow).light(120));
-        gradient.setColorAt(0, QColor(Qt::darkYellow).light(120));
-    } else {
-        gradient.setColorAt(0, Qt::yellow);
-        gradient.setColorAt(1, Qt::darkYellow);
+     QRadialGradient gradient(-3, -3, 10);
+    switch(mState){
+
+     case normal:
+        painter->setPen(Qt::NoPen);
+        painter->setBrush(Qt::darkGray);
+        painter->drawEllipse(-7, -7, 20, 20);
+
+
+        if (option->state & QStyle::State_Sunken) {
+            gradient.setCenter(3, 3);
+            gradient.setFocalPoint(3, 3);
+            gradient.setColorAt(1, QColor(Qt::yellow).light(120));
+            gradient.setColorAt(0, QColor(Qt::darkYellow).light(120));
+        } else {
+            gradient.setColorAt(0, Qt::yellow);
+            gradient.setColorAt(1, Qt::darkYellow);
+        }
+        painter->setBrush(gradient);
+        painter->setPen(QPen(Qt::black, 0));
+        painter->drawEllipse(-10, -10, 20, 20);
+     break;
+        case important:
+            painter->setPen(Qt::NoPen);
+            painter->setBrush(Qt::darkGray);
+            painter->drawRoundRect(-7, -7, 20, 20,4,4);
+            if (option->state & QStyle::State_Sunken) {
+                gradient.setCenter(3, 3);
+                gradient.setFocalPoint(3, 3);
+                gradient.setColorAt(1, QColor(Qt::red).light(120));
+                gradient.setColorAt(0, QColor(Qt::darkRed).light(120));
+            } else {
+                gradient.setColorAt(0, Qt::red);
+                gradient.setColorAt(1, Qt::darkRed);
+            }
+            painter->setBrush(gradient);
+            painter->setPen(QPen(Qt::black, 0));
+            painter->drawRoundRect(-10, -10, 20, 20,4,4);
+        break;
+
+
     }
-    painter->setBrush(gradient);
-    painter->setPen(QPen(Qt::black, 0));
-    painter->drawEllipse(-10, -10, 20, 20);
 }
 
 QVariant QtVertexItem::itemChange(GraphicsItemChange change, const QVariant &value)
@@ -183,4 +216,10 @@ void QtVertexItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
     update();
     QGraphicsItem::mouseReleaseEvent(event);
+}
+
+void QtVertexItem::setState(VertexState state)
+{
+mState= state;
+
 }

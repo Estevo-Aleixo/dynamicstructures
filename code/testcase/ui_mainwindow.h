@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'mainwindow.ui'
 **
-** Created: Wed Jun 10 17:20:07 2009
+** Created: Mon Jun 15 15:24:12 2009
 **      by: Qt User Interface Compiler version 4.5.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -64,6 +64,13 @@ public:
     QTextEdit *textEdit;
     QWidget *tab_2;
     QTextEdit *textEdit_2;
+    QPushButton *pushButton;
+    QPushButton *pushButton_2;
+    QPushButton *pushButton_3;
+    QComboBox *comboBox;
+    QLabel *label_4;
+    QComboBox *comboBox_2;
+    QLabel *label_5;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
 
@@ -86,7 +93,7 @@ public:
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         groupBox = new QGroupBox(centralWidget);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        groupBox->setGeometry(QRect(40, 390, 381, 161));
+        groupBox->setGeometry(QRect(60, 420, 381, 161));
         btnGenerateForest = new QPushButton(groupBox);
         btnGenerateForest->setObjectName(QString::fromUtf8("btnGenerateForest"));
         btnGenerateForest->setGeometry(QRect(260, 130, 101, 23));
@@ -109,6 +116,7 @@ public:
         cmbLayers = new QComboBox(groupBox);
         cmbLayers->setObjectName(QString::fromUtf8("cmbLayers"));
         cmbLayers->setGeometry(QRect(10, 100, 151, 20));
+        cmbLayers->setFont(font);
         label_10 = new QLabel(groupBox);
         label_10->setObjectName(QString::fromUtf8("label_10"));
         label_10->setGeometry(QRect(190, 30, 131, 16));
@@ -117,13 +125,13 @@ public:
         cmbConnectivity->setGeometry(QRect(190, 50, 151, 20));
         parent_forest_widget = new QWidget(centralWidget);
         parent_forest_widget->setObjectName(QString::fromUtf8("parent_forest_widget"));
-        parent_forest_widget->setGeometry(QRect(40, 60, 381, 321));
+        parent_forest_widget->setGeometry(QRect(60, 60, 381, 321));
         parent_map_widget = new QWidget(centralWidget);
         parent_map_widget->setObjectName(QString::fromUtf8("parent_map_widget"));
         parent_map_widget->setGeometry(QRect(470, 60, 401, 321));
         label_6 = new QLabel(centralWidget);
         label_6->setObjectName(QString::fromUtf8("label_6"));
-        label_6->setGeometry(QRect(40, 30, 161, 21));
+        label_6->setGeometry(QRect(60, 30, 161, 21));
         QFont font1;
         font1.setFamily(QString::fromUtf8("Palatino Linotype"));
         font1.setPointSize(12);
@@ -136,7 +144,7 @@ public:
         label_7->setFont(font1);
         groupBox_2 = new QGroupBox(centralWidget);
         groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
-        groupBox_2->setGeometry(QRect(470, 390, 401, 161));
+        groupBox_2->setGeometry(QRect(470, 420, 401, 161));
         chkDebug = new QCheckBox(groupBox_2);
         chkDebug->setObjectName(QString::fromUtf8("chkDebug"));
         chkDebug->setGeometry(QRect(280, 110, 91, 18));
@@ -163,7 +171,7 @@ public:
         cmbCPTreshold->setGeometry(QRect(220, 50, 151, 22));
         tabWidget = new QTabWidget(centralWidget);
         tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
-        tabWidget->setGeometry(QRect(40, 560, 721, 211));
+        tabWidget->setGeometry(QRect(40, 590, 721, 211));
         tab = new QWidget();
         tab->setObjectName(QString::fromUtf8("tab"));
         textEdit = new QTextEdit(tab);
@@ -176,6 +184,27 @@ public:
         textEdit_2->setObjectName(QString::fromUtf8("textEdit_2"));
         textEdit_2->setGeometry(QRect(0, 0, 721, 191));
         tabWidget->addTab(tab_2, QString());
+        pushButton = new QPushButton(centralWidget);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setGeometry(QRect(20, 60, 41, 41));
+        pushButton_2 = new QPushButton(centralWidget);
+        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
+        pushButton_2->setGeometry(QRect(20, 140, 41, 41));
+        pushButton_3 = new QPushButton(centralWidget);
+        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
+        pushButton_3->setGeometry(QRect(20, 100, 41, 41));
+        comboBox = new QComboBox(centralWidget);
+        comboBox->setObjectName(QString::fromUtf8("comboBox"));
+        comboBox->setGeometry(QRect(90, 380, 69, 21));
+        label_4 = new QLabel(centralWidget);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+        label_4->setGeometry(QRect(60, 380, 46, 14));
+        comboBox_2 = new QComboBox(centralWidget);
+        comboBox_2->setObjectName(QString::fromUtf8("comboBox_2"));
+        comboBox_2->setGeometry(QRect(500, 380, 69, 21));
+        label_5 = new QLabel(centralWidget);
+        label_5->setObjectName(QString::fromUtf8("label_5"));
+        label_5->setGeometry(QRect(470, 380, 46, 14));
         MainWindow->setCentralWidget(centralWidget);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
@@ -259,6 +288,31 @@ public:
         );
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Debug info", 0, QApplication::UnicodeUTF8));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MainWindow", "Errors", 0, QApplication::UnicodeUTF8));
+        pushButton->setText(QApplication::translate("MainWindow", "node", 0, QApplication::UnicodeUTF8));
+        pushButton_2->setText(QApplication::translate("MainWindow", "clear", 0, QApplication::UnicodeUTF8));
+        pushButton_3->setText(QApplication::translate("MainWindow", "edge", 0, QApplication::UnicodeUTF8));
+        comboBox->clear();
+        comboBox->insertItems(0, QStringList()
+         << QApplication::translate("MainWindow", "all", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindow", "1", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindow", "2", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindow", "3", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindow", "4", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindow", "5", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindow", "6", 0, QApplication::UnicodeUTF8)
+        );
+        label_4->setText(QApplication::translate("MainWindow", "Layer", 0, QApplication::UnicodeUTF8));
+        comboBox_2->clear();
+        comboBox_2->insertItems(0, QStringList()
+         << QApplication::translate("MainWindow", "all", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindow", "1", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindow", "2", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindow", "3", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindow", "4", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindow", "5", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindow", "6", 0, QApplication::UnicodeUTF8)
+        );
+        label_5->setText(QApplication::translate("MainWindow", "Layer", 0, QApplication::UnicodeUTF8));
         Q_UNUSED(MainWindow);
     } // retranslateUi
 

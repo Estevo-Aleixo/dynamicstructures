@@ -43,6 +43,7 @@
 #define GRAPHWIDGET_H
 
 #include <QtGui/QGraphicsView>
+#include <QGraphicsTextItem>
 #include "graphconcept.h"
 
 //class QtVertexItem;
@@ -62,11 +63,17 @@ public:
 
   QtVertexItem* getClosestNodeTo(QtVertexItem* node);
 
-  QtVertexItem* addNode(QPointF& pos);
-  QtEdgeItem* addEdge(int i, int j, int directed);
+  QtVertexItem* addNode(QPointF& pos,QString& name);
+  QtEdgeItem* addEdge(vertex_descriptor& u, vertex_descriptor& v, int directed);
 
 
-  Graph_qt mGraph; //boost adjacency list<vecS, vecS, undirectedS, gVertex, gEdge>
+  Graph* mGraph; //boost adjacency list<vecS, vecS, undirectedS, gVertex, gEdge>
+  void setGraphStructure(Graph* graph){mGraph = graph;}
+
+   QGraphicsScene* scene;
+
+    Graph* getGraph(){return mGraph;}
+    void setArea(QRect& area){mArea= area;}
 
 protected:
     void keyPressEvent(QKeyEvent *event);
@@ -75,7 +82,10 @@ protected:
     void drawBackground(QPainter *painter, const QRectF &rect);
 
     void scaleView(qreal scaleFactor);
-    QGraphicsScene* scene;
+
+
+
+    QRect mArea;
 
 private:
     int timerId;
