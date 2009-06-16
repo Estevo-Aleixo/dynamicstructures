@@ -13,6 +13,13 @@
 #include <queue>
 #include <bitset>
 
+/*
+double randomNum()
+{
+return ((double)(rand()%100)/100.0);
+}*/
+
+
 
 
 #endif // BASEHEADERS_H

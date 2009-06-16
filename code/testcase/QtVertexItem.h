@@ -59,7 +59,7 @@ enum VertexState{normal, important, active,unimportant, lfp, startnode, vertexOf
 class QtVertexItem : public QGraphicsItem
 {
 public:
-    QtVertexItem(GraphWidget *graphWidget, Graph* g, QPointF& pos, QString& name="");
+    QtVertexItem(GraphWidget *graphWidget, QPointF& pos, QString& name="");
 
     void addEdge(QtEdgeItem *edge);
     QList<QtEdgeItem *> edges() const;
@@ -89,6 +89,7 @@ protected:
     void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
     
     vertex_descriptor mV;
+    Graph* mG;
 private:
     QList<QtEdgeItem *> edgeList;
     QPointF newPos;

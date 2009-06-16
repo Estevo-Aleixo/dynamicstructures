@@ -11,7 +11,8 @@ SOURCES += main.cpp \
     forestlogic.cpp \
     QtVertexItem.cpp \
     QtEdgeItem.cpp \
-    scenariohandler.cpp
+    scenariohandler.cpp \
+    soundhandler.cpp
 HEADERS += BaseHeaders.h \
     graphwidget.h \
     mainwindow.h \
@@ -19,6 +20,7 @@ HEADERS += BaseHeaders.h \
     graphconcept.h \
     QtEdgeItem.h \
     QtVertexItem.h \
-    scenariohandler.h
+    scenariohandler.h \
+    soundhandler.h
 FORMS += mainwindow.ui
 OTHER_FILES += 

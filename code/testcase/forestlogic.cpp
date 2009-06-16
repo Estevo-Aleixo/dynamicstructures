@@ -82,36 +82,6 @@ void ForestLogic::initForestGraph(Graph* g, GraphWidget* graphView, forestParams
      graphView->setGraphStructure(g);
      graphView->setArea(params.area);
 
-
-//add vertices to graph
-     /*
-QPointF point1 = QPointF(10,10);
-QPointF point2 = QPointF(20,20);
-QPointF point3 = QPointF(30,30);
-
-QString name1= "Ruud";
-QString name2= "Kees";
-QString name3= "Mien";
-
-vertex_descriptor v1;
-vertex_descriptor v2;
-vertex_descriptor v3;
-
-QtVertexItem* item1;
-QtVertexItem* item2;
-QtVertexItem* item3;
-
-item1=  graphView->addNode(point1,name1);
-item2=  graphView->addNode(point2,name2);
-item3=  graphView->addNode(point3,name3);
-
-item1->setState(important);
-
-v1= item1->getVertexDescriptor();
-v2= item2->getVertexDescriptor();
-
-graphView->addEdge(v1,v2,0);
-*/
     graphView->show();
 }
 
@@ -125,14 +95,11 @@ void ForestLogic::createConnections(GraphWidget* gWidget, forestParams& params)
     vertex_iterator i;
     vertex_iterator dest;
 
-    //int vertexCount = boost::num_vertices(g);
-   // std::list<vertex_descriptor> vertexList = boost::get(vertices, g);
-
     //iterate over vertexlist
 
     for (i=start;i!=end;++i)
     {
-      dest = returnRandomNeighbour(*i,g,120);
+      dest = returnRandomNeighbour(*i,g,300);
 
      // if (dest!=end)
       vertex_descriptor v= *i;

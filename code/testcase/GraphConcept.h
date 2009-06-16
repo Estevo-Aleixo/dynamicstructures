@@ -26,16 +26,7 @@ enum EdgeFPSType{HORIZONTAL_CONNECTION,VERTICAL_CONNECTION};
 
   //GraphWidget Graphs
 
-/*
-struct TreeNode_visual
-  {
-    std::string name;
-    VertexFPSType type;
-    unsigned int layer;
-    double x,y,z;
-    QtVertexItem* vertexItem;
-  };
-  */
+
 
  struct TreeNode
   {
@@ -54,28 +45,26 @@ struct TreeNode_visual
   ** a 'jump' is an element that shoots the player through space.
   */
  /*
- struct Connection_visual
-  {
-      std::string name;
-      EdgeFPSType type;
-      QtEdgeItem* edgeItem;
-  };
+
 */
   struct Connection
   {
       std::string name;
+      double distance;
       EdgeFPSType type;
       QtEdgeItem* edgeItem;
   };
-  typedef std::pair<int, int> Edge;
 
-//  typedef adjacency_list<vecS, vecS, undirectedS, TreeNode_visual, Connection_visual> Graph_qt;
-  typedef adjacency_list<vecS, vecS, undirectedS, TreeNode, property < edge_weight_t, int > > Graph;
+  //typedef std::pair<int, int> Edge;
+
+//  typedef adjacency_list<vecS, vecS, undirectedS, TreeNode, property < edge_weight_t, int > > Graph;
+  typedef adjacency_list<listS, vecS, undirectedS, TreeNode, Connection> Graph;
+
 
   typedef graph_traits<Graph>::vertex_descriptor vertex_descriptor;
   typedef graph_traits<Graph>::vertex_iterator vertex_iterator;
   typedef graph_traits<Graph>::edge_descriptor edge_descriptor;
-  typedef std::pair<Graph::edge_descriptor, bool> edge_r;
+  typedef std::pair<Graph::edge_descriptor, bool> edge_c;
 
 
  //lijsten

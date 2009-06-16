@@ -21,12 +21,15 @@ MainWindow::MainWindow(QWidget *parent)
 
     //forest graph widget:
    graphForestView= new GraphWidget(ui->parent_forest_widget);
-   graphForestView->resize(200,200);
+
+
+
+   graphForestView->resize(ui->parent_forest_widget->width(),ui->parent_forest_widget->height());
    graphForestView->show();
 
    //map graph widget
    graphMapView= new GraphWidget(ui->parent_map_widget);
-   graphMapView->resize(200,200);
+   graphMapView->resize(ui->parent_map_widget->width(),ui->parent_map_widget->height());
    graphMapView->show();
 
     Graph* forestStructure;
@@ -41,10 +44,12 @@ f.layers=4;
 f.area= QRect(0,0,400,400);
 
 
+
+
+
     forestStructure = forestGenerator->createForestGraph(graphForestView, f);
 
-
-    //mapGenerator= new ScenarioHandler();
+    mapGenerator= new ScenarioHandler(graphForestView,graphMapView);
 
 }
 
@@ -58,8 +63,6 @@ void MainWindow::on_btnGenerateForest_clicked()
 {
 
 
-
-
     delete graphForestView;
 
     graphForestView= new GraphWidget(ui->parent_forest_widget);
@@ -70,9 +73,15 @@ void MainWindow::on_btnGenerateForest_clicked()
 
 }
 
+void MainWindow::on_btnExecuteLFPFinder_clicked()
+{
+
+    mapGenerator->executeLFPfinder();
 
 
+}
 
-
-
-
+void MainWindow::on_btnForestFullScreen_clicked()
+{
+    graphForestView->showFullScreen();
+}

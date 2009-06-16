@@ -1,39 +1,98 @@
 #include "scenariohandler.h"
 
 
-ScenarioHandler::ScenarioHandler(Graph* forestGraph, Graph* mapGraph, GraphWidget* forestWidget, GraphWidget* mapWidget)
+ScenarioHandler::ScenarioHandler(GraphWidget* forestWidget, GraphWidget* mapWidget)
 {
 
-mForestGraph=forestGraph;
-mMapGraph=mapGraph;
 mForestWidget=forestWidget;
-mMapWidget=mapWidget;
+mFG=forestWidget->getGraph();
 
+
+//maak nieuwe Graph aan voor de mapwidget;
+mMG= new Graph();
+mapWidget->setGraphStructure(mMG);
+mMapWidget=mapWidget;
 
 
 }
 
 void ScenarioHandler::runScenario()
 {
-
  //mDebugText << "running scenario...";
 
 //step 1: findLFPs
-lfpVertices= findLFPs(mForestGraph, mMapGraph);
+lfpVertices= findLFPs();
 
 //step 2:generateMultiplePaths
-generateMultiplePaths( mForestGraph,lfpVertices, mMapGraph);
+generateMultiplePaths( mFG,lfpVertices, mMG);
 
 //step 3:
 //...
 
 }
 
-
-
-std::vector<vertex_descriptor>* ScenarioHandler::findLFPs(Graph* forestGraph, Graph* mapGraph)
+void ScenarioHandler::executeLFPfinder()
 {
+    //step 1: findLFPs
+    lfpVertices= findLFPs();
+}
+
+void ScenarioHandler::executeMultiplePathFinder()
+{
+    //step 2:generateMultiplePaths
+    generateMultiplePaths( mFG,lfpVertices, mMG);
+
+}
+
+
+std::vector<vertex_descriptor>* ScenarioHandler::findLFPs()
+{
+
 std::vector<vertex_descriptor>* LFPs;
+
+  int LFPcount=3;
+  int count=0;
+
+  QList<QGraphicsItem*> vertexList= mForestWidget->scene->items();
+  QtVertexItem* vItem;
+   while((count < LFPcount)==true)
+  {
+    int i= rand() % vertexList.size();
+    if (vItem= qgraphicsitem_cast<QtVertexItem*>(vertexList[i]))
+    {
+        vItem->setState(important);
+        count++;
+    }
+
+  }
+ //mForestWidget->shear(0.5,0.4);
+ mForestWidget->show();
+ //mForestWidget->cursor();
+
+
+   mForestWidget->repaint();
+
+
+
+
+   /*
+ std::pair<vertex_iterator, vertex_iterator> iterator_range= vertices((*mFG));
+    vertex_iterator start=iterator_range.first;
+    vertex_iterator end=iterator_range.second;
+    vertex_iterator i;
+    vertex_iterator dest;
+
+    //iterate over vertexlist
+
+    start+= (int)(rand()%100)/20;
+//start+=1;
+    if (start!=end)
+    {
+        QtVertexItem* vItem= (*mFG)[*start].vertexItem;
+        vItem->setState(important);
+
+    }
+*/
 
 
 
@@ -68,7 +127,7 @@ void ScenarioHandler::generateMultiplePaths(Graph* g, std::vector<vertex_descrip
            std::vector<vertex_descriptor> vertices(num_vertices(*g));
            std::vector<double> d(num_vertices(*g));
 
-            dijkstra_shortest_paths(*g,(*i), predecessor_map(&pred[0]).distance_map(&d[0]));
+           dijkstra_shortest_paths(*g,(*i), predecessor_map(&pred[0]).weight_map(get(&Connection::distance,*g)).distance_map(&d[0]));
 
             //traverse paths of all local fight points that have been reached
             for(j = lfpVertices->begin(); j != lfpVertices->end(); j++)

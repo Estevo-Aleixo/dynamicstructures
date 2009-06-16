@@ -79,6 +79,9 @@ protected:
     void keyPressEvent(QKeyEvent *event);
     void timerEvent(QTimerEvent *event);
     void wheelEvent(QWheelEvent *event);
+    //void mousePressEvent(QMouseEvent *event);
+    //void mouseMoveEvent(QMouseEvent *event);
+
     void drawBackground(QPainter *painter, const QRectF &rect);
 
     void scaleView(qreal scaleFactor);

@@ -48,11 +48,13 @@
 #include "QtVertexItem.h"
 #include "graphwidget.h"
 
-QtVertexItem::QtVertexItem(GraphWidget *graphWidget, Graph* g, QPointF& pos, QString& name)
+QtVertexItem::QtVertexItem(GraphWidget *graphWidget, QPointF& pos, QString& name)
     : graph(graphWidget)
 {
-    mV = boost::add_vertex(*g);
-    (*g)[mV].vertexItem= this;
+
+    mG= graphWidget->getGraph();
+    mV = boost::add_vertex(*mG);
+    (*mG)[mV].vertexItem= this;
 
     itemLabel = new QGraphicsTextItem(name,this,graphWidget->scene);
     this->setPos(pos);
@@ -159,11 +161,11 @@ void QtVertexItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *opti
         if (option->state & QStyle::State_Sunken) {
             gradient.setCenter(3, 3);
             gradient.setFocalPoint(3, 3);
-            gradient.setColorAt(1, QColor(Qt::yellow).light(120));
-            gradient.setColorAt(0, QColor(Qt::darkYellow).light(120));
+            gradient.setColorAt(1, QColor(Qt::green).light(120));
+            gradient.setColorAt(0, QColor(Qt::darkGreen).light(120));
         } else {
-            gradient.setColorAt(0, Qt::yellow);
-            gradient.setColorAt(1, Qt::darkYellow);
+            gradient.setColorAt(0, Qt::green);
+            gradient.setColorAt(1, Qt::darkGreen);
         }
         painter->setBrush(gradient);
         painter->setPen(QPen(Qt::black, 0));

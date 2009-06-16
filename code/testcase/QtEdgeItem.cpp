@@ -51,21 +51,28 @@ static double TwoPi = 2.0 * Pi;
 
 
 
-QtEdgeItem::QtEdgeItem(vertex_descriptor& start, vertex_descriptor& end, Graph* g)
+QtEdgeItem::QtEdgeItem(vertex_descriptor& start, vertex_descriptor& end, GraphWidget *graphWidget)
          : arrowSize(10)
 {
-    mState=normal_edge;
-    edge_r retValue;
-    retValue =  boost::add_edge(start,end,*g);
+   mG= graphWidget->getGraph();
 
+
+    mState=normal_edge;
+    edge_c retValue;
+    retValue =  boost::add_edge(start,end,*mG);
+
+    mEd= retValue.first;
+    (*mG)[mEd].edgeItem=this;
+    (*mG)[mEd].distance=0.0;
     setAcceptedMouseButtons(0);
-    source = (*g)[start].vertexItem;
-    dest = (*g)[end].vertexItem;;
+    source = (*mG)[start].vertexItem;
+    dest = (*mG)[end].vertexItem;;
     source->addEdge(this);
     dest->addEdge(this);
     adjust();
 
-
+    QString s="distance";
+    mLabel = new QGraphicsTextItem(s,this,graphWidget->scene);
 }
 
 
@@ -108,6 +115,8 @@ void QtEdgeItem::adjust()
     prepareGeometryChange();
     sourcePoint = line.p1() + QtEdgeItemOffset;
     destPoint = line.p2() - QtEdgeItemOffset;
+
+    (*mG)[mEd].distance=line.length();
 }
 
 QRectF QtEdgeItem::boundingRect() const
@@ -163,7 +172,17 @@ void QtEdgeItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWid
 
     painter->drawLine(line);
 
-       painter->setBrush(Qt::black);
+    painter->setBrush(Qt::black);
     painter->drawPolygon(QPolygonF() << line.p1() << sourceArrowP1 << sourceArrowP2);
-    painter->drawPolygon(QPolygonF() << line.p2() << destArrowP1 << destArrowP2);        
+    painter->drawPolygon(QPolygonF() << line.p2() << destArrowP1 << destArrowP2);
+
+    //draw distance
+    QString s;
+    QPointF labelPos;
+    labelPos= sourcePoint + QPointF(cos(angle)*(line.length()/2),sin(angle)*(line.length()/2));
+    s.sprintf("%.2f",(*mG)[mEd].distance);
+
+    mLabel->setPos(labelPos);
+    mLabel->setPlainText(s);
+
 }

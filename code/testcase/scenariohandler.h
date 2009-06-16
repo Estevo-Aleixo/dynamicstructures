@@ -15,23 +15,27 @@
 class ScenarioHandler
 {
 public:
-    ScenarioHandler(Graph* forestGraph, Graph* mapGraph, GraphWidget* forestWidget, GraphWidget* mapWidget);
+    ScenarioHandler(GraphWidget* forestWidget, GraphWidget* mapWidget);
 
     //LFP
 
     void runScenario();
 
+    void executeLFPfinder();
+    void executeMultiplePathFinder();
+
     void setDebugTextBox(int text);
-    //{mDebugText= text;}
+
+    Graph* getMapGraph(){return mMG;}
 
   private:
-    std::vector<vertex_descriptor>* findLFPs(Graph* forestGraph, Graph* mapGraph);
+    std::vector<vertex_descriptor>* findLFPs();
 
     void generateMultiplePaths(Graph* forestGraph, std::vector<vertex_descriptor>* lfpVertices, Graph* mapGraph);
 
 
-    Graph*  mForestGraph;
-    Graph*  mMapGraph;
+    Graph*  mFG;
+    Graph*  mMG;
     GraphWidget* mForestWidget;
     GraphWidget* mMapWidget;
 

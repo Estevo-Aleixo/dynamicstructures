@@ -1,12 +1,12 @@
 INPUT(
 ./debug\main.o
-./debug\node.o
-./debug\edge.o
 ./debug\graphwidget.o
 ./debug\mainwindow.o
 ./debug\forestlogic.o
 ./debug\QtVertexItem.o
 ./debug\QtEdgeItem.o
+./debug\scenariohandler.o
+./debug\soundhandler.o
 ./debug\moc_graphwidget.o
 ./debug\moc_mainwindow.o
 );

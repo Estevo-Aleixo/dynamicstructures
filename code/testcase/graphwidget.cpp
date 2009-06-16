@@ -52,6 +52,7 @@
 GraphWidget::GraphWidget(QWidget* parent)
     : QGraphicsView(parent), timerId(0)
 {
+     //setCursor(Qt::IBeamCursor);
 
     scene = new QGraphicsScene(this);
     scene->setItemIndexMethod(QGraphicsScene::NoIndex);
@@ -63,10 +64,12 @@ GraphWidget::GraphWidget(QWidget* parent)
     this->setTransformationAnchor(this->AnchorUnderMouse);
     this->setResizeAnchor(this->AnchorViewCenter);
 
+    //this->
+    //this->setDragMode(QGraphicsView::ScrollHandDrag);
     //create nodes:
     //centerNode = new QtVertexItem(this);
 
-     this->setMinimumSize(400, 400);
+    // this->setMinimumSize(400, 400);
      this->show();
 }
 
@@ -76,29 +79,37 @@ void GraphWidget::itemMoved()
         timerId = startTimer(1000 / 25);
 }
 
+//void GraphWidget::mousePressEvent(QMouseEvent* event)
+//{
+  //  QString name="new node";
+   // QPointF point =event->pos();
+
+  //  addNode(point,name);
+
+
+//}
+
+//void GraphWidget::mouseMoveEvent(QMouseEvent* event)
+//{
+
+//this->addNode(event->pos(),"newNode");
+//QCursor cursor= this->cursor();
+//cursor.
+//}
+
 
 
 void GraphWidget::keyPressEvent(QKeyEvent *event)
 {
     switch (event->key()) {
-    case Qt::Key_Up:
-        centerNode->moveBy(0, -20);
-        break;
-    case Qt::Key_Down:
-        centerNode->moveBy(0, 20);
-        break;
-    case Qt::Key_Left:
-        centerNode->moveBy(-20, 0);
-        break;
-    case Qt::Key_Right:
-        centerNode->moveBy(20, 0);
-        break;
     case Qt::Key_Plus:
         scaleView(qreal(1.2));
         break;
     case Qt::Key_Minus:
         scaleView(1 / qreal(1.2));
         break;
+    case Qt::Key_Escape:
+        this->showNormal();
     case Qt::Key_Space:
     case Qt::Key_Enter:
 
@@ -191,7 +202,7 @@ void GraphWidget::scaleView(qreal scaleFactor)
 
 QtVertexItem* GraphWidget::addNode(QPointF& pos, QString& name)
 {
-    QtVertexItem*  newNode=new QtVertexItem(this,mGraph,pos,name);
+    QtVertexItem*  newNode=new QtVertexItem(this,pos,name);
     scene->addItem(newNode);
 
     return newNode;
@@ -199,7 +210,7 @@ QtVertexItem* GraphWidget::addNode(QPointF& pos, QString& name)
 
 QtEdgeItem* GraphWidget::addEdge(vertex_descriptor& u, vertex_descriptor& v, int directed)
 {
-        QtEdgeItem* newEdge= new QtEdgeItem(u,v,mGraph);
+        QtEdgeItem* newEdge= new QtEdgeItem(u,v,this);
         scene->addItem(newEdge);
 
     return newEdge;
