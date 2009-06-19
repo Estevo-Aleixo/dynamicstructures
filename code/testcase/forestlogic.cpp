@@ -46,7 +46,7 @@ QString name="Node";
                                         pos.setX(0 + xd * ix + offsetX * ix);
                                         pos.setY(0 + yd * iy + offsetY * iy);
 
-                                        gWidget->addNode(pos,name);
+                                        gWidget->addNode(pos);
 
 
                                         // int n= (int)((qrand()%100)/100.0)*(i-1);

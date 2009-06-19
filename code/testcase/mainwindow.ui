@@ -76,51 +76,6 @@
      <string>Map Graph</string>
     </property>
    </widget>
-   <widget class="QTabWidget" name="tabWidget">
-    <property name="geometry">
-     <rect>
-      <x>8</x>
-      <y>547</y>
-      <width>721</width>
-      <height>141</height>
-     </rect>
-    </property>
-    <property name="currentIndex">
-     <number>0</number>
-    </property>
-    <widget class="QWidget" name="tab">
-     <attribute name="title">
-      <string>Debug info</string>
-     </attribute>
-     <widget class="QTextEdit" name="textEdit">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>721</width>
-        <height>111</height>
-       </rect>
-      </property>
-     </widget>
-     <zorder>textEdit</zorder>
-     <zorder>groupBox</zorder>
-    </widget>
-    <widget class="QWidget" name="tab_2">
-     <attribute name="title">
-      <string>Errors</string>
-     </attribute>
-     <widget class="QTextEdit" name="textEdit_2">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>721</width>
-        <height>191</height>
-       </rect>
-      </property>
-     </widget>
-    </widget>
-   </widget>
    <widget class="QPushButton" name="pushButton_4">
     <property name="geometry">
      <rect>
@@ -390,7 +345,7 @@
        <string>Find Local fight points</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_6">
+     <widget class="QPushButton" name="btnExecutePathFinder">
       <property name="geometry">
        <rect>
         <x>50</x>
@@ -657,6 +612,24 @@
        <string>Show Forest Graph in Fullscreen</string>
       </property>
      </widget>
+    </widget>
+   </widget>
+   <widget class="QTabWidget" name="tabOutput">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>539</y>
+      <width>1141</width>
+      <height>151</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>errors</string>
+     </attribute>
     </widget>
    </widget>
   </widget>

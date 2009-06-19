@@ -47,6 +47,8 @@
 
 enum EdgeState{normal_edge, important_edge, active_edge,unimportant_edge, collision_edge, toBeDeleted_edge, interest_edge};
 
+
+
 class QtVertexItem;
 
 class QtEdgeItem : public QGraphicsItem
@@ -73,6 +75,7 @@ public:
 
     QGraphicsTextItem* mLabel;
     edge_descriptor mEd;
+
 
 protected:
     QRectF boundingRect() const;

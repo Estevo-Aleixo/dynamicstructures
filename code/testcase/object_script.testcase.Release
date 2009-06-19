@@ -7,6 +7,7 @@ INPUT(
 ./release\QtEdgeItem.o
 ./release\scenariohandler.o
 ./release\soundhandler.o
+./release\logwindow.o
 ./release\moc_graphwidget.o
 ./release\moc_mainwindow.o
 );

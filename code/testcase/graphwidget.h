@@ -63,7 +63,7 @@ public:
 
   QtVertexItem* getClosestNodeTo(QtVertexItem* node);
 
-  QtVertexItem* addNode(QPointF& pos,QString& name);
+  QtVertexItem* addNode(QPointF& pos);
   QtEdgeItem* addEdge(vertex_descriptor& u, vertex_descriptor& v, int directed);
 
 

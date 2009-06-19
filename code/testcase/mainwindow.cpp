@@ -7,8 +7,9 @@ GraphWidget* graphMapView;
 
 ForestLogic* forestGenerator;
 ScenarioHandler* mapGenerator;
-
 Graph* forest, map;
+
+LogWindow* mDebugLog;
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -16,13 +17,17 @@ MainWindow::MainWindow(QWidget *parent)
 {
 
    ui->setupUi(this);
-
    this->setWindowTitle("Map Structure Search");
+   mDebugLog= new LogWindow();
+
+   QString label="Debug";
+   ui->tabOutput->insertTab(0,mDebugLog,label);
+    ui->tabOutput->setCurrentIndex(0);
+   mDebugLog->setReadOnly(true);
+   mDebugLog->show();
 
     //forest graph widget:
    graphForestView= new GraphWidget(ui->parent_forest_widget);
-
-
 
    graphForestView->resize(ui->parent_forest_widget->width(),ui->parent_forest_widget->height());
    graphForestView->show();
@@ -43,13 +48,10 @@ f.density=1;
 f.layers=4;
 f.area= QRect(0,0,400,400);
 
-
-
-
-
     forestStructure = forestGenerator->createForestGraph(graphForestView, f);
 
     mapGenerator= new ScenarioHandler(graphForestView,graphMapView);
+    mapGenerator->setDebugTextBox(mDebugLog);
 
 }
 
@@ -84,4 +86,9 @@ void MainWindow::on_btnExecuteLFPFinder_clicked()
 void MainWindow::on_btnForestFullScreen_clicked()
 {
     graphForestView->showFullScreen();
+}
+
+void MainWindow::on_btnExecutePathFinder_clicked()
+{
+    mapGenerator->executeMultiplePathFinder();
 }

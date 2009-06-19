@@ -48,7 +48,7 @@
 #include "QtVertexItem.h"
 #include "graphwidget.h"
 
-QtVertexItem::QtVertexItem(GraphWidget *graphWidget, QPointF& pos, QString& name)
+QtVertexItem::QtVertexItem(GraphWidget *graphWidget, QPointF& pos, QString name)
     : graph(graphWidget)
 {
 
@@ -56,13 +56,14 @@ QtVertexItem::QtVertexItem(GraphWidget *graphWidget, QPointF& pos, QString& name
     mV = boost::add_vertex(*mG);
     (*mG)[mV].vertexItem= this;
 
+    strLabel=name;
     itemLabel = new QGraphicsTextItem(name,this,graphWidget->scene);
     this->setPos(pos);
 
     setFlag(ItemIsMovable);
     setCacheMode(DeviceCoordinateCache);
     setZValue(1);
-    mState=normal;
+    mState=normal_state;
 }
 
 void QtVertexItem::addEdge(QtEdgeItem *edge)
@@ -152,7 +153,7 @@ void QtVertexItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *opti
      QRadialGradient gradient(-3, -3, 10);
     switch(mState){
 
-     case normal:
+     case normal_state:
         painter->setPen(Qt::NoPen);
         painter->setBrush(Qt::darkGray);
         painter->drawEllipse(-7, -7, 20, 20);
@@ -171,7 +172,7 @@ void QtVertexItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *opti
         painter->setPen(QPen(Qt::black, 0));
         painter->drawEllipse(-10, -10, 20, 20);
      break;
-        case important:
+        case important_state:
             painter->setPen(Qt::NoPen);
             painter->setBrush(Qt::darkGray);
             painter->drawRoundRect(-7, -7, 20, 20,4,4);
@@ -224,4 +225,30 @@ void QtVertexItem::setState(VertexState state)
 {
 mState= state;
 
+}
+
+void QtVertexItem::setType(VertexType type)
+{
+mType= type;
+
+switch(type)
+{
+case LFP_type:
+    setState(important_state);
+    break;
+
+case normal_type:
+   setState(normal_state);
+    break;
+}
+
+}
+
+
+
+void QtVertexItem::copyTo(GraphWidget* g)
+{
+    QPointF pos= this->pos();
+    QtVertexItem* vertex = g->addNode(pos);
+    vertex->setType(mType);
 }

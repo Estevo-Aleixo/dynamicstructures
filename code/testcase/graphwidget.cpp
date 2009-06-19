@@ -200,9 +200,10 @@ void GraphWidget::scaleView(qreal scaleFactor)
      this->scale(scaleFactor, scaleFactor);
 }
 
-QtVertexItem* GraphWidget::addNode(QPointF& pos, QString& name)
+QtVertexItem* GraphWidget::addNode(QPointF& pos)
 {
-    QtVertexItem*  newNode=new QtVertexItem(this,pos,name);
+    int num= scene->items().length();
+    QtVertexItem*  newNode=new QtVertexItem(this, pos,QString("node") + QString::number(num));
     scene->addItem(newNode);
 
     return newNode;

@@ -7,7 +7,7 @@
 #include "forestlogic.h"
 #include "scenariohandler.h"
 #include "graphwidget.h"
-
+#include "logwindow.h"
 
 //include boost:
 
@@ -34,6 +34,7 @@ private:
     Ui::MainWindow *ui;
 
 private slots:
+    void on_btnExecutePathFinder_clicked();
     void on_btnForestFullScreen_clicked();
     void on_btnExecuteLFPFinder_clicked();
     void on_btnGenerateForest_clicked();

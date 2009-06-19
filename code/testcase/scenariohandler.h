@@ -8,6 +8,7 @@
 #include "GraphConcept.h"
 #include "GraphWidget.h"
 
+class LogWindow;
 
 //creates graph structure for the mapgraph
 
@@ -24,7 +25,7 @@ public:
     void executeLFPfinder();
     void executeMultiplePathFinder();
 
-    void setDebugTextBox(int text);
+    void setDebugTextBox(LogWindow* log){mDebugText=log;}
 
     Graph* getMapGraph(){return mMG;}
 
@@ -41,7 +42,7 @@ public:
 
     std::vector<vertex_descriptor>* lfpVertices;
 
-    QTextEdit* mDebugText;
+    LogWindow* mDebugText;
 
 
 };

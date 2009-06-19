@@ -54,12 +54,13 @@ QT_BEGIN_NAMESPACE
 class QGraphicsSceneMouseEvent;
 QT_END_NAMESPACE
 
-enum VertexState{normal, important, active,unimportant, lfp, startnode, vertexOfInterest};
+enum VertexState{normal_state, important_state, active_state,unimportant_state, lfp_state, startnode_state, vertexOfInterest_state};
+enum VertexType{normal_type, LFP_type};
 
 class QtVertexItem : public QGraphicsItem
 {
 public:
-    QtVertexItem(GraphWidget *graphWidget, QPointF& pos, QString& name="");
+    QtVertexItem(GraphWidget *graphWidget, QPointF& pos, QString name="");
 
     void addEdge(QtEdgeItem *edge);
     QList<QtEdgeItem *> edges() const;
@@ -81,6 +82,10 @@ public:
     void setState(VertexState state);
 
     VertexState mState;
+    VertexType mType;
+
+    void setType(VertexType type);
+    void copyTo(GraphWidget* gWidget);
 
 protected:
     QVariant itemChange(GraphicsItemChange change, const QVariant &value);

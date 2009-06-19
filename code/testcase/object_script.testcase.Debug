@@ -7,6 +7,7 @@ INPUT(
 ./debug\QtEdgeItem.o
 ./debug\scenariohandler.o
 ./debug\soundhandler.o
+./debug\logwindow.o
 ./debug\moc_graphwidget.o
 ./debug\moc_mainwindow.o
 );

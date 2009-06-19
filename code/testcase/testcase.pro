@@ -12,7 +12,8 @@ SOURCES += main.cpp \
     QtVertexItem.cpp \
     QtEdgeItem.cpp \
     scenariohandler.cpp \
-    soundhandler.cpp
+    soundhandler.cpp \
+    logwindow.cpp
 HEADERS += BaseHeaders.h \
     graphwidget.h \
     mainwindow.h \
@@ -21,6 +22,7 @@ HEADERS += BaseHeaders.h \
     QtEdgeItem.h \
     QtVertexItem.h \
     scenariohandler.h \
-    soundhandler.h
+    soundhandler.h \
+    logwindow.h
 FORMS += mainwindow.ui
 OTHER_FILES += 

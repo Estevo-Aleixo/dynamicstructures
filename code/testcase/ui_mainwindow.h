@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'mainwindow.ui'
 **
-** Created: Tue Jun 16 14:50:52 2009
+** Created: Fri Jun 19 16:22:33 2009
 **      by: Qt User Interface Compiler version 4.5.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -23,7 +23,6 @@
 #include <QtGui/QRadioButton>
 #include <QtGui/QStatusBar>
 #include <QtGui/QTabWidget>
-#include <QtGui/QTextEdit>
 #include <QtGui/QToolBar>
 #include <QtGui/QWidget>
 
@@ -42,11 +41,6 @@ public:
     QWidget *parent_map_widget;
     QLabel *label_6;
     QLabel *label_7;
-    QTabWidget *tabWidget;
-    QWidget *tab;
-    QTextEdit *textEdit;
-    QWidget *tab_2;
-    QTextEdit *textEdit_2;
     QPushButton *pushButton_4;
     QPushButton *pushButton_5;
     QTabWidget *tabWidget_2;
@@ -66,7 +60,7 @@ public:
     QPushButton *btnGenerateMap;
     QCheckBox *chkDebug;
     QPushButton *btnExecuteLFPFinder;
-    QPushButton *pushButton_6;
+    QPushButton *btnExecutePathFinder;
     QLabel *label_4;
     QLabel *label_5;
     QLabel *label_9;
@@ -85,6 +79,8 @@ public:
     QPushButton *pushButton;
     QPushButton *pushButton_3;
     QPushButton *btnForestFullScreen;
+    QTabWidget *tabOutput;
+    QWidget *tab;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
 
@@ -124,22 +120,6 @@ public:
         label_7->setObjectName(QString::fromUtf8("label_7"));
         label_7->setGeometry(QRect(610, 30, 161, 21));
         label_7->setFont(font);
-        tabWidget = new QTabWidget(centralWidget);
-        tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
-        tabWidget->setGeometry(QRect(8, 547, 721, 141));
-        tab = new QWidget();
-        tab->setObjectName(QString::fromUtf8("tab"));
-        textEdit = new QTextEdit(tab);
-        textEdit->setObjectName(QString::fromUtf8("textEdit"));
-        textEdit->setGeometry(QRect(0, 0, 721, 111));
-        tabWidget->addTab(tab, QString());
-        textEdit->raise();
-        tab_2 = new QWidget();
-        tab_2->setObjectName(QString::fromUtf8("tab_2"));
-        textEdit_2 = new QTextEdit(tab_2);
-        textEdit_2->setObjectName(QString::fromUtf8("textEdit_2"));
-        textEdit_2->setGeometry(QRect(0, 0, 721, 191));
-        tabWidget->addTab(tab_2, QString());
         pushButton_4 = new QPushButton(centralWidget);
         pushButton_4->setObjectName(QString::fromUtf8("pushButton_4"));
         pushButton_4->setGeometry(QRect(120, 0, 111, 31));
@@ -199,9 +179,9 @@ public:
         btnExecuteLFPFinder = new QPushButton(tab_9);
         btnExecuteLFPFinder->setObjectName(QString::fromUtf8("btnExecuteLFPFinder"));
         btnExecuteLFPFinder->setGeometry(QRect(50, 20, 121, 23));
-        pushButton_6 = new QPushButton(tab_9);
-        pushButton_6->setObjectName(QString::fromUtf8("pushButton_6"));
-        pushButton_6->setGeometry(QRect(50, 50, 121, 23));
+        btnExecutePathFinder = new QPushButton(tab_9);
+        btnExecutePathFinder->setObjectName(QString::fromUtf8("btnExecutePathFinder"));
+        btnExecutePathFinder->setGeometry(QRect(50, 50, 121, 23));
         label_4 = new QLabel(tab_9);
         label_4->setObjectName(QString::fromUtf8("label_4"));
         label_4->setGeometry(QRect(10, 0, 91, 16));
@@ -266,6 +246,12 @@ public:
         btnForestFullScreen->setObjectName(QString::fromUtf8("btnForestFullScreen"));
         btnForestFullScreen->setGeometry(QRect(390, 80, 171, 23));
         tabWidget_3->addTab(tab_7, QString());
+        tabOutput = new QTabWidget(centralWidget);
+        tabOutput->setObjectName(QString::fromUtf8("tabOutput"));
+        tabOutput->setGeometry(QRect(10, 539, 1141, 151));
+        tab = new QWidget();
+        tab->setObjectName(QString::fromUtf8("tab"));
+        tabOutput->addTab(tab, QString());
         MainWindow->setCentralWidget(centralWidget);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
@@ -278,9 +264,9 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(0);
         tabWidget_2->setCurrentIndex(3);
         tabWidget_3->setCurrentIndex(1);
+        tabOutput->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -296,8 +282,6 @@ public:
         actionClear->setText(QApplication::translate("MainWindow", "Clear", 0, QApplication::UnicodeUTF8));
         label_6->setText(QApplication::translate("MainWindow", "Forest Graph", 0, QApplication::UnicodeUTF8));
         label_7->setText(QApplication::translate("MainWindow", "Map Graph", 0, QApplication::UnicodeUTF8));
-        tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Debug info", 0, QApplication::UnicodeUTF8));
-        tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MainWindow", "Errors", 0, QApplication::UnicodeUTF8));
         pushButton_4->setText(QApplication::translate("MainWindow", "Load", 0, QApplication::UnicodeUTF8));
         pushButton_5->setText(QApplication::translate("MainWindow", "Save", 0, QApplication::UnicodeUTF8));
         label_2->setText(QApplication::translate("MainWindow", "LFP search method:", 0, QApplication::UnicodeUTF8));
@@ -333,7 +317,7 @@ public:
         btnGenerateMap->setText(QApplication::translate("MainWindow", "Execute All Steps", 0, QApplication::UnicodeUTF8));
         chkDebug->setText(QApplication::translate("MainWindow", "visual debug mode", 0, QApplication::UnicodeUTF8));
         btnExecuteLFPFinder->setText(QApplication::translate("MainWindow", "Find Local fight points", 0, QApplication::UnicodeUTF8));
-        pushButton_6->setText(QApplication::translate("MainWindow", "Find Multiple paths", 0, QApplication::UnicodeUTF8));
+        btnExecutePathFinder->setText(QApplication::translate("MainWindow", "Find Multiple paths", 0, QApplication::UnicodeUTF8));
         label_4->setText(QApplication::translate("MainWindow", "Step By Step:", 0, QApplication::UnicodeUTF8));
         label_5->setText(QApplication::translate("MainWindow", "1.", 0, QApplication::UnicodeUTF8));
         label_9->setText(QApplication::translate("MainWindow", "2.", 0, QApplication::UnicodeUTF8));
@@ -363,6 +347,7 @@ public:
         pushButton_3->setText(QApplication::translate("MainWindow", "add edges", 0, QApplication::UnicodeUTF8));
         btnForestFullScreen->setText(QApplication::translate("MainWindow", "Show Forest Graph in Fullscreen", 0, QApplication::UnicodeUTF8));
         tabWidget_3->setTabText(tabWidget_3->indexOf(tab_7), QApplication::translate("MainWindow", "Tools", 0, QApplication::UnicodeUTF8));
+        tabOutput->setTabText(tabOutput->indexOf(tab), QApplication::translate("MainWindow", "errors", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };
