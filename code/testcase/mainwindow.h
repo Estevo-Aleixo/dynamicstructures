@@ -32,12 +32,20 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    void initMainToolBar();
+    void initGraphManipulationToolBar();
 
 private slots:
     void on_btnExecutePathFinder_clicked();
     void on_btnForestFullScreen_clicked();
     void on_btnExecuteLFPFinder_clicked();
     void on_btnGenerateForest_clicked();
+
+    void addNodes();
+    void addEdges();
+    void deleteTool();
+    void selectTool();
+
 };
 
 #endif // MAINWINDOW_H

@@ -51,6 +51,7 @@ enum EdgeFPSType{HORIZONTAL_CONNECTION,VERTICAL_CONNECTION};
   {
       std::string name;
       double distance;
+      int traverseRate;
       EdgeFPSType type;
       QtEdgeItem* edgeItem;
   };

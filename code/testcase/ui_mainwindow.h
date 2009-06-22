@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'mainwindow.ui'
 **
-** Created: Fri Jun 19 16:22:33 2009
+** Created: Mon Jun 22 14:23:01 2009
 **      by: Qt User Interface Compiler version 4.5.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -41,8 +41,6 @@ public:
     QWidget *parent_map_widget;
     QLabel *label_6;
     QLabel *label_7;
-    QPushButton *pushButton_4;
-    QPushButton *pushButton_5;
     QTabWidget *tabWidget_2;
     QWidget *tab_3;
     QLabel *label_2;
@@ -75,10 +73,6 @@ public:
     QComboBox *cmbConnectivity;
     QComboBox *cmbScatteringType;
     QPushButton *btnGenerateForest_2;
-    QWidget *tab_7;
-    QPushButton *pushButton;
-    QPushButton *pushButton_3;
-    QPushButton *btnForestFullScreen;
     QTabWidget *tabOutput;
     QWidget *tab;
     QToolBar *mainToolBar;
@@ -88,7 +82,8 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(1165, 725);
+        MainWindow->resize(1165, 972);
+        MainWindow->setBaseSize(QSize(100, 60));
         actionNew = new QAction(MainWindow);
         actionNew->setObjectName(QString::fromUtf8("actionNew"));
         actionSave = new QAction(MainWindow);
@@ -120,12 +115,6 @@ public:
         label_7->setObjectName(QString::fromUtf8("label_7"));
         label_7->setGeometry(QRect(610, 30, 161, 21));
         label_7->setFont(font);
-        pushButton_4 = new QPushButton(centralWidget);
-        pushButton_4->setObjectName(QString::fromUtf8("pushButton_4"));
-        pushButton_4->setGeometry(QRect(120, 0, 111, 31));
-        pushButton_5 = new QPushButton(centralWidget);
-        pushButton_5->setObjectName(QString::fromUtf8("pushButton_5"));
-        pushButton_5->setGeometry(QRect(0, 0, 111, 31));
         tabWidget_2 = new QTabWidget(centralWidget);
         tabWidget_2->setObjectName(QString::fromUtf8("tabWidget_2"));
         tabWidget_2->setGeometry(QRect(610, 390, 541, 141));
@@ -234,38 +223,26 @@ public:
         btnGenerateForest_2->setObjectName(QString::fromUtf8("btnGenerateForest_2"));
         btnGenerateForest_2->setGeometry(QRect(390, 90, 81, 21));
         tabWidget_3->addTab(tab_6, QString());
-        tab_7 = new QWidget();
-        tab_7->setObjectName(QString::fromUtf8("tab_7"));
-        pushButton = new QPushButton(tab_7);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(10, 30, 71, 41));
-        pushButton_3 = new QPushButton(tab_7);
-        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
-        pushButton_3->setGeometry(QRect(100, 30, 71, 41));
-        btnForestFullScreen = new QPushButton(tab_7);
-        btnForestFullScreen->setObjectName(QString::fromUtf8("btnForestFullScreen"));
-        btnForestFullScreen->setGeometry(QRect(390, 80, 171, 23));
-        tabWidget_3->addTab(tab_7, QString());
         tabOutput = new QTabWidget(centralWidget);
         tabOutput->setObjectName(QString::fromUtf8("tabOutput"));
-        tabOutput->setGeometry(QRect(10, 539, 1141, 151));
+        tabOutput->setGeometry(QRect(10, 539, 1141, 381));
         tab = new QWidget();
         tab->setObjectName(QString::fromUtf8("tab"));
         tabOutput->addTab(tab, QString());
         MainWindow->setCentralWidget(centralWidget);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
+        mainToolBar->setBaseSize(QSize(1000, 68));
         MainWindow->addToolBar(Qt::TopToolBarArea, mainToolBar);
+        MainWindow->insertToolBarBreak(mainToolBar);
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QString::fromUtf8("statusBar"));
         MainWindow->setStatusBar(statusBar);
 
-        mainToolBar->addSeparator();
-
         retranslateUi(MainWindow);
 
         tabWidget_2->setCurrentIndex(3);
-        tabWidget_3->setCurrentIndex(1);
+        tabWidget_3->setCurrentIndex(0);
         tabOutput->setCurrentIndex(0);
 
 
@@ -282,8 +259,6 @@ public:
         actionClear->setText(QApplication::translate("MainWindow", "Clear", 0, QApplication::UnicodeUTF8));
         label_6->setText(QApplication::translate("MainWindow", "Forest Graph", 0, QApplication::UnicodeUTF8));
         label_7->setText(QApplication::translate("MainWindow", "Map Graph", 0, QApplication::UnicodeUTF8));
-        pushButton_4->setText(QApplication::translate("MainWindow", "Load", 0, QApplication::UnicodeUTF8));
-        pushButton_5->setText(QApplication::translate("MainWindow", "Save", 0, QApplication::UnicodeUTF8));
         label_2->setText(QApplication::translate("MainWindow", "LFP search method:", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("MainWindow", "Local Fight Points:", 0, QApplication::UnicodeUTF8));
         cmbCPTreshold->clear();
@@ -343,11 +318,8 @@ public:
         cmbScatteringType->setStyleSheet(QApplication::translate("MainWindow", "font: 75 8pt \"Minion Pro Cond\";", 0, QApplication::UnicodeUTF8));
         btnGenerateForest_2->setText(QApplication::translate("MainWindow", "Restore", 0, QApplication::UnicodeUTF8));
         tabWidget_3->setTabText(tabWidget_3->indexOf(tab_6), QApplication::translate("MainWindow", "Generate Forest", 0, QApplication::UnicodeUTF8));
-        pushButton->setText(QApplication::translate("MainWindow", "add nodes", 0, QApplication::UnicodeUTF8));
-        pushButton_3->setText(QApplication::translate("MainWindow", "add edges", 0, QApplication::UnicodeUTF8));
-        btnForestFullScreen->setText(QApplication::translate("MainWindow", "Show Forest Graph in Fullscreen", 0, QApplication::UnicodeUTF8));
-        tabWidget_3->setTabText(tabWidget_3->indexOf(tab_7), QApplication::translate("MainWindow", "Tools", 0, QApplication::UnicodeUTF8));
         tabOutput->setTabText(tabOutput->indexOf(tab), QApplication::translate("MainWindow", "errors", 0, QApplication::UnicodeUTF8));
+        Q_UNUSED(MainWindow);
     } // retranslateUi
 
 };

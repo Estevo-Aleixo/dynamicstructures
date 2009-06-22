@@ -64,15 +64,17 @@ QtEdgeItem::QtEdgeItem(vertex_descriptor& start, vertex_descriptor& end, GraphWi
     mEd= retValue.first;
     (*mG)[mEd].edgeItem=this;
     (*mG)[mEd].distance=0.0;
+    (*mG)[mEd].traverseRate=0;
     setAcceptedMouseButtons(0);
-    source = (*mG)[start].vertexItem;
-    dest = (*mG)[end].vertexItem;;
-    source->addEdge(this);
-    dest->addEdge(this);
+    mSourceVertex = (*mG)[start].vertexItem;
+    mDestVertex = (*mG)[end].vertexItem;;
+    mSourceVertex->addEdge(this);
+    mDestVertex->addEdge(this);
     adjust();
 
     QString s="distance";
     mLabel = new QGraphicsTextItem(s,this,graphWidget->scene);
+    mEnabled=true;
 }
 
 
@@ -83,32 +85,32 @@ QtEdgeItem::~QtEdgeItem()
 
 QtVertexItem *QtEdgeItem::sourceVertex() const
 {
-    return source;
+    return mSourceVertex ;
 }
 
-void QtEdgeItem::setSourceVertex(QtVertexItem *QtVertexItem)
+void QtEdgeItem::setSourceVertex(QtVertexItem *vertex)
 {
-    source = QtVertexItem;
+    mSourceVertex  = vertex;
     adjust();
 }
 
 QtVertexItem *QtEdgeItem::destVertex() const
 {
-    return dest;
+    return mDestVertex ;
 }
 
-void QtEdgeItem::setDestVertex(QtVertexItem *QtVertexItem)
+void QtEdgeItem::setDestVertex(QtVertexItem *vertex)
 {
-    dest = QtVertexItem;
+    mDestVertex  = vertex;
     adjust();
 }
 
 void QtEdgeItem::adjust()
 {
-    if (!source || !dest)
+    if (!mSourceVertex  || !mDestVertex)
         return;
 
-    QLineF line(mapFromItem(source, 0, 0), mapFromItem(dest, 0, 0));
+    QLineF line(mapFromItem(mSourceVertex, 0, 0), mapFromItem(mDestVertex, 0, 0));
     qreal length = line.length();
     QPointF QtEdgeItemOffset((line.dx() * 10) / length, (line.dy() * 10) / length);
 
@@ -116,12 +118,15 @@ void QtEdgeItem::adjust()
     sourcePoint = line.p1() + QtEdgeItemOffset;
     destPoint = line.p2() - QtEdgeItemOffset;
 
-    (*mG)[mEd].distance=line.length();
+    if (mEnabled==true)
+        (*mG)[mEd].distance=line.length();
+    else
+       (*mG)[mEd].distance=1000000;
 }
 
 QRectF QtEdgeItem::boundingRect() const
 {
-    if (!source || !dest)
+    if (!mSourceVertex || !mDestVertex )
         return QRectF();
 
     qreal penWidth = 1;
@@ -135,7 +140,7 @@ QRectF QtEdgeItem::boundingRect() const
 
 void QtEdgeItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
-    if (!source || !dest)
+    if (!mSourceVertex || !mDestVertex)
         return;
 
     // Draw the line itself
@@ -167,6 +172,9 @@ void QtEdgeItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWid
         case interest_edge:
         painter->setPen(QPen(Qt::green, 1, Qt::DotLine, Qt::RoundCap, Qt::RoundJoin));
         break;
+        case selected_edge:
+        painter->setPen(QPen(Qt::red, 3, Qt::DotLine, Qt::RoundCap, Qt::RoundJoin));
+        break;
 
     }
 
@@ -182,7 +190,29 @@ void QtEdgeItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWid
     labelPos= sourcePoint + QPointF(cos(angle)*(line.length()/2),sin(angle)*(line.length()/2));
     s.sprintf("%.2f",(*mG)[mEd].distance);
 
+    s= "tr: " + QString::number((*mG)[mEd].traverseRate);
     mLabel->setPos(labelPos);
     mLabel->setPlainText(s);
+
+}
+
+//an edge can only be copied when the corresponding nodes are already present
+
+void  QtEdgeItem::copyTo(GraphWidget* g)
+ {
+  vertex_descriptor v1Clone;
+  vertex_descriptor v2Clone;
+
+//when a vertex has not been copied to the other graphwidget we need to do that first
+if (mSourceVertex->isCopied()==false)
+  mSourceVertex->copyTo(g);
+
+if (mDestVertex->isCopied()==false)
+  mDestVertex->copyTo(g);
+
+v1Clone= mSourceVertex->getClone();
+v2Clone= mDestVertex->getClone();
+
+g->addEdge(v1Clone,v2Clone,0);
 
 }

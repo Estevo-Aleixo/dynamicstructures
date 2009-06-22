@@ -87,7 +87,14 @@ public:
     void setType(VertexType type);
     void copyTo(GraphWidget* gWidget);
 
+    vertex_descriptor getClone(){return mClone;}
+    void setClone(vertex_descriptor clone){mClone=clone;}
+
+    bool isCopied(){return mCopied;}
 protected:
+    bool mCopied;
+
+    vertex_descriptor mClone;
     QVariant itemChange(GraphicsItemChange change, const QVariant &value);
 
     void mousePressEvent(QGraphicsSceneMouseEvent *event);

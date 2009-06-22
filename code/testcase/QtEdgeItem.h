@@ -45,7 +45,7 @@
 #include <QGraphicsItem>
 #include "GraphWidget.h"
 
-enum EdgeState{normal_edge, important_edge, active_edge,unimportant_edge, collision_edge, toBeDeleted_edge, interest_edge};
+enum EdgeState{normal_edge, important_edge,selected_edge, active_edge,unimportant_edge, collision_edge, toBeDeleted_edge, interest_edge};
 
 
 
@@ -77,12 +77,20 @@ public:
     edge_descriptor mEd;
 
 
+    void copyTo(GraphWidget* g);
+
+    void disable(){mEnabled=false;}
+    void enable(){mEnabled=true;}
+
+    bool isEnabled(){return mEnabled;}
 protected:
+    bool mEnabled;
+
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
     
 private:
-    QtVertexItem *source, *dest;
+    QtVertexItem *mSourceVertex, *mDestVertex;
 
     QPointF sourcePoint;
     QPointF destPoint;

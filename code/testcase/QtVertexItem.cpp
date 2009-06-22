@@ -64,6 +64,7 @@ QtVertexItem::QtVertexItem(GraphWidget *graphWidget, QPointF& pos, QString name)
     setCacheMode(DeviceCoordinateCache);
     setZValue(1);
     mState=normal_state;
+    mCopied=false;
 }
 
 void QtVertexItem::addEdge(QtEdgeItem *edge)
@@ -251,4 +252,6 @@ void QtVertexItem::copyTo(GraphWidget* g)
     QPointF pos= this->pos();
     QtVertexItem* vertex = g->addNode(pos);
     vertex->setType(mType);
+    setClone(vertex->getVertexDescriptor());
+    mCopied=true;
 }

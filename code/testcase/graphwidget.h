@@ -75,6 +75,8 @@ public:
     Graph* getGraph(){return mGraph;}
     void setArea(QRect& area){mArea= area;}
 
+
+    void disableEdge(edge_descriptor e);
 protected:
     void keyPressEvent(QKeyEvent *event);
     void timerEvent(QTimerEvent *event);

@@ -240,3 +240,8 @@ QtVertexItem* GraphWidget::getClosestNodeTo(QtVertexItem* node)
     return closestNode;
 }
 
+void GraphWidget::disableEdge(edge_descriptor e)
+{
+
+
+}
