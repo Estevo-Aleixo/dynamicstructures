@@ -56,13 +56,17 @@ GraphWidget::GraphWidget(QWidget* parent)
 
     scene = new QGraphicsScene(this);
     scene->setItemIndexMethod(QGraphicsScene::NoIndex);
-    scene->setSceneRect(0, 0,400, 400);
+    scene->setSceneRect(0, 0, 400, 400);
+
+    this->mGraph= new Graph();
     this->setScene(scene);
     this->setCacheMode(this->CacheBackground);
     this->setViewportUpdateMode(this->BoundingRectViewportUpdate);
     this->setRenderHint(QPainter::Antialiasing);
     this->setTransformationAnchor(this->AnchorUnderMouse);
     this->setResizeAnchor(this->AnchorViewCenter);
+
+
 
     //this->
     //this->setDragMode(QGraphicsView::ScrollHandDrag);
@@ -243,5 +247,26 @@ QtVertexItem* GraphWidget::getClosestNodeTo(QtVertexItem* node)
 void GraphWidget::disableEdge(edge_descriptor e)
 {
 
+
+}
+
+void GraphWidget::clear()
+{
+//clear graph: !WARNING INVALIDATES POINTER TO GRAPH STRUCTURE!
+delete this->mGraph;
+mGraph= new Graph();
+
+//clear scene
+this->scene->clear();
+
+}
+
+void GraphWidget::deleteEdge(edge_descriptor e)
+{
+    QtEdgeItem* edgeItem= (*mGraph)[e].edgeItem;
+    scene->removeItem(edgeItem);
+    delete edgeItem;
+
+    remove_edge(e,*mGraph);
 
 }

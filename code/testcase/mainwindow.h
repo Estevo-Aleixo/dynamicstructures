@@ -2,7 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QtGui/QMainWindow>
-
+ #include <QFileDialog>
 
 #include "forestlogic.h"
 #include "scenariohandler.h"
@@ -35,6 +35,8 @@ private:
     void initMainToolBar();
     void initGraphManipulationToolBar();
 
+    void initActions();
+    void setMapParams();
 private slots:
     void on_btnExecutePathFinder_clicked();
     void on_btnForestFullScreen_clicked();
@@ -45,6 +47,13 @@ private slots:
     void addEdges();
     void deleteTool();
     void selectTool();
+
+    void openProblem();
+    void saveProblem();
+    void newProblem();
+
+
+    void createProblemStructure();
 
 };
 

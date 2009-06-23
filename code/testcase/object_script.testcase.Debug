@@ -8,6 +8,8 @@ INPUT(
 ./debug\scenariohandler.o
 ./debug\soundhandler.o
 ./debug\logwindow.o
+./debug\scenario.o
+./debug\fpsscenario.o
 ./debug\moc_graphwidget.o
 ./debug\moc_mainwindow.o
 );

@@ -75,6 +75,11 @@ QtEdgeItem::QtEdgeItem(vertex_descriptor& start, vertex_descriptor& end, GraphWi
     QString s="distance";
     mLabel = new QGraphicsTextItem(s,this,graphWidget->scene);
     mEnabled=true;
+
+    //calculate distance:
+    QLineF line(mapFromItem(mSourceVertex, 0, 0), mapFromItem(mDestVertex, 0, 0));
+    (*mG)[mEd].distance = line.length();
+
 }
 
 
@@ -119,9 +124,13 @@ void QtEdgeItem::adjust()
     destPoint = line.p2() - QtEdgeItemOffset;
 
     if (mEnabled==true)
+    {
         (*mG)[mEd].distance=line.length();
+    }
     else
+    {
        (*mG)[mEd].distance=1000000;
+    }
 }
 
 QRectF QtEdgeItem::boundingRect() const
@@ -160,7 +169,7 @@ void QtEdgeItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWid
                                               cos(angle - Pi + Pi / 3) * arrowSize);
 
 
-
+QColor color;
     switch(mState)
     {
         case normal_edge:
@@ -175,14 +184,18 @@ void QtEdgeItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWid
         case selected_edge:
         painter->setPen(QPen(Qt::red, 3, Qt::DotLine, Qt::RoundCap, Qt::RoundJoin));
         break;
+        case disabled_edge:
+        color= QColor(150,150,150);
+        painter->setPen(QPen(color, 3, Qt::DotLine, Qt::RoundCap, Qt::RoundJoin));
+        break;
 
     }
 
     painter->drawLine(line);
 
-    painter->setBrush(Qt::black);
-    painter->drawPolygon(QPolygonF() << line.p1() << sourceArrowP1 << sourceArrowP2);
-    painter->drawPolygon(QPolygonF() << line.p2() << destArrowP1 << destArrowP2);
+    //painter->setBrush(Qt::black);
+    //painter->drawPolygon(QPolygonF() << line.p1() << sourceArrowP1 << sourceArrowP2);
+    //painter->drawPolygon(QPolygonF() << line.p2() << destArrowP1 << destArrowP2);
 
     //draw distance
     QString s;

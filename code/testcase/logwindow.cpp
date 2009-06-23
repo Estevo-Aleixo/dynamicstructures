@@ -36,7 +36,7 @@ void LogWindow::log(QString  msg, MsgType type)
     style="font-size:10pt;font-weight:bold;color:rgb(150,255,150);";
      break;
  case failure_msg:
-    style="font-size:10pt;font-weight:bold;color:rgb(0,255,0);";
+    style="font-size:10pt;font-weight:bold;color:rgb(255,0,0);";
      break;
  case important_msg:
     style="font-size:10pt;font-weight:bold;color:rgb(0,0,0);text-decoration:italic;";

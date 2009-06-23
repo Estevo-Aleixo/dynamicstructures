@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'mainwindow.ui'
 **
-** Created: Mon Jun 22 14:23:01 2009
+** Created: Tue Jun 23 15:58:00 2009
 **      by: Qt User Interface Compiler version 4.5.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -18,6 +18,7 @@
 #include <QtGui/QComboBox>
 #include <QtGui/QHeaderView>
 #include <QtGui/QLabel>
+#include <QtGui/QLineEdit>
 #include <QtGui/QMainWindow>
 #include <QtGui/QPushButton>
 #include <QtGui/QRadioButton>
@@ -44,9 +45,7 @@ public:
     QTabWidget *tabWidget_2;
     QWidget *tab_3;
     QLabel *label_2;
-    QLabel *label;
     QComboBox *cmbCPTreshold;
-    QComboBox *cmbNumFightPoints;
     QLabel *label_3;
     QComboBox *cmbLFPMethod;
     QWidget *tab_8;
@@ -64,15 +63,36 @@ public:
     QLabel *label_9;
     QPushButton *btnExecuteLFPFinder_2;
     QLabel *label_11;
+    QLineEdit *editLocalFightPoints;
+    QLabel *label;
+    QLabel *label_10;
+    QLineEdit *editLocalFightPoints_2;
     QWidget *tab_4;
     QTabWidget *tabWidget_3;
     QWidget *tab_6;
     QLabel *label_8;
     QPushButton *btnGenerateForest;
-    QLabel *label_10;
-    QComboBox *cmbConnectivity;
-    QComboBox *cmbScatteringType;
-    QPushButton *btnGenerateForest_2;
+    QComboBox *cmbScatterMethod;
+    QLineEdit *editWidth;
+    QLineEdit *editHeight;
+    QLabel *label_13;
+    QLabel *label_14;
+    QLabel *label_15;
+    QLabel *label_16;
+    QLabel *label_12;
+    QLabel *label_17;
+    QLineEdit *editMinNodeSpan;
+    QLineEdit *editMaxNodeSpan;
+    QLabel *label_18;
+    QLabel *label_19;
+    QLabel *label_20;
+    QLabel *label_21;
+    QLabel *label_22;
+    QLineEdit *editMinConnections;
+    QLineEdit *editMaxConnections;
+    QLabel *label_23;
+    QLabel *label_24;
+    QLineEdit *editLocalNeighbourRange;
     QTabWidget *tabOutput;
     QWidget *tab;
     QToolBar *mainToolBar;
@@ -82,7 +102,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(1165, 972);
+        MainWindow->resize(1165, 933);
         MainWindow->setBaseSize(QSize(100, 60));
         actionNew = new QAction(MainWindow);
         actionNew->setObjectName(QString::fromUtf8("actionNew"));
@@ -104,7 +124,7 @@ public:
         parent_map_widget->setGeometry(QRect(610, 60, 541, 321));
         label_6 = new QLabel(centralWidget);
         label_6->setObjectName(QString::fromUtf8("label_6"));
-        label_6->setGeometry(QRect(40, 30, 161, 21));
+        label_6->setGeometry(QRect(10, 30, 161, 21));
         QFont font;
         font.setFamily(QString::fromUtf8("Palatino Linotype"));
         font.setPointSize(12);
@@ -113,25 +133,19 @@ public:
         label_6->setFont(font);
         label_7 = new QLabel(centralWidget);
         label_7->setObjectName(QString::fromUtf8("label_7"));
-        label_7->setGeometry(QRect(610, 30, 161, 21));
+        label_7->setGeometry(QRect(610, 30, 261, 21));
         label_7->setFont(font);
         tabWidget_2 = new QTabWidget(centralWidget);
         tabWidget_2->setObjectName(QString::fromUtf8("tabWidget_2"));
-        tabWidget_2->setGeometry(QRect(610, 390, 541, 141));
+        tabWidget_2->setGeometry(QRect(610, 390, 541, 221));
         tab_3 = new QWidget();
         tab_3->setObjectName(QString::fromUtf8("tab_3"));
         label_2 = new QLabel(tab_3);
         label_2->setObjectName(QString::fromUtf8("label_2"));
         label_2->setGeometry(QRect(40, 60, 111, 16));
-        label = new QLabel(tab_3);
-        label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(40, 10, 111, 16));
         cmbCPTreshold = new QComboBox(tab_3);
         cmbCPTreshold->setObjectName(QString::fromUtf8("cmbCPTreshold"));
         cmbCPTreshold->setGeometry(QRect(250, 30, 151, 22));
-        cmbNumFightPoints = new QComboBox(tab_3);
-        cmbNumFightPoints->setObjectName(QString::fromUtf8("cmbNumFightPoints"));
-        cmbNumFightPoints->setGeometry(QRect(40, 30, 151, 22));
         label_3 = new QLabel(tab_3);
         label_3->setObjectName(QString::fromUtf8("label_3"));
         label_3->setGeometry(QRect(250, 10, 121, 16));
@@ -158,13 +172,13 @@ public:
         tab_9->setObjectName(QString::fromUtf8("tab_9"));
         btnGenerateMap = new QPushButton(tab_9);
         btnGenerateMap->setObjectName(QString::fromUtf8("btnGenerateMap"));
-        btnGenerateMap->setGeometry(QRect(370, 80, 161, 31));
+        btnGenerateMap->setGeometry(QRect(370, 160, 161, 31));
         QFont font1;
         font1.setPointSize(14);
         btnGenerateMap->setFont(font1);
         chkDebug = new QCheckBox(tab_9);
         chkDebug->setObjectName(QString::fromUtf8("chkDebug"));
-        chkDebug->setGeometry(QRect(370, 60, 121, 18));
+        chkDebug->setGeometry(QRect(370, 140, 121, 18));
         btnExecuteLFPFinder = new QPushButton(tab_9);
         btnExecuteLFPFinder->setObjectName(QString::fromUtf8("btnExecuteLFPFinder"));
         btnExecuteLFPFinder->setGeometry(QRect(50, 20, 121, 23));
@@ -188,44 +202,100 @@ public:
         label_11 = new QLabel(tab_9);
         label_11->setObjectName(QString::fromUtf8("label_11"));
         label_11->setGeometry(QRect(180, 20, 21, 16));
+        editLocalFightPoints = new QLineEdit(tab_9);
+        editLocalFightPoints->setObjectName(QString::fromUtf8("editLocalFightPoints"));
+        editLocalFightPoints->setGeometry(QRect(140, 90, 113, 20));
+        label = new QLabel(tab_9);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setGeometry(QRect(20, 90, 111, 16));
+        label_10 = new QLabel(tab_9);
+        label_10->setObjectName(QString::fromUtf8("label_10"));
+        label_10->setGeometry(QRect(20, 120, 121, 16));
+        editLocalFightPoints_2 = new QLineEdit(tab_9);
+        editLocalFightPoints_2->setObjectName(QString::fromUtf8("editLocalFightPoints_2"));
+        editLocalFightPoints_2->setGeometry(QRect(140, 120, 113, 20));
         tabWidget_2->addTab(tab_9, QString());
         tab_4 = new QWidget();
         tab_4->setObjectName(QString::fromUtf8("tab_4"));
         tabWidget_2->addTab(tab_4, QString());
         tabWidget_3 = new QTabWidget(centralWidget);
         tabWidget_3->setObjectName(QString::fromUtf8("tabWidget_3"));
-        tabWidget_3->setGeometry(QRect(10, 390, 581, 141));
+        tabWidget_3->setGeometry(QRect(10, 390, 591, 221));
         tab_6 = new QWidget();
         tab_6->setObjectName(QString::fromUtf8("tab_6"));
         label_8 = new QLabel(tab_6);
         label_8->setObjectName(QString::fromUtf8("label_8"));
-        label_8->setGeometry(QRect(10, 20, 131, 16));
+        label_8->setGeometry(QRect(10, 10, 131, 16));
         btnGenerateForest = new QPushButton(tab_6);
         btnGenerateForest->setObjectName(QString::fromUtf8("btnGenerateForest"));
-        btnGenerateForest->setGeometry(QRect(480, 90, 81, 21));
-        label_10 = new QLabel(tab_6);
-        label_10->setObjectName(QString::fromUtf8("label_10"));
-        label_10->setGeometry(QRect(210, 20, 131, 16));
-        cmbConnectivity = new QComboBox(tab_6);
-        cmbConnectivity->setObjectName(QString::fromUtf8("cmbConnectivity"));
-        cmbConnectivity->setGeometry(QRect(210, 40, 151, 20));
-        cmbScatteringType = new QComboBox(tab_6);
-        cmbScatteringType->setObjectName(QString::fromUtf8("cmbScatteringType"));
-        cmbScatteringType->setGeometry(QRect(30, 40, 151, 20));
-        QFont font2;
-        font2.setFamily(QString::fromUtf8("Minion Pro Cond"));
-        font2.setPointSize(8);
-        font2.setBold(false);
-        font2.setItalic(false);
-        font2.setWeight(9);
-        cmbScatteringType->setFont(font2);
-        btnGenerateForest_2 = new QPushButton(tab_6);
-        btnGenerateForest_2->setObjectName(QString::fromUtf8("btnGenerateForest_2"));
-        btnGenerateForest_2->setGeometry(QRect(390, 90, 81, 21));
+        btnGenerateForest->setGeometry(QRect(490, 160, 81, 21));
+        cmbScatterMethod = new QComboBox(tab_6);
+        cmbScatterMethod->setObjectName(QString::fromUtf8("cmbScatterMethod"));
+        cmbScatterMethod->setGeometry(QRect(10, 30, 151, 22));
+        editWidth = new QLineEdit(tab_6);
+        editWidth->setObjectName(QString::fromUtf8("editWidth"));
+        editWidth->setGeometry(QRect(280, 70, 113, 20));
+        editHeight = new QLineEdit(tab_6);
+        editHeight->setObjectName(QString::fromUtf8("editHeight"));
+        editHeight->setGeometry(QRect(280, 100, 113, 20));
+        label_13 = new QLabel(tab_6);
+        label_13->setObjectName(QString::fromUtf8("label_13"));
+        label_13->setGeometry(QRect(190, 70, 31, 16));
+        label_14 = new QLabel(tab_6);
+        label_14->setObjectName(QString::fromUtf8("label_14"));
+        label_14->setGeometry(QRect(190, 100, 46, 14));
+        label_15 = new QLabel(tab_6);
+        label_15->setObjectName(QString::fromUtf8("label_15"));
+        label_15->setGeometry(QRect(400, 70, 61, 16));
+        label_16 = new QLabel(tab_6);
+        label_16->setObjectName(QString::fromUtf8("label_16"));
+        label_16->setGeometry(QRect(400, 100, 61, 16));
+        label_12 = new QLabel(tab_6);
+        label_12->setObjectName(QString::fromUtf8("label_12"));
+        label_12->setGeometry(QRect(190, 40, 81, 16));
+        label_17 = new QLabel(tab_6);
+        label_17->setObjectName(QString::fromUtf8("label_17"));
+        label_17->setGeometry(QRect(190, 10, 81, 16));
+        editMinNodeSpan = new QLineEdit(tab_6);
+        editMinNodeSpan->setObjectName(QString::fromUtf8("editMinNodeSpan"));
+        editMinNodeSpan->setGeometry(QRect(280, 10, 113, 20));
+        editMaxNodeSpan = new QLineEdit(tab_6);
+        editMaxNodeSpan->setObjectName(QString::fromUtf8("editMaxNodeSpan"));
+        editMaxNodeSpan->setGeometry(QRect(280, 40, 113, 20));
+        label_18 = new QLabel(tab_6);
+        label_18->setObjectName(QString::fromUtf8("label_18"));
+        label_18->setGeometry(QRect(400, 10, 61, 16));
+        label_19 = new QLabel(tab_6);
+        label_19->setObjectName(QString::fromUtf8("label_19"));
+        label_19->setGeometry(QRect(400, 40, 61, 16));
+        label_20 = new QLabel(tab_6);
+        label_20->setObjectName(QString::fromUtf8("label_20"));
+        label_20->setGeometry(QRect(190, 130, 91, 16));
+        label_21 = new QLabel(tab_6);
+        label_21->setObjectName(QString::fromUtf8("label_21"));
+        label_21->setGeometry(QRect(400, 160, 61, 16));
+        label_22 = new QLabel(tab_6);
+        label_22->setObjectName(QString::fromUtf8("label_22"));
+        label_22->setGeometry(QRect(190, 160, 91, 16));
+        editMinConnections = new QLineEdit(tab_6);
+        editMinConnections->setObjectName(QString::fromUtf8("editMinConnections"));
+        editMinConnections->setGeometry(QRect(280, 130, 113, 20));
+        editMaxConnections = new QLineEdit(tab_6);
+        editMaxConnections->setObjectName(QString::fromUtf8("editMaxConnections"));
+        editMaxConnections->setGeometry(QRect(280, 160, 113, 20));
+        label_23 = new QLabel(tab_6);
+        label_23->setObjectName(QString::fromUtf8("label_23"));
+        label_23->setGeometry(QRect(400, 130, 61, 16));
+        label_24 = new QLabel(tab_6);
+        label_24->setObjectName(QString::fromUtf8("label_24"));
+        label_24->setGeometry(QRect(10, 60, 131, 16));
+        editLocalNeighbourRange = new QLineEdit(tab_6);
+        editLocalNeighbourRange->setObjectName(QString::fromUtf8("editLocalNeighbourRange"));
+        editLocalNeighbourRange->setGeometry(QRect(10, 80, 151, 20));
         tabWidget_3->addTab(tab_6, QString());
         tabOutput = new QTabWidget(centralWidget);
         tabOutput->setObjectName(QString::fromUtf8("tabOutput"));
-        tabOutput->setGeometry(QRect(10, 539, 1141, 381));
+        tabOutput->setGeometry(QRect(10, 620, 1141, 271));
         tab = new QWidget();
         tab->setObjectName(QString::fromUtf8("tab"));
         tabOutput->addTab(tab, QString());
@@ -234,7 +304,6 @@ public:
         mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
         mainToolBar->setBaseSize(QSize(1000, 68));
         MainWindow->addToolBar(Qt::TopToolBarArea, mainToolBar);
-        MainWindow->insertToolBarBreak(mainToolBar);
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QString::fromUtf8("statusBar"));
         MainWindow->setStatusBar(statusBar);
@@ -257,24 +326,12 @@ public:
         actionLoad->setText(QApplication::translate("MainWindow", "Load", 0, QApplication::UnicodeUTF8));
         actionExit->setText(QApplication::translate("MainWindow", "Exit", 0, QApplication::UnicodeUTF8));
         actionClear->setText(QApplication::translate("MainWindow", "Clear", 0, QApplication::UnicodeUTF8));
-        label_6->setText(QApplication::translate("MainWindow", "Forest Graph", 0, QApplication::UnicodeUTF8));
-        label_7->setText(QApplication::translate("MainWindow", "Map Graph", 0, QApplication::UnicodeUTF8));
+        label_6->setText(QApplication::translate("MainWindow", "Problem Structure", 0, QApplication::UnicodeUTF8));
+        label_7->setText(QApplication::translate("MainWindow", "Solution: map structure", 0, QApplication::UnicodeUTF8));
         label_2->setText(QApplication::translate("MainWindow", "LFP search method:", 0, QApplication::UnicodeUTF8));
-        label->setText(QApplication::translate("MainWindow", "Local Fight Points:", 0, QApplication::UnicodeUTF8));
         cmbCPTreshold->clear();
         cmbCPTreshold->insertItems(0, QStringList()
          << QApplication::translate("MainWindow", "> num(nodes)", 0, QApplication::UnicodeUTF8)
-        );
-        cmbNumFightPoints->clear();
-        cmbNumFightPoints->insertItems(0, QStringList()
-         << QApplication::translate("MainWindow", "3 ", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("MainWindow", "4", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("MainWindow", "5", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("MainWindow", "6", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("MainWindow", "7", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("MainWindow", "8", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("MainWindow", "9", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("MainWindow", "10", 0, QApplication::UnicodeUTF8)
         );
         label_3->setText(QApplication::translate("MainWindow", "Collision Point Treshold:", 0, QApplication::UnicodeUTF8));
         cmbLFPMethod->clear();
@@ -298,25 +355,30 @@ public:
         label_9->setText(QApplication::translate("MainWindow", "2.", 0, QApplication::UnicodeUTF8));
         btnExecuteLFPFinder_2->setText(QApplication::translate("MainWindow", "select LFPS by hand", 0, QApplication::UnicodeUTF8));
         label_11->setText(QApplication::translate("MainWindow", "or", 0, QApplication::UnicodeUTF8));
+        label->setText(QApplication::translate("MainWindow", "Local Fight Points:", 0, QApplication::UnicodeUTF8));
+        label_10->setText(QApplication::translate("MainWindow", "Max Alternative Paths:", 0, QApplication::UnicodeUTF8));
         tabWidget_2->setTabText(tabWidget_2->indexOf(tab_9), QApplication::translate("MainWindow", "Execute", 0, QApplication::UnicodeUTF8));
         tabWidget_2->setTabText(tabWidget_2->indexOf(tab_4), QApplication::translate("MainWindow", "Analysis", 0, QApplication::UnicodeUTF8));
         label_8->setText(QApplication::translate("MainWindow", "Node Scattering Method:", 0, QApplication::UnicodeUTF8));
         btnGenerateForest->setText(QApplication::translate("MainWindow", "Generate ", 0, QApplication::UnicodeUTF8));
-        label_10->setText(QApplication::translate("MainWindow", "Edge Connectivity", 0, QApplication::UnicodeUTF8));
-        cmbConnectivity->clear();
-        cmbConnectivity->insertItems(0, QStringList()
-         << QApplication::translate("MainWindow", "dense", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("MainWindow", "medium", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("MainWindow", "sparse ", 0, QApplication::UnicodeUTF8)
+        cmbScatterMethod->clear();
+        cmbScatterMethod->insertItems(0, QStringList()
+         << QApplication::translate("MainWindow", "Random Forest Scatter", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindow", "Urban Grid ", 0, QApplication::UnicodeUTF8)
         );
-        cmbConnectivity->setStyleSheet(QApplication::translate("MainWindow", "font: 75 8pt \"Minion Pro Cond\";", 0, QApplication::UnicodeUTF8));
-        cmbScatteringType->clear();
-        cmbScatteringType->insertItems(0, QStringList()
-         << QApplication::translate("MainWindow", "Grid Random Scattering", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("MainWindow", "Clustered Random Scattering", 0, QApplication::UnicodeUTF8)
-        );
-        cmbScatteringType->setStyleSheet(QApplication::translate("MainWindow", "font: 75 8pt \"Minion Pro Cond\";", 0, QApplication::UnicodeUTF8));
-        btnGenerateForest_2->setText(QApplication::translate("MainWindow", "Restore", 0, QApplication::UnicodeUTF8));
+        label_13->setText(QApplication::translate("MainWindow", "Width", 0, QApplication::UnicodeUTF8));
+        label_14->setText(QApplication::translate("MainWindow", "Height", 0, QApplication::UnicodeUTF8));
+        label_15->setText(QApplication::translate("MainWindow", "(200- 1000)", 0, QApplication::UnicodeUTF8));
+        label_16->setText(QApplication::translate("MainWindow", "(200- 1000)", 0, QApplication::UnicodeUTF8));
+        label_12->setText(QApplication::translate("MainWindow", "Max Node Span", 0, QApplication::UnicodeUTF8));
+        label_17->setText(QApplication::translate("MainWindow", "Min Node Span", 0, QApplication::UnicodeUTF8));
+        label_18->setText(QApplication::translate("MainWindow", "(10-100)", 0, QApplication::UnicodeUTF8));
+        label_19->setText(QApplication::translate("MainWindow", "(10-100)", 0, QApplication::UnicodeUTF8));
+        label_20->setText(QApplication::translate("MainWindow", "Min Connections", 0, QApplication::UnicodeUTF8));
+        label_21->setText(QApplication::translate("MainWindow", "(3-8)", 0, QApplication::UnicodeUTF8));
+        label_22->setText(QApplication::translate("MainWindow", "Max Connections", 0, QApplication::UnicodeUTF8));
+        label_23->setText(QApplication::translate("MainWindow", "(0-4)", 0, QApplication::UnicodeUTF8));
+        label_24->setText(QApplication::translate("MainWindow", "range neighbour nodes", 0, QApplication::UnicodeUTF8));
         tabWidget_3->setTabText(tabWidget_3->indexOf(tab_6), QApplication::translate("MainWindow", "Generate Forest", 0, QApplication::UnicodeUTF8));
         tabOutput->setTabText(tabOutput->indexOf(tab), QApplication::translate("MainWindow", "errors", 0, QApplication::UnicodeUTF8));
         Q_UNUSED(MainWindow);

@@ -77,6 +77,9 @@ public:
 
 
     void disableEdge(edge_descriptor e);
+    void deleteEdge(edge_descriptor e);
+
+    void clear();
 protected:
     void keyPressEvent(QKeyEvent *event);
     void timerEvent(QTimerEvent *event);

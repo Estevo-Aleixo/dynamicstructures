@@ -12,11 +12,22 @@
 #include "QtEdgeItem.h"
 #include "QtVertexItem.h"
 
+class LogWindow;
+
+
+enum ScatterType{FORESTSCATTER,URBANSCATTER};
+
 struct forestParams
 {
-int density;
-int layers;
-int con_density;
+unsigned int density;
+unsigned int layers;
+unsigned int con_density;
+unsigned int min_node_span;
+unsigned int max_node_span;
+unsigned int min_connections_per_node;
+unsigned int max_connections_per_node;
+unsigned int range_local_neighbours;
+int scatterMethod;
 QRect area;
 };
 
@@ -32,16 +43,22 @@ public:
 std::vector<Layer*> layers;
 std::vector<QtVertexItem*> nodes;
 
-Graph* createForestGraph(GraphWidget* graphView, forestParams& params);
-void initForestGraph(Graph* g, GraphWidget* graphView, forestParams& params);
+void createForestGraph(GraphWidget* graphView, forestParams& params);
+void initForestGraph(GraphWidget* gWidget, forestParams& params);
 
 void createRandomScatter(GraphWidget* gWidget, forestParams& params);
+void createGridScatter(GraphWidget* gWidget, forestParams& params);
+
 void createConnections(GraphWidget* gWidget, forestParams& params);
 
 Graph* getForestGraph(){return forestGraph;}
-vertex_iterator returnRandomNeighbour(vertex_descriptor v, Graph* g, int range);
+void nodesInArea(Graph* g, std::vector<vertex_descriptor>& nodes, QPointF& pos, int range);
+
+void setDebugTextBox(LogWindow* log){mDebugText=log;}
+
 private:
 
+LogWindow* mDebugText;
 Graph* forestGraph;
 
 

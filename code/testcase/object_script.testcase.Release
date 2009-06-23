@@ -8,6 +8,8 @@ INPUT(
 ./release\scenariohandler.o
 ./release\soundhandler.o
 ./release\logwindow.o
+./release\scenario.o
+./release\fpsscenario.o
 ./release\moc_graphwidget.o
 ./release\moc_mainwindow.o
 );

@@ -8,6 +8,8 @@
 #include "GraphConcept.h"
 #include "GraphWidget.h"
 
+#include "fpsscenario.h"
+
 class LogWindow;
 
 //creates graph structure for the mapgraph
@@ -19,9 +21,10 @@ public:
     ScenarioHandler(GraphWidget* forestWidget, GraphWidget* mapWidget);
 
     //LFP
+    void setScenario(Scenario& scenario){mScenario = scenario;}
+    Scenario& getScenario(){return mScenario;}
 
     void runScenario();
-
     void executeLFPfinder();
     void executeMultiplePathFinder();
 
@@ -29,11 +32,25 @@ public:
 
     Graph* getMapGraph(){return mMG;}
 
+
+    void setMapWidget( GraphWidget* gWidget)
+    {
+        mMapWidget=gWidget;
+        mMG= gWidget->getGraph();
+    }
+
+    void setForestWidget( GraphWidget* gWidget)
+    {
+        mForestWidget=gWidget;
+        mFG=gWidget->getGraph();
+    }
+
   private:
     std::vector<vertex_descriptor>* findLFPs();
 
-    void generateMultiplePaths(Graph* forestGraph, std::vector<vertex_descriptor>* lfpVertices, Graph* mapGraph);
+    void generateMultiplePaths(std::vector<vertex_descriptor>* lfpVertices);
 
+    Scenario mScenario;
 
     Graph*  mFG;
     Graph*  mMG;

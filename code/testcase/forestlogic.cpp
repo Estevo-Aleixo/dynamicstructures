@@ -1,7 +1,7 @@
 #include "ForestLogic.h"
 
 #include <QGraphicsTextItem>
-
+#include "LogWindow.h"
 ForestLogic::ForestLogic()
 {
 
@@ -11,8 +11,8 @@ ForestLogic::ForestLogic()
 
 void  ForestLogic::createRandomScatter(GraphWidget* gWidget,forestParams& params)
  {
-
-    double averageTreeSpan= 100.0;
+    mDebugText->log("createRandomScatter()",very_important_msg);
+    double averageTreeSpan= (params.min_node_span + params.max_node_span)/2;
     double mDensity=params.density;
 
 //cols
@@ -62,32 +62,42 @@ QString name="Node";
 }
 
 
-Graph*  ForestLogic::createForestGraph(GraphWidget* graphView, forestParams& params)
+void ForestLogic::createGridScatter(GraphWidget* gWidget, forestParams& params)
 {
+    mDebugText->log("createGridScatter()",very_important_msg);
+    createRandomScatter(gWidget,params);
 
-    Graph* g;
-    g= new Graph();
-    forestGraph= g;
-
-
-    initForestGraph(g, graphView,params);
-    createRandomScatter(graphView,params);
-    createConnections(graphView, params);
-
-    return g;
 }
 
-void ForestLogic::initForestGraph(Graph* g, GraphWidget* graphView, forestParams& params)
+void ForestLogic::createForestGraph(GraphWidget* graphView, forestParams& params)
 {
-     graphView->setGraphStructure(g);
-     graphView->setArea(params.area);
+    forestGraph= graphView->getGraph();
+    initForestGraph(graphView,params);
 
-    graphView->show();
+switch(params.scatterMethod)
+{
+    case FORESTSCATTER:
+        createRandomScatter(graphView,params);
+        createConnections(graphView, params);
+    break;
+    case URBANSCATTER:
+        createGridScatter(graphView,params);
+        createConnections(graphView, params);
+    break;
+}
+
+}
+
+void ForestLogic::initForestGraph(GraphWidget* gWidget, forestParams& params)
+{
+     gWidget->setArea(params.area);
+     gWidget->show();
 }
 
 
 void ForestLogic::createConnections(GraphWidget* gWidget, forestParams& params)
 {
+    mDebugText->log("createConnections()",very_important_msg);
     Graph* g= gWidget->getGraph();
     std::pair<vertex_iterator, vertex_iterator> iterator_range= vertices((*gWidget->getGraph()));
     vertex_iterator start=iterator_range.first;
@@ -95,23 +105,43 @@ void ForestLogic::createConnections(GraphWidget* gWidget, forestParams& params)
     vertex_iterator i;
     vertex_iterator dest;
 
-    //iterate over vertexlist
+    std::vector<vertex_descriptor> localNodes;
 
+srand(time(NULL));
+
+    //connect nodes in local vincinity
     for (i=start;i!=end;++i)
     {
-      dest = returnRandomNeighbour(*i,g,300);
+        std::vector<vertex_descriptor>::iterator nodeItr;
+        QtVertexItem* item= (*g)[*i].vertexItem;
+        QPointF pos= QPointF(item->x(),item->y());
 
-     // if (dest!=end)
-      vertex_descriptor v= *i;
-      vertex_descriptor u= *dest;
+        nodesInArea(g,localNodes,pos, params.range_local_neighbours);
+        int connections = 0;
+        int maxConnections = params.min_connections_per_node + (rand() % (params.max_connections_per_node - params.min_connections_per_node));
 
-            gWidget->addEdge(v,u,0);
+
+        while(!localNodes.empty() && connections < maxConnections)
+        {
+          int num = rand()% (int)localNodes.size();
+          nodeItr=localNodes.begin();
+          nodeItr+=num;
+          vertex_descriptor v=(*i);
+          vertex_descriptor u=(*nodeItr);
+          gWidget->addEdge(u,v,0);
+          localNodes.erase(nodeItr);
+          connections++;
+        }
+
+
+
+
+        localNodes.clear();
     }
-
 
 }
 
-vertex_iterator ForestLogic::returnRandomNeighbour(vertex_descriptor v, Graph* g, int range)
+void ForestLogic::nodesInArea(Graph* g, std::vector<vertex_descriptor>& nodes, QPointF& pos, int range)
 {
     vertex_descriptor u;
 
@@ -120,11 +150,7 @@ vertex_iterator ForestLogic::returnRandomNeighbour(vertex_descriptor v, Graph* g
     vertex_iterator end=iterator_range.second;
     vertex_iterator i;
 
-    vd_list neighbours;
-QtVertexItem* item=(*g)[v].vertexItem;
-QtVertexItem* item2;
-
-    QPointF pos= QPointF(item->x(),item->y());
+    QtVertexItem* item2;
 
     for (i=start;i!=end;++i)
     {
@@ -133,19 +159,9 @@ QtVertexItem* item2;
 
         if (((pos.x() - pos2.x())*(pos.x() - pos2.x())+(pos.y() - pos2.y())*(pos.y() - pos2.y()))< range * range )
         {
-            return i;
+            nodes.push_back(*i);
         }
-
     }
 
-    return end;
 }
 
-/*
-vertex_descriptor ForestLogic::returnRandomNeighbour(vertex_descriptor v, GraphWidget* gWidget, int range)
-{
-
-
-}
-
-*/

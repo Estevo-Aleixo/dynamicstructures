@@ -45,7 +45,7 @@
 #include <QGraphicsItem>
 #include "GraphWidget.h"
 
-enum EdgeState{normal_edge, important_edge,selected_edge, active_edge,unimportant_edge, collision_edge, toBeDeleted_edge, interest_edge};
+enum EdgeState{normal_edge, important_edge,selected_edge, active_edge,unimportant_edge, collision_edge, toBeDeleted_edge, interest_edge,disabled_edge};
 
 
 
@@ -79,10 +79,10 @@ public:
 
     void copyTo(GraphWidget* g);
 
-    void disable(){mEnabled=false;}
-    void enable(){mEnabled=true;}
+    void disable(){mEnabled=false;setState(disabled_edge);}
+    void enable(){mEnabled=true;setState(normal_edge);}
 
-    bool isEnabled(){return mEnabled;}
+    bool enabled(){return mEnabled;}
 protected:
     bool mEnabled;
 

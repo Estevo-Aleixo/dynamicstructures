@@ -14,6 +14,7 @@ mMG= new Graph();
 mapWidget->setGraphStructure(mMG);
 mMapWidget=mapWidget;
 mDebugText=0;
+//mScenario=0;
 
 
 }
@@ -26,7 +27,7 @@ void ScenarioHandler::runScenario()
 lfpVertices= findLFPs();
 
 //step 2:generateMultiplePaths
-generateMultiplePaths( mFG,lfpVertices, mMG);
+generateMultiplePaths(lfpVertices);
 
 //step 3:
 //...
@@ -49,7 +50,7 @@ void ScenarioHandler::executeMultiplePathFinder()
         mDebugText->log("initiating path finder");
 
     //step 2:generateMultiplePaths
-    generateMultiplePaths( mFG,lfpVertices, mMG);
+    generateMultiplePaths(lfpVertices);
 
 }
 
@@ -59,7 +60,7 @@ std::vector<vertex_descriptor>* ScenarioHandler::findLFPs()
 
 std::vector<vertex_descriptor>* LFPs= new std::vector<vertex_descriptor>();
 
-  int LFPcount=3;
+  int LFPcount= mScenario.local_fight_points;
   int count=0;
 
   QList<QGraphicsItem*> vertexList= mForestWidget->scene->items();
@@ -91,14 +92,18 @@ return LFPs;
 
 
 
-void ScenarioHandler::generateMultiplePaths(Graph* g, std::vector<vertex_descriptor>* lfpVertices, Graph* mapGraph)
+void ScenarioHandler::generateMultiplePaths(std::vector<vertex_descriptor>* lfpVertices)
 {
 
+    Graph* g= this->mForestWidget->getGraph();
+    Graph* mapGraph= this->mMapWidget->getGraph();
+    std::vector<edge_descriptor> best_edges;
     vertex_descriptor predecessor;
     vertex_descriptor current;
     QtVertexItem* currentItem;
     QtVertexItem* predItem;
     QtEdgeItem* curEdgeItem;
+
 
     mDebugText->log(QString("generateMultiplePaths()"),very_important_msg);
 
@@ -109,11 +114,17 @@ void ScenarioHandler::generateMultiplePaths(Graph* g, std::vector<vertex_descrip
 
     while(notdone)
     {
+        std::vector<vertex_descriptor> pred(num_vertices(*g));
 
         iterations++;
+
+        if (iterations==3)
+         notdone=false;
+
+
         mDebugText->log(QString("iteration ") + QString::number(iterations),very_important_msg);
 
-        notdone=false;
+
 
         //for each LFP in LFPVertices
         std::vector<vertex_descriptor>::iterator i,j,n;
@@ -121,20 +132,18 @@ void ScenarioHandler::generateMultiplePaths(Graph* g, std::vector<vertex_descrip
         //iterate over all local fight points:
         for(i=lfpVertices->begin(); i!=lfpVertices->end();i++)
         {
-            std::vector<edge_descriptor> best_edges;
+
             int highest_traverse_rate=0;
 
             QtVertexItem* v=  (*g)[*i].vertexItem;
-              mDebugText->log(QString("current LFP: ") + v->strLabel,important_msg);
+             mDebugText->log(QString("current source LFP: ") + v->strLabel,important_msg);
 
+
+
+           //std::vector<vertex_descriptor> vertices(num_vertices(*g));
 
             //perform dijkstra on the current local fight point
-
-           std::vector<vertex_descriptor> pred(num_vertices(*g));
-           std::vector<vertex_descriptor> vertices(num_vertices(*g));
-           std::vector<double> d(num_vertices(*g));
-
-           dijkstra_shortest_paths(*g,(*i), predecessor_map(&pred[0]).weight_map(get(&Connection::distance,*g)).distance_map(&d[0]));
+           dijkstra_shortest_paths(*g,(*i), predecessor_map(&pred[0]).weight_map(get(&Connection::distance,*g)));
 
             //traverse paths of all local fight points that have been reached
             for(j = lfpVertices->begin(); j != lfpVertices->end(); j++)
@@ -144,13 +153,14 @@ void ScenarioHandler::generateMultiplePaths(Graph* g, std::vector<vertex_descrip
                 //starting at the current local fight point
                 current=*j;
                 currentItem= (*g)[current].vertexItem;
-                mDebugText->log("predecessor path for: " + currentItem->strLabel + " to source " + v->strLabel, important_msg);
-                if (n!=i) //KIJK NIET NAAR ZELF
+
+                if (current!=*i) //KIJK NIET NAAR ZELF
                 {    
-                   // && current!=pred.end()
+                   mDebugText->log("predecessor path for: " + currentItem->strLabel + " to source " + v->strLabel, important_msg);
+
                    while(current!=(*i)) //TRAVERSE TOTDAT WE BIJ DE SOURCE NODE ZIJN
-                   {   
-                        if (current ==pred[current])
+                   {    mDebugText->log("*", failure_msg);
+                        if (current == pred[current])
                         {
                              mDebugText->log("current==pred[current]: node is not connected to source node", failure_msg);
                             break;
@@ -167,10 +177,10 @@ void ScenarioHandler::generateMultiplePaths(Graph* g, std::vector<vertex_descrip
 
 
                             //moet anders!!!
-                            if (edgeItem->isEnabled() == false) //dit betekend dat de gekozen route niet kan
-                            {
-                                break;
-                            }
+                           // if (edgeItem->isEnabled() == false) //dit betekend dat de gekozen route niet kan
+                           // {
+                           //     break;
+                           // }
 
                             (*g)[retPair.first].traverseRate+=1;
 
@@ -183,28 +193,47 @@ void ScenarioHandler::generateMultiplePaths(Graph* g, std::vector<vertex_descrip
                             mDebugText->log("The predecessor of " +currentItem->strLabel + " is " + predItem->strLabel, sub_msg);
                             current= pred[current];
                         }
-
                    }
+
                 }
 
 
             }
-
-
-            //add best edges to the mapstructure and remove them from the foreststructure
-            std::vector<edge_descriptor>::iterator e;
-
-            mDebugText->log("moving edges to mapgraph", important_msg);
-            for(e= best_edges.begin(); e!= best_edges.end();e++)
-            {
-                QtEdgeItem* edge=(*g)[*e].edgeItem;
-                mDebugText->log("Copying edge( " +edge->sourceVertex()->strLabel + ", " + edge->destVertex()->strLabel + ")", sub_msg);
-                edge->copyTo(mMapWidget);
-                edge->disable();
-            }
+              pred.clear();
 
 
         }
+            //add best edges to the mapstructure and remove them from the foreststructure
+            std::vector<edge_descriptor>::iterator e;
+
+          QString num;
+            if (best_edges.size()> 0)
+                mDebugText->log("moving " + num.setNum((int)best_edges.size()) + " edges to mapgraph", important_msg);
+            else
+                mDebugText->log("no new edges for mapstructure", failure_msg);
+
+            for(e= best_edges.begin(); e!= best_edges.end();e++)
+            {
+                QtEdgeItem* edge=(*g)[*e].edgeItem;
+                QString strDistance;
+                mDebugText->log("Copying edge( " +edge->sourceVertex()->strLabel + ", " + edge->destVertex()->strLabel + ") with distance "+ strDistance.setNum((*g)[*e].distance), sub_msg);
+                if (edge->enabled()==false)
+                {
+                   mDebugText->log("edge( " +edge->sourceVertex()->strLabel + ", " + edge->destVertex()->strLabel + ") disabled", failure_msg);
+                }
+
+
+                edge->copyTo(mMapWidget);
+                edge->disable();
+
+                (*g)[*e].distance=100000;
+
+                //rigoreus:
+               // mForestWidget->deleteEdge(*e);
+
+            }
+            best_edges.clear();
+
 
     }
 
