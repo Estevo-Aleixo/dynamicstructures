@@ -16,9 +16,20 @@ public:
 
     void log(QString  msg,MsgType type=normal_msg);
     void log(char* msg,MsgType type=normal_msg);
+    inline void logToBuffer(QString  msg, MsgType type=normal_msg)
+    {
+        QString br= "<br/>";
+        mBufferedStr+= "<div style='"+ getStyle(type) +"' >" + getTime()+  " - " + msg + "</div>";
+    }
+    void flush();
 
+    //void clear(){QTextEdit::clear();}
+private:
     QString getTime();
+    QString getStyle(MsgType type);
+    QString mBufferedStr;
 
 };
+
 
 #endif // LOGWINDOW_H

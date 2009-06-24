@@ -25,6 +25,27 @@ void LogWindow::log(char* msg,MsgType type)
 void LogWindow::log(QString  msg, MsgType type)
 {
     QString br= "<br/>";
+
+    this->setHtml(this->toHtml()+ "<div style='"+ getStyle(type) +"' >" + getTime()+  " - " + msg + "</div>" );
+}
+/*
+void LogWindow::logToBuffer(QString  msg, MsgType type=normal_msg)
+{
+ QString br= "<br/>";
+ mBufferedStr+= "<div style='"+ getStyle(type) +"' >" + getTime()+  " - " + msg + "</div>";
+
+}
+*/
+
+void LogWindow::flush()
+{
+
+       this->setHtml(this->toHtml()+ mBufferedStr);
+       mBufferedStr="";
+}
+
+ QString  LogWindow::getStyle(MsgType type)
+ {
     QString style;
 
  switch(type)
@@ -49,11 +70,8 @@ void LogWindow::log(QString  msg, MsgType type)
     break;
  }
 
-    this->setHtml(this->toHtml()+ "<div style='"+ style +"' >" + getTime()+  " - " + msg + "</div>" );
-
-
-}
-
+ return style;
+ }
 
 
 QString LogWindow::getTime()

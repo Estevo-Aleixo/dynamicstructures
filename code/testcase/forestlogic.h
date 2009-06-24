@@ -15,18 +15,18 @@
 class LogWindow;
 
 
-enum ScatterType{FORESTSCATTER,URBANSCATTER};
+enum ScatterType{URBANSCATTER, FORESTSCATTER,URBANSCATTER_VAR_SIZED_BLOCKS};
 
 struct forestParams
 {
 unsigned int density;
 unsigned int layers;
-unsigned int con_density;
 unsigned int min_node_span;
 unsigned int max_node_span;
 unsigned int min_connections_per_node;
 unsigned int max_connections_per_node;
 unsigned int range_local_neighbours;
+double node_density;
 int scatterMethod;
 QRect area;
 };
@@ -45,7 +45,7 @@ std::vector<QtVertexItem*> nodes;
 
 void createForestGraph(GraphWidget* graphView, forestParams& params);
 void initForestGraph(GraphWidget* gWidget, forestParams& params);
-
+void removeVerticesFromGrid(GraphWidget* graphView, forestParams& params);
 void createRandomScatter(GraphWidget* gWidget, forestParams& params);
 void createGridScatter(GraphWidget* gWidget, forestParams& params);
 

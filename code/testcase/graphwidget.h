@@ -79,7 +79,12 @@ public:
     void disableEdge(edge_descriptor e);
     void deleteEdge(edge_descriptor e);
 
+    void removeVertex(vertex_descriptor v);
     void clear();
+
+    void saveToFile(QString filename);
+
+    void loadFromFile(QString filename);
 protected:
     void keyPressEvent(QKeyEvent *event);
     void timerEvent(QTimerEvent *event);
@@ -98,7 +103,7 @@ protected:
 private:
     int timerId;
     QList<QtVertexItem*> nodes;
-    QList<QtEdgeItem*> edges;
+   // QList<QtEdgeItem*> edges;
 
     QtVertexItem *centerNode;
 };

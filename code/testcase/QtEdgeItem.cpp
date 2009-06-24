@@ -200,7 +200,7 @@ QColor color;
     //draw distance
     QString s;
     QPointF labelPos;
-    labelPos= sourcePoint + QPointF(cos(angle)*(line.length()/2),sin(angle)*(line.length()/2));
+    labelPos= sourcePoint + QPointF(cos(angle)*(line.length()/2),-1 * sin(angle)*(line.length()/2));
     s.sprintf("%.2f",(*mG)[mEd].distance);
 
     s= "tr: " + QString::number((*mG)[mEd].traverseRate);

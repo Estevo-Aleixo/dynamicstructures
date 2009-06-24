@@ -89,7 +89,7 @@
     <value type="QString" >PROCESSOR_IDENTIFIER=x86 Family 6 Model 10 Stepping 0, AuthenticAMD</value>
     <value type="QString" >PROCESSOR_LEVEL=6</value>
     <value type="QString" >PROCESSOR_REVISION=0a00</value>
-    <value type="QString" >PROGRAMFILES=C:\Program Files</value>
+    <value type="QString" >PROGRAMFILES=C:\Program Files (x86)</value>
     <value type="QString" >QTDIR=D:/QT/qt</value>
     <value type="QString" >QTJAVA=C:\Program Files\QuickTime\QTSystem\QTJava.zip</value>
     <value type="QString" >SESSIONNAME=Console</value>
@@ -104,14 +104,14 @@
     <value type="QString" >WINDIR=C:\WINDOWS</value>
    </valuelist>
    <valuelist key="abstractProcess.arguments" type="QVariantList" >
-    <value type="QString" >C:/Documents and Settings/Administrator/My Documents/testcase/testcase.pro</value>
+    <value type="QString" >E:/thesis/code/testcase/testcase.pro</value>
     <value type="QString" >-spec</value>
     <value type="QString" >win32-g++</value>
     <value type="QString" >-r</value>
    </valuelist>
    <value key="abstractProcess.command" type="QString" >D:/QT/qt/bin/qmake.exe</value>
    <value key="abstractProcess.enabled" type="bool" >false</value>
-   <value key="abstractProcess.workingDirectory" type="QString" >C:/Documents and Settings/Administrator/My Documents/testcase</value>
+   <value key="abstractProcess.workingDirectory" type="QString" >E:/thesis/code/testcase</value>
    <value key="buildConfiguration" type="int" >2</value>
   </valuemap>
  </data>
@@ -146,7 +146,7 @@
     <value type="QString" >PROCESSOR_IDENTIFIER=x86 Family 6 Model 10 Stepping 0, AuthenticAMD</value>
     <value type="QString" >PROCESSOR_LEVEL=6</value>
     <value type="QString" >PROCESSOR_REVISION=0a00</value>
-    <value type="QString" >PROGRAMFILES=C:\Program Files</value>
+    <value type="QString" >PROGRAMFILES=C:\Program Files (x86)</value>
     <value type="QString" >QTDIR=D:/QT/qt</value>
     <value type="QString" >QTJAVA=C:\Program Files\QuickTime\QTSystem\QTJava.zip</value>
     <value type="QString" >SESSIONNAME=Console</value>
@@ -165,7 +165,7 @@
    </valuelist>
    <value key="abstractProcess.command" type="QString" >D:/QT/mingw/bin/mingw32-make.exe</value>
    <value key="abstractProcess.enabled" type="bool" >true</value>
-   <value key="abstractProcess.workingDirectory" type="QString" >C:/Documents and Settings/Administrator/My Documents/testcase</value>
+   <value key="abstractProcess.workingDirectory" type="QString" >E:/thesis/code/testcase</value>
   </valuemap>
  </data>
  <data>

@@ -9,14 +9,15 @@ ForestLogic::ForestLogic()
 
 }
 
-void  ForestLogic::createRandomScatter(GraphWidget* gWidget,forestParams& params)
+void  ForestLogic::createGridScatter(GraphWidget* gWidget,forestParams& params)
  {
-    mDebugText->log("createRandomScatter()",very_important_msg);
+    mDebugText->log("createGridScatter()",very_important_msg);
+
     double averageTreeSpan= (params.min_node_span + params.max_node_span)/2;
     double mDensity=params.density;
 
 //cols
-int cols = (int) (params.area.width()/ (averageTreeSpan / mDensity));
+int cols = (int) (params.area.width()  / (averageTreeSpan / mDensity));
 //rows
 int rows = (int) (params.area.height() / (averageTreeSpan / mDensity));
 
@@ -41,31 +42,101 @@ QString name="Node";
                for (int iy=0; iy < rows; iy++)
                   {
                 i++;
-                                        offsetX = 0;//(-p + ((double)(qrand()%100)/100.0) * (2*p))*(xd * 0.5);
-                                        offsetY = 0;//(-p + ((double)(qrand()%100)/100.0) * (2*p))*(yd * 0.5);
+                                        offsetX = 0;
+                                        offsetY = 0;
+                                        pos.setX(0 + xd * ix + offsetX * ix);
+                                        pos.setY(0 + yd * iy + offsetY * iy);
+
+                                        gWidget->addNode(pos);
+                  }
+          }
+
+
+}
+
+void  ForestLogic::createRandomScatter(GraphWidget* gWidget,forestParams& params)
+ {
+    mDebugText->log("createRandomScatter()",very_important_msg);
+
+    double averageTreeSpan= (params.min_node_span + params.max_node_span)/2;
+    double mDensity=params.density;
+
+//cols
+int cols = (int) (params.area.width()/ (averageTreeSpan / mDensity));
+//rows
+int rows = (int) (params.area.height() / (averageTreeSpan / mDensity));
+
+double xd= averageTreeSpan / mDensity;
+double yd= averageTreeSpan / mDensity;
+
+QPointF pos;
+
+double p= 1.0;
+double offsetX;
+double offsetY;
+
+int i=0;
+
+QtVertexItem* node;
+QtVertexItem* node_dest;
+
+QString name="Node";
+
+srand(time(NULL));
+
+     for (int ix=0; ix < cols; ix++){
+               for (int iy=0; iy < rows; iy++)
+                  {
+                    i++;
+                                        offsetX = (-p + ((double)(rand()%100)/100.0)  )*(xd * 0.2);
+                                        offsetY = (-p + ((double)(rand()%100)/100.0) )*(yd * 0.2);
                                         pos.setX(0 + xd * ix + offsetX * ix);
                                         pos.setY(0 + yd * iy + offsetY * iy);
 
                                         gWidget->addNode(pos);
 
-
-                                        // int n= (int)((qrand()%100)/100.0)*(i-1);
-                                       // int m= (int)((qrand()%100)/100.0)*(i-1);
-                                       // if (i > 1)
-                                       // {
-                                       //
-                                       // }
                                 }
                             }
 
-      gWidget->show();
+
 }
 
-
-void ForestLogic::createGridScatter(GraphWidget* gWidget, forestParams& params)
+void ForestLogic::removeVerticesFromGrid(GraphWidget* graphView, forestParams& params)
 {
-    mDebugText->log("createGridScatter()",very_important_msg);
-    createRandomScatter(gWidget,params);
+  mDebugText->log("removeVerticesFromGrid()",very_important_msg);
+Graph* g= graphView->getGraph();
+
+int vertexCount=num_vertices(*g);
+int numRemovals = (int)(((100-params.node_density) / 100.0) * (double)vertexCount);
+std::pair<vertex_iterator, vertex_iterator> range= vertices(*g);
+
+vertex_iterator itr = range.first;
+
+
+int index;
+
+srand(time(NULL));
+
+int count=0;
+QtVertexItem* vItem;
+QString numRemovalsStr;
+
+mDebugText->log(numRemovalsStr.setNum(numRemovals) +" vertices will be removed",important_msg);
+while (count< numRemovals)
+{
+
+    index= rand()%num_vertices(*g);
+    itr = range.first;
+
+    for(int i=0;i<index;i++)
+        itr++;
+
+    vItem= (*g)[*itr].vertexItem;
+    mDebugText->log("removing vertex " + vItem->strLabel ,sub_msg);
+
+    graphView->removeVertex(*itr);
+    count++;
+}
 
 }
 
@@ -84,7 +155,13 @@ switch(params.scatterMethod)
         createGridScatter(graphView,params);
         createConnections(graphView, params);
     break;
+    case URBANSCATTER_VAR_SIZED_BLOCKS:
+        createGridScatter(graphView,params);
+        removeVerticesFromGrid(graphView,params);
+        createConnections(graphView, params);
+    break;
 }
+
 
 }
 

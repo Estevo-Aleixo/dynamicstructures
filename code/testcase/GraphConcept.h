@@ -64,9 +64,14 @@ enum EdgeFPSType{HORIZONTAL_CONNECTION,VERTICAL_CONNECTION};
 
   typedef graph_traits<Graph>::vertex_descriptor vertex_descriptor;
   typedef graph_traits<Graph>::vertex_iterator vertex_iterator;
+  typedef graph_traits<Graph>::edge_iterator edge_iterator;
+
   typedef graph_traits<Graph>::edge_descriptor edge_descriptor;
   typedef std::pair<Graph::edge_descriptor, bool> edge_c;
 
+  typedef std::pair<vertex_iterator, vertex_iterator> vertex_range;
+
+  typedef std::pair<edge_iterator, edge_iterator> edge_range;
 
  //lijsten
     typedef  std::list<vertex_descriptor> vd_list;

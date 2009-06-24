@@ -270,3 +270,63 @@ void GraphWidget::deleteEdge(edge_descriptor e)
     remove_edge(e,*mGraph);
 
 }
+
+void  GraphWidget::removeVertex(vertex_descriptor v)
+{
+   QtVertexItem* vItem= (*mGraph)[v].vertexItem;
+   scene->removeItem(vItem);
+   delete vItem;
+   vItem=0;
+
+   remove_vertex(v,*mGraph);
+
+//TODO handle connected edges.
+
+}
+
+void GraphWidget::saveToFile(QString filename)
+{
+  std::ofstream f;
+
+  vertex_iterator vitr;
+  edge_iterator eitr;
+  QtVertexItem* vItem;
+  QtVertexItem* vItem2;
+  vertex_descriptor v1,v2;
+  vertex_range v_range = vertices(*mGraph);
+  std::pair<edge_iterator, edge_iterator>  e_range= edges(*mGraph);
+
+  f.open (filename.toStdString().c_str());
+  QString line;
+  int i=0;
+  for(vitr= v_range.first;vitr !=v_range.second;vitr++)
+  {
+      vItem= (*mGraph)[*vitr].vertexItem;
+      vItem->mSaveIndex = i;
+      line = "addNode(" + line.setNum(vItem->x())+ ", "+ line.setNum(vItem->y())+")\n";
+      f << line.toStdString();
+      i++;
+  }
+
+  f << "--here will be the edges.\n";
+  for(eitr= e_range.first; eitr != e_range.second; eitr++)
+  {
+      v1=   source(*eitr,*mGraph);
+      v2=   target(*eitr,*mGraph);
+      vItem=(*mGraph)[v1].vertexItem;
+      vItem2=(*mGraph)[v2].vertexItem;
+      line = "addEdge(" + line.setNum(vItem->mSaveIndex)+ ", "+ line.setNum(vItem2->mSaveIndex)+")\n";
+      f << line.toStdString();
+  }
+
+  f.close();
+
+
+}
+
+void GraphWidget::loadFromFile(QString filename)
+{
+
+
+
+}

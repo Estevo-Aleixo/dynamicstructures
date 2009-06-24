@@ -2,7 +2,7 @@
 #define SCENARIOHANDLER_H
 
 
-//#include "MainWindow.h"
+#include "MainWindow.h"
 
 #include <qtextedit.h>
 #include "GraphConcept.h"
@@ -45,10 +45,16 @@ public:
         mFG=gWidget->getGraph();
     }
 
+    GraphWidget* getForestWidget(){return mForestWidget;}
+    GraphWidget* getMapWidget(){return mMapWidget;}
+
   private:
     std::vector<vertex_descriptor>* findLFPs();
 
     void generateMultiplePaths(std::vector<vertex_descriptor>* lfpVertices);
+
+    void TraverseAndStorePath(Graph* g, vertex_descriptor i, vertex_descriptor j, std::vector<vertex_descriptor>& pred, std::vector<edge_descriptor>& edges);
+
 
     Scenario mScenario;
 
@@ -61,6 +67,7 @@ public:
 
     LogWindow* mDebugText;
 
+    QSound* soundDone;
 
 };
 

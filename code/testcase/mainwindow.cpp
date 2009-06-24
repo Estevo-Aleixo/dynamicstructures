@@ -15,6 +15,7 @@ LogWindow* mDebugLog;
 //file actions
 QAction* newAct;
 QAction* saveAct;
+QAction* saveResultAct;
 QAction* openAct;
 
 //edit tools
@@ -38,18 +39,20 @@ MainWindow::MainWindow(QWidget *parent)
 
    ui->setupUi(this);
    this->setWindowTitle("Map Structure Search");
-   mDebugLog= new LogWindow();
+   mDebugLog= new LogWindow(ui->textParentWidget);
+   mDebugLog->resize(ui->textParentWidget->width(), ui->textParentWidget->height());
 
-   QString label="Debug";
-   ui->tabOutput->insertTab(0,mDebugLog,label);
-    ui->tabOutput->setCurrentIndex(0);
+   //QString label="Debug";
+   //ui->tabOutput->insertTab(0,mDebugLog,label);
+    //ui->tabOutput->setCurrentIndex(0);
+
    mDebugLog->setReadOnly(true);
    mDebugLog->show();
 
-
-initMainToolBar();
-initGraphManipulationToolBar();
 initActions();
+//initMainToolBar();
+//initGraphManipulationToolBar();
+initMenu();
 
     //forest graph widget:
    graphForestView= new GraphWidget(ui->parent_forest_widget);
@@ -66,9 +69,11 @@ initActions();
    this->ui->editMinConnections->setText(param.setNum(0));
    this->ui->editMaxConnections->setText(param.setNum(5));
    this->ui->editLocalNeighbourRange->setText(param.setNum(200));
+   this->ui->editNodeDensity->setText(param.setNum(70));
 
    //pre-settings for map:
    this->ui->editLocalFightPoints->setText(param.setNum(4));
+   this->ui->editPathIterations->setText(param.setNum(3));
 
 
    //map graph widget
@@ -124,61 +129,25 @@ void  MainWindow::initMainToolBar()
 
 
 //new
-    newAct = new QAction(QIcon("icons/new.png"), tr("&New..."), this);
-    newAct->setShortcuts(QKeySequence::New);
-    newAct->setStatusTip(tr("Open an existing configuration"));
-    connect(newAct, SIGNAL(triggered()), this, SLOT(newProblem()));
      ui->mainToolBar->addAction(newAct);
-
 //open
-    openAct = new QAction(QIcon("icons/open.png"), tr("&Open..."), this);
-    openAct->setShortcuts(QKeySequence::Open);
-    openAct->setStatusTip(tr("Open an existing configuration"));
-    connect(openAct, SIGNAL(triggered()), this, SLOT(openProblem()));
-
      ui->mainToolBar->addAction(openAct);
-
-//save
-    saveAct = new QAction(QIcon("icons/save.png"), tr("&Save..."), this);
-    saveAct->setShortcuts(QKeySequence::Save);
-    saveAct->setStatusTip(tr("Save configuration"));
-    connect(saveAct, SIGNAL(triggered()), this, SLOT(saveProblem()));
-
+//save problem
      ui->mainToolBar->addAction(saveAct);
-
-
-
-
+//save result
+     ui->mainToolBar->addAction(saveResultAct);
 }
 
 void  MainWindow::initGraphManipulationToolBar()
 {
     mDrawTools = addToolBar("Edit");
-
     //add vertex
-    nodeDrawModeAct = new QAction(QIcon("icons/addnode.png"), tr("&New Node..."), this);
-    nodeDrawModeAct->setStatusTip(tr("Place Nodes"));
-    connect( nodeDrawModeAct, SIGNAL(triggered()), this, SLOT(addNodes()));
-
     mDrawTools->addAction(nodeDrawModeAct);
-
     //add edge
-     edgeDrawModeAct = new QAction(QIcon("icons/addedge.png"), tr("&New Edge..."), this);
-     edgeDrawModeAct->setStatusTip(tr("Place Nodes"));
-    connect(edgeDrawModeAct, SIGNAL(triggered()), this, SLOT(addEdges()));
      mDrawTools->addAction(edgeDrawModeAct);
-
      //delete item
-     deleteItemAct = new QAction(QIcon("icons/delete.png"), tr("&Delete Item..."), this);
-     deleteItemAct->setStatusTip(tr("Delete Item"));
-     connect(deleteItemAct, SIGNAL(triggered()), this, SLOT(deleteTool()));
      mDrawTools->addAction(deleteItemAct);
-
-
      //select item
-     selectItemAct = new QAction(QIcon("icons/accept.png"), tr("&Select item..."), this);
-     selectItemAct->setStatusTip(tr("Select"));
-     connect(selectItemAct, SIGNAL(triggered()), this, SLOT(selectTool()));
      mDrawTools->addAction(selectItemAct);
 
 }
@@ -219,11 +188,22 @@ void MainWindow::openProblem()
 void MainWindow::saveProblem()
 {
      QString fileName;
-     fileName = QFileDialog::getOpenFileName(this,
-     tr("Save Problem File"), "/Saved", tr("Game Structure Problem (*.gsp)"));
-
+     fileName = QFileDialog::getSaveFileName(this,
+     tr("Save Problem File"), "Saved", tr("Space Structure Problem (*.ssp)"));
+     mapGenerator->getForestWidget()->saveToFile(fileName);
 
 }
+
+
+void MainWindow::saveResult()
+{
+     QString fileName;
+     fileName = QFileDialog::getSaveFileName(this,
+     tr("Save Result File"), "Saved", tr("Space Structure Result(*.ssr)"));
+     mapGenerator->getForestWidget()->saveToFile(fileName);
+
+}
+
 
 void MainWindow::newProblem()
 {
@@ -251,7 +231,6 @@ unsigned int width = this->ui->editWidth->text().toUInt();
 unsigned int height =this->ui->editHeight->text().toUInt();
 
     forestParams f;
-    f.con_density=1;
     f.density=1;
     f.layers=4;
     f.min_node_span=this->ui->editMinNodeSpan->text().toUInt();
@@ -260,6 +239,7 @@ unsigned int height =this->ui->editHeight->text().toUInt();
     f.min_connections_per_node= this->ui->editMinConnections->text().toUInt();
     f.max_connections_per_node= this->ui->editMaxConnections->text().toUInt();
     f.range_local_neighbours=this->ui->editLocalNeighbourRange->text().toUInt();
+    f.node_density= this->ui->editNodeDensity->text().toUInt();
     f.area= QRect(0,0,width,height);
 
     forestGenerator->createForestGraph(graphForestView, f);
@@ -268,11 +248,55 @@ unsigned int height =this->ui->editHeight->text().toUInt();
 void MainWindow::initActions()
 {
 
-//createProblemStructureAct= new QAction(QIcon("icons/delete.png"), tr("&Delete Item..."), this);
-//createProblemStructureAct->setStatusTip(tr("Create Structure"));
-//this->ui->btnGenerateForest->addAction(createProblemStructureAct);
+//new
+    newAct = new QAction(QIcon("icons/new.png"), tr("&New..."), this);
+    newAct->setShortcuts(QKeySequence::New);
+    newAct->setStatusTip(tr("Open an existing configuration"));
+    connect(newAct, SIGNAL(triggered()), this, SLOT(newProblem()));
 
-//connect(createProblemStructureAct, SIGNAL(triggered()), this, SLOT(createProblemStructure()));
+//open
+    openAct = new QAction(QIcon("icons/open.png"), tr("&Open..."), this);
+    openAct->setShortcuts(QKeySequence::Open);
+    openAct->setStatusTip(tr("Open an existing configuration"));
+    connect(openAct, SIGNAL(triggered()), this, SLOT(openProblem()));
+
+//save problem
+    saveAct = new QAction(QIcon("icons/save.png"), tr("&Save..."), this);
+    saveAct->setShortcuts(QKeySequence::Save);
+    saveAct->setStatusTip(tr("Save Problem"));
+    connect(saveAct, SIGNAL(triggered()), this, SLOT(saveProblem()));
+
+
+//save result
+    saveResultAct = new QAction(QIcon("icons/save.png"), tr("&Save Result..."), this);
+    saveResultAct->setShortcuts(QKeySequence::Save);
+    saveResultAct->setStatusTip(tr("Save Result"));
+    connect(saveResultAct, SIGNAL(triggered()), this, SLOT(saveResult()));
+
+    //add vertex
+    nodeDrawModeAct = new QAction(QIcon("icons/addnode.png"), tr("&New Node..."), this);
+    nodeDrawModeAct->setStatusTip(tr("Place Nodes"));
+    connect( nodeDrawModeAct, SIGNAL(triggered()), this, SLOT(addNodes()));
+
+
+
+    //add edge
+     edgeDrawModeAct = new QAction(QIcon("icons/addedge.png"), tr("&New Edge..."), this);
+     edgeDrawModeAct->setStatusTip(tr("Place Nodes"));
+    connect(edgeDrawModeAct, SIGNAL(triggered()), this, SLOT(addEdges()));
+
+     //delete item
+     deleteItemAct = new QAction(QIcon("icons/delete.png"), tr("&Delete Item..."), this);
+     deleteItemAct->setStatusTip(tr("Delete Item"));
+     connect(deleteItemAct, SIGNAL(triggered()), this, SLOT(deleteTool()));
+
+     //select item
+     selectItemAct = new QAction(QIcon("icons/accept.png"), tr("&Select item..."), this);
+     selectItemAct->setStatusTip(tr("Select"));
+     connect(selectItemAct, SIGNAL(triggered()), this, SLOT(selectTool()));
+
+
+
 
 }
 
@@ -280,7 +304,21 @@ void MainWindow::setMapParams()
 {
     Scenario scenario;
     scenario.local_fight_points = this->ui->editLocalFightPoints->text().toUInt();
+    scenario.multiple_path_iterations= this->ui->editPathIterations->text().toUInt();
     mapGenerator->setScenario(scenario);
 
 }
 
+void MainWindow::initMenu()
+{
+ mMenuBar= new QMenuBar(this);
+ mFileMenu= mMenuBar->addMenu(tr("&File"));
+ mFileMenu->addAction(saveAct);
+ mFileMenu->addAction(saveResultAct);
+
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    mDebugLog->clear();
+}

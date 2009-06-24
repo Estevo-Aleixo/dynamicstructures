@@ -85,12 +85,16 @@ public:
     VertexType mType;
 
     void setType(VertexType type);
+    VertexType getType(){return mType;}
+
     void copyTo(GraphWidget* gWidget);
 
     vertex_descriptor getClone(){return mClone;}
     void setClone(vertex_descriptor clone){mClone=clone;}
 
     bool isCopied(){return mCopied;}
+
+    int mSaveIndex;
 protected:
     bool mCopied;
 
