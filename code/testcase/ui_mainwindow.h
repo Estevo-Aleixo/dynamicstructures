@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'mainwindow.ui'
 **
-** Created: Wed Jun 24 17:17:58 2009
+** Created: Fri Jun 26 21:39:03 2009
 **      by: Qt User Interface Compiler version 4.5.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -24,7 +24,6 @@
 #include <QtGui/QRadioButton>
 #include <QtGui/QStatusBar>
 #include <QtGui/QTabWidget>
-#include <QtGui/QToolBar>
 #include <QtGui/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -38,8 +37,6 @@ public:
     QAction *actionExit;
     QAction *actionClear;
     QWidget *centralWidget;
-    QWidget *parent_forest_widget;
-    QWidget *parent_map_widget;
     QLabel *label_6;
     QLabel *label_7;
     QTabWidget *tabWidget_2;
@@ -48,7 +45,6 @@ public:
     QCheckBox *chkDebug;
     QPushButton *btnExecuteLFPFinder;
     QPushButton *btnExecutePathFinder;
-    QLabel *label_4;
     QLabel *label_5;
     QLabel *label_9;
     QLineEdit *editLocalFightPoints;
@@ -63,9 +59,24 @@ public:
     QPushButton *btnExecutePathFinder_3;
     QLabel *label_29;
     QCheckBox *checkBox;
+    QPushButton *btnLocateFightPoints;
+    QLabel *label_30;
     QWidget *tab_3;
+    QLabel *label_2;
+    QComboBox *comboBox;
     QWidget *tab_5;
+    QCheckBox *checkBox_2;
+    QCheckBox *checkBox_3;
+    QCheckBox *checkBox_4;
     QWidget *tab_4;
+    QWidget *tab;
+    QPushButton *pushButton;
+    QLineEdit *lineEdit;
+    QLabel *label_4;
+    QCheckBox *checkBox_5;
+    QLabel *label_31;
+    QLineEdit *lineFilenameSave;
+    QPushButton *bntResultFileName;
     QTabWidget *tabWidget_3;
     QWidget *tab_6;
     QLabel *label_8;
@@ -94,20 +105,20 @@ public:
     QLabel *label_25;
     QLineEdit *editNodeDensity;
     QLabel *label_26;
-    QWidget *textParentWidget;
-    QLabel *label_2;
-    QPushButton *pushButton;
     QRadioButton *radioButton;
     QRadioButton *radioButton_2;
     QRadioButton *radioButton_3;
-    QToolBar *mainToolBar;
+    QWidget *problemWidget;
+    QWidget *parent_forest_widget;
+    QWidget *solutionWidget;
+    QWidget *parent_map_widget;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(1165, 933);
+        MainWindow->resize(1357, 759);
         MainWindow->setBaseSize(QSize(100, 60));
         QIcon icon;
         icon.addPixmap(QPixmap(QString::fromUtf8("release/icons/accept.png")), QIcon::Normal, QIcon::Off);
@@ -124,15 +135,9 @@ public:
         actionClear->setObjectName(QString::fromUtf8("actionClear"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
-        parent_forest_widget = new QWidget(centralWidget);
-        parent_forest_widget->setObjectName(QString::fromUtf8("parent_forest_widget"));
-        parent_forest_widget->setGeometry(QRect(10, 60, 581, 321));
-        parent_map_widget = new QWidget(centralWidget);
-        parent_map_widget->setObjectName(QString::fromUtf8("parent_map_widget"));
-        parent_map_widget->setGeometry(QRect(610, 60, 541, 321));
         label_6 = new QLabel(centralWidget);
         label_6->setObjectName(QString::fromUtf8("label_6"));
-        label_6->setGeometry(QRect(10, 30, 161, 21));
+        label_6->setGeometry(QRect(10, 40, 161, 21));
         QFont font;
         font.setFamily(QString::fromUtf8("Palatino Linotype"));
         font.setPointSize(12);
@@ -141,12 +146,12 @@ public:
         label_6->setFont(font);
         label_7 = new QLabel(centralWidget);
         label_7->setObjectName(QString::fromUtf8("label_7"));
-        label_7->setGeometry(QRect(610, 30, 261, 21));
+        label_7->setGeometry(QRect(680, 40, 261, 21));
         label_7->setFont(font);
         tabWidget_2 = new QTabWidget(centralWidget);
         tabWidget_2->setObjectName(QString::fromUtf8("tabWidget_2"));
         tabWidget_2->setEnabled(true);
-        tabWidget_2->setGeometry(QRect(610, 410, 541, 201));
+        tabWidget_2->setGeometry(QRect(680, 520, 541, 201));
         tabWidget_2->setTabPosition(QTabWidget::North);
         tab_9 = new QWidget();
         tab_9->setObjectName(QString::fromUtf8("tab_9"));
@@ -163,13 +168,10 @@ public:
         chkDebug->setGeometry(QRect(250, 150, 121, 18));
         btnExecuteLFPFinder = new QPushButton(tab_9);
         btnExecuteLFPFinder->setObjectName(QString::fromUtf8("btnExecuteLFPFinder"));
-        btnExecuteLFPFinder->setGeometry(QRect(50, 40, 121, 23));
+        btnExecuteLFPFinder->setGeometry(QRect(50, 10, 121, 23));
         btnExecutePathFinder = new QPushButton(tab_9);
         btnExecutePathFinder->setObjectName(QString::fromUtf8("btnExecutePathFinder"));
-        btnExecutePathFinder->setGeometry(QRect(50, 70, 121, 23));
-        label_4 = new QLabel(tab_9);
-        label_4->setObjectName(QString::fromUtf8("label_4"));
-        label_4->setGeometry(QRect(10, 20, 91, 16));
+        btnExecutePathFinder->setGeometry(QRect(50, 40, 121, 23));
         label_5 = new QLabel(tab_9);
         label_5->setObjectName(QString::fromUtf8("label_5"));
         label_5->setGeometry(QRect(20, 40, 46, 14));
@@ -180,28 +182,28 @@ public:
         label_9->setFont(font1);
         editLocalFightPoints = new QLineEdit(tab_9);
         editLocalFightPoints->setObjectName(QString::fromUtf8("editLocalFightPoints"));
-        editLocalFightPoints->setGeometry(QRect(280, 40, 113, 20));
+        editLocalFightPoints->setGeometry(QRect(280, 10, 113, 20));
         label = new QLabel(tab_9);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(180, 40, 111, 16));
+        label->setGeometry(QRect(180, 10, 111, 16));
         label_10 = new QLabel(tab_9);
         label_10->setObjectName(QString::fromUtf8("label_10"));
         label_10->setEnabled(true);
-        label_10->setGeometry(QRect(180, 70, 121, 16));
+        label_10->setGeometry(QRect(180, 40, 101, 16));
         editPathIterations = new QLineEdit(tab_9);
         editPathIterations->setObjectName(QString::fromUtf8("editPathIterations"));
         editPathIterations->setEnabled(true);
-        editPathIterations->setGeometry(QRect(280, 70, 113, 20));
+        editPathIterations->setGeometry(QRect(280, 40, 113, 20));
         label_3 = new QLabel(tab_9);
         label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setGeometry(QRect(400, 70, 51, 16));
+        label_3->setGeometry(QRect(400, 40, 51, 16));
         label_27 = new QLabel(tab_9);
         label_27->setObjectName(QString::fromUtf8("label_27"));
-        label_27->setGeometry(QRect(400, 40, 51, 16));
+        label_27->setGeometry(QRect(400, 10, 51, 16));
         label_11 = new QLabel(tab_9);
         label_11->setObjectName(QString::fromUtf8("label_11"));
         label_11->setEnabled(false);
-        label_11->setGeometry(QRect(20, 100, 46, 14));
+        label_11->setGeometry(QRect(20, 100, 20, 20));
         label_11->setFont(font1);
         btnExecutePathFinder_2 = new QPushButton(tab_9);
         btnExecutePathFinder_2->setObjectName(QString::fromUtf8("btnExecutePathFinder_2"));
@@ -223,20 +225,66 @@ public:
         checkBox = new QCheckBox(tab_9);
         checkBox->setObjectName(QString::fromUtf8("checkBox"));
         checkBox->setEnabled(false);
-        checkBox->setGeometry(QRect(280, 10, 201, 18));
+        checkBox->setGeometry(QRect(280, 70, 111, 18));
+        btnLocateFightPoints = new QPushButton(tab_9);
+        btnLocateFightPoints->setObjectName(QString::fromUtf8("btnLocateFightPoints"));
+        btnLocateFightPoints->setGeometry(QRect(50, 70, 121, 23));
+        label_30 = new QLabel(tab_9);
+        label_30->setObjectName(QString::fromUtf8("label_30"));
+        label_30->setGeometry(QRect(20, 10, 46, 14));
+        label_30->setFont(font1);
         tabWidget_2->addTab(tab_9, QString());
         tab_3 = new QWidget();
         tab_3->setObjectName(QString::fromUtf8("tab_3"));
+        label_2 = new QLabel(tab_3);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setGeometry(QRect(10, 10, 46, 14));
+        comboBox = new QComboBox(tab_3);
+        comboBox->setObjectName(QString::fromUtf8("comboBox"));
+        comboBox->setGeometry(QRect(50, 10, 131, 22));
         tabWidget_2->addTab(tab_3, QString());
         tab_5 = new QWidget();
         tab_5->setObjectName(QString::fromUtf8("tab_5"));
+        checkBox_2 = new QCheckBox(tab_5);
+        checkBox_2->setObjectName(QString::fromUtf8("checkBox_2"));
+        checkBox_2->setGeometry(QRect(10, 10, 231, 18));
+        checkBox_3 = new QCheckBox(tab_5);
+        checkBox_3->setObjectName(QString::fromUtf8("checkBox_3"));
+        checkBox_3->setGeometry(QRect(10, 30, 171, 18));
+        checkBox_4 = new QCheckBox(tab_5);
+        checkBox_4->setObjectName(QString::fromUtf8("checkBox_4"));
+        checkBox_4->setGeometry(QRect(10, 50, 231, 18));
         tabWidget_2->addTab(tab_5, QString());
         tab_4 = new QWidget();
         tab_4->setObjectName(QString::fromUtf8("tab_4"));
         tabWidget_2->addTab(tab_4, QString());
+        tab = new QWidget();
+        tab->setObjectName(QString::fromUtf8("tab"));
+        pushButton = new QPushButton(tab);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setGeometry(QRect(380, 140, 141, 23));
+        lineEdit = new QLineEdit(tab);
+        lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
+        lineEdit->setGeometry(QRect(140, 110, 381, 20));
+        label_4 = new QLabel(tab);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+        label_4->setGeometry(QRect(20, 110, 131, 16));
+        checkBox_5 = new QCheckBox(tab);
+        checkBox_5->setObjectName(QString::fromUtf8("checkBox_5"));
+        checkBox_5->setGeometry(QRect(140, 90, 111, 18));
+        label_31 = new QLabel(tab);
+        label_31->setObjectName(QString::fromUtf8("label_31"));
+        label_31->setGeometry(QRect(20, 60, 46, 14));
+        lineFilenameSave = new QLineEdit(tab);
+        lineFilenameSave->setObjectName(QString::fromUtf8("lineFilenameSave"));
+        lineFilenameSave->setGeometry(QRect(140, 60, 221, 20));
+        bntResultFileName = new QPushButton(tab);
+        bntResultFileName->setObjectName(QString::fromUtf8("bntResultFileName"));
+        bntResultFileName->setGeometry(QRect(370, 60, 81, 23));
+        tabWidget_2->addTab(tab, QString());
         tabWidget_3 = new QTabWidget(centralWidget);
         tabWidget_3->setObjectName(QString::fromUtf8("tabWidget_3"));
-        tabWidget_3->setGeometry(QRect(10, 390, 591, 221));
+        tabWidget_3->setGeometry(QRect(10, 500, 591, 221));
         tab_6 = new QWidget();
         tab_6->setObjectName(QString::fromUtf8("tab_6"));
         label_8 = new QLabel(tab_6);
@@ -318,39 +366,38 @@ public:
         label_26->setObjectName(QString::fromUtf8("label_26"));
         label_26->setGeometry(QRect(130, 90, 46, 14));
         tabWidget_3->addTab(tab_6, QString());
-        textParentWidget = new QWidget(centralWidget);
-        textParentWidget->setObjectName(QString::fromUtf8("textParentWidget"));
-        textParentWidget->setGeometry(QRect(10, 650, 1141, 241));
-        label_2 = new QLabel(centralWidget);
-        label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setGeometry(QRect(10, 630, 81, 16));
-        pushButton = new QPushButton(centralWidget);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(100, 620, 111, 23));
         radioButton = new QRadioButton(centralWidget);
         radioButton->setObjectName(QString::fromUtf8("radioButton"));
-        radioButton->setGeometry(QRect(610, 390, 151, 18));
+        radioButton->setGeometry(QRect(680, 500, 151, 18));
         radioButton->setChecked(true);
         radioButton_2 = new QRadioButton(centralWidget);
         radioButton_2->setObjectName(QString::fromUtf8("radioButton_2"));
         radioButton_2->setEnabled(false);
-        radioButton_2->setGeometry(QRect(770, 390, 191, 18));
+        radioButton_2->setGeometry(QRect(840, 500, 191, 18));
         radioButton_3 = new QRadioButton(centralWidget);
         radioButton_3->setObjectName(QString::fromUtf8("radioButton_3"));
         radioButton_3->setEnabled(false);
-        radioButton_3->setGeometry(QRect(950, 390, 201, 18));
+        radioButton_3->setGeometry(QRect(1020, 500, 201, 18));
+        problemWidget = new QWidget(centralWidget);
+        problemWidget->setObjectName(QString::fromUtf8("problemWidget"));
+        problemWidget->setGeometry(QRect(10, 60, 661, 431));
+        parent_forest_widget = new QWidget(problemWidget);
+        parent_forest_widget->setObjectName(QString::fromUtf8("parent_forest_widget"));
+        parent_forest_widget->setGeometry(QRect(0, 60, 661, 371));
+        solutionWidget = new QWidget(centralWidget);
+        solutionWidget->setObjectName(QString::fromUtf8("solutionWidget"));
+        solutionWidget->setGeometry(QRect(680, 60, 661, 431));
+        parent_map_widget = new QWidget(solutionWidget);
+        parent_map_widget->setObjectName(QString::fromUtf8("parent_map_widget"));
+        parent_map_widget->setGeometry(QRect(0, 60, 661, 371));
         MainWindow->setCentralWidget(centralWidget);
-        mainToolBar = new QToolBar(MainWindow);
-        mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
-        mainToolBar->setBaseSize(QSize(1000, 68));
-        MainWindow->addToolBar(Qt::TopToolBarArea, mainToolBar);
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QString::fromUtf8("statusBar"));
         MainWindow->setStatusBar(statusBar);
 
         retranslateUi(MainWindow);
 
-        tabWidget_2->setCurrentIndex(0);
+        tabWidget_2->setCurrentIndex(4);
         tabWidget_3->setCurrentIndex(0);
 
 
@@ -369,25 +416,42 @@ public:
         label_7->setText(QApplication::translate("MainWindow", "Solution: map structure", 0, QApplication::UnicodeUTF8));
         btnGenerateMap->setText(QApplication::translate("MainWindow", "Execute All Steps", 0, QApplication::UnicodeUTF8));
         chkDebug->setText(QApplication::translate("MainWindow", "visual debug mode", 0, QApplication::UnicodeUTF8));
-        btnExecuteLFPFinder->setText(QApplication::translate("MainWindow", "Find Local fight points", 0, QApplication::UnicodeUTF8));
+        btnExecuteLFPFinder->setText(QApplication::translate("MainWindow", "Find Spanning Points", 0, QApplication::UnicodeUTF8));
         btnExecutePathFinder->setText(QApplication::translate("MainWindow", "Find Multiple paths", 0, QApplication::UnicodeUTF8));
-        label_4->setText(QApplication::translate("MainWindow", "Step By Step:", 0, QApplication::UnicodeUTF8));
-        label_5->setText(QApplication::translate("MainWindow", "1.", 0, QApplication::UnicodeUTF8));
-        label_9->setText(QApplication::translate("MainWindow", "2.", 0, QApplication::UnicodeUTF8));
-        label->setText(QApplication::translate("MainWindow", "Local Fight Points:", 0, QApplication::UnicodeUTF8));
+        label_5->setText(QApplication::translate("MainWindow", "2.", 0, QApplication::UnicodeUTF8));
+        label_9->setText(QApplication::translate("MainWindow", "3.", 0, QApplication::UnicodeUTF8));
+        label->setText(QApplication::translate("MainWindow", "Spanning Points:", 0, QApplication::UnicodeUTF8));
         label_10->setText(QApplication::translate("MainWindow", "Path Find Iterations:", 0, QApplication::UnicodeUTF8));
         label_3->setText(QApplication::translate("MainWindow", "(1-5)", 0, QApplication::UnicodeUTF8));
         label_27->setText(QApplication::translate("MainWindow", "(2-10)", 0, QApplication::UnicodeUTF8));
-        label_11->setText(QApplication::translate("MainWindow", "3.", 0, QApplication::UnicodeUTF8));
+        label_11->setText(QApplication::translate("MainWindow", "4.", 0, QApplication::UnicodeUTF8));
         btnExecutePathFinder_2->setText(QApplication::translate("MainWindow", "Generate Properties and Labels", 0, QApplication::UnicodeUTF8));
         label_28->setText(QApplication::translate("MainWindow", "properties define appearance and function of nodes and edges", 0, QApplication::UnicodeUTF8));
         btnExecutePathFinder_3->setText(QApplication::translate("MainWindow", "Reposition  path nodes", 0, QApplication::UnicodeUTF8));
-        label_29->setText(QApplication::translate("MainWindow", "4.", 0, QApplication::UnicodeUTF8));
+        label_29->setText(QApplication::translate("MainWindow", "5.", 0, QApplication::UnicodeUTF8));
         checkBox->setText(QApplication::translate("MainWindow", "Force Symmetry", 0, QApplication::UnicodeUTF8));
+        btnLocateFightPoints->setText(QApplication::translate("MainWindow", "Find Local Fight Points", 0, QApplication::UnicodeUTF8));
+        label_30->setText(QApplication::translate("MainWindow", "1.", 0, QApplication::UnicodeUTF8));
         tabWidget_2->setTabText(tabWidget_2->indexOf(tab_9), QApplication::translate("MainWindow", "Execute", 0, QApplication::UnicodeUTF8));
-        tabWidget_2->setTabText(tabWidget_2->indexOf(tab_3), QApplication::translate("MainWindow", "Map Structure Params", 0, QApplication::UnicodeUTF8));
+        label_2->setText(QApplication::translate("MainWindow", "Style: ", 0, QApplication::UnicodeUTF8));
+        comboBox->clear();
+        comboBox->insertItems(0, QStringList()
+         << QApplication::translate("MainWindow", "Forest ", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindow", "Urban outdoor", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindow", "Urban indoor", 0, QApplication::UnicodeUTF8)
+        );
+        tabWidget_2->setTabText(tabWidget_2->indexOf(tab_3), QApplication::translate("MainWindow", "Options", 0, QApplication::UnicodeUTF8));
+        checkBox_2->setText(QApplication::translate("MainWindow", "View Corresponding Properties", 0, QApplication::UnicodeUTF8));
+        checkBox_3->setText(QApplication::translate("MainWindow", "View Debug Text", 0, QApplication::UnicodeUTF8));
+        checkBox_4->setText(QApplication::translate("MainWindow", "View Stylized impression", 0, QApplication::UnicodeUTF8));
         tabWidget_2->setTabText(tabWidget_2->indexOf(tab_5), QApplication::translate("MainWindow", "View preferences", 0, QApplication::UnicodeUTF8));
         tabWidget_2->setTabText(tabWidget_2->indexOf(tab_4), QApplication::translate("MainWindow", "Analysis", 0, QApplication::UnicodeUTF8));
+        pushButton->setText(QApplication::translate("MainWindow", "Load (and save)", 0, QApplication::UnicodeUTF8));
+        label_4->setText(QApplication::translate("MainWindow", "Extra command options:", 0, QApplication::UnicodeUTF8));
+        checkBox_5->setText(QApplication::translate("MainWindow", "Cinematic View", 0, QApplication::UnicodeUTF8));
+        label_31->setText(QApplication::translate("MainWindow", "Save to: ", 0, QApplication::UnicodeUTF8));
+        bntResultFileName->setText(QApplication::translate("MainWindow", "Select File..", 0, QApplication::UnicodeUTF8));
+        tabWidget_2->setTabText(tabWidget_2->indexOf(tab), QApplication::translate("MainWindow", "to 3D geometry", 0, QApplication::UnicodeUTF8));
         label_8->setText(QApplication::translate("MainWindow", "Node Scattering Method:", 0, QApplication::UnicodeUTF8));
         btnGenerateForest->setText(QApplication::translate("MainWindow", "Generate ", 0, QApplication::UnicodeUTF8));
         cmbScatterMethod->clear();
@@ -412,8 +476,6 @@ public:
         label_25->setText(QApplication::translate("MainWindow", "node density (type 3 scatter)", 0, QApplication::UnicodeUTF8));
         label_26->setText(QApplication::translate("MainWindow", "(10-100)", 0, QApplication::UnicodeUTF8));
         tabWidget_3->setTabText(tabWidget_3->indexOf(tab_6), QApplication::translate("MainWindow", "Generate Forest", 0, QApplication::UnicodeUTF8));
-        label_2->setText(QApplication::translate("MainWindow", "Debug output:", 0, QApplication::UnicodeUTF8));
-        pushButton->setText(QApplication::translate("MainWindow", "Clear Debug output", 0, QApplication::UnicodeUTF8));
         radioButton->setText(QApplication::translate("MainWindow", "Multiplayer Arena Scenario", 0, QApplication::UnicodeUTF8));
         radioButton_2->setText(QApplication::translate("MainWindow", "Dungeon Adventure Scenario", 0, QApplication::UnicodeUTF8));
         radioButton_3->setText(QApplication::translate("MainWindow", "Stealth Strategy Scenario", 0, QApplication::UnicodeUTF8));

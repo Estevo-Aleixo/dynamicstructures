@@ -15,6 +15,7 @@ LogWindow* mDebugLog;
 //file actions
 QAction* newAct;
 QAction* saveAct;
+QAction* loadAct;
 QAction* saveResultAct;
 QAction* openAct;
 
@@ -23,11 +24,16 @@ QAction* deleteItemAct;
 QAction* selectItemAct;
 QAction* nodeDrawModeAct;
 QAction* edgeDrawModeAct;
+QAction* clearProblemWidgetAct;
+
+
+//view actions
+QAction* viewDebugLogDialogAct;
 
 //procedure actions
 QAction* createProblemStructureAct;
 
-
+LogDialog* logDebugDialog;
 
 
 QToolBar* mDrawTools;
@@ -39,24 +45,29 @@ MainWindow::MainWindow(QWidget *parent)
 
    ui->setupUi(this);
    this->setWindowTitle("Map Structure Search");
-   mDebugLog= new LogWindow(ui->textParentWidget);
-   mDebugLog->resize(ui->textParentWidget->width(), ui->textParentWidget->height());
+   //mDebugLog= new LogWindow(ui->textParentWidget);
+   //mDebugLog->resize(ui->textParentWidget->width(), ui->textParentWidget->height());
 
    //QString label="Debug";
    //ui->tabOutput->insertTab(0,mDebugLog,label);
     //ui->tabOutput->setCurrentIndex(0);
 
-   mDebugLog->setReadOnly(true);
-   mDebugLog->show();
+   //mDebugLog->setReadOnly(true);
+   //mDebugLog->show();
+
+   logDebugDialog= new LogDialog(0);
+
+   mDebugLog= logDebugDialog->getLogWindow();
 
 initActions();
 //initMainToolBar();
-//initGraphManipulationToolBar();
 initMenu();
+initGraphManipulationToolBar();
+
 
     //forest graph widget:
-   graphForestView= new GraphWidget(ui->parent_forest_widget);
 
+   graphForestView= new GraphWidget(ui->parent_forest_widget);
    graphForestView->resize(ui->parent_forest_widget->width(),ui->parent_forest_widget->height());
    graphForestView->show();
 
@@ -81,7 +92,6 @@ initMenu();
    graphMapView->resize(ui->parent_map_widget->width(),ui->parent_map_widget->height());
    graphMapView->show();
 
-
     forestGenerator = new ForestLogic();
    // forestGenerator
 
@@ -89,12 +99,21 @@ initMenu();
 
     forestGenerator->setDebugTextBox(mDebugLog);
     mapGenerator->setDebugTextBox(mDebugLog);
-
+    logDebugDialog->show();
 }
+
+
+void MainWindow::closeEvent(QCloseEvent* e)
+{
+ mDebugLog->log("closing");
+     logDebugDialog->close();
+}
+
 
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete logDebugDialog;
 	//test
 }
 
@@ -129,18 +148,24 @@ void  MainWindow::initMainToolBar()
 
 
 //new
-     ui->mainToolBar->addAction(newAct);
+     //ui->mainToolBar->addAction(newAct);
 //open
-     ui->mainToolBar->addAction(openAct);
+     //ui->mainToolBar->addAction(openAct);
 //save problem
-     ui->mainToolBar->addAction(saveAct);
+     //ui->mainToolBar->addAction(saveAct);
 //save result
-     ui->mainToolBar->addAction(saveResultAct);
+     //ui->mainToolBar->addAction(saveResultAct);
 }
 
 void  MainWindow::initGraphManipulationToolBar()
 {
-    mDrawTools = addToolBar("Edit");
+
+
+   // this->ui->problemWidget
+
+           //  addToolBar("Edit");
+    mDrawTools = new QToolBar("Edit",this->ui->problemWidget);
+mDrawTools ->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     //add vertex
     mDrawTools->addAction(nodeDrawModeAct);
     //add edge
@@ -149,6 +174,8 @@ void  MainWindow::initGraphManipulationToolBar()
      mDrawTools->addAction(deleteItemAct);
      //select item
      mDrawTools->addAction(selectItemAct);
+    //clear canvas
+     mDrawTools->addAction(clearProblemWidgetAct);
 
 }
 
@@ -295,9 +322,28 @@ void MainWindow::initActions()
      selectItemAct->setStatusTip(tr("Select"));
      connect(selectItemAct, SIGNAL(triggered()), this, SLOT(selectTool()));
 
+     clearProblemWidgetAct = new QAction(QIcon("icons/delete.png"), tr("&Clear Problem..."), this);
+     clearProblemWidgetAct->setStatusTip(tr("Clear Problem Space"));
+     connect( clearProblemWidgetAct, SIGNAL(triggered()), this, SLOT(clearProblemStructure()));
+
+
+     //view
+     viewDebugLogDialogAct = new QAction(QIcon("icons/accept.png"), tr("&LogWindow..."), this);
+     viewDebugLogDialogAct->setStatusTip(tr("Show Log Window"));
+     connect( viewDebugLogDialogAct, SIGNAL(triggered()), this, SLOT(showLogWindow()));
 
 
 
+}
+
+void MainWindow::showLogWindow()
+{
+logDebugDialog->show();
+}
+
+void MainWindow::clearProblemStructure()
+{
+    mDebugLog->log("Problem Structure Cleared");
 }
 
 void MainWindow::setMapParams()
@@ -312,13 +358,32 @@ void MainWindow::setMapParams()
 void MainWindow::initMenu()
 {
  mMenuBar= new QMenuBar(this);
+
  mFileMenu= mMenuBar->addMenu(tr("&File"));
+ mFileMenu->addAction(newAct);
+ mFileMenu->addAction(openAct);
  mFileMenu->addAction(saveAct);
  mFileMenu->addAction(saveResultAct);
+
+
+ mViewMenu= mMenuBar->addMenu(tr("&View"));
+ mViewMenu->addAction(viewDebugLogDialogAct);
+
 
 }
 
 void MainWindow::on_pushButton_clicked()
 {
     mDebugLog->clear();
+}
+
+void MainWindow::on_bntResultFileName_clicked()
+{
+     QString fileName;
+     fileName = QFileDialog::getSaveFileName(this,
+     tr("Save Result File"), "Saved", tr("Map Structure File(*.msf)"));
+
+     this->ui->lineFilenameSave->setText(fileName);
+
+     //mapGenerator->getForestWidget()->saveToFile(fileName);
 }

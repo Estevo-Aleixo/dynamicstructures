@@ -10,6 +10,8 @@ INPUT(
 ./release\logwindow.o
 ./release\scenario.o
 ./release\fpsscenario.o
+./release\logdialog.o
 ./release\moc_graphwidget.o
 ./release\moc_mainwindow.o
+./release\moc_logdialog.o
 );

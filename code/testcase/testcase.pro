@@ -15,7 +15,8 @@ SOURCES += main.cpp \
     soundhandler.cpp \
     logwindow.cpp \
     scenario.cpp \
-    fpsscenario.cpp
+    fpsscenario.cpp \
+    logdialog.cpp
 HEADERS += BaseHeaders.h \
     graphwidget.h \
     mainwindow.h \
@@ -27,6 +28,8 @@ HEADERS += BaseHeaders.h \
     soundhandler.h \
     logwindow.h \
     scenario.h \
-    fpsscenario.h
-FORMS += mainwindow.ui
+    fpsscenario.h \
+    logdialog.h
+FORMS += mainwindow.ui \
+    logdialog.ui
 OTHER_FILES += 

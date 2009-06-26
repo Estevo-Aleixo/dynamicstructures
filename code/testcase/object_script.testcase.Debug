@@ -10,6 +10,8 @@ INPUT(
 ./debug\logwindow.o
 ./debug\scenario.o
 ./debug\fpsscenario.o
+./debug\logdialog.o
 ./debug\moc_graphwidget.o
 ./debug\moc_mainwindow.o
+./debug\moc_logdialog.o
 );

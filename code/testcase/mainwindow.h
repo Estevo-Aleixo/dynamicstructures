@@ -2,15 +2,18 @@
 #define MAINWINDOW_H
 
 #include <QtGui/QMainWindow>
- #include <QFileDialog>
- #include <QSound>
- #include <QMenuBar>
+#include <QFileDialog>
+#include <QSound>
+#include <QToolBar>
+#include <QMenuBar>
 #include <QMenu>
 
 #include "forestlogic.h"
 #include "scenariohandler.h"
 #include "graphwidget.h"
-#include "logwindow.h"
+
+#include "LogDialog.h"
+
 
 //include boost:
 
@@ -38,6 +41,7 @@ private:
 
     QMenuBar* mMenuBar;
     QMenu* mFileMenu;
+    QMenu* mViewMenu;
 
     void initMenu();
     void initMainToolBar();
@@ -45,7 +49,10 @@ private:
 
     void initActions();
     void setMapParams();
+
+    void closeEvent(QCloseEvent* e);
 private slots:
+   void on_bntResultFileName_clicked();
     void on_pushButton_clicked();
     void on_btnExecutePathFinder_clicked();
     void on_btnForestFullScreen_clicked();
@@ -56,15 +63,14 @@ private slots:
     void addEdges();
     void deleteTool();
     void selectTool();
-
+    void clearProblemStructure();
     void openProblem();
     void saveProblem();
     void newProblem();
 
     void saveResult();
-
-
     void createProblemStructure();
+    void showLogWindow();
 
 };
 
