@@ -12,6 +12,7 @@ ScenarioHandler* mapGenerator;
 LogWindow* mDebugLog;
 
 
+
 //file actions
 QAction* newAct;
 QAction* saveAct;
@@ -34,6 +35,7 @@ QAction* viewDebugLogDialogAct;
 QAction* createProblemStructureAct;
 
 LogDialog* logDebugDialog;
+ProblemPresetDialog* presetDialog;
 
 
 QToolBar* mDrawTools;
@@ -45,29 +47,23 @@ MainWindow::MainWindow(QWidget *parent)
 
    ui->setupUi(this);
    this->setWindowTitle("Map Structure Search");
-   //mDebugLog= new LogWindow(ui->textParentWidget);
-   //mDebugLog->resize(ui->textParentWidget->width(), ui->textParentWidget->height());
 
-   //QString label="Debug";
-   //ui->tabOutput->insertTab(0,mDebugLog,label);
-    //ui->tabOutput->setCurrentIndex(0);
-
-   //mDebugLog->setReadOnly(true);
-   //mDebugLog->show();
-
-   logDebugDialog= new LogDialog(0);
+    logDebugDialog= new LogDialog(0);
+    presetDialog= new ProblemPresetDialog(0);
+presetDialog->hide();
 
    mDebugLog= logDebugDialog->getLogWindow();
 
 initActions();
 //initMainToolBar();
 initMenu();
-initGraphManipulationToolBar();
+//initGraphManipulationToolBar();
 
 
     //forest graph widget:
 
-   graphForestView= new GraphWidget(ui->parent_forest_widget);
+   graphForestView= new GraphWidget(ui->parent_forest_widget,ui->problemWidget);
+   graphForestView->setLogWindow(mDebugLog);
    graphForestView->resize(ui->parent_forest_widget->width(),ui->parent_forest_widget->height());
    graphForestView->show();
 
@@ -83,16 +79,19 @@ initGraphManipulationToolBar();
    this->ui->editNodeDensity->setText(param.setNum(70));
 
    //pre-settings for map:
+   this->ui->editSpanningPoints->setText(param.setNum(4));
    this->ui->editLocalFightPoints->setText(param.setNum(4));
    this->ui->editPathIterations->setText(param.setNum(3));
 
-
    //map graph widget
-   graphMapView= new GraphWidget(ui->parent_map_widget);
+   graphMapView= new GraphWidget(ui->parent_map_widget,ui->solutionWidget);
    graphMapView->resize(ui->parent_map_widget->width(),ui->parent_map_widget->height());
    graphMapView->show();
+   graphMapView->setLogWindow(mDebugLog);
+   graphMapView->removeAllActionsFromToolBar();
+   graphMapView->addCopyFromWidgetAction(graphForestView);
 
-    forestGenerator = new ForestLogic();
+   forestGenerator = new ForestLogic();
    // forestGenerator
 
     mapGenerator= new ScenarioHandler(graphForestView,graphMapView);
@@ -122,11 +121,11 @@ void MainWindow::on_btnGenerateForest_clicked()
     createProblemStructure();
 }
 
-void MainWindow::on_btnExecuteLFPFinder_clicked()
-{
-    setMapParams();
-    mapGenerator->executeLFPfinder();
 
+void MainWindow::on_btnExecuteSpanningStep_clicked()
+{
+  setMapParams();
+  mapGenerator->findSpanningPoints();
 
 }
 
@@ -143,64 +142,97 @@ void MainWindow::on_btnExecutePathFinder_clicked()
 
 }
 
-void  MainWindow::initMainToolBar()
+void MainWindow::on_btnLocateFightPoints_clicked()
 {
-
-
-//new
-     //ui->mainToolBar->addAction(newAct);
-//open
-     //ui->mainToolBar->addAction(openAct);
-//save problem
-     //ui->mainToolBar->addAction(saveAct);
-//save result
-     //ui->mainToolBar->addAction(saveResultAct);
+   setMapParams();
+   mapGenerator->executeLFPfinder();
 }
+
+
+
+
+void  MainWindow::initMainToolBar()
+{}
 
 void  MainWindow::initGraphManipulationToolBar()
 {
 
 
-   // this->ui->problemWidget
 
-           //  addToolBar("Edit");
-    mDrawTools = new QToolBar("Edit",this->ui->problemWidget);
-mDrawTools ->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
-    //add vertex
-    mDrawTools->addAction(nodeDrawModeAct);
-    //add edge
-     mDrawTools->addAction(edgeDrawModeAct);
-     //delete item
-     mDrawTools->addAction(deleteItemAct);
+     //mDrawTools->addAction(deleteItemAct);
      //select item
-     mDrawTools->addAction(selectItemAct);
+     //mDrawTools->addAction(selectItemAct);
     //clear canvas
-     mDrawTools->addAction(clearProblemWidgetAct);
+     //mDrawTools->addAction(clearProblemWidgetAct);
 
 }
 
+
+  void  MainWindow::uncheckAllGraphWidgetActions()
+  {
+    //draw actions
+    nodeDrawModeAct->setChecked(false);
+    edgeDrawModeAct->setChecked(false);
+    deleteItemAct->setChecked(false);
+    selectItemAct->setChecked(false);
+  }
+
+
 void  MainWindow::addNodes()
 {
- mDebugLog->log("node draw tool activated");
+
+    if (nodeDrawModeAct->isChecked())
+    {
+         mDebugLog->log("node draw tool activated");
+         uncheckAllGraphWidgetActions();
+         nodeDrawModeAct->setChecked(true);
+
+
+    }else{
+        mDebugLog->log("node draw tool deactivated",failure_msg);
+    }
 
 }
 void  MainWindow::addEdges()
 {
 
- mDebugLog->log("edge draw tool activated");
+
+    if (edgeDrawModeAct->isChecked())
+    {
+         mDebugLog->log("edge draw tool activated");
+         uncheckAllGraphWidgetActions();
+         edgeDrawModeAct->setChecked(true);
+
+    }else{
+        mDebugLog->log("edge draw tool deactivated",failure_msg);
+    }
 
 
 }
 void  MainWindow::deleteTool()
 {
- mDebugLog->log("delete tool activated");
+   if (deleteItemAct->isChecked())
+    {
+         mDebugLog->log("delete tool activated");
+         uncheckAllGraphWidgetActions();
+         deleteItemAct->setChecked(true);
+    }else{
+        mDebugLog->log("delete tool deactivated",failure_msg);
+    }
 
 
 
 }
 void  MainWindow::selectTool()
 {
- mDebugLog->log("select tool activated");
+   if (selectItemAct->isChecked())
+    {
+         mDebugLog->log("select tool activated");
+         uncheckAllGraphWidgetActions();
+         selectItemAct->setChecked(true);
+    }else{
+        mDebugLog->log("select tool deactivated",failure_msg);
+    }
 
 }
 
@@ -242,14 +274,10 @@ void MainWindow::newProblem()
 void MainWindow::createProblemStructure()
 {
 
-    //clear the canvas
-    delete graphForestView;
-    graphForestView = new GraphWidget(ui->parent_forest_widget);
-    graphForestView->resize(ui->parent_forest_widget->width(),ui->parent_forest_widget->height());
+    //clear both canvases
 
-    delete graphMapView;
-    graphMapView= new GraphWidget(ui->parent_map_widget);
-    graphMapView->resize(ui->parent_map_widget->width(),ui->parent_map_widget->height());
+graphForestView->clearGraph();
+graphMapView->clearGraph();
 
     mapGenerator->setForestWidget(graphForestView);
     mapGenerator->setMapWidget(graphMapView);
@@ -282,13 +310,13 @@ void MainWindow::initActions()
     connect(newAct, SIGNAL(triggered()), this, SLOT(newProblem()));
 
 //open
-    openAct = new QAction(QIcon("icons/open.png"), tr("&Open..."), this);
+    openAct = new QAction(QIcon("icons/open.png"), tr("&Open State..."), this);
     openAct->setShortcuts(QKeySequence::Open);
     openAct->setStatusTip(tr("Open an existing configuration"));
     connect(openAct, SIGNAL(triggered()), this, SLOT(openProblem()));
 
 //save problem
-    saveAct = new QAction(QIcon("icons/save.png"), tr("&Save..."), this);
+    saveAct = new QAction(QIcon("icons/save.png"), tr("&Save State..."), this);
     saveAct->setShortcuts(QKeySequence::Save);
     saveAct->setStatusTip(tr("Save Problem"));
     connect(saveAct, SIGNAL(triggered()), this, SLOT(saveProblem()));
@@ -304,23 +332,29 @@ void MainWindow::initActions()
     nodeDrawModeAct = new QAction(QIcon("icons/addnode.png"), tr("&New Node..."), this);
     nodeDrawModeAct->setStatusTip(tr("Place Nodes"));
     connect( nodeDrawModeAct, SIGNAL(triggered()), this, SLOT(addNodes()));
+    nodeDrawModeAct->setCheckable(true);
 
 
 
     //add edge
      edgeDrawModeAct = new QAction(QIcon("icons/addedge.png"), tr("&New Edge..."), this);
      edgeDrawModeAct->setStatusTip(tr("Place Nodes"));
-    connect(edgeDrawModeAct, SIGNAL(triggered()), this, SLOT(addEdges()));
+     connect(edgeDrawModeAct, SIGNAL(triggered()), this, SLOT(addEdges()));
+     edgeDrawModeAct->setCheckable(true);
+
 
      //delete item
      deleteItemAct = new QAction(QIcon("icons/delete.png"), tr("&Delete Item..."), this);
      deleteItemAct->setStatusTip(tr("Delete Item"));
      connect(deleteItemAct, SIGNAL(triggered()), this, SLOT(deleteTool()));
+     deleteItemAct->setCheckable(true);
 
      //select item
      selectItemAct = new QAction(QIcon("icons/accept.png"), tr("&Select item..."), this);
      selectItemAct->setStatusTip(tr("Select"));
      connect(selectItemAct, SIGNAL(triggered()), this, SLOT(selectTool()));
+     selectItemAct->setCheckable(true);
+
 
      clearProblemWidgetAct = new QAction(QIcon("icons/delete.png"), tr("&Clear Problem..."), this);
      clearProblemWidgetAct->setStatusTip(tr("Clear Problem Space"));
@@ -349,8 +383,12 @@ void MainWindow::clearProblemStructure()
 void MainWindow::setMapParams()
 {
     Scenario scenario;
+    scenario.spanning_points=this->ui->editSpanningPoints->text().toUInt();
     scenario.local_fight_points = this->ui->editLocalFightPoints->text().toUInt();
     scenario.multiple_path_iterations= this->ui->editPathIterations->text().toUInt();
+
+    scenario.spanMethod=this->ui->cmbSpanMethod->currentIndex();
+    scenario.lfpMethod=this->ui->cmbLFPMethod->currentIndex();
     mapGenerator->setScenario(scenario);
 
 }
@@ -387,3 +425,22 @@ void MainWindow::on_bntResultFileName_clicked()
 
      //mapGenerator->getForestWidget()->saveToFile(fileName);
 }
+
+void MainWindow::nodeDrawMode(bool on)
+{
+    mDebugLog->log("toggled:");
+    if (on==true)
+    {
+        mDebugLog->log("true");
+    }else{
+        mDebugLog->log("false");
+    }
+}
+
+void MainWindow::on_btnLoadPreset_clicked()
+{
+    presetDialog->show();
+}
+
+
+

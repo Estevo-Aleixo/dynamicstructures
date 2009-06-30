@@ -49,14 +49,15 @@
 
 #include <math.h>
 
-GraphWidget::GraphWidget(QWidget* parent)
-    : QGraphicsView(parent), timerId(0)
+GraphWidget::GraphWidget(QWidget* parent,QWidget *toolbarParent)
+    : QGraphicsView(parent), timerId(0),mToolbarParent(toolbarParent)
 {
      //setCursor(Qt::IBeamCursor);
 
-    scene = new QGraphicsScene(this);
-    scene->setItemIndexMethod(QGraphicsScene::NoIndex);
-    scene->setSceneRect(0, 0, 400, 400);
+    //scene = new QGraphicsScene(this);
+    scene = new CustomGraphicsScene(this);
+
+    scene->setSceneRect(-50,-50, 500, 500);
 
     this->mGraph= new Graph();
     this->setScene(scene);
@@ -65,22 +66,24 @@ GraphWidget::GraphWidget(QWidget* parent)
     this->setRenderHint(QPainter::Antialiasing);
     this->setTransformationAnchor(this->AnchorUnderMouse);
     this->setResizeAnchor(this->AnchorViewCenter);
+    this->scale(0.8,0.8);
+    this->show();
 
 
+  initActions();
+  initToolbar();
 
-    //this->
-    //this->setDragMode(QGraphicsView::ScrollHandDrag);
-    //create nodes:
-    //centerNode = new QtVertexItem(this);
+}
 
-    // this->setMinimumSize(400, 400);
-     this->show();
+GraphWidget::~GraphWidget()
+{
+    delete mDrawTools;
 }
 
 void GraphWidget::itemMoved()
 {
     if (!timerId)
-        timerId = startTimer(1000 / 25);
+        timerId = startTimer(1000 / 10);
 }
 
 //void GraphWidget::mousePressEvent(QMouseEvent* event)
@@ -213,6 +216,13 @@ QtVertexItem* GraphWidget::addNode(QPointF& pos)
     return newNode;
 }
 
+QtEdgeItem*  GraphWidget::addEdge(QtVertexItem*  uItem, QtVertexItem*  vItem, int directed)
+{
+    vertex_descriptor u=uItem->getVertexDescriptor();
+    vertex_descriptor v=vItem->getVertexDescriptor();
+    return addEdge(u,v,directed);
+}
+
 QtEdgeItem* GraphWidget::addEdge(vertex_descriptor& u, vertex_descriptor& v, int directed)
 {
         QtEdgeItem* newEdge= new QtEdgeItem(u,v,this);
@@ -330,3 +340,217 @@ void GraphWidget::loadFromFile(QString filename)
 
 
 }
+
+  void GraphWidget::initActions()
+  {
+    //add vertex
+    nodeDrawModeAct = new QAction(QIcon("icons/addnode.png"), tr("&New Node..."), this);
+    nodeDrawModeAct->setStatusTip(tr("Place Nodes"));
+    connect( nodeDrawModeAct, SIGNAL(triggered()), this, SLOT(nodeTool()));
+    nodeDrawModeAct->setCheckable(true);
+
+    //add edge
+     edgeDrawModeAct = new QAction(QIcon("icons/addedge.png"), tr("&New Edge..."), this);
+     edgeDrawModeAct->setStatusTip(tr("Place Nodes"));
+     connect(edgeDrawModeAct, SIGNAL(triggered()), this, SLOT(edgeTool()));
+     edgeDrawModeAct->setCheckable(true);
+
+     //delete item
+     deleteItemAct = new QAction(QIcon("icons/delete.png"), tr("&Delete Item..."), this);
+     deleteItemAct->setStatusTip(tr("Delete Item"));
+     connect(deleteItemAct, SIGNAL(triggered()), this, SLOT(deleteTool()));
+     deleteItemAct->setCheckable(true);
+
+     //select item
+     selectItemAct = new QAction(QIcon("icons/accept.png"), tr("&Select item..."), this);
+     selectItemAct->setStatusTip(tr("Select"));
+     connect(selectItemAct, SIGNAL(triggered()), this, SLOT(selectTool()));
+     selectItemAct->setCheckable(true);
+
+     //copy action
+     copyGraphWidgetAct = new QAction(QIcon("icons/copy.png"), tr("&Copy Problem Structure ..."), this);
+     copyGraphWidgetAct->setStatusTip(tr("Copy"));
+     connect(copyGraphWidgetAct, SIGNAL(triggered()), this, SLOT(copyGraph()));
+  }
+
+  /*
+ void  GraphWidget::drawNodes()
+ {
+    mLogWindow->log("eureka!");
+ }
+
+ void  GraphWidget::drawEdges()
+ {
+
+
+ }
+ void GraphWidget::deleteItem()
+ {
+
+
+ }
+
+ void GraphWidget::selectItem()
+ {
+
+ }
+*/
+
+ void GraphWidget::nodeTool()
+ {
+     setToolMode(node_tool, nodeDrawModeAct->isChecked());
+ }
+ void GraphWidget::edgeTool()
+ {
+     setToolMode(edge_tool, edgeDrawModeAct->isChecked());
+
+ }
+ void GraphWidget::selectTool()
+ {
+     setToolMode(select_tool, selectItemAct->isChecked());
+
+ }
+ void GraphWidget::deleteTool()
+ {
+     setToolMode(delete_tool, deleteItemAct->isChecked());
+ }
+
+
+ void GraphWidget::initToolbar()
+   {
+    mDrawTools = new QToolBar("Edit",mToolbarParent);
+    mDrawTools ->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
+    //add vertex
+    mDrawTools->addAction(nodeDrawModeAct);
+    //add edge
+     mDrawTools->addAction(edgeDrawModeAct);
+     mDrawTools->addAction(deleteItemAct);
+     mDrawTools->addAction(selectItemAct);
+ }
+
+
+ void GraphWidget::setToolMode(GraphToolMode mode, bool enableTool)
+ {
+
+
+     this->scene->resetToolMemory();
+
+if (enableTool==false)
+{
+ mToolMode = no_tool;
+ mLog->log("no tool ");
+ this->setCursor(Qt::ArrowCursor);
+}
+else
+{
+    uncheckAllGraphWidgetActions();
+    mToolMode = mode;
+
+    switch(mode)
+    {
+    case edge_tool:
+         mLog->log("edge tool selected");
+         edgeDrawModeAct->setChecked(true);
+        this->setCursor(Qt::CrossCursor);
+        break;
+    case node_tool:
+        mLog->log("node tool selected");
+        nodeDrawModeAct->setChecked(true);
+        this->setCursor(Qt::CrossCursor);
+        break;
+    case delete_tool:
+         mLog->log("delete tool selected");
+        deleteItemAct->setChecked(true);
+        this->setCursor(Qt::ArrowCursor);
+        break;
+     case select_tool:
+        mLog->log("select tool selected");
+        selectItemAct->setChecked(true);
+        this->setCursor(Qt::ArrowCursor);
+        break;
+    }
+}
+
+}
+
+ void GraphWidget::clearGraph()
+ {
+    delete mGraph;
+    mGraph= new Graph();
+    scene->clear();
+ }
+
+ void GraphWidget::nodesInArea(std::vector<vertex_descriptor>& nodes, QPointF& pos, int range)
+{
+    vertex_descriptor u;
+
+    std::pair<vertex_iterator, vertex_iterator> iterator_range= vertices(*mGraph);
+    vertex_iterator start=iterator_range.first;
+    vertex_iterator end=iterator_range.second;
+    vertex_iterator i;
+
+    QtVertexItem* item2;
+
+    for (i=start;i!=end;++i)
+    {
+        item2=(*mGraph)[*i].vertexItem;
+        QPointF pos2= QPointF(item2->x(),item2->y());
+
+        if (((pos.x() - pos2.x())*(pos.x() - pos2.x())+(pos.y() - pos2.y())*(pos.y() - pos2.y()))< range * range )
+        {
+            nodes.push_back(*i);
+        }
+    }
+
+}
+
+void GraphWidget::nodesConnectedTo(QtVertexItem* vItem, std::vector<QtVertexItem*>& nodes, int range, VertexTag tagWith)
+{
+    QtVertexItem* uItem;
+
+     mLog->logToBuffer("nodesConnectedTo(): " + vItem->strLabel);
+
+    graph_traits<Graph>::adjacency_iterator itr;
+    std::pair< graph_traits<Graph>::adjacency_iterator ,  graph_traits<Graph>::adjacency_iterator > adjacent_range=  adjacent_vertices(vItem->getVertexDescriptor(), *mGraph);
+
+    int distance;
+    for (itr=adjacent_range.first;itr!=adjacent_range.second;itr++)
+    {
+     //get edge:
+        uItem= (*mGraph)[*itr].vertexItem;
+        distance=-1;
+        if  (distance < range)
+        {
+            nodes.push_back(uItem);
+            uItem->setTag(tagWith);
+            mLog->logToBuffer("Node " + vItem->strLabel + " adjacent to " + uItem->strLabel);
+        }
+
+    }
+
+}
+
+
+void GraphWidget::tagNeighbours(vertex_descriptor v, VertexTag tag, int range)
+{}
+
+ void GraphWidget::removeAllActionsFromToolBar()
+ {
+     mDrawTools->removeAction(nodeDrawModeAct);
+     mDrawTools->removeAction(edgeDrawModeAct);
+     mDrawTools->removeAction(deleteItemAct);
+     mDrawTools->removeAction(selectItemAct);
+ }
+
+ void GraphWidget::addCopyFromWidgetAction(GraphWidget* gWidget)
+ {
+    mOtherGraphWidget= gWidget;
+    mDrawTools->addAction(copyGraphWidgetAct);
+ }
+
+
+ void GraphWidget::copyGraph()
+ {
+
+
+ }

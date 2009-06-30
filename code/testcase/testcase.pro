@@ -16,7 +16,9 @@ SOURCES += main.cpp \
     logwindow.cpp \
     scenario.cpp \
     fpsscenario.cpp \
-    logdialog.cpp
+    logdialog.cpp \
+    customgraphicsscene.cpp \
+    problempresetdialog.cpp
 HEADERS += BaseHeaders.h \
     graphwidget.h \
     mainwindow.h \
@@ -29,7 +31,10 @@ HEADERS += BaseHeaders.h \
     logwindow.h \
     scenario.h \
     fpsscenario.h \
-    logdialog.h
+    logdialog.h \
+    customgraphicsscene.h \
+    problempresetdialog.h
 FORMS += mainwindow.ui \
-    logdialog.ui
+    logdialog.ui \
+    problempresetdialog.ui
 OTHER_FILES += 

@@ -21,96 +21,201 @@ soundDone= new QSound("Sounds/discovery.wav");
 
 void ScenarioHandler::runScenario()
 {
- ////mDebugText << "running scenario...";
-
 //step 1: findLFPs
-lfpVertices= findLFPs();
+//lfpVertices=  findRandomVertices(mScenario.local_fight_points,mForestWidget,mMapWidget);
 
 //step 2:generateMultiplePaths
-generateMultiplePaths(lfpVertices);
+//generateMultiplePaths(lfpVertices);
 
 //step 3:
 //...
 
 }
+ void  ScenarioHandler::findSpanningPoints()
+ {
+QString method;
+this->mDebugText->log("span method: " + method.setNum(mScenario.spanMethod) );
+    switch(mScenario.spanMethod)
+    {
+        case random_search:
+
+            spanVertices= findRandomVertices(mScenario.spanning_points, mForestWidget,mMapWidget,span_type);
+        break;
+        case high_degree_search:
+             spanVertices= findHighDegreeVertices(mScenario.spanning_points, mForestWidget,mMapWidget,span_type);
+        break;
+    }
+
+
+
+ }
 
 void ScenarioHandler::executeLFPfinder()
 {
     //step 1: findLFPs
     if (mDebugText!=0){
-        mDebugText->logToBuffer("initiating LFP finder");
+        mDebugText->log("initiating LFP finder");
     }
 
-    lfpVertices= findLFPs();
+
+     switch(mScenario.lfpMethod)
+    {
+        case random_search:
+             lfpVertices= findRandomVertices(mScenario.local_fight_points,mMapWidget,0,LFP_type);
+        break;
+        case high_degree_search:
+              lfpVertices= findHighDegreeVertices(mScenario.local_fight_points,mMapWidget,0, LFP_type);
+        break;
+    }
 }
 
 void ScenarioHandler::executeMultiplePathFinder()
 {
-      if (mDebugText!=0){
-        mDebugText->logToBuffer("initiating path finder");
-      }
+
+        mDebugText->log("initiating path finder");
+
     //step 2:generateMultiplePaths
-    generateMultiplePaths(lfpVertices);
-    soundDone->play();
+    generateMultiplePaths(spanVertices);
+    //soundDone->play();
 
 }
 
 
-std::vector<vertex_descriptor>* ScenarioHandler::findLFPs()
+std::vector<vertex_descriptor>* ScenarioHandler::findRandomVertices(int num_vertices,GraphWidget* from, GraphWidget* to, VertexType type)
 {
 
-std::vector<vertex_descriptor>* LFPs= new std::vector<vertex_descriptor>();
+std::vector<vertex_descriptor>* vertices= new std::vector<vertex_descriptor>();
 
-  int LFPcount= mScenario.local_fight_points;
+  int LFPcount= num_vertices;
   int count=0;
 
-  QList<QGraphicsItem*> vertexList= mForestWidget->scene->items();
+  QList<QGraphicsItem*> vertexList= from->scene->items();
   QtVertexItem* vItem;
    while((count < LFPcount)==true)
   {
     int i= rand() % vertexList.size();
     if (vItem= qgraphicsitem_cast<QtVertexItem*>(vertexList[i]))
-    {
-       // vItem->setState(important); //SET LFP FLAG
+    { 
+       vertices->push_back(vItem->getVertexDescriptor());
+        mDebugText->logToBuffer(QString("added to list:") + vItem->strLabel);
 
-        LFPs->push_back(vItem->getVertexDescriptor());
-        mDebugText->logToBuffer(QString("added to LFP list:") + vItem->strLabel);
-
-        if (vItem->getType()!= LFP_type){
-             vItem->setType(LFP_type);
-             vItem->copyTo(mMapWidget);
+        if (vItem->getType()!= type){
+             vItem->setType(type);
+             if(to!=0)
+                vItem->copyTo(to);
              count++;
          }
-
-
-
     }
   }
 
- mForestWidget->show();
- mForestWidget->repaint();
+ from->show();
+ from->repaint();
+
+return vertices;
+}
+
+
+ //used for LFP's and spanning points
+std::vector<vertex_descriptor>*  ScenarioHandler::findImportantSteinerGraphVertices(int num_vertices, GraphWidget* from, GraphWidget* to, VertexType type)
+{
+    std::vector<vertex_descriptor>* vertices= new std::vector<vertex_descriptor>();
 
 
 
 
-return LFPs;
+
+
+
+    return vertices;
+}
+
+
+//description:
+//
+//find vertices with highest degree scattered over the entire range of vertices.
+//
+
+std::vector<vertex_descriptor>*  ScenarioHandler::findHighDegreeVertices(int num_vertices, GraphWidget* from, GraphWidget* to, VertexType type)
+{
+    std::vector<vertex_descriptor>* vertices= new std::vector<vertex_descriptor>();
+
+    std::vector<QtVertexItem*> localNodes;
+    std::vector<QtVertexItem*>::iterator nItr;
+
+    mDebugText->log("findHighDegreeVertices(int num_vertices, GraphWidget* from, GraphWidget* to)");
+
+  QList<QGraphicsItem*> sceneList= from->scene->items();
+  QtVertexItem* vItem;
+
+    //traverse vertices
+int degree;
+int count=0;
+int iterations=0;
+int treshold=3;
+
+ while(count < num_vertices)
+  {
+     iterations++;
+    localNodes.clear();
+    mDebugText->log("looping");
+    int i= rand() % sceneList.size();
+
+    if (vItem= qgraphicsitem_cast<QtVertexItem*>(sceneList[i]))
+    {
+
+        if (vItem->getTag()!=disabled_tag)
+        {
+            mDebugText->logToBuffer("selection:" + vItem->strLabel);
+            from->nodesConnectedTo(vItem,localNodes, 100);
+
+            QString size;
+            int num_neighbours=localNodes.size();
+            mDebugText->logToBuffer("adjacent vertices: " + size.setNum(num_neighbours));
+
+            if (num_neighbours >= treshold)
+            {
+                for (nItr=localNodes.begin(); nItr!=localNodes.end(); nItr++)
+                {
+                    (*nItr)->setTag(disabled_tag);
+                }
+                vItem->setTag(disabled_tag);
+                vertices->push_back(vItem->getVertexDescriptor());
+                vItem->setType(type);
+
+                if(to!=0)
+              {
+                  vItem->copyTo(to);
+              }
+                count++;
+            }
+
+        }
+
+
+
+        if (iterations > 2000)
+            break;
+
+    }
+  }
+mDebugText->flush();
+    return vertices;
 }
 
 
 
 
-void ScenarioHandler::generateMultiplePaths(std::vector<vertex_descriptor>* lfpVertices)
+void ScenarioHandler::generateMultiplePaths(std::vector<vertex_descriptor>* vertices)
 {
 
     Graph* g= this->mForestWidget->getGraph();
     Graph* mapGraph= this->mMapWidget->getGraph();
     std::vector<edge_descriptor> best_edges;
 
-    mDebugText->logToBuffer(QString("generateMultiplePaths()"),very_important_msg);
-
+   // mDebugText->log(QString("generateMultiplePaths()"),very_important_msg);
+ mDebugText->logToBuffer(QString("generateMultiplePaths()"),very_important_msg);
 
     bool notdone=true;
-
     int iterations=0;
 
     while(notdone)
@@ -122,26 +227,29 @@ void ScenarioHandler::generateMultiplePaths(std::vector<vertex_descriptor>* lfpV
         if (iterations == this->mScenario.multiple_path_iterations)
             notdone=false;
 
+        //mDebugText->log(QString("iteration ") + QString::number(iterations),very_important_msg);
         mDebugText->logToBuffer(QString("iteration ") + QString::number(iterations),very_important_msg);
 
         //for each LFP in LFPVertices
         std::vector<vertex_descriptor>::iterator i,j,n;
 
         //iterate over all local fight points:
-        for(i=lfpVertices->begin(); i!=lfpVertices->end();i++)
+        for(i=vertices->begin(); i!=vertices->end();i++)
         {
 
             //get paths from other lfp's to current lfp
             int highest_traverse_rate=0;
 
             QtVertexItem* v=  (*g)[*i].vertexItem;
+
+             //mDebugText->log(QString("current source LFP: ") + v->strLabel,important_msg);
              mDebugText->logToBuffer(QString("current source LFP: ") + v->strLabel,important_msg);
 
             //perform dijkstra on the current local fight point
             dijkstra_shortest_paths(*g,(*i), predecessor_map(&pred[0]).weight_map(get(&Connection::distance,*g)));
 
             //traverse paths of all local fight points that have been reached
-                for(j = lfpVertices->begin(); j != lfpVertices->end(); j++)
+                for(j = vertices->begin(); j != vertices->end(); j++)
                 {
                     TraverseAndStorePath(g, *i, *j, pred, best_edges);
                 }

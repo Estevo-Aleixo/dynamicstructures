@@ -72,9 +72,9 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>680</x>
+      <x>670</x>
       <y>520</y>
-      <width>541</width>
+      <width>661</width>
       <height>201</height>
      </rect>
     </property>
@@ -82,7 +82,7 @@
      <enum>QTabWidget::North</enum>
     </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab_9">
      <attribute name="title">
@@ -115,7 +115,7 @@
       </property>
       <property name="geometry">
        <rect>
-        <x>250</x>
+        <x>240</x>
         <y>150</y>
         <width>121</width>
         <height>18</height>
@@ -125,7 +125,7 @@
        <string>visual debug mode</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="btnExecuteLFPFinder">
+     <widget class="QPushButton" name="btnExecuteSpanningStep">
       <property name="geometry">
        <rect>
         <x>50</x>
@@ -142,9 +142,9 @@
       <property name="geometry">
        <rect>
         <x>50</x>
-        <y>40</y>
+        <y>43</y>
         <width>121</width>
-        <height>23</height>
+        <height>20</height>
        </rect>
       </property>
       <property name="text">
@@ -187,12 +187,12 @@
        <string>3.</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="editLocalFightPoints">
+     <widget class="QLineEdit" name="editSpanningPoints">
       <property name="geometry">
        <rect>
         <x>280</x>
         <y>10</y>
-        <width>113</width>
+        <width>81</width>
         <height>20</height>
        </rect>
       </property>
@@ -234,7 +234,7 @@
        <rect>
         <x>280</x>
         <y>40</y>
-        <width>113</width>
+        <width>81</width>
         <height>20</height>
        </rect>
       </property>
@@ -242,7 +242,7 @@
      <widget class="QLabel" name="label_3">
       <property name="geometry">
        <rect>
-        <x>400</x>
+        <x>370</x>
         <y>40</y>
         <width>51</width>
         <height>16</height>
@@ -255,7 +255,7 @@
      <widget class="QLabel" name="label_27">
       <property name="geometry">
        <rect>
-        <x>400</x>
+        <x>370</x>
         <y>10</y>
         <width>51</width>
         <height>16</height>
@@ -361,8 +361,8 @@
       </property>
       <property name="geometry">
        <rect>
-        <x>280</x>
-        <y>70</y>
+        <x>240</x>
+        <y>120</y>
         <width>111</width>
         <height>18</height>
        </rect>
@@ -400,6 +400,111 @@
       </property>
       <property name="text">
        <string>1.</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_32">
+      <property name="geometry">
+       <rect>
+        <x>420</x>
+        <y>10</y>
+        <width>46</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Method:</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="cmbSpanMethod">
+      <property name="geometry">
+       <rect>
+        <x>470</x>
+        <y>10</y>
+        <width>151</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>Random Vertices</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Highest Degree Vertices</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QLabel" name="label_33">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>70</y>
+        <width>101</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Local Fight Points:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="editLocalFightPoints">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>280</x>
+        <y>70</y>
+        <width>81</width>
+        <height>20</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_37">
+      <property name="geometry">
+       <rect>
+        <x>370</x>
+        <y>70</y>
+        <width>51</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>(2-10)</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="cmbLFPMethod">
+      <property name="geometry">
+       <rect>
+        <x>470</x>
+        <y>70</y>
+        <width>151</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>Random Vertices</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Highest Degree Vertices</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QLabel" name="label_38">
+      <property name="geometry">
+       <rect>
+        <x>420</x>
+        <y>70</y>
+        <width>46</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Method:</string>
       </property>
      </widget>
     </widget>
@@ -591,7 +696,7 @@
      <rect>
       <x>10</x>
       <y>500</y>
-      <width>591</width>
+      <width>571</width>
       <height>221</height>
      </rect>
     </property>
@@ -618,7 +723,7 @@
      <widget class="QPushButton" name="btnGenerateForest">
       <property name="geometry">
        <rect>
-        <x>490</x>
+        <x>470</x>
         <y>160</y>
         <width>81</width>
         <height>21</height>
@@ -928,12 +1033,140 @@
        <string>(10-100)</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="btnLoadPreset">
+      <property name="geometry">
+       <rect>
+        <x>470</x>
+        <y>130</y>
+        <width>81</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Load preset</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="loadproblem">
+     <attribute name="title">
+      <string>Load Problem Structure</string>
+     </attribute>
+     <widget class="QLabel" name="label_34">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>61</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>File:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_2">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>20</y>
+        <width>211</width>
+        <height>20</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnSelectProblemStructure">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>20</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>select file</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_4">
+      <property name="geometry">
+       <rect>
+        <x>470</x>
+        <y>160</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Generate</string>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="tableWidget">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>280</x>
+        <y>80</y>
+        <width>271</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_35">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>280</x>
+        <y>60</y>
+        <width>61</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Description:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_36">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>60</y>
+        <width>61</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Properties:</string>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="tableWidget_2">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>60</y>
+        <width>201</width>
+        <height>131</height>
+       </rect>
+      </property>
+     </widget>
     </widget>
    </widget>
    <widget class="QRadioButton" name="radioButton">
     <property name="geometry">
      <rect>
-      <x>680</x>
+      <x>670</x>
       <y>500</y>
       <width>151</width>
       <height>18</height>
@@ -952,7 +1185,7 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>840</x>
+      <x>830</x>
       <y>500</y>
       <width>191</width>
       <height>18</height>
@@ -968,7 +1201,7 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>1020</x>
+      <x>1010</x>
       <y>500</y>
       <width>201</width>
       <height>18</height>
@@ -983,7 +1216,7 @@
      <rect>
       <x>10</x>
       <y>60</y>
-      <width>661</width>
+      <width>641</width>
       <height>431</height>
      </rect>
     </property>
@@ -992,7 +1225,7 @@
       <rect>
        <x>0</x>
        <y>60</y>
-       <width>661</width>
+       <width>641</width>
        <height>371</height>
       </rect>
      </property>
@@ -1001,9 +1234,9 @@
    <widget class="QWidget" name="solutionWidget" native="true">
     <property name="geometry">
      <rect>
-      <x>680</x>
+      <x>670</x>
       <y>60</y>
-      <width>661</width>
+      <width>671</width>
       <height>431</height>
      </rect>
     </property>
@@ -1012,7 +1245,7 @@
       <rect>
        <x>0</x>
        <y>60</y>
-       <width>661</width>
+       <width>671</width>
        <height>371</height>
       </rect>
      </property>

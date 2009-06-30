@@ -39,7 +39,8 @@
 **
 ****************************************************************************/
 
-#include <QGraphicsScene>
+//#include <QGraphicsScene>
+#include "customgraphicsscene.h"
 #include <QGraphicsSceneMouseEvent>
 #include <QPainter>
 #include <QStyleOption>
@@ -63,7 +64,11 @@ QtVertexItem::QtVertexItem(GraphWidget *graphWidget, QPointF& pos, QString name)
     setFlag(ItemIsMovable);
     setCacheMode(DeviceCoordinateCache);
     setZValue(1);
+
+    mType=normal_type;
     mState=normal_state;
+    mTag=no_tag;
+
     mCopied=false;
 }
 
@@ -190,6 +195,23 @@ void QtVertexItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *opti
             painter->setPen(QPen(Qt::black, 0));
             painter->drawRoundRect(-10, -10, 20, 20,4,4);
         break;
+         case selected_state:
+            painter->setPen(Qt::NoPen);
+            painter->setBrush(Qt::darkGray);
+            painter->drawRoundRect(-7, -7, 20, 20,4,4);
+            if (option->state & QStyle::State_Sunken) {
+                gradient.setCenter(3, 3);
+                gradient.setFocalPoint(3, 3);
+                gradient.setColorAt(1, QColor(Qt::yellow).light(120));
+                gradient.setColorAt(0, QColor(Qt::darkYellow).light(120));
+            } else {
+                gradient.setColorAt(0, Qt::yellow);
+                gradient.setColorAt(1, Qt::darkYellow);
+            }
+            painter->setBrush(gradient);
+            painter->setPen(QPen(Qt::black, 0));
+            painter->drawRoundRect(-10, -10, 20, 20,4,4);
+        break;
 
 
     }
@@ -212,14 +234,28 @@ QVariant QtVertexItem::itemChange(GraphicsItemChange change, const QVariant &val
 
 void QtVertexItem::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
-    update();
-    QGraphicsItem::mousePressEvent(event);
+    CustomGraphicsScene* cScene= (CustomGraphicsScene*)(this->scene());
+
+    if (cScene->mParentWidget->getToolMode()!=edge_tool)
+    {
+        update();
+        QGraphicsItem::mousePressEvent(event);
+    }
+     else
+    {
+        cScene->addVertexForEdge(this);
+    }
 }
 
 void QtVertexItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
+
+
+
     update();
     QGraphicsItem::mouseReleaseEvent(event);
+
+
 }
 
 void QtVertexItem::setState(VertexState state)
@@ -236,6 +272,9 @@ switch(type)
 {
 case LFP_type:
     setState(important_state);
+    break;
+case span_type:
+    setState(selected_state);
     break;
 
 case normal_type:

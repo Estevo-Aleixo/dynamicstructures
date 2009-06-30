@@ -52,6 +52,7 @@ void createGridScatter(GraphWidget* gWidget, forestParams& params);
 void createConnections(GraphWidget* gWidget, forestParams& params);
 
 Graph* getForestGraph(){return forestGraph;}
+
 void nodesInArea(Graph* g, std::vector<vertex_descriptor>& nodes, QPointF& pos, int range);
 
 void setDebugTextBox(LogWindow* log){mDebugText=log;}

@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'graphwidget.h'
 **
-** Created: Wed Jun 24 16:41:58 2009
+** Created: Tue Jun 30 13:41:55 2009
 **      by: The Qt Meta Object Compiler version 61 (Qt 4.5.1)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,16 +23,23 @@ static const uint qt_meta_data_GraphWidget[] = {
        2,       // revision
        0,       // classname
        0,    0, // classinfo
-       0,    0, // methods
+       4,   12, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
+
+ // slots: signature, parameters, type, tag, flags
+      13,   12,   12,   12, 0x08,
+      24,   12,   12,   12, 0x08,
+      35,   12,   12,   12, 0x08,
+      48,   12,   12,   12, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_GraphWidget[] = {
-    "GraphWidget\0"
+    "GraphWidget\0\0nodeTool()\0edgeTool()\0"
+    "selectTool()\0deleteTool()\0"
 };
 
 const QMetaObject GraphWidget::staticMetaObject = {
@@ -58,6 +65,16 @@ int GraphWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     _id = QGraphicsView::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: nodeTool(); break;
+        case 1: edgeTool(); break;
+        case 2: selectTool(); break;
+        case 3: deleteTool(); break;
+        default: ;
+        }
+        _id -= 4;
+    }
     return _id;
 }
 QT_END_MOC_NAMESPACE

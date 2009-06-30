@@ -11,7 +11,10 @@ INPUT(
 ./debug\scenario.o
 ./debug\fpsscenario.o
 ./debug\logdialog.o
+./debug\customgraphicsscene.o
+./debug\problempresetdialog.o
 ./debug\moc_graphwidget.o
 ./debug\moc_mainwindow.o
 ./debug\moc_logdialog.o
+./debug\moc_problempresetdialog.o
 );

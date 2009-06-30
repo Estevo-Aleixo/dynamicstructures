@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'logdialog.ui'
 **
-** Created: Fri Jun 26 20:38:42 2009
+** Created: Tue Jun 30 12:04:18 2009
 **      by: Qt User Interface Compiler version 4.5.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!

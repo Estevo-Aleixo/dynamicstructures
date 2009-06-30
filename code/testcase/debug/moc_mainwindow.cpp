@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-** Created: Wed Jun 24 16:42:06 2009
+** Created: Tue Jun 30 13:42:03 2009
 **      by: The Qt Meta Object Compiler version 61 (Qt 4.5.1)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,40 +23,50 @@ static const uint qt_meta_data_MainWindow[] = {
        2,       // revision
        0,       // classname
        0,    0, // classinfo
-      14,   12, // methods
+      20,   12, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
 
  // slots: signature, parameters, type, tag, flags
       12,   11,   11,   11, 0x08,
-      36,   11,   11,   11, 0x08,
-      70,   11,   11,   11, 0x08,
-     103,   11,   11,   11, 0x08,
-     136,   11,   11,   11, 0x08,
-     167,   11,   11,   11, 0x08,
-     178,   11,   11,   11, 0x08,
-     189,   11,   11,   11, 0x08,
-     202,   11,   11,   11, 0x08,
-     215,   11,   11,   11, 0x08,
-     229,   11,   11,   11, 0x08,
-     243,   11,   11,   11, 0x08,
-     256,   11,   11,   11, 0x08,
-     269,   11,   11,   11, 0x08,
+      48,   11,   11,   11, 0x08,
+      82,   11,   11,   11, 0x08,
+     109,   11,   11,   11, 0x08,
+     140,   11,   11,   11, 0x08,
+     164,   11,   11,   11, 0x08,
+     198,   11,   11,   11, 0x08,
+     231,   11,   11,   11, 0x08,
+     262,   11,   11,   11, 0x08,
+     276,  273,   11,   11, 0x08,
+     295,   11,   11,   11, 0x08,
+     306,   11,   11,   11, 0x08,
+     319,   11,   11,   11, 0x08,
+     332,   11,   11,   11, 0x08,
+     356,   11,   11,   11, 0x08,
+     370,   11,   11,   11, 0x08,
+     384,   11,   11,   11, 0x08,
+     397,   11,   11,   11, 0x08,
+     410,   11,   11,   11, 0x08,
+     435,   11,   11,   11, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_MainWindow[] = {
-    "MainWindow\0\0on_pushButton_clicked()\0"
+    "MainWindow\0\0on_btnExecuteSpanningStep_clicked()\0"
+    "on_btnLocateFightPoints_clicked()\0"
+    "on_btnLoadPreset_clicked()\0"
+    "on_bntResultFileName_clicked()\0"
+    "on_pushButton_clicked()\0"
     "on_btnExecutePathFinder_clicked()\0"
     "on_btnForestFullScreen_clicked()\0"
-    "on_btnExecuteLFPFinder_clicked()\0"
     "on_btnGenerateForest_clicked()\0"
-    "addNodes()\0addEdges()\0deleteTool()\0"
-    "selectTool()\0openProblem()\0saveProblem()\0"
-    "newProblem()\0saveResult()\0"
-    "createProblemStructure()\0"
+    "addNodes()\0on\0nodeDrawMode(bool)\0"
+    "addEdges()\0deleteTool()\0selectTool()\0"
+    "clearProblemStructure()\0openProblem()\0"
+    "saveProblem()\0newProblem()\0saveResult()\0"
+    "createProblemStructure()\0showLogWindow()\0"
 };
 
 const QMetaObject MainWindow::staticMetaObject = {
@@ -84,23 +94,29 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
-        case 0: on_pushButton_clicked(); break;
-        case 1: on_btnExecutePathFinder_clicked(); break;
-        case 2: on_btnForestFullScreen_clicked(); break;
-        case 3: on_btnExecuteLFPFinder_clicked(); break;
-        case 4: on_btnGenerateForest_clicked(); break;
-        case 5: addNodes(); break;
-        case 6: addEdges(); break;
-        case 7: deleteTool(); break;
-        case 8: selectTool(); break;
-        case 9: openProblem(); break;
-        case 10: saveProblem(); break;
-        case 11: newProblem(); break;
-        case 12: saveResult(); break;
-        case 13: createProblemStructure(); break;
+        case 0: on_btnExecuteSpanningStep_clicked(); break;
+        case 1: on_btnLocateFightPoints_clicked(); break;
+        case 2: on_btnLoadPreset_clicked(); break;
+        case 3: on_bntResultFileName_clicked(); break;
+        case 4: on_pushButton_clicked(); break;
+        case 5: on_btnExecutePathFinder_clicked(); break;
+        case 6: on_btnForestFullScreen_clicked(); break;
+        case 7: on_btnGenerateForest_clicked(); break;
+        case 8: addNodes(); break;
+        case 9: nodeDrawMode((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 10: addEdges(); break;
+        case 11: deleteTool(); break;
+        case 12: selectTool(); break;
+        case 13: clearProblemStructure(); break;
+        case 14: openProblem(); break;
+        case 15: saveProblem(); break;
+        case 16: newProblem(); break;
+        case 17: saveResult(); break;
+        case 18: createProblemStructure(); break;
+        case 19: showLogWindow(); break;
         default: ;
         }
-        _id -= 14;
+        _id -= 20;
     }
     return _id;
 }

@@ -13,7 +13,7 @@
 #include "graphwidget.h"
 
 #include "LogDialog.h"
-
+#include "problempresetdialog.h"
 
 //include boost:
 
@@ -36,6 +36,8 @@ public:
     ~MainWindow();
 
 
+
+
 private:
     Ui::MainWindow *ui;
 
@@ -51,19 +53,36 @@ private:
     void setMapParams();
 
     void closeEvent(QCloseEvent* e);
+
+    void uncheckAllGraphWidgetActions();
+
+
+
 private slots:
+   void on_btnExecuteSpanningStep_clicked();
+   void on_btnLocateFightPoints_clicked();
+   void on_btnLoadPreset_clicked();
    void on_bntResultFileName_clicked();
     void on_pushButton_clicked();
     void on_btnExecutePathFinder_clicked();
     void on_btnForestFullScreen_clicked();
-    void on_btnExecuteLFPFinder_clicked();
     void on_btnGenerateForest_clicked();
 
+
+
+
+
     void addNodes();
+    void nodeDrawMode(bool on);
+
     void addEdges();
     void deleteTool();
     void selectTool();
     void clearProblemStructure();
+
+
+
+    //save actions
     void openProblem();
     void saveProblem();
     void newProblem();

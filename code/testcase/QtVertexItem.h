@@ -54,8 +54,9 @@ QT_BEGIN_NAMESPACE
 class QGraphicsSceneMouseEvent;
 QT_END_NAMESPACE
 
-enum VertexState{normal_state, important_state, active_state,unimportant_state, lfp_state, startnode_state, vertexOfInterest_state};
-enum VertexType{normal_type, LFP_type};
+enum VertexState{normal_state, important_state,selected_state, active_state,unimportant_state, lfp_state, startnode_state, vertexOfInterest_state};
+enum VertexType{normal_type, LFP_type, span_type};
+enum VertexTag{no_tag, disabled_tag, selected_tag};
 
 class QtVertexItem : public QGraphicsItem
 {
@@ -80,9 +81,12 @@ public:
     vertex_descriptor getVertexDescriptor(){return mV;}
 
     void setState(VertexState state);
-
+    void setTag(VertexTag tag){mTag=tag;}
+    VertexTag getTag(){return mTag;}
     VertexState mState;
     VertexType mType;
+    VertexTag mTag;
+
 
     void setType(VertexType type);
     VertexType getType(){return mType;}

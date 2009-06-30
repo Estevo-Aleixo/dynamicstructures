@@ -11,7 +11,10 @@ INPUT(
 ./release\scenario.o
 ./release\fpsscenario.o
 ./release\logdialog.o
+./release\customgraphicsscene.o
+./release\problempresetdialog.o
 ./release\moc_graphwidget.o
 ./release\moc_mainwindow.o
 ./release\moc_logdialog.o
+./release\moc_problempresetdialog.o
 );
