@@ -12,7 +12,6 @@ SOURCES += main.cpp \
     QtVertexItem.cpp \
     QtEdgeItem.cpp \
     scenariohandler.cpp \
-    soundhandler.cpp \
     logwindow.cpp \
     scenario.cpp \
     fpsscenario.cpp \
@@ -27,7 +26,6 @@ HEADERS += BaseHeaders.h \
     QtEdgeItem.h \
     QtVertexItem.h \
     scenariohandler.h \
-    soundhandler.h \
     logwindow.h \
     scenario.h \
     fpsscenario.h \

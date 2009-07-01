@@ -29,7 +29,7 @@ public:
     void findSpanningPoints();
     void executeLFPfinder();
     void executeMultiplePathFinder();
-
+    void reset();
 
     void setDebugTextBox(LogWindow* log){mDebugText=log;}
 
@@ -54,12 +54,15 @@ public:
   private:
 
     //methods
-    std::vector<vertex_descriptor>* findRandomVertices(int num_vertices,GraphWidget* from, GraphWidget* to=0, VertexType type = normal_type);                    //used for LFP's and spanning points
-    std::vector<vertex_descriptor>* findImportantSteinerGraphVertices(int num_vertices, GraphWidget* from, GraphWidget* to=0, VertexType type = normal_type);    //used for LFP's and spanning points
-    std::vector<vertex_descriptor>* findHighDegreeVertices(int num_vertices, GraphWidget* from, GraphWidget* to=0, VertexType type = normal_type);               //used for LFP's and spanning points
+    void findRandomVertices(int num_vertices, std::vector<vertex_descriptor>& vertices, GraphWidget* from, GraphWidget* to=0, VertexType type = normal_type);                    //used for LFP's and spanning points
+    void findHighDegreeVertices(int num_vertices, std::vector<vertex_descriptor>& vertices, GraphWidget* from, GraphWidget* to=0, VertexType type = normal_type);               //used for LFP's and spanning points
+    void findHighestDegreeVertices(int num_vertices, std::vector<vertex_descriptor>& vertices, GraphWidget* from, GraphWidget* to=0, VertexType type = normal_type);               //used for LFP's and spanning points
 
 
-    void generateMultiplePaths(std::vector<vertex_descriptor>* vertices);
+    //TODO
+    void findImportantSteinerGraphVertices(int num_vertices, std::vector<vertex_descriptor>& vertices, GraphWidget* from, GraphWidget* to=0, VertexType type = normal_type);    //used for LFP's and spanning points
+
+    void generateMultiplePaths(std::vector<vertex_descriptor>& vertices);
 
     void TraverseAndStorePath(Graph* g, vertex_descriptor i, vertex_descriptor j, std::vector<vertex_descriptor>& pred, std::vector<edge_descriptor>& edges);
 
@@ -71,8 +74,8 @@ public:
     GraphWidget* mForestWidget;
     GraphWidget* mMapWidget;
 
-    std::vector<vertex_descriptor>* spanVertices;
-    std::vector<vertex_descriptor>* lfpVertices;
+    std::vector<vertex_descriptor> spanVertices;
+    std::vector<vertex_descriptor> lfpVertices;
 
     LogWindow* mDebugText;
 

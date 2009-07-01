@@ -46,7 +46,7 @@
 #include "GraphWidget.h"
 
 enum EdgeState{normal_edge, important_edge,selected_edge, active_edge,unimportant_edge, collision_edge, toBeDeleted_edge, interest_edge,disabled_edge};
-
+enum EdgeTag{edge_no_tag, edge_selected_tag, edge_disabled_tag, edge_minspan_tag};
 
 
 class QtVertexItem;
@@ -70,6 +70,11 @@ public:
     int type() const { return Type; }
     
     void setState(EdgeState state){mState=state;}
+
+    void setTag(EdgeTag tag){mTag = tag;}
+
+    EdgeTag mTag;
+
     EdgeState mState;
     Graph* mG;
 
@@ -83,6 +88,7 @@ public:
     void enable(){mEnabled=true;setState(normal_edge);}
 
     bool enabled(){return mEnabled;}
+    void updateDistance();
 protected:
     bool mEnabled;
 

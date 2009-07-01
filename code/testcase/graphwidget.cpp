@@ -263,11 +263,40 @@ void GraphWidget::disableEdge(edge_descriptor e)
 void GraphWidget::clear()
 {
 //clear graph: !WARNING INVALIDATES POINTER TO GRAPH STRUCTURE!
+
+
+
+
+//clear scene
+
+this->scene->clear();
+/*
+     std::pair< edge_iterator,  edge_iterator> edge_range= edges(*mGraph);
+      edge_iterator i;
+
+    QtEdgeItem* eItem;
+
+    for (i=edge_range.first;i!=edge_range.second;++i)
+    {
+        eItem=(*mGraph)[*i].edgeItem;
+        delete eItem;
+    }
+
+    std::pair<vertex_iterator, vertex_iterator> vertex_range= vertices(*mGraph);
+    vertex_iterator j;
+
+    QtVertexItem* vItem;
+
+    for (j=vertex_range.first;j!=vertex_range.second;++j)
+    {
+        vItem=(*mGraph)[*j].vertexItem;
+       delete vItem;
+    }
+*/
 delete this->mGraph;
 mGraph= new Graph();
 
-//clear scene
-this->scene->clear();
+
 
 }
 
@@ -314,7 +343,7 @@ void GraphWidget::saveToFile(QString filename)
       vItem= (*mGraph)[*vitr].vertexItem;
       vItem->mSaveIndex = i;
       line = "addNode(" + line.setNum(vItem->x())+ ", "+ line.setNum(vItem->y())+")\n";
-      f << line.toStdString();
+      f  << line.toStdString();
       i++;
   }
 
@@ -366,6 +395,12 @@ void GraphWidget::loadFromFile(QString filename)
      selectItemAct->setStatusTip(tr("Select"));
      connect(selectItemAct, SIGNAL(triggered()), this, SLOT(selectTool()));
      selectItemAct->setCheckable(true);
+
+     clearWidgetAct= new QAction(QIcon("icons/clear.png"), tr("&Clear..."), this);
+     clearWidgetAct->setStatusTip(tr("Clear Canvas"));
+     connect(clearWidgetAct, SIGNAL(triggered()), this, SLOT(clearWidget()));
+
+
 
      //copy action
      copyGraphWidgetAct = new QAction(QIcon("icons/copy.png"), tr("&Copy Problem Structure ..."), this);
@@ -426,6 +461,7 @@ void GraphWidget::loadFromFile(QString filename)
      mDrawTools->addAction(edgeDrawModeAct);
      mDrawTools->addAction(deleteItemAct);
      mDrawTools->addAction(selectItemAct);
+       mDrawTools->addAction(clearWidgetAct);
  }
 
 
@@ -536,10 +572,11 @@ void GraphWidget::tagNeighbours(vertex_descriptor v, VertexTag tag, int range)
 
  void GraphWidget::removeAllActionsFromToolBar()
  {
-     mDrawTools->removeAction(nodeDrawModeAct);
-     mDrawTools->removeAction(edgeDrawModeAct);
-     mDrawTools->removeAction(deleteItemAct);
-     mDrawTools->removeAction(selectItemAct);
+     //mDrawTools->removeAction(nodeDrawModeAct);
+     //mDrawTools->removeAction(edgeDrawModeAct);
+     //mDrawTools->removeAction(deleteItemAct);
+     //mDrawTools->removeAction(selectItemAct);
+     mDrawTools->clear();
  }
 
  void GraphWidget::addCopyFromWidgetAction(GraphWidget* gWidget)
@@ -551,6 +588,163 @@ void GraphWidget::tagNeighbours(vertex_descriptor v, VertexTag tag, int range)
 
  void GraphWidget::copyGraph()
  {
+        mOtherGraphWidget->copyAllTo(this);
+ }
+
+ void GraphWidget::copyAllTo(GraphWidget* gWidget)
+ {
+
+  QtEdgeItem* eItem;
+  std::pair<edge_iterator, edge_iterator> e_range= edges(*mGraph);
+  edge_iterator itr;
+
+for (itr = e_range.first; itr!=e_range.second;itr++)
+  {
+    eItem = (*mGraph)[*itr].edgeItem;
+    eItem->copyTo(gWidget);
+  }
+
+//traverse through edges:
 
 
  }
+
+void GraphWidget::clearWidget()
+{
+    this->clear();
+}
+
+
+std::vector<edge_descriptor>& GraphWidget::getMinimumSpanningTree()
+{
+
+QtEdgeItem* eItem;
+mSpanning_tree.clear();
+
+kruskal_minimum_spanning_tree(*mGraph, std::back_inserter(mSpanning_tree),weight_map(get(&Connection::distance,*mGraph)));
+
+
+  for (std::vector <edge_descriptor>::iterator ei = mSpanning_tree.begin();
+       ei != mSpanning_tree.end(); ++ei)
+        {
+            eItem= (*mGraph)[*ei].edgeItem;
+            eItem->setTag(edge_minspan_tag);
+        }
+ return this->mSpanning_tree;
+ }
+
+ void  GraphWidget::hideMinimumSpanningTree()
+ {
+
+     QtEdgeItem* eItem;
+  for (std::vector <edge_descriptor>::iterator ei = mSpanning_tree.begin();
+       ei != mSpanning_tree.end(); ++ei)
+        {
+            eItem= (*mGraph)[*ei].edgeItem;
+            eItem->setTag(edge_no_tag);
+        }
+
+ }
+
+
+
+void GraphWidget::removeAllEdgeTags()
+{
+
+     std::pair< edge_iterator,  edge_iterator> iterator_range= edges(*mGraph);
+     edge_iterator start=iterator_range.first;
+     edge_iterator end=iterator_range.second;
+     edge_iterator i;
+
+    QtEdgeItem* eItem;
+
+    for (i=start;i!=end;++i)
+    {
+        eItem=(*mGraph)[*i].edgeItem;
+        eItem->setTag(edge_no_tag);
+    }
+
+
+
+}
+
+void GraphWidget::removeAllVertexTags()
+{
+
+    vertex_descriptor u;
+
+    std::pair<vertex_iterator, vertex_iterator> iterator_range= vertices(*mGraph);
+    vertex_iterator start=iterator_range.first;
+    vertex_iterator end=iterator_range.second;
+    vertex_iterator i;
+
+    QtVertexItem* vItem;
+
+    for (i=start;i!=end;++i)
+    {
+        vItem=(*mGraph)[*i].vertexItem;
+        vItem->setTag(no_tag);
+    }
+
+
+}
+
+void GraphWidget::removeAllEdgeTypes()
+{
+
+        std::pair< edge_iterator,  edge_iterator> iterator_range= edges(*mGraph);
+     edge_iterator start=iterator_range.first;
+     edge_iterator end=iterator_range.second;
+      edge_iterator i;
+
+    QtEdgeItem* eItem;
+
+    for (i=start;i!=end;++i)
+    {
+        eItem=(*mGraph)[*i].edgeItem;
+        eItem->setState(normal_edge);
+        eItem->enable();
+    }
+}
+
+void GraphWidget::removeAllVertexTypes()
+{
+    vertex_descriptor u;
+
+    std::pair<vertex_iterator, vertex_iterator> iterator_range= vertices(*mGraph);
+    vertex_iterator start=iterator_range.first;
+    vertex_iterator end=iterator_range.second;
+    vertex_iterator i;
+
+    QtVertexItem* vItem;
+
+    for (i=start;i!=end;++i)
+    {
+        vItem=(*mGraph)[*i].vertexItem;
+        vItem->setType(normal_type);
+        vItem->unsetClone();
+    }
+
+
+}
+
+void GraphWidget::updateEdgeDistances()
+{
+     std::pair< edge_iterator,  edge_iterator> iterator_range= edges(*mGraph);
+     edge_iterator start=iterator_range.first;
+     edge_iterator end=iterator_range.second;
+      edge_iterator i;
+
+    QtEdgeItem* eItem;
+
+    for (i=start;i!=end;++i)
+    {
+        eItem=(*mGraph)[*i].edgeItem;
+        eItem->updateDistance();
+    }
+
+
+}
+
+
+

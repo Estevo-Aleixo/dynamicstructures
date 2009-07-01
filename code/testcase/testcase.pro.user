@@ -83,7 +83,7 @@
     <value type="QString" >NUMBER_OF_PROCESSORS=1</value>
     <value type="QString" >OGRE_HOME=c:\OgreSDK</value>
     <value type="QString" >OS=Windows_NT</value>
-    <value type="QString" >PATH=D:\QT\mingw\bin;D:\QT\qt\bin;C:\Program Files\MiKTeX 2.7\miktex\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Lua\5.1;C:\Program Files\Lua\5.1\clibs;E:\QT\2009.01\qt\bin;C:\Program Files\Microsoft Visual Studio 9.0\VC\bin;E:\backburner\;C:\Program Files\Common Files\Autodesk Shared\;C:\Program Files\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files\QuickTime\QTSystem\;C:\Program Files\CGAL-3.4\auxiliary\gmp\lib;C:\Program Files\CMake 2.6\bin</value>
+    <value type="QString" >PATH=D:\QT\mingw\bin;D:\QT\qt\bin;D:\QT\mingw\bin; C:\Program Files\MiKTeX 2.7\miktex\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Lua\5.1;C:\Program Files\Lua\5.1\clibs;E:\QT\2009.01\qt\bin;C:\Program Files\Microsoft Visual Studio 9.0\VC\bin;E:\backburner\;C:\Program Files\Common Files\Autodesk Shared\;C:\Program Files\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files\QuickTime\QTSystem\;C:\Program Files\CGAL-3.4\auxiliary\gmp\lib;C:\Program Files\CMake 2.6\bin</value>
     <value type="QString" >PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.wlua;.lexe</value>
     <value type="QString" >PROCESSOR_ARCHITECTURE=x86</value>
     <value type="QString" >PROCESSOR_IDENTIFIER=x86 Family 6 Model 10 Stepping 0, AuthenticAMD</value>
@@ -104,14 +104,14 @@
     <value type="QString" >WINDIR=C:\WINDOWS</value>
    </valuelist>
    <valuelist key="abstractProcess.arguments" type="QVariantList" >
-    <value type="QString" >E:/thesis/code/testcase/testcase.pro</value>
+    <value type="QString" >E:/thesis/code/mapstructure/testcase.pro</value>
     <value type="QString" >-spec</value>
     <value type="QString" >win32-g++</value>
     <value type="QString" >-r</value>
    </valuelist>
    <value key="abstractProcess.command" type="QString" >D:/QT/qt/bin/qmake.exe</value>
    <value key="abstractProcess.enabled" type="bool" >false</value>
-   <value key="abstractProcess.workingDirectory" type="QString" >E:/thesis/code/testcase</value>
+   <value key="abstractProcess.workingDirectory" type="QString" >E:/thesis/code/mapstructure</value>
    <value key="buildConfiguration" type="int" >2</value>
   </valuemap>
  </data>
@@ -140,7 +140,7 @@
     <value type="QString" >NUMBER_OF_PROCESSORS=1</value>
     <value type="QString" >OGRE_HOME=c:\OgreSDK</value>
     <value type="QString" >OS=Windows_NT</value>
-    <value type="QString" >PATH=D:\QT\mingw\bin;D:\QT\qt\bin;C:\Program Files\MiKTeX 2.7\miktex\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Lua\5.1;C:\Program Files\Lua\5.1\clibs;E:\QT\2009.01\qt\bin;C:\Program Files\Microsoft Visual Studio 9.0\VC\bin;E:\backburner\;C:\Program Files\Common Files\Autodesk Shared\;C:\Program Files\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files\QuickTime\QTSystem\;C:\Program Files\CGAL-3.4\auxiliary\gmp\lib;C:\Program Files\CMake 2.6\bin</value>
+    <value type="QString" >PATH=D:\QT\mingw\bin;D:\QT\qt\bin;D:\QT\mingw\bin; C:\Program Files\MiKTeX 2.7\miktex\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Lua\5.1;C:\Program Files\Lua\5.1\clibs;E:\QT\2009.01\qt\bin;C:\Program Files\Microsoft Visual Studio 9.0\VC\bin;E:\backburner\;C:\Program Files\Common Files\Autodesk Shared\;C:\Program Files\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files\QuickTime\QTSystem\;C:\Program Files\CGAL-3.4\auxiliary\gmp\lib;C:\Program Files\CMake 2.6\bin</value>
     <value type="QString" >PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.wlua;.lexe</value>
     <value type="QString" >PROCESSOR_ARCHITECTURE=x86</value>
     <value type="QString" >PROCESSOR_IDENTIFIER=x86 Family 6 Model 10 Stepping 0, AuthenticAMD</value>
@@ -165,7 +165,7 @@
    </valuelist>
    <value key="abstractProcess.command" type="QString" >D:/QT/mingw/bin/mingw32-make.exe</value>
    <value key="abstractProcess.enabled" type="bool" >true</value>
-   <value key="abstractProcess.workingDirectory" type="QString" >E:/thesis/code/testcase</value>
+   <value key="abstractProcess.workingDirectory" type="QString" >E:/thesis/code/mapstructure</value>
   </valuemap>
  </data>
  <data>
@@ -247,7 +247,7 @@
     <value type="QString" >NUMBER_OF_PROCESSORS=1</value>
     <value type="QString" >OGRE_HOME=c:\OgreSDK</value>
     <value type="QString" >OS=Windows_NT</value>
-    <value type="QString" >PATH=D:\QT\mingw\bin;D:\QT\qt\bin;C:\Program Files\MiKTeX 2.7\miktex\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Lua\5.1;C:\Program Files\Lua\5.1\clibs;E:\QT\2009.01\qt\bin;C:\Program Files\Microsoft Visual Studio 9.0\VC\bin;E:\backburner\;C:\Program Files\Common Files\Autodesk Shared\;C:\Program Files\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files\QuickTime\QTSystem\;C:\Program Files\CGAL-3.4\auxiliary\gmp\lib;C:\Program Files\CMake 2.6\bin</value>
+    <value type="QString" >PATH=D:\QT\mingw\bin;D:\QT\qt\bin;D:\QT\mingw\bin; C:\Program Files\MiKTeX 2.7\miktex\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Lua\5.1;C:\Program Files\Lua\5.1\clibs;E:\QT\2009.01\qt\bin;C:\Program Files\Microsoft Visual Studio 9.0\VC\bin;E:\backburner\;C:\Program Files\Common Files\Autodesk Shared\;C:\Program Files\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files\QuickTime\QTSystem\;C:\Program Files\CGAL-3.4\auxiliary\gmp\lib;C:\Program Files\CMake 2.6\bin</value>
     <value type="QString" >PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.wlua;.lexe</value>
     <value type="QString" >PROCESSOR_ARCHITECTURE=x86</value>
     <value type="QString" >PROCESSOR_IDENTIFIER=x86 Family 6 Model 10 Stepping 0, AuthenticAMD</value>
@@ -268,15 +268,15 @@
     <value type="QString" >WINDIR=C:\WINDOWS</value>
    </valuelist>
    <valuelist key="abstractProcess.arguments" type="QVariantList" >
-    <value type="QString" >E:/thesis/code/testcase/testcase.pro</value>
+    <value type="QString" >E:/thesis/code/mapstructure/testcase.pro</value>
     <value type="QString" >-spec</value>
     <value type="QString" >win32-g++</value>
     <value type="QString" >-r</value>
     <value type="QString" >CONFIG+=release</value>
    </valuelist>
    <value key="abstractProcess.command" type="QString" >D:/QT/qt/bin/qmake.exe</value>
-   <value key="abstractProcess.enabled" type="bool" >false</value>
-   <value key="abstractProcess.workingDirectory" type="QString" >E:/thesis/code/testcase</value>
+   <value key="abstractProcess.enabled" type="bool" >true</value>
+   <value key="abstractProcess.workingDirectory" type="QString" >E:/thesis/code/mapstructure</value>
    <value key="buildConfiguration" type="int" >0</value>
   </valuemap>
  </data>
@@ -305,7 +305,7 @@
     <value type="QString" >NUMBER_OF_PROCESSORS=1</value>
     <value type="QString" >OGRE_HOME=c:\OgreSDK</value>
     <value type="QString" >OS=Windows_NT</value>
-    <value type="QString" >PATH=D:\QT\mingw\bin;D:\QT\qt\bin;C:\Program Files\MiKTeX 2.7\miktex\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Lua\5.1;C:\Program Files\Lua\5.1\clibs;E:\QT\2009.01\qt\bin;C:\Program Files\Microsoft Visual Studio 9.0\VC\bin;E:\backburner\;C:\Program Files\Common Files\Autodesk Shared\;C:\Program Files\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files\QuickTime\QTSystem\;C:\Program Files\CGAL-3.4\auxiliary\gmp\lib;C:\Program Files\CMake 2.6\bin</value>
+    <value type="QString" >PATH=D:\QT\mingw\bin;D:\QT\qt\bin;D:\QT\mingw\bin; C:\Program Files\MiKTeX 2.7\miktex\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Lua\5.1;C:\Program Files\Lua\5.1\clibs;E:\QT\2009.01\qt\bin;C:\Program Files\Microsoft Visual Studio 9.0\VC\bin;E:\backburner\;C:\Program Files\Common Files\Autodesk Shared\;C:\Program Files\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files\QuickTime\QTSystem\;C:\Program Files\CGAL-3.4\auxiliary\gmp\lib;C:\Program Files\CMake 2.6\bin</value>
     <value type="QString" >PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.wlua;.lexe</value>
     <value type="QString" >PROCESSOR_ARCHITECTURE=x86</value>
     <value type="QString" >PROCESSOR_IDENTIFIER=x86 Family 6 Model 10 Stepping 0, AuthenticAMD</value>
@@ -330,7 +330,7 @@
    </valuelist>
    <value key="abstractProcess.command" type="QString" >D:/QT/mingw/bin/mingw32-make.exe</value>
    <value key="abstractProcess.enabled" type="bool" >true</value>
-   <value key="abstractProcess.workingDirectory" type="QString" >E:/thesis/code/testcase</value>
+   <value key="abstractProcess.workingDirectory" type="QString" >E:/thesis/code/mapstructure</value>
   </valuemap>
  </data>
  <data>

@@ -59,6 +59,9 @@ private:
 
 
 private slots:
+   void on_btnResetCanvas_clicked();
+   void on_chkMinimumSpanningTreeSolution_clicked();
+   void on_chkMinimumSpanningTreeProblem_clicked();
    void on_btnExecuteSpanningStep_clicked();
    void on_btnLocateFightPoints_clicked();
    void on_btnLoadPreset_clicked();

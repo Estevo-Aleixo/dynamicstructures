@@ -99,6 +99,11 @@ public:
     bool isCopied(){return mCopied;}
 
     int mSaveIndex;
+
+    void unsetClone (){mCopied=false; mClone=0;}
+
+    std::vector<QtVertexItem*> surroundingNodes;
+    int degree;
 protected:
     bool mCopied;
 

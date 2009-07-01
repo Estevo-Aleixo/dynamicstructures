@@ -110,7 +110,25 @@ CustomGraphicsScene* scene;
 
   void removeAllActionsFromToolBar();
   void addCopyFromWidgetAction(GraphWidget* gWidget);
+  void copyAllTo(GraphWidget* gWidget);
+
+  void removeAllEdgeTags();
+  void removeAllVertexTags();
+  void removeAllEdgeTypes();
+  void removeAllVertexTypes();
+
+  void updateEdgeDistances();
+
+
+
+//  void calculateMinimumSpanningTree();
+  std::vector<edge_descriptor>& getMinimumSpanningTree();
+  void hideMinimumSpanningTree();
 protected:
+
+    std::vector<edge_descriptor> mSpanning_tree;
+
+
     //void mousePressEvent ( QMouseEvent * event );
     //void mousePressEvent(QGraphicsViewMouseEvent *event);
     void keyPressEvent(QKeyEvent *event);
@@ -128,6 +146,8 @@ protected:
     QAction* edgeDrawModeAct;
     QAction* deleteItemAct;
     QAction* selectItemAct;
+    QAction* clearWidgetAct;
+
     QAction* copyGraphWidgetAct;
 
     GraphWidget* mOtherGraphWidget;
@@ -148,6 +168,10 @@ protected:
 
  void setToolMode(GraphToolMode mode, bool enableTool);
 
+
+
+
+
 LogWindow* mLog;
 private slots:
 
@@ -161,6 +185,7 @@ private slots:
     void edgeTool();
     void selectTool();
     void deleteTool();
+    void clearWidget();
 
     void copyGraph();
 private:

@@ -79,6 +79,7 @@ QtEdgeItem::QtEdgeItem(vertex_descriptor& start, vertex_descriptor& end, GraphWi
     //calculate distance:
     QLineF line(mapFromItem(mSourceVertex, 0, 0), mapFromItem(mDestVertex, 0, 0));
     (*mG)[mEd].distance = line.length();
+    mTag=edge_no_tag;
 
 }
 
@@ -132,6 +133,27 @@ void QtEdgeItem::adjust()
        (*mG)[mEd].distance=1000000;
     }
 }
+
+   void QtEdgeItem::updateDistance()
+   {
+
+    if (!mSourceVertex  || !mDestVertex)
+        return;
+
+    QLineF line(mapFromItem(mSourceVertex, 0, 0), mapFromItem(mDestVertex, 0, 0));
+
+    if (mEnabled==true)
+    {
+        (*mG)[mEd].distance=line.length();
+    }
+    else
+    {
+       (*mG)[mEd].distance=1000000;
+    }
+
+
+   }
+
 
 QRectF QtEdgeItem::boundingRect() const
 {
@@ -191,11 +213,24 @@ QColor color;
 
     }
 
+    switch(mTag)
+    {
+       case edge_minspan_tag:
+            color= QColor(0,0,255);
+            painter->setPen(QPen(color, 5, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
+        break;
+       case edge_disabled_tag:
+
+        break;
+    }
+
+
+
     painter->drawLine(line);
 
-    //painter->setBrush(Qt::black);
-    //painter->drawPolygon(QPolygonF() << line.p1() << sourceArrowP1 << sourceArrowP2);
-    //painter->drawPolygon(QPolygonF() << line.p2() << destArrowP1 << destArrowP2);
+    painter->setBrush(Qt::black);
+    painter->drawPolygon(QPolygonF() << line.p1() << sourceArrowP1 << sourceArrowP2);
+    painter->drawPolygon(QPolygonF() << line.p2() << destArrowP1 << destArrowP2);
 
     //draw distance
     QString s;

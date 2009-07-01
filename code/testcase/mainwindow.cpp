@@ -444,3 +444,31 @@ void MainWindow::on_btnLoadPreset_clicked()
 
 
 
+
+
+void MainWindow::on_chkMinimumSpanningTreeProblem_clicked()
+{
+     if (ui->chkMinimumSpanningTreeProblem->isChecked())
+    {
+       graphForestView->getMinimumSpanningTree();
+    }else
+    {
+        graphForestView->hideMinimumSpanningTree();
+    }
+}
+
+void MainWindow::on_chkMinimumSpanningTreeSolution_clicked()
+{
+    if (ui->chkMinimumSpanningTreeSolution->isChecked())
+    {
+       graphMapView->getMinimumSpanningTree();
+    }else
+    {
+         graphMapView->hideMinimumSpanningTree();
+    }
+}
+
+void MainWindow::on_btnResetCanvas_clicked()
+{
+    mapGenerator->reset();
+}

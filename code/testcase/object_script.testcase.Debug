@@ -6,7 +6,6 @@ INPUT(
 ./debug\QtVertexItem.o
 ./debug\QtEdgeItem.o
 ./debug\scenariohandler.o
-./debug\soundhandler.o
 ./debug\logwindow.o
 ./debug\scenario.o
 ./debug\fpsscenario.o

@@ -1,6 +1,14 @@
 #include "scenariohandler.h"
 #include "LogWindow.h"
 
+bool compareVertexDegree(QtVertexItem* v1, QtVertexItem* v2);
+
+
+bool compareVertexDegree(QtVertexItem* v1, QtVertexItem* v2)
+{
+    return v1->degree > v2->degree;
+}
+
 
 ScenarioHandler::ScenarioHandler(GraphWidget* forestWidget, GraphWidget* mapWidget)
 {
@@ -21,16 +29,13 @@ soundDone= new QSound("Sounds/discovery.wav");
 
 void ScenarioHandler::runScenario()
 {
-//step 1: findLFPs
-//lfpVertices=  findRandomVertices(mScenario.local_fight_points,mForestWidget,mMapWidget);
 
-//step 2:generateMultiplePaths
-//generateMultiplePaths(lfpVertices);
-
-//step 3:
-//...
 
 }
+
+
+
+
  void  ScenarioHandler::findSpanningPoints()
  {
 QString method;
@@ -39,10 +44,13 @@ this->mDebugText->log("span method: " + method.setNum(mScenario.spanMethod) );
     {
         case random_search:
 
-            spanVertices= findRandomVertices(mScenario.spanning_points, mForestWidget,mMapWidget,span_type);
+           findRandomVertices(mScenario.spanning_points, spanVertices, mForestWidget,mMapWidget,span_type);
         break;
         case high_degree_search:
-             spanVertices= findHighDegreeVertices(mScenario.spanning_points, mForestWidget,mMapWidget,span_type);
+             findHighDegreeVertices(mScenario.spanning_points,spanVertices, mForestWidget,mMapWidget,span_type);
+        break;
+        case highest_degree_search:
+             findHighestDegreeVertices(mScenario.spanning_points,spanVertices, mForestWidget,mMapWidget,span_type);
         break;
     }
 
@@ -61,10 +69,13 @@ void ScenarioHandler::executeLFPfinder()
      switch(mScenario.lfpMethod)
     {
         case random_search:
-             lfpVertices= findRandomVertices(mScenario.local_fight_points,mMapWidget,0,LFP_type);
+             findRandomVertices(mScenario.local_fight_points,lfpVertices,mMapWidget,0,LFP_type);
         break;
         case high_degree_search:
-              lfpVertices= findHighDegreeVertices(mScenario.local_fight_points,mMapWidget,0, LFP_type);
+             findHighDegreeVertices(mScenario.local_fight_points, lfpVertices,mMapWidget,0, LFP_type);
+        break;
+        case highest_degree_search:
+             findHighestDegreeVertices(mScenario.local_fight_points,lfpVertices, mMapWidget,0,LFP_type);
         break;
     }
 }
@@ -81,10 +92,10 @@ void ScenarioHandler::executeMultiplePathFinder()
 }
 
 
-std::vector<vertex_descriptor>* ScenarioHandler::findRandomVertices(int num_vertices,GraphWidget* from, GraphWidget* to, VertexType type)
+void ScenarioHandler::findRandomVertices(int num_vertices,std::vector<vertex_descriptor>& vertices,GraphWidget* from, GraphWidget* to, VertexType type)
 {
 
-std::vector<vertex_descriptor>* vertices= new std::vector<vertex_descriptor>();
+
 
   int LFPcount= num_vertices;
   int count=0;
@@ -96,7 +107,7 @@ std::vector<vertex_descriptor>* vertices= new std::vector<vertex_descriptor>();
     int i= rand() % vertexList.size();
     if (vItem= qgraphicsitem_cast<QtVertexItem*>(vertexList[i]))
     { 
-       vertices->push_back(vItem->getVertexDescriptor());
+       vertices.push_back(vItem->getVertexDescriptor());
         mDebugText->logToBuffer(QString("added to list:") + vItem->strLabel);
 
         if (vItem->getType()!= type){
@@ -111,33 +122,26 @@ std::vector<vertex_descriptor>* vertices= new std::vector<vertex_descriptor>();
  from->show();
  from->repaint();
 
-return vertices;
+//return vertices;
 }
 
 
  //used for LFP's and spanning points
-std::vector<vertex_descriptor>*  ScenarioHandler::findImportantSteinerGraphVertices(int num_vertices, GraphWidget* from, GraphWidget* to, VertexType type)
+void ScenarioHandler::findImportantSteinerGraphVertices(int num_vertices,std::vector<vertex_descriptor>& vertices, GraphWidget* from, GraphWidget* to, VertexType type)
 {
-    std::vector<vertex_descriptor>* vertices= new std::vector<vertex_descriptor>();
 
 
 
-
-
-
-
-    return vertices;
 }
-
 
 //description:
 //
 //find vertices with highest degree scattered over the entire range of vertices.
 //
 
-std::vector<vertex_descriptor>*  ScenarioHandler::findHighDegreeVertices(int num_vertices, GraphWidget* from, GraphWidget* to, VertexType type)
+void ScenarioHandler::findHighDegreeVertices(int num_vertices,std::vector<vertex_descriptor>& vertices, GraphWidget* from, GraphWidget* to, VertexType type)
 {
-    std::vector<vertex_descriptor>* vertices= new std::vector<vertex_descriptor>();
+
 
     std::vector<QtVertexItem*> localNodes;
     std::vector<QtVertexItem*>::iterator nItr;
@@ -179,7 +183,7 @@ int treshold=3;
                     (*nItr)->setTag(disabled_tag);
                 }
                 vItem->setTag(disabled_tag);
-                vertices->push_back(vItem->getVertexDescriptor());
+                vertices.push_back(vItem->getVertexDescriptor());
                 vItem->setType(type);
 
                 if(to!=0)
@@ -199,20 +203,108 @@ int treshold=3;
     }
   }
 mDebugText->flush();
-    return vertices;
+
+}
+
+void ScenarioHandler::findHighestDegreeVertices(int num_vertices, std::vector<vertex_descriptor>& vertices, GraphWidget* from, GraphWidget* to, VertexType type)
+{
+    //1. iterate over all vertices and store degree
+    //2. sort on degree, Descending
+    //3. iterate over sorted vertices add to vertexList when not disabled
+
+ mDebugText->logToBuffer("findHighestDegreeVertices",very_important_msg);
+
+int count=0;
+
+
+
+    std::vector<QtVertexItem*> sortedList;
+    std::vector<QtVertexItem*>::iterator l_itr;
+
+
+
+    //1. iterate over all vertices and store degree
+    std::vector<QtVertexItem*> localNodes;
+    std::vector<QtVertexItem*>::iterator s_itr;
+
+
+    Graph* g= from->getGraph();
+
+    std::pair<vertex_iterator, vertex_iterator> iterator_range= boost::vertices(*g);
+    vertex_iterator start=iterator_range.first;
+    vertex_iterator end=iterator_range.second;
+    vertex_iterator i;
+
+    QtVertexItem* vItem;
+
+    for (i=start;i!=end;++i)
+    {
+        localNodes.clear();
+        vItem=(*g)[*i].vertexItem;
+        from->nodesConnectedTo(vItem,localNodes, 100);
+        vItem->degree = localNodes.size();
+        vItem->surroundingNodes=localNodes;
+
+        sortedList.push_back(vItem);
+        mDebugText->logToBuffer("node: " + vItem->strLabel);
+        QString size;
+        mDebugText->logToBuffer("adjacent vertices: " + size.setNum(vItem->degree));
+        vItem->setTag(no_tag);
+    }
+
+    //2. sort on degree, Descending
+    std::sort(sortedList.begin(),sortedList.end(),compareVertexDegree);
+
+    //3. iterate over sorted vertices add to vertexList when not disabled
+
+     mDebugText->logToBuffer("traversing sorted list..");
+     QString blaat;
+    mDebugText->logToBuffer("sorted list size: "+ blaat.setNum((int)sortedList.size()));
+        for (l_itr = sortedList.begin(); l_itr!=sortedList.end();l_itr++)
+        {
+
+              QString text;
+            if ((*l_itr)->getTag()!=disabled_tag)
+            {
+
+
+                vertices.push_back((*l_itr)->getVertexDescriptor());
+            (*l_itr)->setType(type);
+                mDebugText->logToBuffer((*l_itr)->strLabel + " has degree " +text.setNum((*l_itr)->degree));
+
+                if(to!=0)
+                      (*l_itr)->copyTo(to);
+
+
+                  count++;
+
+                //disable surrounding nodes
+                for (s_itr=vItem->surroundingNodes.begin(); s_itr!=vItem->surroundingNodes.end(); s_itr++)
+                {
+                    (*s_itr)->setTag(disabled_tag);
+                }
+
+                if (count==num_vertices)
+                {
+                    break;
+                }
+            }
+
+        }
+
+ mDebugText->flush();
+
 }
 
 
 
-
-void ScenarioHandler::generateMultiplePaths(std::vector<vertex_descriptor>* vertices)
+void ScenarioHandler::generateMultiplePaths(std::vector<vertex_descriptor>& vertices)
 {
 
     Graph* g= this->mForestWidget->getGraph();
     Graph* mapGraph= this->mMapWidget->getGraph();
     std::vector<edge_descriptor> best_edges;
 
-   // mDebugText->log(QString("generateMultiplePaths()"),very_important_msg);
  mDebugText->logToBuffer(QString("generateMultiplePaths()"),very_important_msg);
 
     bool notdone=true;
@@ -234,7 +326,7 @@ void ScenarioHandler::generateMultiplePaths(std::vector<vertex_descriptor>* vert
         std::vector<vertex_descriptor>::iterator i,j,n;
 
         //iterate over all local fight points:
-        for(i=vertices->begin(); i!=vertices->end();i++)
+        for(i=vertices.begin(); i!=vertices.end();i++)
         {
 
             //get paths from other lfp's to current lfp
@@ -249,7 +341,7 @@ void ScenarioHandler::generateMultiplePaths(std::vector<vertex_descriptor>* vert
             dijkstra_shortest_paths(*g,(*i), predecessor_map(&pred[0]).weight_map(get(&Connection::distance,*g)));
 
             //traverse paths of all local fight points that have been reached
-                for(j = vertices->begin(); j != vertices->end(); j++)
+                for(j = vertices.begin(); j != vertices.end(); j++)
                 {
                     TraverseAndStorePath(g, *i, *j, pred, best_edges);
                 }
@@ -347,4 +439,18 @@ void ScenarioHandler::TraverseAndStorePath(Graph* g, vertex_descriptor i, vertex
                         }
                    }
             }
+}
+
+void  ScenarioHandler::reset()
+{
+    this->lfpVertices.clear();
+    this->spanVertices.clear();
+    this->mMapWidget->clear();
+
+    this->mForestWidget->removeAllVertexTags();
+    this->mForestWidget->removeAllEdgeTypes();
+    this->mForestWidget->removeAllVertexTypes();
+    this->mForestWidget->updateEdgeDistances();
+
+
 }

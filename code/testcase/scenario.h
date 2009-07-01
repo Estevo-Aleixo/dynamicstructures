@@ -3,7 +3,7 @@
 
 
 
-enum FindVerticesMethod{random_search,high_degree_search};
+enum FindVerticesMethod{random_search,high_degree_search, highest_degree_search};
 
 class Scenario
 {
